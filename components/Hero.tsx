@@ -51,28 +51,18 @@ export function Hero() {
   return (
     <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#0D2137", minHeight: "92vh" }}>
 
-      {/* Background photo at 15% opacity */}
+      {/* Background photo at 35% opacity */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/herohintergrund.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
-          opacity: 0.15,
+          opacity: 0.35,
         }}
       />
 
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px)",
-          backgroundSize: "4rem 4rem",
-        }}
-      />
-
-      {/* USP Banner — prominente Leiste ganz oben */}
+      {/* USP Banner */}
       <div className="relative z-20 w-full border-b border-[#0088CC]/40" style={{ backgroundColor: "rgba(0,136,204,0.18)" }}>
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-3.5 sm:px-6">
           <LockIcon />
@@ -86,46 +76,34 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Watermark */}
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none"
-        aria-hidden
-      >
-        <span
-          className="whitespace-nowrap font-black uppercase text-white"
-          style={{
-            fontSize: "clamp(4rem, 12vw, 140px)",
-            opacity: 0.05,
-            fontFamily: '"Arial Black", Impact, sans-serif',
-            letterSpacing: "-0.02em",
-          }}
-        >
-          meinumzugsrechner.de
-        </span>
-      </div>
-
       {/* Main content */}
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pt-12 pb-14 sm:px-6 md:flex-row md:items-center md:pt-20 md:pb-20">
 
         {/* Left: Text */}
         <div className="flex-1 text-center md:text-left">
 
-          {/* Headline */}
+          {/* Headline — 3 separate Zeilen */}
           <h1
-            className="font-black uppercase leading-[0.9] tracking-tight text-white"
+            className="font-black uppercase leading-[0.92] tracking-tight text-white"
             style={{ fontFamily: '"Arial Black", Impact, sans-serif' }}
           >
             <span
               className="block"
-              style={{ fontSize: "clamp(2rem, 5.5vw, 68px)" }}
+              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
             >
-              Dein Umzug. Deine Kosten.
+              Dein Umzug.
+            </span>
+            <span
+              className="block"
+              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
+            >
+              Deine Kosten.
             </span>
             <span
               className="block mt-1"
-              style={{ fontSize: "clamp(3rem, 9vw, 110px)", color: "#FFCC00" }}
+              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)", color: "#FFCC00" }}
             >
-              Kostenlos.
+              Kostenlos berechnet.
             </span>
           </h1>
 

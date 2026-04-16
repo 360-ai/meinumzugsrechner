@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 
@@ -77,16 +78,6 @@ const StarIcon = () => (
   </svg>
 );
 
-const ImagePlaceholder = ({ label }: { label: string }) => (
-  <div className="aspect-[4/3] w-full rounded-2xl border-2 border-dashed border-slate-300 bg-slate-100 flex flex-col items-center justify-center gap-3">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12 text-slate-400">
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-      <circle cx="8.5" cy="8.5" r="1.5" />
-      <polyline points="21 15 16 10 5 21" />
-    </svg>
-    <p className="text-sm font-medium text-slate-400 text-center px-4">{label}</p>
-  </div>
-);
 
 /* ── Page ─────────────────────────────────────────────────────── */
 export default function HomePage() {
@@ -160,7 +151,13 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <ImagePlaceholder label="Foto folgt — Berechnung & Ergebnis" />
+                <Image
+                  src="/berechnung.png"
+                  alt="Kostenlose Umzugskostenberechnung"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
               </div>
             </div>
 
@@ -196,7 +193,13 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <ImagePlaceholder label="Foto folgt — Ratgeber & Checklisten" />
+                <Image
+                  src="/checklisten.png"
+                  alt="Ratgeber und Checklisten für deinen Umzug"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
               </div>
             </div>
 
@@ -223,7 +226,13 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <ImagePlaceholder label="Foto folgt — Produkttipps & Material" />
+                <Image
+                  src="/produkttipps.png"
+                  alt="Produkttipps für deinen Umzug"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
               </div>
             </div>
 
