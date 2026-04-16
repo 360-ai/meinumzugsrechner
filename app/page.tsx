@@ -17,7 +17,7 @@ export default function HomePage() {
         >
           Jetzt berechnen
         </Link>
-        <p className="mt-4 text-sm text-muted">Einmalig 2,99 € · DSGVO-orientierte Architektur</p>
+        <p className="mt-4 text-sm text-muted">Kostenlos · DSGVO-orientierte Architektur</p>
       </section>
 
       <section className="grid gap-6 rounded-2xl border border-slate-200 bg-[var(--bg-soft)] p-8 sm:grid-cols-3">
@@ -29,7 +29,7 @@ export default function HomePage() {
         </div>
         <div>
           <h2 className="font-semibold text-primary">Sofortiges Ergebnis</h2>
-          <p className="mt-2 text-sm text-muted">Nach erfolgreicher Zahlung sehen Sie den Korridor direkt.</p>
+          <p className="mt-2 text-sm text-muted">Nach dem Ausfüllen sehen Sie den Korridor direkt – kostenlos.</p>
         </div>
         <div>
           <h2 className="font-semibold text-primary">Regional</h2>

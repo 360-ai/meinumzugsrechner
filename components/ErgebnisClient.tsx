@@ -44,7 +44,8 @@ export function ErgebnisClient() {
     try {
       const calc = calculateUmzug(parsed);
       setResult(calc);
-    } catch {
+    } catch (e) {
+      console.error("calculateUmzug failed:", e);
       setError("Berechnung fehlgeschlagen. Bitte Rechner erneut ausfüllen.");
     } finally {
       setLoading(false);

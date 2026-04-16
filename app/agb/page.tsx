@@ -6,7 +6,7 @@ export default function AgbPage() {
 
       <h2>1. Leistungsgegenstand</h2>
       <p>
-        meinumzugsrechner.de bietet gegen Entgelt eine <strong>unverbindliche Kostenschätzung</strong> (Preiskorridor)
+        meinumzugsrechner.de bietet <strong>kostenlos</strong> eine <strong>unverbindliche Kostenschätzung</strong> (Preiskorridor)
         auf Basis Ihrer Angaben und einer internen Preismatrix. Es wird <strong>kein Umzug</strong> und{" "}
         <strong>kein Festpreis</strong> angeboten.
       </p>
@@ -24,18 +24,10 @@ export default function AgbPage() {
         Vorsatz und grober Fahrlässigkeit; im Übrigen nach gesetzlichen Vorschriften.
       </p>
 
-      <h2>4. Zahlung</h2>
+      <h2>4. Kostenlosigkeit / Finanzierung</h2>
       <p>
-        Die Zahlung erfolgt über den externen Zahlungsdienstleister Stripe. Es gelten zusätzlich die Nutzungsbedingungen
-        von Stripe.
-      </p>
-
-      <h2>5. Widerruf</h2>
-      <p>
-        Soweit Sie Verbraucher sind, steht Ihnen ein gesetzliches Widerrufsrecht zu, soweit nicht eine Ausnahme nach § 356
-        Abs. 4 BGB (digitale Inhalte nach vorheriger ausdrücklicher Zustimmung) greift. Hinweis: Nach Bereitstellung des
-        digitalen Ergebnisses kann der Widerruf erlöschen, wenn Sie zugestimmt haben und zur Kenntnis genommen haben,
-        dass Sie Ihr Widerrufsrecht verlieren.
+        Die Nutzung des Rechners ist für Sie kostenlos. Die Website finanziert sich durch Werbeeinblendungen (Google
+        AdSense) und Affiliate-Links (Amazon Partnerprogramm). Durch die Nutzung entstehen Ihnen keine Kosten.
       </p>
 
       <h2>6. Affiliate / Werbung</h2>
