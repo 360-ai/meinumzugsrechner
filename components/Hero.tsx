@@ -94,7 +94,7 @@ export function Hero() {
               Dein Umzug.
             </span>
             <span
-              className="block"
+              className="block whitespace-nowrap"
               style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
             >
               Deine Kosten.
@@ -122,9 +122,15 @@ export function Hero() {
               Jetzt kostenlos berechnen →
             </Link>
           </div>
-          <p className="mt-3 text-sm text-white/50">
-            ✓ Kein Konto &nbsp;·&nbsp; ✓ Kein Spam &nbsp;·&nbsp; ✓ Sofortiges Ergebnis
-          </p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm text-white/50 md:justify-start">
+            <span>✓ Kein Konto</span>
+            <span>·</span>
+            <span>✓ Kein Spam</span>
+            <span>·</span>
+            <span>✓ Sofortiges Ergebnis</span>
+            <span>·</span>
+            <span>✓ Deine Daten gehören dir</span>
+          </div>
         </div>
 
         {/* Right: Floating mascot + badge */}
@@ -136,8 +142,8 @@ export function Hero() {
             <Image
               src="/logo.png"
               alt="meinumzugsrechner Maskottchen"
-              width={300}
-              height={300}
+              width={600}
+              height={600}
               className="object-contain drop-shadow-2xl"
               priority
             />
