@@ -1,10 +1,10 @@
 "use client";
 
+import { calculateUmzug } from "@/lib/calculate";
 import { STORAGE_KEY, getDefaultForm } from "@/lib/form-defaults";
 import { resolvePartners } from "@/lib/partner";
 import type { CalculateResult, UmzugFormData } from "@/lib/types";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ErgebnisKorridor } from "./ErgebnisKorridor";
 import { PartnerBanner } from "./PartnerBanner";
@@ -12,20 +12,12 @@ import { PdfExportButton } from "./PdfExportButton";
 import { TrustBadges } from "./TrustBadges";
 
 export function ErgebnisClient() {
-  const params = useSearchParams();
-  const sessionId = params.get("session_id");
   const [form, setForm] = useState<UmzugFormData | null>(null);
   const [result, setResult] = useState<CalculateResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!sessionId) {
-      setError("Keine gültige Zahlungssession. Bitte erneut starten.");
-      setLoading(false);
-      return;
-    }
-
     let raw: string | null = null;
     try {
       raw = localStorage.getItem(STORAGE_KEY);
@@ -33,7 +25,7 @@ export function ErgebnisClient() {
       /* ignore */
     }
     if (!raw) {
-      setError("Keine Formulardaten im Browser gefunden. Bitte Rechner erneut ausfüllen.");
+      setError("Keine Formulardaten gefunden. Bitte Rechner erneut ausfüllen.");
       setLoading(false);
       return;
     }
@@ -46,29 +38,18 @@ export function ErgebnisClient() {
       setLoading(false);
       return;
     }
+
     setForm(parsed);
 
-    (async () => {
-      try {
-        const res = await fetch("/api/calculate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sessionId, formData: parsed }),
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          setError(data.error ?? "Berechnung fehlgeschlagen.");
-          setLoading(false);
-          return;
-        }
-        setResult(data.result as CalculateResult);
-      } catch {
-        setError("Netzwerkfehler. Bitte später erneut versuchen.");
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [sessionId]);
+    try {
+      const calc = calculateUmzug(parsed);
+      setResult(calc);
+    } catch {
+      setError("Berechnung fehlgeschlagen. Bitte Rechner erneut ausfüllen.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   if (loading) {
     return (
@@ -105,7 +86,17 @@ export function ErgebnisClient() {
 
   return (
     <div className="space-y-8">
+      {/* AdSense Slot 1 — nach Genehmigung aktivieren */}
+      {/* <ins className="adsbygoogle" style={{ display: "block" }}
+           data-ad-client="ca-pub-IHRE_PUBLISHER_ID"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true" /> */}
+
       <ErgebnisKorridor result={result} />
+
+      <AffiliateProdukte />
+
       <TrustBadges />
       <div className="no-print flex flex-wrap gap-3">
         <PdfExportButton form={form} result={result} />
@@ -128,6 +119,80 @@ export function ErgebnisClient() {
         listings={partners.listings}
         affiliateNote={partners.note}
       />
+
+      {/* AdSense Slot 2 — nach Genehmigung aktivieren */}
+      {/* <ins className="adsbygoogle" style={{ display: "block" }}
+           data-ad-client="ca-pub-IHRE_PUBLISHER_ID"
+           data-ad-slot="YYYYYYYYYY"
+           data-ad-format="auto"
+           data-full-width-responsive="true" /> */}
     </div>
+  );
+}
+
+const AFFILIATE_PRODUCTS = [
+  {
+    name: "Umzugskartons (10er Set)",
+    desc: "Stabile Kartons in Standardgröße",
+    emoji: "📦",
+    href: "#",
+  },
+  {
+    name: "Packband (6 Rollen)",
+    desc: "Reißfestes Klebeband für Kartons",
+    emoji: "🎀",
+    href: "#",
+  },
+  {
+    name: "Luftpolsterfolie",
+    desc: "Schutz für Gläser & Elektrogeräte",
+    emoji: "🫧",
+    href: "#",
+  },
+  {
+    name: "Möbelschutzdecken (2er Set)",
+    desc: "Schützt Möbel vor Kratzern",
+    emoji: "🛋️",
+    href: "#",
+  },
+  {
+    name: "Beschriftungsaufkleber-Set",
+    desc: "Farbige Aufkleber für Raumzuordnung",
+    emoji: "🏷️",
+    href: "#",
+  },
+  {
+    name: "Cuttermesser",
+    desc: "Zum Öffnen und Schließen von Kartons",
+    emoji: "🔪",
+    href: "#",
+  },
+];
+
+function AffiliateProdukte() {
+  return (
+    <section className="space-y-4">
+      <h2 className="text-lg font-semibold text-primary">Das brauchst du für deinen Umzug</h2>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {AFFILIATE_PRODUCTS.map((p) => (
+          <a
+            key={p.name}
+            href={p.href}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="flex flex-col gap-1 rounded-xl border border-slate-200 p-3 hover:border-accent hover:bg-slate-50 transition-colors"
+          >
+            <span className="text-2xl">{p.emoji}</span>
+            <span className="text-sm font-semibold text-primary leading-tight">{p.name} *</span>
+            <span className="text-xs text-muted">{p.desc}</span>
+            <span className="mt-auto text-xs text-accent font-medium">Bei Amazon ansehen →</span>
+          </a>
+        ))}
+      </div>
+      <p className="text-xs text-muted">
+        * Mit * gekennzeichnete Links sind Affiliate-Links. Wir erhalten eine kleine Provision,
+        für dich entstehen keine Mehrkosten.
+      </p>
+    </section>
   );
 }
