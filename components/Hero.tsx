@@ -4,9 +4,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 
+const LockIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 flex-shrink-0">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+);
+
+const CalcIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+    <rect x="4" y="2" width="16" height="20" rx="2" />
+    <line x1="8" y1="6" x2="16" y2="6" />
+    <rect x="8" y="10" width="2" height="2" rx="0.5" />
+    <rect x="11" y="10" width="2" height="2" rx="0.5" />
+    <rect x="14" y="10" width="2" height="2" rx="0.5" />
+    <rect x="8" y="14" width="2" height="2" rx="0.5" />
+    <rect x="11" y="14" width="2" height="2" rx="0.5" />
+    <rect x="14" y="14" width="2" height="2" rx="0.5" />
+    <rect x="8" y="18" width="5" height="2" rx="0.5" />
+    <rect x="14" y="18" width="2" height="2" rx="0.5" />
+  </svg>
+);
+
 const CircularBadge = () => (
-  <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center shadow-xl rotate-12 hover:scale-105 transition-transform cursor-pointer border-[3px] border-black/10"
-    style={{ backgroundColor: "#FFCC00" }}>
+  <div
+    className="relative w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center shadow-xl rotate-12 hover:scale-105 transition-transform cursor-pointer border-[3px] border-black/10"
+    style={{ backgroundColor: "#FFCC00" }}
+  >
     <div className="absolute inset-1 animate-[spin_12s_linear_infinite]">
       <svg viewBox="0 0 100 100" className="w-full h-full">
         <path id="circlePath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none" />
@@ -18,18 +42,51 @@ const CircularBadge = () => (
       </svg>
     </div>
     <div className="absolute inset-0 flex items-center justify-center">
-      <span className="text-2xl">🧮</span>
+      <CalcIcon />
     </div>
   </div>
 );
 
 export function Hero() {
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0D2137", minHeight: "90vh" }}
-    >
-      {/* Watermark background text */}
+    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#0D2137", minHeight: "92vh" }}>
+
+      {/* Background photo at 15% opacity */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/herohintergrund.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 30%",
+          opacity: 0.15,
+        }}
+      />
+
+      {/* Subtle grid overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px)",
+          backgroundSize: "4rem 4rem",
+        }}
+      />
+
+      {/* USP Banner — prominente Leiste ganz oben */}
+      <div className="relative z-20 w-full border-b border-[#0088CC]/40" style={{ backgroundColor: "rgba(0,136,204,0.18)" }}>
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-3.5 sm:px-6">
+          <LockIcon />
+          <p
+            className="text-center font-black tracking-widest text-white uppercase"
+            style={{ fontSize: "clamp(0.75rem, 2.5vw, 1rem)", letterSpacing: "0.1em" }}
+          >
+            Keine Datenweitergabe an Umzugsfirmen — Deine Daten gehören nur Dir
+          </p>
+          <LockIcon />
+        </div>
+      </div>
+
+      {/* Watermark */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none"
         aria-hidden
@@ -38,7 +95,7 @@ export function Hero() {
           className="whitespace-nowrap font-black uppercase text-white"
           style={{
             fontSize: "clamp(4rem, 12vw, 140px)",
-            opacity: 0.06,
+            opacity: 0.05,
             fontFamily: '"Arial Black", Impact, sans-serif',
             letterSpacing: "-0.02em",
           }}
@@ -47,45 +104,34 @@ export function Hero() {
         </span>
       </div>
 
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.04) 1px,transparent 1px)",
-          backgroundSize: "4rem 4rem",
-        }}
-      />
-
       {/* Main content */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pt-16 pb-10 sm:px-6 md:flex-row md:items-center md:pt-24 md:pb-16">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pt-12 pb-14 sm:px-6 md:flex-row md:items-center md:pt-20 md:pb-20">
+
         {/* Left: Text */}
         <div className="flex-1 text-center md:text-left">
-          {/* USP tag */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
-            <span>🔒</span>
-            <span>Keine Datenweitergabe an Umzugsfirmen</span>
-          </div>
 
           {/* Headline */}
           <h1
-            className="font-black uppercase leading-[0.88] tracking-tight text-white"
-            style={{
-              fontFamily: '"Arial Black", Impact, sans-serif',
-              fontSize: "clamp(3rem, 9vw, 100px)",
-            }}
+            className="font-black uppercase leading-[0.9] tracking-tight text-white"
+            style={{ fontFamily: '"Arial Black", Impact, sans-serif' }}
           >
-            <span className="block">Dein Umzug.</span>
-            <span className="block">Deine Kosten.</span>
-            <span className="block" style={{ color: "#FFCC00" }}>
+            <span
+              className="block"
+              style={{ fontSize: "clamp(2rem, 5.5vw, 68px)" }}
+            >
+              Dein Umzug. Deine Kosten.
+            </span>
+            <span
+              className="block mt-1"
+              style={{ fontSize: "clamp(3rem, 9vw, 110px)", color: "#FFCC00" }}
+            >
               Kostenlos.
             </span>
           </h1>
 
           {/* Subtext */}
-          <p className="mx-auto mt-5 max-w-md text-base text-white/75 md:mx-0 md:text-lg">
-            Realistischer Preiskorridor in 3 Minuten — ohne Spam, ohne
-            Datenweitergabe.
+          <p className="mx-auto mt-6 max-w-md text-base text-white/75 md:mx-0 md:text-lg">
+            Realistischer Preiskorridor in unter 10 Minuten — ohne Spam, ohne Datenweitergabe.
           </p>
 
           {/* CTA */}
@@ -112,44 +158,17 @@ export function Hero() {
             <Image
               src="/logo.png"
               alt="meinumzugsrechner Maskottchen"
-              width={280}
-              height={280}
+              width={300}
+              height={300}
               className="object-contain drop-shadow-2xl"
               priority
             />
           </motion.div>
 
-          {/* Circular badge — absolute, bottom-right of mascot */}
+          {/* Circular badge */}
           <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 z-20">
             <CircularBadge />
           </div>
-        </div>
-      </div>
-
-      {/* Bottom feature links */}
-      <div className="relative z-10 mt-4 w-full border-t border-white/10">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-0 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-          {[
-            { icon: "🧮", label: "Berechnung", href: "/rechner", sub: "Kostenlos & anonym" },
-            { icon: "📚", label: "Ratgeber & Checklisten", href: "/ratgeber", sub: "Tipps für deinen Umzug" },
-            { icon: "📦", label: "Materialtipps", href: "/materialtipps", sub: "Amazon-Empfehlungen" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group flex items-center gap-4 px-6 py-5 transition-colors hover:bg-white/5"
-              style={{ color: "white" }}
-            >
-              <span className="text-3xl">{item.icon}</span>
-              <div>
-                <p className="font-bold text-white group-hover:text-[#FFCC00] transition-colors">
-                  {item.label}
-                </p>
-                <p className="text-xs text-white/50">{item.sub}</p>
-              </div>
-              <span className="ml-auto text-white/30 group-hover:text-[#FFCC00] transition-colors">→</span>
-            </Link>
-          ))}
         </div>
       </div>
     </div>
