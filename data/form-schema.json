@@ -1,0 +1,497 @@
+{
+  "version": "1.0",
+  "description": "Single source of truth für UI, Validierung und Kalkulation (Briefing Abschnitt 4). landkreisAgs verknüpft mit partners.json.",
+  "steps": [
+    {
+      "id": "buildingA",
+      "title": "Gebäude A (Auszug)",
+      "fields": [
+        {
+          "id": "bundesland",
+          "type": "select",
+          "label": "Bundesland",
+          "required": true,
+          "optionsSource": "bundeslaender"
+        },
+        {
+          "id": "landkreisAgs",
+          "type": "select",
+          "label": "Landkreis / kreisfreie Stadt",
+          "hint": "Für regionale Preisfaktoren und Partner-Anzeige (amtlicher AGS-Schlüssel).",
+          "required": true,
+          "optionsSource": "landkreiseByBundesland"
+        },
+        {
+          "id": "stadtOrt",
+          "type": "text",
+          "label": "Stadt / Ort",
+          "placeholder": "z. B. Frankfurt am Main",
+          "required": true,
+          "maxLength": 120
+        },
+        {
+          "id": "etage",
+          "type": "select",
+          "label": "Etage",
+          "required": true,
+          "options": [
+            { "value": "eg", "label": "EG" },
+            { "value": "1", "label": "1. OG" },
+            { "value": "2", "label": "2. OG" },
+            { "value": "3", "label": "3. OG" },
+            { "value": "4", "label": "4. OG" },
+            { "value": "5plus", "label": "5. OG+" },
+            { "value": "dg", "label": "Dachgeschoss" }
+          ]
+        },
+        {
+          "id": "aufzug",
+          "type": "radio",
+          "label": "Aufzug vorhanden?",
+          "required": true,
+          "options": [
+            { "value": "ja", "label": "Ja" },
+            { "value": "nein", "label": "Nein" },
+            { "value": "lasten", "label": "Lastenaufzug" }
+          ]
+        },
+        {
+          "id": "treppenhaus",
+          "type": "radio",
+          "label": "Treppenhaus",
+          "required": true,
+          "options": [
+            { "value": "normal", "label": "Normal" },
+            { "value": "eng", "label": "Eng (unter 1,20 m)" }
+          ]
+        },
+        {
+          "id": "parkentfernung",
+          "type": "select",
+          "label": "Entfernung Haustür → LKW",
+          "required": true,
+          "options": [
+            { "value": "0_10", "label": "0–10 m" },
+            { "value": "10_30", "label": "10–30 m" },
+            { "value": "30_50", "label": "30–50 m" },
+            { "value": "50plus", "label": "über 50 m" }
+          ]
+        },
+        {
+          "id": "halteverbot",
+          "type": "radio",
+          "label": "Halteverbotszone nötig?",
+          "required": true,
+          "options": [
+            { "value": "ja", "label": "Ja" },
+            { "value": "nein", "label": "Nein" },
+            { "value": "weiss_nicht", "label": "Weiß nicht" }
+          ]
+        },
+        {
+          "id": "gebaeudetyp",
+          "type": "radio",
+          "label": "Gebäudetyp",
+          "required": true,
+          "options": [
+            { "value": "altbau", "label": "Altbau" },
+            { "value": "neubau", "label": "Neubau" },
+            { "value": "efh", "label": "Einfamilienhaus" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buildingB",
+      "title": "Gebäude B (Einzug)",
+      "fields": [
+        {
+          "id": "gleicheStadt",
+          "type": "checkbox",
+          "label": "Selbe Stadt / Region wie Gebäude A",
+          "default": false
+        },
+        {
+          "id": "bundeslandB",
+          "type": "select",
+          "label": "Bundesland",
+          "required": true,
+          "optionsSource": "bundeslaender",
+          "showWhen": { "field": "gleicheStadt", "equals": false }
+        },
+        {
+          "id": "landkreisAgsB",
+          "type": "select",
+          "label": "Landkreis / kreisfreie Stadt",
+          "required": true,
+          "optionsSource": "landkreiseByBundeslandB",
+          "showWhen": { "field": "gleicheStadt", "equals": false }
+        },
+        {
+          "id": "stadtOrtB",
+          "type": "text",
+          "label": "Stadt / Ort",
+          "required": true,
+          "maxLength": 120,
+          "showWhen": { "field": "gleicheStadt", "equals": false }
+        },
+        {
+          "id": "etageB",
+          "type": "select",
+          "label": "Etage",
+          "required": true,
+          "options": [
+            { "value": "eg", "label": "EG" },
+            { "value": "1", "label": "1. OG" },
+            { "value": "2", "label": "2. OG" },
+            { "value": "3", "label": "3. OG" },
+            { "value": "4", "label": "4. OG" },
+            { "value": "5plus", "label": "5. OG+" },
+            { "value": "dg", "label": "Dachgeschoss" }
+          ]
+        },
+        {
+          "id": "aufzugB",
+          "type": "radio",
+          "label": "Aufzug vorhanden?",
+          "required": true,
+          "options": [
+            { "value": "ja", "label": "Ja" },
+            { "value": "nein", "label": "Nein" },
+            { "value": "lasten", "label": "Lastenaufzug" }
+          ]
+        },
+        {
+          "id": "treppenhausB",
+          "type": "radio",
+          "label": "Treppenhaus",
+          "required": true,
+          "options": [
+            { "value": "normal", "label": "Normal" },
+            { "value": "eng", "label": "Eng (unter 1,20 m)" }
+          ]
+        },
+        {
+          "id": "parkentfernungB",
+          "type": "select",
+          "label": "Entfernung Haustür → LKW",
+          "required": true,
+          "options": [
+            { "value": "0_10", "label": "0–10 m" },
+            { "value": "10_30", "label": "10–30 m" },
+            { "value": "30_50", "label": "30–50 m" },
+            { "value": "50plus", "label": "über 50 m" }
+          ]
+        },
+        {
+          "id": "halteverbotB",
+          "type": "radio",
+          "label": "Halteverbotszone nötig?",
+          "required": true,
+          "options": [
+            { "value": "ja", "label": "Ja" },
+            { "value": "nein", "label": "Nein" },
+            { "value": "weiss_nicht", "label": "Weiß nicht" }
+          ]
+        },
+        {
+          "id": "gebaeudetypB",
+          "type": "radio",
+          "label": "Gebäudetyp",
+          "required": true,
+          "options": [
+            { "value": "altbau", "label": "Altbau" },
+            { "value": "neubau", "label": "Neubau" },
+            { "value": "efh", "label": "Einfamilienhaus" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distance",
+      "title": "Distanz & Termin",
+      "fields": [
+        {
+          "id": "km",
+          "type": "number",
+          "label": "Entfernung zwischen beiden Standorten",
+          "suffix": "km",
+          "min": 0,
+          "max": 2500,
+          "required": true,
+          "hint": "Kürzeste Route (z. B. laut Karten-App)."
+        },
+        {
+          "id": "umzugsdatum",
+          "type": "date",
+          "label": "Umzugsdatum",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "inventory",
+      "title": "Möbel & Inventar",
+      "groups": [
+        {
+          "id": "schlafzimmer",
+          "label": "Schlafzimmer",
+          "counters": [
+            { "id": "bett_einzel", "label": "Bett Einzel (90 cm)" },
+            { "id": "bett_doppel", "label": "Bett Doppel (140–180 cm)" },
+            { "id": "boxspringbett", "label": "Boxspringbett" },
+            { "id": "kleiderschrank_klein", "label": "Kleiderschrank klein (bis 1 m)" },
+            { "id": "kleiderschrank_mittel", "label": "Kleiderschrank mittel (1–2 m)" },
+            { "id": "kleiderschrank_gross", "label": "Kleiderschrank groß (über 2 m)" },
+            { "id": "kleiderschrank_begehbar", "label": "Begehbarer Kleiderschrank" },
+            { "id": "kommode", "label": "Kommode" },
+            { "id": "nachttisch", "label": "Nachttisch" },
+            { "id": "spiegel_gross", "label": "Spiegel groß (über 1 m)" },
+            { "id": "matratze_extra", "label": "Matratze extra" }
+          ]
+        },
+        {
+          "id": "wohnzimmer",
+          "label": "Wohnzimmer",
+          "counters": [
+            { "id": "sofa_2sitzer", "label": "Sofa 2-Sitzer" },
+            { "id": "sofa_3sitzer", "label": "Sofa 3-Sitzer" },
+            { "id": "sofa_l_form", "label": "Sofa L-Form" },
+            { "id": "sessel", "label": "Sessel" },
+            { "id": "couchtisch", "label": "Couchtisch" },
+            { "id": "tv_moebel", "label": "TV-Möbel / Sideboard" },
+            { "id": "regal_klein", "label": "Regal (bis 1 m Höhe)" },
+            { "id": "regal_gross", "label": "Regal (über 1 m Höhe)" },
+            { "id": "vitrine", "label": "Vitrine" },
+            { "id": "teppich_gross", "label": "Teppich groß (über 4 m²)" }
+          ]
+        },
+        {
+          "id": "kueche",
+          "label": "Küche",
+          "fields": [
+            {
+              "id": "kueche_vorhanden",
+              "type": "radio",
+              "label": "Einbauküche vorhanden?",
+              "required": true,
+              "options": [
+                { "value": "ja", "label": "Ja (Abbau + Aufbau)" },
+                { "value": "nein", "label": "Nein" }
+              ]
+            },
+            {
+              "id": "kueche_laufmeter",
+              "type": "select",
+              "label": "Küchenzeile (Laufmeter)",
+              "required": true,
+              "options": [
+                { "value": "bis_2m", "label": "bis 2 m" },
+                { "value": "2_3m", "label": "2–3 m" },
+                { "value": "3_4m", "label": "3–4 m" },
+                { "value": "ueber_4m", "label": "über 4 m" }
+              ],
+              "showWhen": { "field": "kueche_vorhanden", "equals": "ja" }
+            },
+            {
+              "id": "kuehlschrank",
+              "type": "select",
+              "label": "Kühlschrank",
+              "required": true,
+              "options": [
+                { "value": "keiner", "label": "Keiner" },
+                { "value": "standard", "label": "Standard" },
+                { "value": "sidebyside", "label": "Side-by-Side" }
+              ]
+            },
+            {
+              "id": "herd",
+              "type": "radio",
+              "label": "Herd",
+              "required": true,
+              "options": [
+                { "value": "einbau", "label": "Einbau" },
+                { "value": "freistehend", "label": "Freistehend" },
+                { "value": "keiner", "label": "Keiner" }
+              ]
+            },
+            {
+              "id": "geschirrspueler",
+              "type": "radio",
+              "label": "Geschirrspüler",
+              "required": true,
+              "options": [
+                { "value": "einbau", "label": "Einbau" },
+                { "value": "freistehend", "label": "Freistehend" },
+                { "value": "keiner", "label": "Keiner" }
+              ]
+            }
+          ],
+          "counters": [
+            { "id": "waschmaschine", "label": "Waschmaschine" },
+            { "id": "trockner", "label": "Trockner" }
+          ]
+        },
+        {
+          "id": "buero",
+          "label": "Arbeitszimmer / Sonstiges",
+          "counters": [
+            { "id": "schreibtisch_normal", "label": "Schreibtisch normal" },
+            { "id": "schreibtisch_eck", "label": "Eck-Schreibtisch" },
+            { "id": "buerostuhl", "label": "Bürostuhl" },
+            { "id": "buecherregal", "label": "Bücherregal / Aktenregal" },
+            { "id": "drucker", "label": "Drucker / Gerät" }
+          ]
+        },
+        {
+          "id": "keller",
+          "label": "Keller / Garage",
+          "counters": [
+            { "id": "fahrrad", "label": "Fahrrad" },
+            { "id": "ebike", "label": "E-Bike" },
+            { "id": "motorrad", "label": "Motorrad / Roller" },
+            { "id": "werkzeugschrank", "label": "Werkzeugschrank" },
+            { "id": "kellerregal", "label": "Kellerregal" }
+          ],
+          "fields": [
+            {
+              "id": "gartengeraete",
+              "type": "select",
+              "label": "Gartengeräte (Menge)",
+              "required": true,
+              "options": [
+                { "value": "wenig", "label": "Wenig (1–5 Teile)" },
+                { "value": "mittel", "label": "Mittel" },
+                { "value": "viel", "label": "Viel" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sperrgut",
+          "label": "Sperrgut & Besonderes",
+          "counters": [
+            { "id": "klavier", "label": "Klavier" },
+            { "id": "fluegel", "label": "Flügel" },
+            { "id": "safe_schwer", "label": "Safe / Tresor (über 50 kg)" },
+            { "id": "aquarium_gross", "label": "Aquarium (über 200 l)" }
+          ],
+          "fields": [
+            {
+              "id": "kunst_antik",
+              "type": "checkbox",
+              "label": "Kunstgegenstände / Antikes (besonders schonend)"
+            },
+            {
+              "id": "kunst_antik_text",
+              "type": "text",
+              "label": "Kurzbeschreibung (optional)",
+              "maxLength": 200,
+              "showWhen": { "field": "kunst_antik", "equals": true }
+            }
+          ]
+        },
+        {
+          "id": "kartons",
+          "label": "Umzugskartons",
+          "counters": [
+            { "id": "karton_standard", "label": "Umzugskartons Standard" },
+            { "id": "karton_buch", "label": "Umzugskartons Bücher (klein)" },
+            { "id": "haengekarton", "label": "Hängekartons / Kleiderkisten" },
+            { "id": "karton_spezial", "label": "Spezialkartons (Geschirr, Spiegel)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "title": "Zusatzleistungen",
+      "checkboxes": [
+        { "id": "einpackservice_komplett", "label": "Einpackservice (alles)" },
+        { "id": "einpackservice_teilweise", "label": "Einpackservice (nur Küche / Porzellan)" },
+        { "id": "auspackservice", "label": "Auspackservice am Zielort" },
+        { "id": "moebelmontage", "label": "Möbelabbau & Aufbau" },
+        { "id": "kueche_demo_montage", "label": "Küche demontieren & montieren (zusätzlich)" },
+        { "id": "elektro_anschluss", "label": "Elektrogeräte ab-/anklemmen" },
+        { "id": "halteverbot_service", "label": "Halteverbotsschild beantragen (Service)" },
+        { "id": "verpackungsmaterial", "label": "Verpackungsmaterial liefern" },
+        { "id": "entruempelung", "label": "Entrümpelung vor dem Umzug" },
+        { "id": "zwischenlagerung", "label": "Zwischenlagerung" },
+        { "id": "reinigung_alt", "label": "Reinigung alte Wohnung" },
+        { "id": "moebellift", "label": "Möbellift / Kran" },
+        { "id": "transportversicherung", "label": "Transportversicherung (Erweiterung)" }
+      ],
+      "fields": [
+        {
+          "id": "zwischenlagerung_tage",
+          "type": "number",
+          "label": "Zwischenlagerung: Tage",
+          "min": 0,
+          "max": 90,
+          "default": 0,
+          "showWhen": { "field": "zwischenlagerung", "equals": true }
+        },
+        {
+          "id": "zwischenlagerung_m3",
+          "type": "number",
+          "label": "Zwischenlagerung: geschätzte m³",
+          "min": 0,
+          "max": 500,
+          "default": 0,
+          "showWhen": { "field": "zwischenlagerung", "equals": true }
+        },
+        {
+          "id": "entruempelung_m3",
+          "type": "number",
+          "label": "Entrümpelung: geschätzte m³",
+          "min": 0,
+          "max": 200,
+          "default": 0,
+          "showWhen": { "field": "entruempelung", "equals": true }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "title": "Zusammenfassung",
+      "fields": [
+        {
+          "id": "nutzungsart",
+          "type": "radio",
+          "label": "Nutzung",
+          "required": true,
+          "options": [
+            { "value": "privat", "label": "Privat" },
+            { "value": "gewerbe", "label": "Gewerbe / Büro (ohne gespeicherte Rechnungsdaten im MVP)" }
+          ]
+        },
+        {
+          "id": "agbAccepted",
+          "type": "checkbox",
+          "label": "Ich habe die AGB und die Datenschutzerklärung gelesen.",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "optionsSources": {
+    "bundeslaender": [
+      { "value": "BW", "label": "Baden-Württemberg" },
+      { "value": "BY", "label": "Bayern" },
+      { "value": "BE", "label": "Berlin" },
+      { "value": "BB", "label": "Brandenburg" },
+      { "value": "HB", "label": "Bremen" },
+      { "value": "HH", "label": "Hamburg" },
+      { "value": "HE", "label": "Hessen" },
+      { "value": "MV", "label": "Mecklenburg-Vorpommern" },
+      { "value": "NI", "label": "Niedersachsen" },
+      { "value": "NW", "label": "Nordrhein-Westfalen" },
+      { "value": "RP", "label": "Rheinland-Pfalz" },
+      { "value": "SL", "label": "Saarland" },
+      { "value": "SN", "label": "Sachsen" },
+      { "value": "ST", "label": "Sachsen-Anhalt" },
+      { "value": "SH", "label": "Schleswig-Holstein" },
+      { "value": "TH", "label": "Thüringen" }
+    ]
+  }
+}

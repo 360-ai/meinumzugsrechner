@@ -1,0 +1,2 @@
+# Kopie nach .dev.vars für Wrangler lokal (nicht committen)
+NEXTJS_ENV=development

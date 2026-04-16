@@ -1,0 +1,87 @@
+{
+  "version": "1.0",
+  "affiliateNote": "Werbliche Angaben; kein Datenabgleich mit Umzugsfirmen. Rabatte vorbehaltlich der Partnerbedingungen.",
+  "default": {
+    "primary": {
+      "id": "default-primary",
+      "name": "Regionaler Umzugsservice (Platzhalter)",
+      "tagline": "Partner werden – ab 50 € pro Region",
+      "url": "https://example.com/?ref=meinumzugsrechner",
+      "discountPercent": 10,
+      "discountLabel": "10 % Rabatt mit Code MUR10 (Beispiel)",
+      "logoUrl": null,
+      "priority": 100
+    },
+    "listings": [
+      {
+        "id": "default-list-1",
+        "name": "Weitere Firma (Listing-Beispiel)",
+        "url": "https://example.com/b/?ref=meinumzugsrechner",
+        "discountPercent": 5,
+        "discountLabel": "5 % für Neukunden",
+        "priority": 50
+      }
+    ]
+  },
+  "byBundesland": {
+    "HE": {
+      "primary": {
+        "id": "he-atlas",
+        "name": "Atlas MKK",
+        "tagline": "Ihr Umzugsprofi in der Region (Beispielpartner)",
+        "url": "https://atlas-mkk.de/?ref=meinumzugsrechner",
+        "discountPercent": 10,
+        "discountLabel": "10 % bei Buchung über diesen Link (Beispiel)",
+        "logoUrl": null,
+        "priority": 200
+      },
+      "listings": [
+        {
+          "id": "he-list-1",
+          "name": "Umzug Hessen Plus (Beispiel)",
+          "url": "https://example.com/he2",
+          "discountPercent": 7,
+          "discountLabel": "7 % Frühbucher",
+          "priority": 80
+        }
+      ]
+    }
+  },
+  "byAgs": {
+    "06535": {
+      "primary": {
+        "id": "mkk-main-kinzig",
+        "name": "Atlas MKK – Main-Kinzig-Kreis",
+        "tagline": "Regionale Expertise MKK (Startpartner)",
+        "url": "https://atlas-mkk.de/?ref=meinumzugsrechner&region=06535",
+        "discountPercent": 12,
+        "discountLabel": "12 % Vorteil für Nutzer von meinumzugsrechner.de (Beispiel)",
+        "logoUrl": null,
+        "priority": 300
+      },
+      "listings": [
+        {
+          "id": "mkk-list-1",
+          "name": "Zusätzliches Listing MKK (Abo-Modell)",
+          "url": "https://example.com/mkk-listing",
+          "discountPercent": 5,
+          "discountLabel": "5 % auf Transport (Beispiel)",
+          "priority": 60
+        }
+      ]
+    },
+    "06411": {
+      "primary": {
+        "id": "frankfurt-partner",
+        "name": "Partner Frankfurt am Main (Beispiel)",
+        "tagline": "Stadt Frankfurt – priorisierte Anzeige",
+        "url": "https://example.com/ffm",
+        "discountPercent": 8,
+        "discountLabel": "8 % Online-Rabatt (Beispiel)",
+        "logoUrl": null,
+        "priority": 250
+      },
+      "listings": []
+    }
+  }
+}
