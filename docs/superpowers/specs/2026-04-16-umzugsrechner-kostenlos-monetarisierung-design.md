@@ -16,15 +16,49 @@ Den bestehenden Umzugskostenrechner von einem bezahlpflichtigen Modell (2,99 €
 
 Alles Stripe-bezogene wird vollständig entfernt:
 
+**Dateien löschen:**
 - `app/api/create-checkout-session/route.ts`
 - `app/api/webhook/route.ts`
 - `app/api/verify-session/route.ts`
-- npm-Paket `stripe`
-- `@opennextjs/cloudflare` und `wrangler` (nicht mehr benötigt)
-- `open-next.config.ts` und `wrangler.jsonc`
-- Alle Stripe-bezogenen Env-Variablen (`STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID`, `STRIPE_WEBHOOK_SECRET`)
-- Payment-Step in der Formular-Journey
-- Session-ID-Validierung auf der Ergebnis-Seite (`/ergebnis`)
+- `app/api/calculate/route.ts` (Stripe-abhängig, ruft `stripe.checkout.sessions.retrieve()` auf)
+- `app/zahlung/page.tsx` (Payment-Zwischenseite)
+- `open-next.config.ts`
+- `wrangler.jsonc`
+
+**npm-Pakete entfernen:**
+- `stripe`
+- `@opennextjs/cloudflare`
+- `wrangler`
+
+**`package.json` Scripts entfernen:**
+- `preview:cf`
+- `deploy:cf`
+
+**`next.config.ts` bereinigen:**
+- Import `initOpenNextCloudflareForDev` entfernen
+- Funktionsaufruf `initOpenNextCloudflareForDev()` entfernen
+- `output: 'export'` hinzufügen
+
+Vorher:
+```ts
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();
+const nextConfig = { reactStrictMode: true };
+export default nextConfig;
+```
+Nachher:
+```ts
+const nextConfig = { reactStrictMode: true, output: 'export' };
+export default nextConfig;
+```
+
+**Env-Variablen entfernen:** `STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID`, `STRIPE_WEBHOOK_SECRET`
+
+**`components/ErgebnisClient.tsx` umschreiben:**
+- `session_id` URL-Parameter-Prüfung entfernen
+- `/api/calculate` Fetch-Aufruf entfernen
+- Berechnung direkt clientseitig via `calculateUmzug(formData)` aus `@/lib/calculate` durchführen
+- Formulardaten aus LocalStorage lesen (wie bisher)
 
 **Ergebnis:** Nach Schritt 6 (AGB bestätigen) wird das Ergebnis direkt angezeigt — keine Paywall.
 
@@ -100,12 +134,13 @@ Alles Stripe-bezogene wird vollständig entfernt:
 
 ## 5. Reihenfolge der Implementierung
 
-1. Stripe-Code und Dependencies entfernen
-2. Ergebnis-Seite direkt zugänglich machen (ohne Session-Validierung)
-3. `next.config.ts` auf Static Export umstellen
-4. Amazon Affiliate Sektion auf Ergebnis-Seite einbauen
-5. AdSense-Snippet und Ad-Units einbauen
-6. Datenschutzerklärung aktualisieren
-7. Build testen (`npm run build`)
-8. GitHub push
-9. Cloudflare Pages verbinden + Domain konfigurieren
+1. Stripe-Code und Dependencies entfernen (alle Dateien, Pakete, Scripts)
+2. `next.config.ts` auf Static Export umstellen
+3. `ErgebnisClient.tsx` umschreiben: clientseitige Berechnung via `calculateUmzug(formData)`
+4. Ergebnis-Seite direkt zugänglich machen (kein Session-Parameter mehr nötig)
+5. Amazon Affiliate Sektion auf Ergebnis-Seite einbauen
+6. AdSense-Snippet und Ad-Units einbauen
+7. Datenschutzerklärung aktualisieren (AdSense-Abschnitt hinzufügen)
+8. Build testen (`npm run build`)
+9. GitHub push
+10. Cloudflare Pages verbinden + Domain konfigurieren
