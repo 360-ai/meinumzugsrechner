@@ -45,9 +45,6 @@ export function RechnerForm() {
       const n = parseInt(s, 10);
       if (n >= 1 && n <= TOTAL_STEPS) setStep(n);
     }
-    if (params.get("canceled")) {
-      alert("Zahlung abgebrochen. Sie können Ihre Eingaben anpassen und es erneut versuchen.");
-    }
   }, [params]);
 
   useEffect(() => {
@@ -150,7 +147,7 @@ export function RechnerForm() {
   const lkA = useMemo(() => lkFor(form.buildingA.bundesland), [form.buildingA.bundesland, lkFor]);
   const lkB = useMemo(() => lkFor(form.buildingB.bundesland), [form.buildingB.bundesland, lkFor]);
 
-  const goPay = () => {
+  const goErgebnis = () => {
     const err = validateStep(6);
     if (err) {
       alert(err);
@@ -161,7 +158,7 @@ export function RechnerForm() {
     } catch {
       /* ignore */
     }
-    router.push("/zahlung");
+    router.push("/ergebnis");
   };
 
   return (
@@ -704,10 +701,10 @@ export function RechnerForm() {
         {step === TOTAL_STEPS && (
           <button
             type="button"
-            onClick={goPay}
+            onClick={goErgebnis}
             className="touch-target rounded-md bg-accent px-5 py-3 font-semibold text-white hover:opacity-95"
           >
-            Jetzt für 2,99 € berechnen
+            Kostenlos berechnen
           </button>
         )}
       </div>
