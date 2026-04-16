@@ -2,24 +2,31 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-[var(--bg-soft)] py-10 text-sm text-muted">
-      <div className="mx-auto flex max-w-3xl flex-col gap-6 px-4 sm:flex-row sm:justify-between sm:px-6">
-        <p className="max-w-md">
-          Richtwerte, keine Festpreise. Keine Weitergabe Ihrer Umzugsdaten an Umzugsfirmen.
-        </p>
-        <ul className="flex flex-wrap gap-x-4 gap-y-2">
+    <footer className="bg-primary py-10 text-sm text-white/80">
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div>
+          <p className="text-base font-bold">
+            <span className="text-white">mein</span>
+            <span style={{ color: "#FFCC00" }}>umzugsrechner</span>
+            <span className="text-white">.de</span>
+          </p>
+          <p className="mt-1 text-xs text-white/60">
+            Richtwerte, keine Festpreise. Keine Datenweitergabe.
+          </p>
+        </div>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
           <li>
-            <Link href="/impressum" className="hover:text-primary">
+            <Link href="/impressum" className="hover:text-white transition-colors">
               Impressum
             </Link>
           </li>
           <li>
-            <Link href="/datenschutz" className="hover:text-primary">
+            <Link href="/datenschutz" className="hover:text-white transition-colors">
               Datenschutz
             </Link>
           </li>
           <li>
-            <Link href="/agb" className="hover:text-primary">
+            <Link href="/agb" className="hover:text-white transition-colors">
               AGB
             </Link>
           </li>

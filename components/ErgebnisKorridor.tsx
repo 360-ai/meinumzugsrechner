@@ -9,7 +9,7 @@ export function ErgebnisKorridor({ result }: Props) {
     new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-[var(--bg-soft)] p-8 text-center">
+    <div className="rounded-2xl border border-slate-200 bg-[var(--bg-soft)] p-8 text-center border-t-4 border-t-accent">
       <p className="text-sm font-medium text-muted">Geschätzter Preiskorridor</p>
       <p className="mt-4 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
         {fmt(result.korridorUnten)} – {fmt(result.korridorOben)}

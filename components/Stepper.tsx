@@ -14,7 +14,7 @@ export function Stepper({ current, total }: Props) {
       </div>
       <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
         <div
-          className="h-full rounded-full bg-primary transition-all duration-300"
+          className="h-full rounded-full bg-accent transition-all duration-300"
           style={{ width: `${(current / total) * 100}%` }}
         />
       </div>

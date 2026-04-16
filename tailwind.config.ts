@@ -8,12 +8,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#1E3A5F",
-        accent: "#FF6B35",
-        muted: "#6B7080",
+        primary: "#0088CC",
+        accent: "#FF7700",
+        yellow: "#FFCC00",
+        muted: "#5A7A8A",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-comfortaa)", "system-ui", "sans-serif"],
       },
     },
   },
