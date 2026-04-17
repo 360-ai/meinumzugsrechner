@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Partnerfragebogen — meinumzugsrechner.de</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2e3d;
+    background: #f4f7fa;
+    padding: 32px 16px 64px;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: #0D2137;
+    padding: 32px 40px;
+    color: white;
+  }
+  .header-badge {
+    display: inline-block;
+    background: #FF7700;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 540px;
+  }
+
+  /* Info Box */
+  .infobox {
+    background: #EBF6FD;
+    border-left: 4px solid #0088CC;
+    margin: 32px 40px 0;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #0D2137;
+  }
+  .infobox strong { color: #0088CC; }
+
+  /* Content */
+  .content { padding: 32px 40px; }
+
+  /* Section */
+  .section {
+    margin-bottom: 32px;
+    border: 1px solid #e2eaf0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: #f0f6fb;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #0088CC;
+    border-bottom: 1px solid #dde8f0;
+  }
+  .section-body { padding: 20px; }
+
+  /* Fields */
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    color: #0D2137;
+    margin-bottom: 5px;
+  }
+  label .hint {
+    font-weight: 400;
+    color: #7a9aad;
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  input[type="text"], input[type="email"], input[type="tel"], input[type="url"],
+  select, textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #cddae5;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1a2e3d;
+    background: #fafcfe;
+    transition: border-color 0.15s;
+    font-family: Arial, sans-serif;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #0088CC;
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 560px) {
+    .field-row { grid-template-columns: 1fr; }
+    .content { padding: 24px 20px; }
+    .header { padding: 24px 20px; }
+    .infobox { margin: 20px 20px 0; }
+  }
+
+  /* Radio / Checkbox groups */
+  .option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .option-group.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #1a2e3d;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  .option-label input { width: auto; margin: 0; }
+
+  /* Preistabelle */
+  .price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .price-table th {
+    background: #f0f6fb;
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0D2137;
+    border: 1px solid #dde8f0;
+  }
+  .price-table td {
+    border: 1px solid #dde8f0;
+    padding: 6px 4px;
+  }
+  .price-table td input {
+    border: none;
+    background: transparent;
+    padding: 4px 8px;
+    font-size: 13px;
+    width: 100%;
+  }
+  .price-table td input:focus {
+    outline: 1px solid #0088CC;
+    border-radius: 4px;
+    background: #f0f9ff;
+  }
+  .price-table tr:hover td { background: #f8fbff; }
+
+  /* Highlight box */
+  .highlight-box {
+    background: #fff8f0;
+    border: 1.5px solid #FF7700;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #7a3a00;
+    line-height: 1.7;
+  }
+  .highlight-box strong { color: #FF7700; }
+
+  /* Footer */
+  .form-footer {
+    background: #0D2137;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .form-footer p {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .form-footer strong { color: #FFCC00; }
+  .submit-hint {
+    background: #0088CC;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+    input, select, textarea {
+      border: 1px solid #999 !important;
+      background: white !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">Vertraulich · Nur für Partner</div>
+    <h1>Partnerfragebogen</h1>
+    <p>
+      Vielen Dank für Ihr Interesse an meinumzugsrechner.de. Bitte füllen Sie diesen Fragebogen
+      so vollständig wie möglich aus und senden Sie ihn an
+      <strong style="color:#FFCC00">info@meinumzugsrechner.de</strong> zurück.
+      Alle Angaben werden vertraulich behandelt und dienen ausschließlich der internen
+      Kalibrierung unserer Preiskorridore.
+    </p>
+  </div>
+
+  <!-- Info Box -->
+  <div class="infobox">
+    <strong>Als Gründungspartner erhalten Sie:</strong> 3 Monate kostenlose Nutzung ab Launch (Juni 2026) ·
+    30 % Lifetime-Rabatt auf alle Abo-Modelle · Gründungspartner-Badge im Profil ·
+    Bevorzugtes Ranking in Ihrer Region
+  </div>
+
+  <!-- Form Content -->
+  <div class="content">
+
+    <!-- 1. Firmendaten -->
+    <div class="section">
+      <div class="section-header">1. Firmendaten</div>
+      <div class="section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Firmenname <span style="color:#e53">*</span></label>
+            <input type="text" placeholder="z. B. Umzüge Müller GmbH" />
+          </div>
+          <div class="field">
+            <label>Rechtsform</label>
+            <select>
+              <option value="">— bitte wählen —</option>
+              <option>Einzelunternehmen / Gewerbetreibend</option>
+              <option>GmbH</option>
+              <option>GmbH & Co. KG</option>
+              <option>UG (haftungsbeschränkt)</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Ansprechpartner</label>
+            <input type="text" placeholder="Vor- und Nachname" />
+          </div>
+          <div class="field">
+            <label>Position / Funktion</label>
+            <input type="text" placeholder="z. B. Geschäftsführer, Disponent" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>E-Mail für Anfragen</label>
+            <input type="email" placeholder="anfragen@ihrefirma.de" />
+          </div>
+          <div class="field">
+            <label>Telefon</label>
+            <input type="tel" placeholder="+49 ..." />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Straße + Hausnummer</label>
+            <input type="text" placeholder="Musterstraße 12" />
+          </div>
+          <div class="field">
+            <label>PLZ + Ort</label>
+            <input type="text" placeholder="10115 Berlin" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Website <span class="hint">(falls vorhanden)</span></label>
+          <input type="url" placeholder="https://www.ihrefirma.de" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Einsatzgebiet -->
+    <div class="section">
+      <div class="section-header">2. Einsatzgebiet &amp; Leistungen</div>
+      <div class="section-body">
+        <div class="field">
+          <label>Bundesland(e) / Regionen, in denen Sie tätig sind <span style="color:#e53">*</span></label>
+          <textarea placeholder="z. B. Berlin, Brandenburg, bundesweit bis 300 km, ..."></textarea>
+        </div>
+        <div class="field">
+          <label>Maximale Entfernung für Fernumzüge</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="entfernung" value="lokal" /> Nur lokal (bis 50 km)</label>
+            <label class="option-label"><input type="radio" name="entfernung" value="regional" /> Regional (bis 200 km)</label>
+            <label class="option-label"><input type="radio" name="entfernung" value="bundesweit" /> Bundesweit</label>
+            <label class="option-label"><input type="radio" name="entfernung" value="europa" /> Europa</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Welche Umzugsarten bieten Sie an? <span class="hint">(Mehrfachauswahl)</span></label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="checkbox" /> Privatumzug</label>
+            <label class="option-label"><input type="checkbox" /> Firmenumzug</label>
+            <label class="option-label"><input type="checkbox" /> Seniorenumzug</label>
+            <label class="option-label"><input type="checkbox" /> Fernumzug national</label>
+            <label class="option-label"><input type="checkbox" /> Fernumzug international</label>
+            <label class="option-label"><input type="checkbox" /> Einlagerung</label>
+            <label class="option-label"><input type="checkbox" /> Entrümpelung</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Wie viele Umzüge führen Sie pro Monat (Durchschnitt) durch?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="volumen" value="1" /> 1–10</label>
+            <label class="option-label"><input type="radio" name="volumen" value="2" /> 11–30</label>
+            <label class="option-label"><input type="radio" name="volumen" value="3" /> 31–80</label>
+            <label class="option-label"><input type="radio" name="volumen" value="4" /> Über 80</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Preisgestaltung -->
+    <div class="section">
+      <div class="section-header">3. Preisgestaltung — Wie kalkulieren Sie? <span style="color:#e53">*</span></div>
+      <div class="section-body">
+        <div class="field">
+          <label>Welche Kalkulationsgrundlage verwenden Sie? <span class="hint">(Mehrfachauswahl möglich)</span></label>
+          <div class="option-group">
+            <label class="option-label"><input type="checkbox" /> Stundenlohn (Helfer + Fahrzeug × Stunden)</label>
+            <label class="option-label"><input type="checkbox" /> Pauschale je nach Wohnungsgröße (z. B. 1-Zimmer, 2-Zimmer, …)</label>
+            <label class="option-label"><input type="checkbox" /> Volumen in m³ (Preis pro Kubikmeter)</label>
+            <label class="option-label"><input type="checkbox" /> Einzelpreise pro Möbelstück / Gegenstand</label>
+            <label class="option-label"><input type="checkbox" /> Kombination aus mehreren Faktoren</label>
+            <label class="option-label"><input type="checkbox" /> Sonstiges:</label>
+          </div>
+          <input type="text" placeholder="Beschreibung falls Sonstiges oder Kombination …" style="margin-top:10px" />
+        </div>
+
+        <div class="field">
+          <label>Stundensatz (falls stundenbasiert) <span class="hint">— bitte in € angeben</span></label>
+          <div class="field-row">
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Stundensatz pro Helfer</label>
+              <input type="text" placeholder="z. B. 35 € / Stunde" />
+            </div>
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Fahrzeugkosten pro Stunde</label>
+              <input type="text" placeholder="z. B. 25 € / Stunde" />
+            </div>
+          </div>
+          <div class="field-row" style="margin-top:10px">
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Mindestanzahl Helfer (Standardumzug)</label>
+              <input type="text" placeholder="z. B. 2 Helfer" />
+            </div>
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Mindesteinsatzzeit</label>
+              <input type="text" placeholder="z. B. 4 Stunden Minimum" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Pauschalen nach Wohnungsgröße <span class="hint">— falls anwendbar, in € ohne Transportzuschlag</span></label>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Wohnungsgröße</th>
+                <th>Preis von (€)</th>
+                <th>Preis bis (€)</th>
+                <th>Anmerkung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1-Zimmer / bis 30 m²</td><td><input type="text" placeholder="350" /></td><td><input type="text" placeholder="600" /></td><td><input type="text" placeholder="inkl. 2 Helfer, 3h" /></td></tr>
+              <tr><td>2-Zimmer / 30–60 m²</td><td><input type="text" placeholder="600" /></td><td><input type="text" placeholder="1000" /></td><td><input type="text" /></td></tr>
+              <tr><td>3-Zimmer / 60–90 m²</td><td><input type="text" placeholder="900" /></td><td><input type="text" placeholder="1.500" /></td><td><input type="text" /></td></tr>
+              <tr><td>4-Zimmer / 90–120 m²</td><td><input type="text" placeholder="1.300" /></td><td><input type="text" placeholder="2.200" /></td><td><input type="text" /></td></tr>
+              <tr><td>5+ Zimmer / über 120 m²</td><td><input type="text" placeholder="auf Anfrage" /></td><td><input type="text" /></td><td><input type="text" /></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="field">
+          <label>Preis pro m³ Volumen <span class="hint">— falls volumenbasiert</span></label>
+          <div class="field-row">
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Preis pro m³ (Nahbereich)</label>
+              <input type="text" placeholder="z. B. 35 € / m³" />
+            </div>
+            <div>
+              <label style="font-weight:400;font-size:12px;color:#5a7a8a">Preis pro m³ (Fernumzug, pro km oder pauschal)</label>
+              <input type="text" placeholder="z. B. 40 € / m³ + 0,50 € / km" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Zuschläge / Aufpreise <span class="hint">— was erhöht bei Ihnen den Preis?</span></label>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Faktor</th>
+                <th>Aufpreis / Regelung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Etage ohne Aufzug (pro Etage)</td><td><input type="text" placeholder="z. B. + 50 € pro Etage" /></td></tr>
+              <tr><td>Klavier / Flügel</td><td><input type="text" placeholder="z. B. + 300 €" /></td></tr>
+              <tr><td>Tresor / schwere Einzelteile</td><td><input type="text" placeholder="z. B. + 150 €" /></td></tr>
+              <tr><td>Halteverbotszone einrichten</td><td><input type="text" placeholder="z. B. 80–150 € pauschal" /></td></tr>
+              <tr><td>Wochenende / Feiertag</td><td><input type="text" placeholder="z. B. + 20 %" /></td></tr>
+              <tr><td>Kurzfristige Buchung (unter 7 Tage)</td><td><input type="text" placeholder="z. B. + 15 %" /></td></tr>
+              <tr><td>Verpackungsservice (komplettes Packen)</td><td><input type="text" placeholder="z. B. + 200–500 €" /></td></tr>
+              <tr><td>Möbelmontage / -demontage</td><td><input type="text" placeholder="z. B. 40 € / Stunde" /></td></tr>
+              <tr><td>Sonstiger Aufpreis</td><td><input type="text" placeholder="was?" /></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="field">
+          <label>Transportkostenzuschlag nach Entfernung</label>
+          <table class="price-table">
+            <thead>
+              <tr><th>Distanz</th><th>Zuschlag / Regelung</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bis 30 km</td><td><input type="text" placeholder="inklusive / pauschal …" /></td></tr>
+              <tr><td>30–100 km</td><td><input type="text" placeholder="z. B. + 0,80 € / km" /></td></tr>
+              <tr><td>100–300 km</td><td><input type="text" placeholder="" /></td></tr>
+              <tr><td>Über 300 km</td><td><input type="text" placeholder="auf Anfrage / pauschal …" /></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Rabatte für Plattform-Nutzer -->
+    <div class="section">
+      <div class="section-header">4. Rabatte für meinumzugsrechner.de-Nutzer</div>
+      <div class="section-body">
+        <div class="highlight-box">
+          <strong>Wichtige Frage:</strong> Nutzer unserer Plattform kommen mit einer fertigen Kalkulation zu Ihnen.
+          Das spart Zeit und Aufwand auf beiden Seiten. Würden Sie diesen Nutzern einen Rabatt gewähren?
+          Das erhöht die Attraktivität Ihres Profils erheblich.
+        </div>
+
+        <div class="field" style="margin-top:16px">
+          <label>Gewähren Sie Nutzern von meinumzugsrechner.de einen Rabatt?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="rabatt" value="ja" /> Ja</label>
+            <label class="option-label"><input type="radio" name="rabatt" value="nein" /> Nein</label>
+            <label class="option-label"><input type="radio" name="rabatt" value="verhandlung" /> Auf Anfrage / Verhandlung</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Falls ja — wie hoch ist der Rabatt?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="rabatt-hoehe" value="5" /> 5 %</label>
+            <label class="option-label"><input type="radio" name="rabatt-hoehe" value="10" /> 10 %</label>
+            <label class="option-label"><input type="radio" name="rabatt-hoehe" value="15" /> 15 %</label>
+            <label class="option-label"><input type="radio" name="rabatt-hoehe" value="sonstig" /> Sonstiges:</label>
+          </div>
+          <input type="text" placeholder="z. B. 50 € Festrabatt, gestaffelt je nach Auftragsgröße, ..." style="margin-top:8px" />
+        </div>
+
+        <div class="field">
+          <label>Anmerkungen zu Rabatten <span class="hint">(Bedingungen, Ausnahmen, …)</span></label>
+          <textarea placeholder="z. B. Rabatt gilt nur bei Buchung mind. 3 Wochen im Voraus, nicht kombinierbar mit anderen Aktionen, ..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Anforderungen an Anfragen -->
+    <div class="section">
+      <div class="section-header">5. Ihre Anforderungen an eingehende Anfragen</div>
+      <div class="section-body">
+        <div class="field">
+          <label>Was muss eine Anfrage mindestens enthalten, damit Sie ein Angebot erstellen können?</label>
+          <div class="option-group">
+            <label class="option-label"><input type="checkbox" checked /> Auszugsadresse (Straße, Ort, Etage)</label>
+            <label class="option-label"><input type="checkbox" checked /> Einzugsadresse (Straße, Ort, Etage)</label>
+            <label class="option-label"><input type="checkbox" checked /> Umzugsdatum (mind. Monat)</label>
+            <label class="option-label"><input type="checkbox" checked /> Grobe Möbelliste oder Wohnungsgröße</label>
+            <label class="option-label"><input type="checkbox" /> Fotos der Räume / Möbel</label>
+            <label class="option-label"><input type="checkbox" /> Telefonische Rückfrage vorab</label>
+            <label class="option-label"><input type="checkbox" /> Besichtigungstermin vor Ort</label>
+            <label class="option-label"><input type="checkbox" /> Sonstiges:</label>
+          </div>
+          <input type="text" placeholder="Was noch?" style="margin-top:8px" />
+        </div>
+
+        <div class="field">
+          <label>Sind Fotos der Wohnung / Möbel hilfreich oder notwendig?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="fotos" value="nein" /> Nicht nötig</label>
+            <label class="option-label"><input type="radio" name="fotos" value="hilfreich" /> Hilfreich, aber nicht Pflicht</label>
+            <label class="option-label"><input type="radio" name="fotos" value="pflicht" /> Für ein genaues Angebot notwendig</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Wie schnell reagieren Sie auf eine Anfrage i. d. R.?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="reaktion" value="1" /> Gleicher Tag</label>
+            <label class="option-label"><input type="radio" name="reaktion" value="2" /> Innerhalb 24 h</label>
+            <label class="option-label"><input type="radio" name="reaktion" value="3" /> Innerhalb 48 h</label>
+            <label class="option-label"><input type="radio" name="reaktion" value="4" /> Innerhalb 1 Woche</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Über welchen Kanal möchten Sie Anfragen erhalten?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="checkbox" /> E-Mail</label>
+            <label class="option-label"><input type="checkbox" /> Telefon</label>
+            <label class="option-label"><input type="checkbox" /> WhatsApp</label>
+            <label class="option-label"><input type="checkbox" /> Kontaktformular auf Website</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Ihr Profil auf der Plattform -->
+    <div class="section">
+      <div class="section-header">6. Ihr Profil auf meinumzugsrechner.de</div>
+      <div class="section-body">
+        <div class="field">
+          <label>Kurzbeschreibung Ihres Unternehmens <span class="hint">(erscheint auf Ihrem Partnerprofil, max. 3 Sätze)</span></label>
+          <textarea placeholder="Was macht Sie als Umzugsunternehmen besonders? Erfahrung, Spezialgebiete, Besonderheiten …"></textarea>
+        </div>
+        <div class="field">
+          <label>Haben Sie ein Firmenlogo, das wir verwenden dürfen?</label>
+          <div class="option-group horizontal">
+            <label class="option-label"><input type="radio" name="logo" value="ja" /> Ja, sende ich auf Anfrage zu</label>
+            <label class="option-label"><input type="radio" name="logo" value="nein" /> Nein / noch nicht</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Google-Bewertung / Durchschnittsnote <span class="hint">(falls bekannt)</span></label>
+          <input type="text" placeholder="z. B. 4,7 / 5 Sterne (102 Bewertungen)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Sonstiges -->
+    <div class="section">
+      <div class="section-header">7. Sonstiges / Freitext</div>
+      <div class="section-body">
+        <div class="field">
+          <label>Gibt es etwas, das wir bei der Preiskalkulation unbedingt wissen sollten?</label>
+          <textarea placeholder="Besonderheiten Ihrer Region, Saisonalität, spezielle Leistungen, Preistreiber die oft vergessen werden, …" style="min-height:100px"></textarea>
+        </div>
+        <div class="field">
+          <label>Fragen oder Anmerkungen an uns</label>
+          <textarea placeholder="Fragen zur Plattform, zum Partnermodell, zu Abos, …" style="min-height:80px"></textarea>
+        </div>
+        <div class="field">
+          <label>Wie sind Sie auf meinumzugsrechner.de aufmerksam geworden?</label>
+          <input type="text" placeholder="z. B. Direktansprache, Empfehlung, Internet, …" />
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- Footer -->
+  <div class="form-footer">
+    <p>
+      Bitte senden Sie dieses ausgefüllte Formular an<br />
+      <strong>info@meinumzugsrechner.de</strong><br />
+      Betreff: <em>Partnerschaft [Ihr Stadtname]</em>
+    </p>
+    <div class="submit-hint">Per E-Mail zurücksenden →</div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
