@@ -611,33 +611,104 @@
 
   </div><!-- /content -->
 
-  <!-- Footer -->
+  <!-- Anleitung auffällig -->
+  <div style="background:#FFCC00;padding:28px 40px">
+    <p style="font-size:13px;font-weight:900;color:#0D2137;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">
+      So absenden — 3 Schritte:
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div style="background:rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px">
+        <div style="font-size:22px;font-weight:900;color:#0D2137;margin-bottom:4px">1.</div>
+        <div style="font-size:13px;font-weight:700;color:#0D2137;margin-bottom:4px">Formular ausfüllen</div>
+        <div style="font-size:12px;color:#3a5060">Alle Felder soweit wie möglich befüllen</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px">
+        <div style="font-size:22px;font-weight:900;color:#0D2137;margin-bottom:4px">2.</div>
+        <div style="font-size:13px;font-weight:700;color:#0D2137;margin-bottom:4px">Daten speichern</div>
+        <div style="font-size:12px;color:#3a5060">Button unten klicken → Datei wird heruntergeladen</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px">
+        <div style="font-size:22px;font-weight:900;color:#0D2137;margin-bottom:4px">3.</div>
+        <div style="font-size:13px;font-weight:700;color:#0D2137;margin-bottom:4px">E-Mail senden</div>
+        <div style="font-size:12px;color:#3a5060">Datei anhängen an <strong>info@meinumzugsrechner.de</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Buttons -->
   <div class="form-footer">
-    <p>
-      Ausgefüllt als PDF speichern und senden an<br />
-      <strong>info@meinumzugsrechner.de</strong><br />
-      Betreff: <em>Partnerschaft [Ihr Stadtname]</em>
+    <p style="color:rgba(255,255,255,0.5);font-size:12px">
+      Betreff: <em>Partnerschaft [Ihr Stadtname]</em><br />
+      An: <strong style="color:#FFCC00">info@meinumzugsrechner.de</strong>
     </p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button onclick="saveFilledHTML()"
+        style="background:#FFCC00;color:#0D2137;font-weight:700;font-size:13px;padding:12px 24px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap">
+        ↓ Daten speichern
+      </button>
       <button onclick="window.print()"
-        style="background:#FFCC00;color:#0D2137;font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap">
-        Als PDF speichern ↓
+        style="background:rgba(255,255,255,0.1);color:white;font-weight:600;font-size:13px;padding:12px 20px;border-radius:100px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;white-space:nowrap">
+        Als PDF drucken
       </button>
       <a href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
-        style="background:#0088CC;color:white;font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center">
+        style="background:#0088CC;color:white;font-weight:700;font-size:13px;padding:12px 20px;border-radius:100px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center">
         E-Mail öffnen →
       </a>
     </div>
   </div>
 
-  <div style="background:#1a2e3d;padding:14px 40px;font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7">
-    <strong style="color:rgba(255,255,255,0.6)">So geht's:</strong>
-    1. Formular ausfüllen &nbsp;·&nbsp;
-    2. Datei speichern: entweder als <strong style="color:rgba(255,255,255,0.6)">PDF</strong> (Druckdialog → „Als PDF speichern")
-    oder als <strong style="color:rgba(255,255,255,0.6)">HTML</strong> (Rechtsklick auf die Seite → „Speichern unter" → Webseite, vollständig) &nbsp;·&nbsp;
-    3. „E-Mail öffnen" klicken → Datei anhängen → Absenden
-  </div>
-
 </div><!-- /page -->
+
+<script>
+function saveFilledHTML() {
+  var clone = document.documentElement.cloneNode(true);
+
+  // Text inputs / email / tel / url
+  var orig = document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"]');
+  var copy = clone.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"]');
+  orig.forEach(function(el, i) { copy[i].setAttribute('value', el.value); });
+
+  // Textareas
+  var origTA = document.querySelectorAll('textarea');
+  var copyTA = clone.querySelectorAll('textarea');
+  origTA.forEach(function(el, i) { copyTA[i].textContent = el.value; });
+
+  // Selects
+  var origSel = document.querySelectorAll('select');
+  var copySel = clone.querySelectorAll('select');
+  origSel.forEach(function(el, i) {
+    Array.from(copySel[i].options).forEach(function(opt) { opt.removeAttribute('selected'); });
+    var sel = copySel[i].querySelector('option[value="' + el.value + '"]');
+    if (sel) sel.setAttribute('selected', 'selected');
+  });
+
+  // Radios
+  var origR = document.querySelectorAll('input[type="radio"]');
+  var copyR = clone.querySelectorAll('input[type="radio"]');
+  origR.forEach(function(el, i) {
+    if (el.checked) copyR[i].setAttribute('checked', 'checked');
+    else copyR[i].removeAttribute('checked');
+  });
+
+  // Checkboxes
+  var origC = document.querySelectorAll('input[type="checkbox"]');
+  var copyC = clone.querySelectorAll('input[type="checkbox"]');
+  origC.forEach(function(el, i) {
+    if (el.checked) copyC[i].setAttribute('checked', 'checked');
+    else copyC[i].removeAttribute('checked');
+  });
+
+  var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'partnerfragebogen-ausgefuellt.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 </body>
 </html>
