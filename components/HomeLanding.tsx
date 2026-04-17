@@ -144,7 +144,7 @@ export function HomeLanding() {
       <section className="py-16" style={{ backgroundColor: "#EBF6FD" }}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-[#0D2137]">Was wir für dich bieten</h2>
+            <h2 className="text-3xl font-bold text-[#0D2137]">Was wir dir bieten</h2>
             <p className="mt-3 text-[#5A7A8A]">Alles rund um deinen Umzug — an einem Ort.</p>
           </div>
 
@@ -287,11 +287,12 @@ export function HomeLanding() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="mb-10 text-center text-3xl font-bold text-[#0D2137]">Wie funktioniert es?</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { num: "1", title: "Umzug beschreiben", text: "Auszugs- und Einzugsort, Etagen, Möbel, Sonderwünsche — alles in wenigen Schritten." },
               { num: "2", title: "Kostenlos berechnen", text: "Kein Konto, keine Zahlung. Einfach auf \"Kostenlos berechnen\" klicken." },
               { num: "3", title: "Ergebnis sofort sehen", text: "Du siehst einen realistischen Preiskorridor plus nützliche Tipps für deinen Umzug." },
+              { num: "4", title: "Firmen anschreiben", text: "Nach der Berechnung kannst du direkt regionale Umzugsfirmen anklicken und mit deiner Auswertung kontaktieren — für ein verbindliches Angebot inkl. möglicher Rabatte." },
             ].map((s) => (
               <div key={s.num} className="flex flex-col items-center text-center">
                 <div
@@ -352,8 +353,8 @@ export function HomeLanding() {
             <ul className="space-y-3">
               {[
                 "Regionale Expertise — je Bundesland gefiltert",
-                "Verbindliche Angebote auf Basis Ihrer Kalkulation",
-                "Mögliche Partnerrabatte direkt anfragen",
+                "Auf Basis der Kalkulation Angebote einholen",
+                "Lukrative Rabatte direkt anfragen",
                 "Keine versteckten Weiterleitungen Ihrer Daten",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
@@ -396,14 +397,14 @@ export function HomeLanding() {
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
               Helfen Sie uns, Preiskorridore regional zu kalibrieren — und erhalten Sie
-              direkte Anfragen von Nutzern nach deren Berechnung. Eintragung kostenlos.
+              direkte Anfragen von Nutzern nach deren Berechnung.
             </p>
             <ul className="space-y-2 text-sm text-white/60">
               {["Direktanfragen nach Berechnung", "Regionale Sichtbarkeit in Ihrem Bundesland",
                 "Preismodelle auf Anfrage"].map((i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#FFCC00" }} />
-                  {i}
+                <li key={i} className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#FFCC00" }} />
+                  <span>{i}</span>
                 </li>
               ))}
             </ul>
@@ -425,12 +426,9 @@ export function HomeLanding() {
 
       <section className="bg-white py-16 border-t border-slate-100" id="faq" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h2 id="faq-heading" className="text-3xl font-bold text-[#0D2137] text-center mb-3">
+          <h2 id="faq-heading" className="text-3xl font-bold text-[#0D2137] text-center mb-8">
             Häufige Fragen zum Umzugskosten-Rechner
           </h2>
-          <p className="text-center text-sm text-[#5A7A8A] mb-10">
-            Kurz beantwortet — für Suchmaschinen und Lesbarkeit auf einen Blick.
-          </p>
           <FaqAccordion items={HOME_PAGE_FAQS} />
           <p className="mt-10 text-center">
             <Link href="/rechner/" className="inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105" style={{ backgroundColor: "#FFCC00" }}>

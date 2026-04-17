@@ -91,7 +91,7 @@ export function Hero() {
             <span className="block whitespace-nowrap">Deine Kosten.</span>
             <span className="block">Deine Daten.</span>
             <span className="block mt-1" style={{ color: "#FFCC00" }}>Kostenlos</span>
-            <span className="block" style={{ color: "#FFCC00" }}>berechnet.</span>
+            <span className="block" style={{ color: "#FFCC00" }}>berechnen.</span>
           </h1>
 
           {/* Subtext */}

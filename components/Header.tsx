@@ -46,7 +46,7 @@ export function Header() {
           ))}
           <Link
             href="/rechner/"
-            className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
+            className="hidden md:inline-flex touch-target items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity ml-2"
           >
             Jetzt berechnen
           </Link>
