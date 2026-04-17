@@ -212,7 +212,7 @@ export default function HomePage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
                   <BoxIcon />
                 </div>
-                <h3 className="text-2xl font-bold text-[#0D2137]">Produkttipps</h3>
+                <h3 className="text-2xl font-bold text-[#0D2137]">Materialtipps</h3>
                 <p className="mt-3 text-[#5A7A8A] leading-relaxed">
                   Das richtige Material macht den Unterschied. Kuratierte Empfehlungen für
                   Umzugskartons, Polstermaterial, Transportgurte und mehr — direkt bei Amazon verfügbar.
@@ -228,7 +228,7 @@ export default function HomePage() {
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
                   src="/produkttipps.png"
-                  alt="Produkttipps für deinen Umzug"
+                  alt="Materialtipps für deinen Umzug"
                   width={400}
                   height={300}
                   className="w-full rounded-2xl object-cover shadow-md"

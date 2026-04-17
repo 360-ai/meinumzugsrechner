@@ -11,6 +11,55 @@ import { PartnerBanner } from "./PartnerBanner";
 import { PdfExportButton } from "./PdfExportButton";
 import { TrustBadges } from "./TrustBadges";
 
+const BUNDESLAND_LABELS: Record<string, string> = {
+  BW: "Baden-Württemberg", BY: "Bayern", BE: "Berlin", BB: "Brandenburg",
+  HB: "Bremen", HH: "Hamburg", HE: "Hessen", MV: "Mecklenburg-Vorpommern",
+  NI: "Niedersachsen", NW: "Nordrhein-Westfalen", RP: "Rheinland-Pfalz",
+  SL: "Saarland", SN: "Sachsen", ST: "Sachsen-Anhalt", SH: "Schleswig-Holstein",
+  TH: "Thüringen",
+};
+
+function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl: string): string {
+  const email = partnerUrl.startsWith("mailto:")
+    ? partnerUrl.replace(/^mailto:/, "").split("?")[0]
+    : "info@360-ai.org";
+
+  const stadtA = form.buildingA.stadtOrt || "–";
+  const stadtB = form.buildingB.gleicheStadt ? stadtA : (form.buildingB.stadtOrt || "–");
+  const blA = BUNDESLAND_LABELS[form.buildingA.bundesland] ?? form.buildingA.bundesland;
+  const blB = form.buildingB.gleicheStadt ? blA : (BUNDESLAND_LABELS[form.buildingB.bundesland] ?? form.buildingB.bundesland);
+  const datum = form.distance.umzugsdatum || "–";
+  const km = form.distance.km > 0 ? `${form.distance.km}` : "–";
+  const volumen = result.meta.volumenM3Schaetzung.toFixed(0);
+  const helfer = result.meta.helfer;
+  const preisUnten = result.korridorUnten.toLocaleString("de-DE") + " €";
+  const preisOben = result.korridorOben.toLocaleString("de-DE") + " €";
+
+  const subject = `Umzugsanfrage: ${stadtA} → ${stadtB} am ${datum}`;
+  const body = [
+    "Guten Tag,",
+    "",
+    "ich habe meinen Umzug auf meinumzugsrechner.de vorkalkuliert und möchte ein Angebot anfragen.",
+    "",
+    "== Umzugsdetails ==",
+    `Von: ${stadtA}, ${blA}, Etage: ${form.buildingA.etage}`,
+    `Nach: ${stadtB}, ${blB}, Etage: ${form.buildingB.etage}`,
+    `Termin: ${datum}`,
+    `Distanz: ca. ${km} km`,
+    "",
+    "== Möbel & Volumen ==",
+    `Geschätztes Volumen: ca. ${volumen} m³`,
+    `Helfer (Richtwert): ${helfer}`,
+    "",
+    "== Preiskorridor (Eigenberechnung) ==",
+    `${preisUnten} – ${preisOben}`,
+    "",
+    "Ich freue mich auf Ihr Angebot.",
+  ].join("\n");
+
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export function ErgebnisClient() {
   const [form, setForm] = useState<UmzugFormData | null>(null);
   const [result, setResult] = useState<CalculateResult | null>(null);
@@ -84,6 +133,7 @@ export function ErgebnisClient() {
   }
 
   const partners = resolvePartners(form.buildingA.landkreisAgs, form.buildingA.bundesland);
+  const anfragMailto = buildMailtoLink(form, result, partners.primary.url);
 
   return (
     <div className="space-y-8">
@@ -119,6 +169,7 @@ export function ErgebnisClient() {
         primary={partners.primary}
         listings={partners.listings}
         affiliateNote={partners.note}
+        anfragMailto={anfragMailto}
       />
 
       {/* AdSense Slot 2 — nach Genehmigung aktivieren */}

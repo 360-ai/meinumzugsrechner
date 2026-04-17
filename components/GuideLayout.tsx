@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { PrintButton } from "@/components/PrintButton";
+import type { GuideSection } from "@/lib/generateGuidePdf";
 
 type Props = {
   title: string;
   category: "ratgeber" | "checklisten";
   categoryLabel: string;
   children: React.ReactNode;
+  sections?: GuideSection[];
 };
 
-export function GuideLayout({ title, category, categoryLabel, children }: Props) {
+export function GuideLayout({ title, category, categoryLabel, children, sections }: Props) {
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6">
       {/* Back link */}
@@ -32,7 +34,7 @@ export function GuideLayout({ title, category, categoryLabel, children }: Props)
           </p>
           <h1 className="text-xl font-bold text-white sm:text-2xl">{title}</h1>
         </div>
-        <PrintButton />
+        <PrintButton title={title} category={category} categoryLabel={categoryLabel} sections={sections} />
       </div>
 
       {/* Print header (only visible when printing) */}
@@ -44,7 +46,7 @@ export function GuideLayout({ title, category, categoryLabel, children }: Props)
       </div>
 
       {/* Content */}
-      <div className="prose prose-slate max-w-none">{children}</div>
+      <div className="space-y-6">{children}</div>
 
       {/* Footer note */}
       <div className="no-print mt-12 rounded-2xl border border-slate-100 bg-[#EBF6FD] p-6 text-sm text-[#5A7A8A]">

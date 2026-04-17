@@ -45,10 +45,16 @@ export function Header() {
             Materialtipps
           </Link>
           <Link
-            href="/rechner"
-            className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity ml-2"
+            href="/partner"
+            className="font-medium text-[var(--text-muted)] hover:text-primary transition-colors hidden md:block px-3 py-1.5"
           >
-            Jetzt berechnen
+            Partner
+          </Link>
+          <Link
+            href="/rechner"
+            className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
+          >
+            <span className="hidden sm:inline">Jetzt </span>berechnen
           </Link>
         </nav>
       </div>

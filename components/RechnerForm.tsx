@@ -6,9 +6,68 @@ import type { BundeslandCode, UmzugFormData } from "@/lib/types";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import { MoebelZaehler } from "./MoebelZaehler";
 import { Stepper } from "./Stepper";
+
+/* ── Category Icons ───────────────────────────────────────────── */
+const BedIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <path d="M2 20v-8" /><path d="M22 20v-8" />
+    <path d="M2 12a10 10 0 0 1 20 0" />
+    <path d="M7 12V9h10v3" />
+  </svg>
+);
+const SofaIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+    <path d="M2 11a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5H2z" />
+    <path d="M4 18v2" /><path d="M20 18v2" />
+    <path d="M12 11v5" />
+  </svg>
+);
+const KitchenIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <rect x="2" y="3" width="20" height="14" rx="2" />
+    <path d="M8 3v14" />
+    <path d="M2 10h20" />
+    <path d="M2 19h20" /><path d="M2 21h20" />
+  </svg>
+);
+const DeskIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <rect x="2" y="7" width="20" height="3" rx="1" />
+    <path d="M5 10v7" /><path d="M19 10v7" />
+    <path d="M5 14h14" />
+    <path d="M8 17h8" />
+  </svg>
+);
+const WarehouseIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <path d="M2 20V10L12 4l10 6v10H2z" />
+    <rect x="9" y="14" width="6" height="6" />
+  </svg>
+);
+const AlertIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+);
+const PackageIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+    <line x1="12" y1="22.08" x2="12" y2="12" />
+  </svg>
+);
+const ListIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+    <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" />
+    <line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
+  </svg>
+);
 
 const BUNDESLAENDER: { value: BundeslandCode; label: string }[] = [
   { value: "BW", label: "Baden-Württemberg" },
@@ -315,6 +374,20 @@ export function RechnerForm() {
           <h1 className="text-xl font-semibold text-primary">Möbel & Inventar</h1>
           <CounterGroup
             title="Schlafzimmer"
+            icon={<BedIcon />}
+            labelMap={{
+              bett_einzel: "Einzelbett",
+              bett_doppel: "Doppelbett",
+              boxspringbett: "Boxspringbett",
+              kleiderschrank_klein: "Kleiderschrank (klein)",
+              kleiderschrank_mittel: "Kleiderschrank (mittel)",
+              kleiderschrank_gross: "Kleiderschrank (groß)",
+              kleiderschrank_begehbar: "Begehbarer Kleiderschrank",
+              kommode: "Kommode",
+              nachttisch: "Nachttisch",
+              spiegel_gross: "Spiegel (groß)",
+              matratze_extra: "Extra-Matratze",
+            }}
             entries={Object.entries(form.inventory.schlafzimmer)}
             onChange={(k, v) =>
               setForm((f) => ({
@@ -328,6 +401,19 @@ export function RechnerForm() {
           />
           <CounterGroup
             title="Wohnzimmer"
+            icon={<SofaIcon />}
+            labelMap={{
+              sofa_2sitzer: "Sofa (2-Sitzer)",
+              sofa_3sitzer: "Sofa (3-Sitzer)",
+              sofa_l_form: "Sofa (L-Form)",
+              sessel: "Sessel",
+              couchtisch: "Couchtisch",
+              tv_moebel: "TV-Möbel",
+              regal_klein: "Regal (klein)",
+              regal_gross: "Regal (groß)",
+              vitrine: "Vitrine",
+              teppich_gross: "Teppich (groß)",
+            }}
             entries={Object.entries(form.inventory.wohnzimmer)}
             onChange={(k, v) =>
               setForm((f) => ({
@@ -340,7 +426,10 @@ export function RechnerForm() {
             }
           />
           <div className="space-y-3 rounded-xl border border-slate-200 p-4">
-            <h2 className="font-semibold text-primary">Küche</h2>
+            <h2 className="flex items-center gap-2 font-semibold text-primary">
+              <span style={{ color: "#0088CC" }}><KitchenIcon /></span>
+              Küche
+            </h2>
             <RadioRow
               label="Einbauküche vorhanden?"
               value={form.inventory.kueche.kueche_vorhanden}
@@ -473,6 +562,14 @@ export function RechnerForm() {
           </div>
           <CounterGroup
             title="Arbeitszimmer / Sonstiges"
+            icon={<DeskIcon />}
+            labelMap={{
+              schreibtisch_normal: "Schreibtisch",
+              schreibtisch_eck: "Eckschreibtisch",
+              buerostuhl: "Bürostuhl",
+              buecherregal: "Bücherregal",
+              drucker: "Drucker",
+            }}
             entries={Object.entries(form.inventory.buero)}
             onChange={(k, v) =>
               setForm((f) => ({
@@ -484,10 +581,20 @@ export function RechnerForm() {
               }))
             }
           />
-          <div className="space-y-2">
-            <h2 className="font-semibold text-primary">Keller / Garage</h2>
+          <div className="space-y-3 rounded-xl border border-slate-200 p-4">
+            <h2 className="flex items-center gap-2 font-semibold text-primary">
+              <span style={{ color: "#0088CC" }}><WarehouseIcon /></span>
+              Keller / Garage
+            </h2>
             <CounterGroup
               title=""
+              labelMap={{
+                fahrrad: "Fahrrad",
+                ebike: "E-Bike",
+                motorrad: "Motorrad",
+                werkzeugschrank: "Werkzeugschrank",
+                kellerregal: "Kellerregal",
+              }}
               entries={Object.entries(form.inventory.keller)}
               onChange={(k, v) =>
                 setForm((f) => ({
@@ -519,7 +626,10 @@ export function RechnerForm() {
             </select>
           </div>
           <div className="space-y-3 rounded-xl border border-slate-200 p-4">
-            <h2 className="font-semibold text-primary">Sperrgut & Besonderes</h2>
+            <h2 className="flex items-center gap-2 font-semibold text-primary">
+              <span style={{ color: "#0088CC" }}><AlertIcon /></span>
+              Sperrgut &amp; Besonderes
+            </h2>
             <MoebelZaehler
               label="Klavier"
               value={form.inventory.sperrgut.klavier}
@@ -607,6 +717,13 @@ export function RechnerForm() {
           </div>
           <CounterGroup
             title="Umzugskartons"
+            icon={<PackageIcon />}
+            labelMap={{
+              karton_standard: "Standard-Karton",
+              karton_buch: "Bücherkarton",
+              haengekarton: "Hängekarton",
+              karton_spezial: "Spezialkarton",
+            }}
             entries={Object.entries(form.inventory.kartons)}
             onChange={(k, v) =>
               setForm((f) => ({
@@ -623,7 +740,10 @@ export function RechnerForm() {
 
       {step === 5 && (
         <section className="space-y-4">
-          <h1 className="text-xl font-semibold text-primary">Zusatzleistungen</h1>
+          <h1 className="flex items-center gap-2 text-xl font-semibold text-primary">
+            <span style={{ color: "#0088CC" }}><ListIcon /></span>
+            Zusatzleistungen
+          </h1>
           <CheckboxList form={form} setForm={setForm} />
         </section>
       )}
@@ -842,19 +962,28 @@ function CounterGroup({
   title,
   entries,
   onChange,
+  icon,
+  labelMap,
 }: {
   title: string;
   entries: [string, number][];
   onChange: (key: string, val: number) => void;
+  icon?: ReactNode;
+  labelMap?: Record<string, string>;
 }) {
   return (
-    <div className="space-y-2">
-      {title ? <h2 className="font-semibold text-primary">{title}</h2> : null}
+    <div className={title ? "space-y-3 rounded-xl border border-slate-200 p-4" : "space-y-2"}>
+      {title ? (
+        <h2 className="flex items-center gap-2 font-semibold text-primary">
+          {icon && <span style={{ color: "#0088CC" }}>{icon}</span>}
+          {title}
+        </h2>
+      ) : null}
       <div className="grid gap-2">
         {entries.map(([k, v]) => (
           <MoebelZaehler
             key={k}
-            label={k.replace(/_/g, " ")}
+            label={labelMap?.[k] ?? k.replace(/_/g, " ")}
             value={v}
             onChange={(n) => onChange(k, n)}
           />

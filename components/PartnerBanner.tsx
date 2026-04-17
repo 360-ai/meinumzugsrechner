@@ -4,9 +4,10 @@ type Props = {
   primary: PartnerEntry;
   listings: PartnerEntry[];
   affiliateNote: string;
+  anfragMailto?: string;
 };
 
-export function PartnerBanner({ primary, listings, affiliateNote }: Props) {
+export function PartnerBanner({ primary, listings, affiliateNote, anfragMailto }: Props) {
   return (
     <section className="no-print space-y-6 rounded-2xl border border-amber-200 bg-amber-50 p-6">
       <div>
@@ -25,14 +26,24 @@ export function PartnerBanner({ primary, listings, affiliateNote }: Props) {
             {primary.discountLabel}
           </p>
         )}
-        <a
-          href={primary.url}
-          target="_blank"
-          rel="noopener noreferrer sponsored"
-          className="mt-4 inline-flex touch-target items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-        >
-          Zum Angebot
-        </a>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <a
+            href={primary.url}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="inline-flex touch-target items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+          >
+            Zum Angebot
+          </a>
+          {anfragMailto && (
+            <a
+              href={anfragMailto}
+              className="inline-flex touch-target items-center justify-center rounded-md border-2 border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-orange-50 transition-colors"
+            >
+              Anfrage senden ✉
+            </a>
+          )}
+        </div>
       </div>
 
       {listings.length > 0 && (
