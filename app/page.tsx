@@ -1,28 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Hero } from "@/components/Hero";
 
 /* ── SVG Icons ────────────────────────────────────────────────── */
-const ShieldIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8" style={{ color: "#0088CC" }}>
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    <polyline points="9 12 11 14 15 10" />
-  </svg>
-);
-
-const BoltIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8" style={{ color: "#0088CC" }}>
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-
-const MapPinIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8" style={{ color: "#0088CC" }}>
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-
 const CalcIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
     <rect x="4" y="2" width="16" height="20" rx="2" />
@@ -56,244 +35,153 @@ const BoxIcon = () => (
   </svg>
 );
 
-const TruckIcon = () => (
+const ChecklistIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+    <path d="M9 11l3 3L22 4" />
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+  </svg>
+);
+
+const ShieldIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" style={{ color: "#0088CC" }}>
-    <rect x="1" y="3" width="15" height="13" rx="1" />
-    <path d="M16 8h4l3 3v5h-7V8z" />
-    <circle cx="5.5" cy="18.5" r="2.5" />
-    <circle cx="18.5" cy="18.5" r="2.5" />
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <polyline points="9 12 11 14 15 10" />
   </svg>
 );
 
-const NetworkIcon = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} style={{ color: "#0088CC" }}>
-    <circle cx="12" cy="5" r="2" />
-    <circle cx="5" cy="19" r="2" />
-    <circle cx="19" cy="19" r="2" />
-    <path d="M12 7v4M12 11l-5 6M12 11l5 6" />
-  </svg>
-);
-
-const PinIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0" style={{ color: "#5A7A8A" }}>
+const MapPinIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" style={{ color: "#0088CC" }}>
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
     <circle cx="12" cy="10" r="3" />
   </svg>
 );
 
-const StarIcon = () => (
-  <svg viewBox="0 0 24 24" fill="#FFCC00" stroke="#FFCC00" strokeWidth="1" className="w-4 h-4">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+const MailIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" style={{ color: "#0088CC" }}>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
   </svg>
 );
-
 
 /* ── Page ─────────────────────────────────────────────────────── */
 export default function HomePage() {
   return (
     <div>
-      {/* Hero — full width */}
-      <Hero />
 
-      {/* ── Section 1: Feature Cards — weiß ────────────────── */}
+      {/* ── Hero: Bald da ───────────────────────────────────── */}
+      <section className="py-20 text-center" style={{ backgroundColor: "#EBF6FD" }}>
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+
+          {/* Logo */}
+          <div className="mb-6 flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="meinumzugsrechner Maskottchen"
+              width={96}
+              height={96}
+              className="object-contain animate-bounce"
+              style={{ animationDuration: "3s" }}
+            />
+          </div>
+
+          {/* Brand name */}
+          <p className="text-2xl font-bold leading-none mb-2">
+            <span style={{ color: "#0088CC" }}>mein</span>
+            <span style={{ color: "#FF7700" }}>umzugsrechner</span>
+            <span style={{ color: "#0088CC" }}>.de</span>
+          </p>
+          <p className="text-sm text-[#5A7A8A] mb-8">Dein Umzug. Klar kalkuliert.</p>
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl font-black text-[#0D2137] leading-tight mb-6">
+            Wir sind bald<br />für dich da
+          </h1>
+
+          {/* Subtext */}
+          <p className="text-[#5A7A8A] leading-relaxed mb-8 max-w-lg mx-auto">
+            Hier findest du bald deinen persönlichen Umzugskostenrechner — mit realistischem
+            Preiskorridor, ohne Datenweitergabe an Dritte.
+          </p>
+
+          {/* Badge */}
+          <span className="inline-block rounded-full border-2 border-[#0088CC] px-5 py-1.5 text-sm font-bold text-[#0088CC]">
+            In Kürze verfügbar
+          </span>
+        </div>
+      </section>
+
+      {/* ── Schon jetzt verfügbar ───────────────────────────── */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-[#0D2137]">Schon jetzt für dich verfügbar</h2>
+            <p className="mt-3 text-[#5A7A8A]">Starte jetzt — kostenlos, ohne Anmeldung.</p>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              {
-                icon: <ShieldIcon />,
-                title: "Kein Lead-Verkauf",
-                text: "Deine Möbelliste und Standorte werden niemals an Umzugsfirmen weitergegeben.",
-              },
-              {
-                icon: <BoltIcon />,
-                title: "Sofortiges Ergebnis",
-                text: "Nach dem Ausfüllen siehst du den Preiskorridor direkt — kein Warten, kein Registrieren.",
-              },
-              {
-                icon: <MapPinIcon />,
-                title: "Regional genau",
-                text: "Preisfaktoren nach Bundesland und Landkreis — so realistisch wie möglich.",
-              },
-            ].map((f) => (
-              <div
-                key={f.title}
-                className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm border-l-4"
-                style={{ borderLeftColor: "#0088CC" }}
+            {/* Ratgeber */}
+            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col gap-3">
+              <BookIcon />
+              <h3 className="font-bold text-[#0D2137]">Ratgeber</h3>
+              <p className="text-sm text-[#5A7A8A] flex-1">
+                3 Experten-Ratgeber zu Ergonomie, Verpacken &amp; Umzugslogistik.
+              </p>
+              <Link
+                href="/ratgeber"
+                className="mt-auto inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#FF7700" }}
               >
-                {f.icon}
-                <h2 className="mt-3 font-bold text-[#0D2137]">{f.title}</h2>
-                <p className="mt-2 text-sm text-[#5A7A8A]">{f.text}</p>
-              </div>
-            ))}
+                Ratgeber lesen →
+              </Link>
+            </div>
+
+            {/* Checklisten */}
+            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col gap-3">
+              <ChecklistIcon />
+              <h3 className="font-bold text-[#0D2137]">Checklisten</h3>
+              <p className="text-sm text-[#5A7A8A] flex-1">
+                Druckfertige Checklisten für jeden Schritt deines Umzugs.
+              </p>
+              <Link
+                href="/checklisten"
+                className="mt-auto inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#0088CC" }}
+              >
+                Checklisten ansehen →
+              </Link>
+            </div>
+
+            {/* Materialtipps */}
+            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col gap-3">
+              <BoxIcon />
+              <h3 className="font-bold text-[#0D2137]">Materialtipps</h3>
+              <p className="text-sm text-[#5A7A8A] flex-1">
+                Kuratierte Empfehlungen für Kartons, Polstermaterial &amp; Transportgurte.
+              </p>
+              <Link
+                href="/materialtipps"
+                className="mt-auto inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold text-[#0D2137] transition-transform hover:scale-105"
+                style={{ backgroundColor: "#FFCC00" }}
+              >
+                Materialtipps ansehen →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Section 2: 3 Feature-Bereiche mit Bild-Platzhaltern — hellblau ── */}
-      <section className="py-16" style={{ backgroundColor: "#EBF6FD" }}>
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-[#0D2137]">Was wir für dich bieten</h2>
-            <p className="mt-3 text-[#5A7A8A]">Alles rund um deinen Umzug — an einem Ort.</p>
-          </div>
-
-          <div className="space-y-16">
-
-            {/* Item 1: Berechnung — Text links, Bild rechts */}
-            <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
-              <div className="flex-1 text-center md:text-left">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
-                  <CalcIcon />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0D2137]">Kostenlose Berechnung</h3>
-                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-                  In unter 10 Minuten erhältst du einen realistischen Preiskorridor für deinen Umzug —
-                  ohne Anmeldung, ohne Zahlung, ohne dass deine Daten an Umzugsfirmen weitergegeben werden.
-                </p>
-                <Link
-                  href="/rechner"
-                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
-                  style={{ backgroundColor: "#FFCC00" }}
-                >
-                  Jetzt berechnen →
-                </Link>
-              </div>
-              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <Image
-                  src="/berechnung.png"
-                  alt="Kostenlose Umzugskostenberechnung"
-                  width={400}
-                  height={300}
-                  className="w-full rounded-2xl object-cover shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="border-t border-[#0088CC]/15" />
-
-            {/* Item 2: Ratgeber & Checklisten — Bild links, Text rechts */}
-            <div className="flex flex-col items-center gap-8 md:flex-row-reverse md:gap-12">
-              <div className="flex-1 text-center md:text-left">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#FFF3E8", border: "2px solid #FF770022" }}>
-                  <BookIcon />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0D2137]">Ratgeber &amp; Checklisten</h3>
-                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-                  Experten-Ratgeber zu Ergonomie, Verpacken und Umzugslogistik. Dazu druckfertige
-                  Checklisten für jeden Schritt deines Umzugs — kostenlos und ohne Anmeldung.
-                </p>
-                <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-start justify-center">
-                  <Link
-                    href="/ratgeber"
-                    className="inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-white transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: "#FF7700" }}
-                  >
-                    Ratgeber →
-                  </Link>
-                  <Link
-                    href="/checklisten"
-                    className="inline-flex items-center justify-center rounded-full border-2 px-6 py-2.5 font-bold transition-colors hover:bg-orange-50"
-                    style={{ borderColor: "#FF7700", color: "#FF7700" }}
-                  >
-                    Checklisten →
-                  </Link>
-                </div>
-              </div>
-              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <Image
-                  src="/checklisten.png"
-                  alt="Ratgeber und Checklisten für deinen Umzug"
-                  width={400}
-                  height={300}
-                  className="w-full rounded-2xl object-cover shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="border-t border-[#0088CC]/15" />
-
-            {/* Item 3: Produkttipps — Text links, Bild rechts */}
-            <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
-              <div className="flex-1 text-center md:text-left">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
-                  <BoxIcon />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0D2137]">Materialtipps</h3>
-                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-                  Das richtige Material macht den Unterschied. Kuratierte Empfehlungen für
-                  Umzugskartons, Polstermaterial, Transportgurte und mehr — direkt bei Amazon verfügbar.
-                </p>
-                <Link
-                  href="/materialtipps"
-                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
-                  style={{ backgroundColor: "#FFCC00" }}
-                >
-                  Materialtipps ansehen →
-                </Link>
-              </div>
-              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <Image
-                  src="/produkttipps.png"
-                  alt="Materialtipps für deinen Umzug"
-                  width={400}
-                  height={300}
-                  className="w-full rounded-2xl object-cover shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="border-t border-[#0088CC]/15" />
-
-            {/* Item 4: Partner-Netzwerk — Bild links, Text rechts */}
-            <div className="flex flex-col items-center gap-8 md:flex-row-reverse md:gap-12">
-              <div className="flex-1 text-center md:text-left">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
-                  <NetworkIcon />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0D2137]">Partner-Netzwerk</h3>
-                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-                  Unser wachsendes Netzwerk an Umzugsunternehmen hilft uns, Preiskorridore
-                  realistisch zu kalibrieren — und kann nach der Berechnung direkt
-                  für ein verbindliches Angebot angefragt werden.
-                </p>
-                <Link
-                  href="/partner"
-                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
-                  style={{ backgroundColor: "#FFCC00" }}
-                >
-                  Partner ansehen →
-                </Link>
-              </div>
-              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
-                <Image
-                  src="/logistik-partner.png"
-                  alt="Partner Umzugsunternehmen Netzwerk"
-                  width={400}
-                  height={300}
-                  className="w-full rounded-2xl object-cover shadow-md"
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── Section 3: Wie funktioniert es? — weiß ─────────── */}
-      <section className="bg-white py-16">
+      {/* ── Wie funktioniert es? ─────────────────────────────── */}
+      <section className="bg-white py-16 border-t border-slate-100">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="mb-10 text-center text-3xl font-bold text-[#0D2137]">
-            Wie funktioniert es?
+            So wird es funktionieren
           </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { num: "1", title: "Umzug beschreiben", text: "Auszugs- und Einzugsort, Etagen, Möbel, Sonderwünsche — alles in wenigen Schritten." },
-              { num: "2", title: "Kostenlos berechnen", text: "Kein Konto, keine Zahlung. Einfach auf \"Kostenlos berechnen\" klicken." },
-              { num: "3", title: "Ergebnis sofort sehen", text: "Du siehst einen realistischen Preiskorridor plus nützliche Tipps für deinen Umzug." },
+              { num: "1", title: "Umzug beschreiben", text: "Auszugsort, Etagen, Möbel und Sonderwünsche — alles in wenigen Schritten." },
+              { num: "2", title: "Kostenlos berechnen", text: "Kein Konto, keine Zahlung. Einfach auf \"Jetzt berechnen\" klicken." },
+              { num: "3", title: "Ergebnis sofort sehen", text: "Realistischer Preiskorridor — direkt, ohne Warten." },
+              { num: "4", title: "Firma anschreiben", text: "Finales Angebot einholen inkl. möglichem Partnerrabatt." },
             ].map((s) => (
               <div key={s.num} className="flex flex-col items-center text-center">
                 <div
@@ -319,74 +207,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Section 4: Partner — hellblau ───────────────────── */}
-      <section className="py-16" style={{ backgroundColor: "#EBF6FD" }}>
+      {/* ── Was dich erwartet ───────────────────────────────── */}
+      <section className="py-12" style={{ backgroundColor: "#EBF6FD" }}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="mb-8 text-center">
-            <h2 className="text-3xl font-bold text-[#0D2137]">
-              Partner Umzugsunternehmen
-            </h2>
-            <p className="mt-3 text-[#5A7A8A]">
-              Regionale Unternehmen für deinen Umzug — direkt anschreibbar nach der Berechnung.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 items-center">
-            {/* Linke Seite: Stats + Text + CTA */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-14 w-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
-                  <TruckIcon />
-                </div>
-                <div>
-                  <p className="text-3xl font-black text-[#0D2137]">16</p>
-                  <p className="text-sm text-[#5A7A8A]">Bundesländer abgedeckt</p>
-                </div>
+          <div className="grid gap-4 sm:grid-cols-3 text-center">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: "#0088CC1A" }}>
+                <CalcIcon />
               </div>
-              <p className="text-[#5A7A8A] text-sm leading-relaxed">
-                Unternehmen in unserem Netzwerk helfen bei der Preisberechnung und
-                können nach der Kalkulation direkt angefragt werden —
-                ohne Datenweitergabe an Dritte.
-              </p>
-              <Link
-                href="/partner"
-                className="mt-5 inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
-                style={{ backgroundColor: "#FFCC00" }}
-              >
-                Alle Partner ansehen →
-              </Link>
+              <p className="font-bold text-[#0D2137]">Preiskorridor in 10 Min.</p>
+              <p className="text-xs text-[#5A7A8A]">Ohne Anmeldung, ohne Datenweitergabe</p>
             </div>
-
-            {/* Rechte Seite: Feature-Bullets */}
-            <ul className="space-y-3">
-              {[
-                "Regionale Expertise — je Bundesland gefiltert",
-                "Verbindliche Angebote auf Basis Ihrer Kalkulation",
-                "Mögliche Partnerrabatte direkt anfragen",
-                "Keine versteckten Weiterleitungen Ihrer Daten",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#0088CC" }} />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-[#5A7A8A]">
-              Umzugsunternehmen?{" "}
-              <a
-                href="mailto:info@360-ai.org?subject=Partnerschaft%20meinumzugsrechner.de"
-                className="font-bold hover:underline"
-                style={{ color: "#0088CC" }}
-              >
-                Jetzt als Partner eintragen →
-              </a>
-            </p>
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: "#0088CC1A" }}>
+                <ShieldIcon />
+              </div>
+              <p className="font-bold text-[#0D2137]">Keine Datenweitergabe</p>
+              <p className="text-xs text-[#5A7A8A]">Deine Daten bleiben bei dir</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: "#0088CC1A" }}>
+                <MapPinIcon />
+              </div>
+              <p className="font-bold text-[#0D2137]">Regional kalibriert</p>
+              <p className="text-xs text-[#5A7A8A]">Nach Bundesland &amp; Landkreis</p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ── Partner-Hinweis ─────────────────────────────────── */}
+      <section className="py-10 border-t border-slate-100 bg-white">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: "#EBF6FD" }}>
+              <MailIcon />
+            </div>
+            <div>
+              <p className="font-bold text-[#0D2137] text-sm">Partner-Netzwerk wächst</p>
+              <p className="text-xs text-[#5A7A8A]">16 Bundesländer · Direkte Anfragen nach Berechnung</p>
+            </div>
+          </div>
+          <a
+            href="mailto:info@360-ai.org?subject=Partnerschaft%20meinumzugsrechner.de"
+            className="inline-flex items-center justify-center rounded-full border-2 px-5 py-2 text-sm font-bold transition-colors hover:bg-[#EBF6FD]"
+            style={{ borderColor: "#0088CC", color: "#0088CC" }}
+          >
+            Als Partner eintragen →
+          </a>
+        </div>
+      </section>
+
     </div>
   );
 }

@@ -138,7 +138,9 @@ export function Hero() {
 
           {/* Circular badge */}
           <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 z-20">
-            <CircularBadge />
+            <Link href="/rechner">
+              <CircularBadge />
+            </Link>
           </div>
         </div>
       </div>
