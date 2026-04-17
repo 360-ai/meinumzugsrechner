@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { PrintButton } from "@/components/PrintButton";
+import { articleAndBreadcrumbSchema } from "@/lib/schema";
 import type { GuideSection } from "@/lib/generateGuidePdf";
 
 type Props = {
@@ -8,15 +10,33 @@ type Props = {
   categoryLabel: string;
   children: React.ReactNode;
   sections?: GuideSection[];
+  /** Pfad mit trailing slash, z. B. /ratgeber/ergonomie/ — für Article- und Breadcrumb-Schema */
+  articleSeo?: { path: string; description: string };
 };
 
-export function GuideLayout({ title, category, categoryLabel, children, sections }: Props) {
+export function GuideLayout({ title, category, categoryLabel, children, sections, articleSeo }: Props) {
+  const ld =
+    articleSeo &&
+    articleAndBreadcrumbSchema({
+      path: articleSeo.path,
+      headline: title,
+      description: articleSeo.description,
+      categoryPath: `/${category}/`,
+      categoryName: categoryLabel,
+    });
+
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6">
+      {ld ? (
+        <JsonLd
+          id={`ld-article-${articleSeo.path.replace(/^\//, "").replace(/\//g, "-").replace(/-$/, "")}`}
+          data={ld}
+        />
+      ) : null}
       {/* Back link */}
       <div className="no-print mb-6">
         <Link
-          href={`/${category}`}
+          href={`/${category}/`}
           className="text-sm font-medium text-[#0088CC] hover:underline"
         >
           ← Zurück zu {categoryLabel}
@@ -52,10 +72,7 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
       <div className="no-print mt-12 rounded-2xl border border-slate-100 bg-[#EBF6FD] p-6 text-sm text-[#5A7A8A]">
         <p>
           <strong className="text-[#0D2137]">meinumzugsrechner.de</strong> —
-          Kostenloser Umzugskostenrechner ohne Datenweitergabe.{" "}
-          <Link href="/rechner" className="text-[#0088CC] hover:underline font-medium">
-            Jetzt Kosten berechnen →
-          </Link>
+          Kostenloser Umzugskostenrechner ohne Datenweitergabe. Bald verfügbar.
         </p>
       </div>
     </div>

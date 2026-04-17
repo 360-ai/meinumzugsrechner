@@ -1,3 +1,8 @@
+import { JsonLd } from "@/components/JsonLd";
+import { webPageOnlySchema } from "@/lib/schema";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
+
 const BoxIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -18,9 +23,19 @@ const WrenchIcon = () => (
   </svg>
 );
 
-export const metadata = {
-  title: "Materialtipps für deinen Umzug | meinumzugsrechner.de",
-  description: "Empfohlenes Umzugsmaterial bei Amazon — von Kartons über Polstermaterial bis zum Transportwerkzeug.",
+const MT_TITLE = "Materialtipps für deinen Umzug | meinumzugsrechner.de";
+const MT_DESC =
+  "Empfohlenes Umzugsmaterial bei Amazon — von Kartons über Polstermaterial bis zum Transportwerkzeug.";
+
+export const metadata: Metadata = {
+  title: MT_TITLE,
+  description: MT_DESC,
+  ...pageCanonical("/materialtipps/"),
+  openGraph: {
+    title: "Materialtipps für deinen Umzug",
+    description: MT_DESC,
+    url: "/materialtipps/",
+  },
 };
 
 const categories = [
@@ -85,6 +100,15 @@ const categories = [
 
 export default function MaterialtippsPage() {
   return (
+    <>
+      <JsonLd
+        id="ld-materialtipps"
+        data={webPageOnlySchema({
+          path: "/materialtipps/",
+          title: MT_TITLE,
+          description: MT_DESC,
+        })}
+      />
     <div className="mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-6">
       {/* Header */}
       <div className="mb-8">
@@ -158,17 +182,11 @@ export default function MaterialtippsPage() {
         <p className="text-lg font-bold text-[#0D2137] mb-2">
           Noch nicht sicher, was Ihr Umzug kostet?
         </p>
-        <p className="text-sm text-[#5A7A8A] mb-5">
-          Berechnen Sie jetzt Ihren persönlichen Preiskorridor — kostenlos und ohne Datenweitergabe.
+        <p className="text-sm text-[#5A7A8A]">
+          Der Umzugskostenrechner kommt bald — kostenlos und ohne Datenweitergabe.
         </p>
-        <a
-          href="/rechner"
-          className="inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
-          style={{ backgroundColor: "#FFCC00" }}
-        >
-          Kostenlos berechnen →
-        </a>
       </div>
     </div>
+    </>
   );
 }
