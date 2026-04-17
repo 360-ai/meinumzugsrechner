@@ -5,11 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const NAV_LINKS = [
-  { href: "/rechner", label: "Rechner" },
   { href: "/ratgeber", label: "Ratgeber" },
   { href: "/checklisten", label: "Checklisten" },
   { href: "/materialtipps", label: "Materialtipps" },
-  { href: "/partner", label: "Partner" },
 ];
 
 export function Header() {
@@ -43,12 +41,6 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/rechner"
-            className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
-          >
-            <span className="hidden sm:inline">Jetzt </span>berechnen
-          </Link>
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}

@@ -179,7 +179,7 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { num: "1", title: "Umzug beschreiben", text: "Auszugsort, Etagen, Möbel und Sonderwünsche — alles in wenigen Schritten." },
-              { num: "2", title: "Kostenlos berechnen", text: "Kein Konto, keine Zahlung. Einfach auf \"Jetzt berechnen\" klicken." },
+              { num: "2", title: "Kostenlos berechnen", text: "Kein Konto, keine Zahlung. Sofortiges Ergebnis." },
               { num: "3", title: "Ergebnis sofort sehen", text: "Realistischer Preiskorridor — direkt, ohne Warten." },
               { num: "4", title: "Firma anschreiben", text: "Finales Angebot einholen inkl. möglichem Partnerrabatt." },
             ].map((s) => (
@@ -194,15 +194,6 @@ export default function HomePage() {
                 <p className="mt-2 text-sm text-[#5A7A8A]">{s.text}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link
-              href="/rechner"
-              className="touch-target inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
-              style={{ backgroundColor: "#FFCC00" }}
-            >
-              Jetzt starten →
-            </Link>
           </div>
         </div>
       </section>
