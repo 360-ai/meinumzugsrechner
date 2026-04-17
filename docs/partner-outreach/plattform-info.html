@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>So funktioniert meinumzugsrechner.de — Info für Umzugsunternehmen</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2e3d;
+    background: #f4f7fa;
+    padding: 32px 16px 64px;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: #0D2137;
+    padding: 36px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(0,136,204,0.12);
+  }
+  .header-badge {
+    display: inline-block;
+    background: #FF7700;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: #FFCC00; }
+  .header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  /* Content */
+  .content { padding: 36px 40px; }
+
+  /* Section */
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #0088CC;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #EBF6FD;
+  }
+
+  /* Benefit cards */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .benefit-card {
+    border: 1.5px solid #e2eaf0;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .benefit-card .num {
+    font-size: 22px;
+    font-weight: 900;
+    color: #FFCC00;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .benefit-card .num.orange { color: #FF7700; }
+  .benefit-card strong {
+    display: block;
+    font-size: 13px;
+    color: #0D2137;
+    margin-bottom: 4px;
+  }
+  .benefit-card p { font-size: 12px; color: #5a7a8a; line-height: 1.6; }
+
+  /* Data preview box */
+  .data-box {
+    background: #0D2137;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .data-box-header {
+    background: #0088CC;
+    padding: 10px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .data-box-body {
+    padding: 18px;
+    font-family: monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.9;
+  }
+  .data-box-body .section-label {
+    color: #FFCC00;
+    font-weight: 700;
+  }
+  .data-box-body .value { color: #7dd8ff; }
+
+  /* Checklist */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #1a2e3d;
+    line-height: 1.5;
+  }
+  .checklist li .icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    color: white;
+    margin-top: 1px;
+    background: #0088CC;
+  }
+  .checklist li .icon.orange { background: #FF7700; }
+
+  /* Tag list */
+  .tag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .tag {
+    background: #EBF6FD;
+    color: #0D2137;
+    border-radius: 100px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tag.orange { background: #fff3e8; }
+
+  /* Highlight banner */
+  .highlight {
+    background: linear-gradient(135deg, #FF7700 0%, #ff9a3c 100%);
+    border-radius: 12px;
+    padding: 22px 24px;
+    color: white;
+    margin-bottom: 28px;
+  }
+  .highlight strong { display: block; font-size: 15px; margin-bottom: 6px; }
+  .highlight p { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+
+  /* Feedback box */
+  .feedback-box {
+    border: 2px dashed #0088CC;
+    border-radius: 10px;
+    padding: 20px 22px;
+    background: #f8fcff;
+  }
+  .feedback-box p { font-size: 13px; color: #1a2e3d; line-height: 1.7; }
+  .feedback-box .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0088CC;
+    margin-bottom: 8px;
+  }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item { display: flex; gap: 16px; }
+  .timeline-left { display: flex; flex-direction: column; align-items: center; width: 32px; flex-shrink: 0; }
+  .timeline-dot {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #0D2137; color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; flex-shrink: 0;
+  }
+  .timeline-dot.accent { background: #0088CC; }
+  .timeline-dot.orange { background: #FF7700; }
+  .timeline-dot.yellow { background: #FFCC00; color: #0D2137; }
+  .timeline-line { width: 2px; background: #e2eaf0; flex: 1; margin: 4px 0; min-height: 24px; }
+  .timeline-content { padding-bottom: 24px; padding-top: 4px; }
+  .timeline-content strong { display: block; font-size: 13px; color: #0D2137; margin-bottom: 3px; }
+  .timeline-content p { font-size: 12px; color: #5a7a8a; line-height: 1.6; }
+  .timeline-content .date { font-size: 11px; font-weight: 700; color: #FF7700; margin-bottom: 4px; }
+
+  /* Footer */
+  .footer {
+    background: #0D2137;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .footer p { color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.7; }
+  .footer strong { color: #FFCC00; }
+  .footer-cta {
+    background: #0088CC;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 560px) {
+    .content { padding: 24px 20px; }
+    .header { padding: 28px 20px; }
+    .benefit-grid { grid-template-columns: 1fr; }
+    .footer { padding: 20px; }
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">Information für Umzugsunternehmen</div>
+    <h1>So funktioniert<br /><span>meinumzugsrechner.de</span></h1>
+    <p>
+      Eine neue Plattform, auf der Privatkunden ihren Umzug vorab kostenlos kalkulieren —
+      und anschließend gezielt Umzugsunternehmen anfragen. Was das für Sie bedeutet, lesen Sie hier.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <!-- Was ist das -->
+    <div class="section">
+      <div class="section-title">Die Idee</div>
+      <p style="font-size:13px;color:#3a5060;line-height:1.8;margin-bottom:16px">
+        Wer umzieht, möchte wissen, was ihn das kostet — <strong>bevor</strong> er eine Firma anruft.
+        Auf meinumzugsrechner.de gibt der Nutzer alle Details seines Umzugs ein und erhält einen
+        realistischen <strong>Preiskorridor</strong>. Danach kann er direkt aus einer Liste regionaler
+        Partnerunternehmen wählen und eine Anfrage verschicken — <strong>mit seiner kompletten
+        Kalkulation als Anhang.</strong>
+      </p>
+      <p style="font-size:13px;color:#3a5060;line-height:1.8">
+        Für Sie als Unternehmen bedeutet das: <strong>keine Kaltakquise mehr, keine langen
+        Rückfragen</strong> — der Interessent kommt vorbereitet zu Ihnen.
+      </p>
+    </div>
+
+    <!-- Vorteile -->
+    <div class="section">
+      <div class="section-title">Was Sie als Partnerunternehmen erhalten</div>
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="num">3</div>
+          <strong>Monate kostenlos</strong>
+          <p>Ab Launch (geplant Juni 2026) testen Sie die Plattform vollständig ohne Kosten.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="num orange">30%</div>
+          <strong>Lifetime-Rabatt</strong>
+          <p>Dauerhaft 30 % auf jedes Abo-Modell — für alle Gründungspartner, die jetzt einsteigen.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="num">★</div>
+          <strong>Gründungspartner-Badge</strong>
+          <p>Sichtbarer Badge auf Ihrem Profil — zeigt Nutzern, dass Sie von Anfang an dabei sind.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="num">↑</div>
+          <strong>Bevorzugtes Ranking</strong>
+          <p>Frühe Partner werden in ihrer Region bevorzugt gelistet gegenüber später eingetragenen Firmen.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Was die Firma bekommt -->
+    <div class="section">
+      <div class="section-title">Was steht in einer Nutzer-Anfrage?</div>
+      <p style="font-size:13px;color:#3a5060;line-height:1.7;margin-bottom:14px">
+        Wenn ein Nutzer auf „Anfragen" klickt, öffnet sich seine E-Mail-App mit einem
+        vollständig vorausgefüllten Text. Sie erhalten alle Informationen, die Sie für
+        ein erstes Angebot benötigen:
+      </p>
+
+      <div class="data-box">
+        <div class="data-box-header">Beispiel einer eingehenden Anfrage</div>
+        <div class="data-box-body">
+          <span class="section-label">══ AUSZUG ══</span><br />
+          Ort: <span class="value">Berlin, Berlin</span><br />
+          Etage: <span class="value">3. OG</span> | Aufzug: <span class="value">Nein</span> | Treppenhaus: <span class="value">Normal</span><br />
+          LKW-Abstand: <span class="value">10–30 m</span> | Halteverbot: <span class="value">Ja, wird benötigt</span><br />
+          Gebäude: <span class="value">Altbau</span><br />
+          <br />
+          <span class="section-label">══ EINZUG ══</span><br />
+          Ort: <span class="value">München, Bayern</span><br />
+          Etage: <span class="value">2. OG</span> | Aufzug: <span class="value">Lastenaufzug</span><br />
+          Treppenhaus: <span class="value">Normal</span> | Halteverbot: <span class="value">Unbekannt</span><br />
+          <br />
+          <span class="section-label">══ TERMIN & DISTANZ ══</span><br />
+          Datum: <span class="value">15.07.2026</span> | Distanz: <span class="value">ca. 585 km</span> | Nutzungsart: <span class="value">Privat</span><br />
+          <br />
+          <span class="section-label">══ MOBILIAR & VOLUMEN ══</span><br />
+          Geschätztes Volumen: <span class="value">ca. 38 m³</span> | Helfer (Richtwert): <span class="value">3</span><br />
+          Schlafzimmer: Bett Doppel: 1x, Kleiderschrank groß: 2x, Kommode: 1x<br />
+          Wohnzimmer: Sofa 3-Sitzer: 1x, TV-Möbel: 1x, Regal groß: 2x<br />
+          Küche: Küchenzeile 3–4 m, Kühlschrank: Standard, Herd: Einbau, Geschirrspüler: Einbau<br />
+          Waschmaschine: 1x | Trockner: 1x<br />
+          Büro: Schreibtisch: 1x, Bürostuhl: 1x<br />
+          <br />
+          <span class="section-label">══ GEWÜNSCHTE ZUSATZLEISTUNGEN ══</span><br />
+          - <span class="value">Möbelmontage/-demontage</span><br />
+          - <span class="value">Halteverbotszone einrichten</span><br />
+          - <span class="value">Transportversicherung gewünscht</span><br />
+          <br />
+          <span class="section-label">══ PREISKORRIDOR (Eigenberechnung) ══</span><br />
+          <span class="value">2.400 € – 3.100 €</span> (Orientierungswert)
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li><span class="icon">✓</span> Alle Gebäudedetails — Etagen, Aufzug, Treppenhaus, Halteverbot</li>
+        <li><span class="icon">✓</span> Vollständige Möbelliste mit Stückzahlen</li>
+        <li><span class="icon">✓</span> Küchendetails (Laufmeter, Geräte, Einbau)</li>
+        <li><span class="icon">✓</span> Sperrgut und Sondergüter (Klavier, Tresor, Antiquitäten)</li>
+        <li><span class="icon">✓</span> Gewünschte Zusatzleistungen</li>
+        <li><span class="icon">✓</span> Geschätztes Volumen und Helferanzahl</li>
+        <li><span class="icon">✓</span> Preisvorstellung des Kunden als Gesprächsgrundlage</li>
+      </ul>
+    </div>
+
+    <!-- Was der Nutzer eingibt -->
+    <div class="section">
+      <div class="section-title">Was der Kunde im Rechner eingibt</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <p style="font-size:12px;font-weight:700;color:#0D2137;margin-bottom:8px">Gebäude &amp; Logistik</p>
+          <div class="tag-wrap">
+            <span class="tag">Bundesland</span><span class="tag">Stadt</span>
+            <span class="tag">Etage</span><span class="tag">Aufzug</span>
+            <span class="tag">Treppenhaus</span><span class="tag">LKW-Abstand</span>
+            <span class="tag">Halteverbot</span><span class="tag">Gebäudetyp</span>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:#0D2137;margin:14px 0 8px">Termin &amp; Distanz</p>
+          <div class="tag-wrap">
+            <span class="tag">Umzugsdatum</span><span class="tag">km-Berechnung</span>
+            <span class="tag">Privat / Gewerbe</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:700;color:#0D2137;margin-bottom:8px">Möbelinventar</p>
+          <div class="tag-wrap">
+            <span class="tag">Schlafzimmer</span><span class="tag">Wohnzimmer</span>
+            <span class="tag">Küche</span><span class="tag">Büro</span>
+            <span class="tag">Keller</span><span class="tag">Sperrgut</span>
+            <span class="tag">Garten</span>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:#0D2137;margin:14px 0 8px">Zusatzleistungen</p>
+          <div class="tag-wrap">
+            <span class="tag orange">Einpacken</span><span class="tag orange">Montage</span>
+            <span class="tag orange">Lagerung</span><span class="tag orange">Reinigung</span>
+            <span class="tag orange">Möbellift</span><span class="tag orange">+ 8 weitere</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zeitplan -->
+    <div class="section">
+      <div class="section-title">Zeitplan</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot accent">1</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="date">Jetzt — Mai 2026</div>
+            <strong>Gründungspartner-Phase</strong>
+            <p>Fragebogen ausfüllen, Partnerschaft bestätigen, Profil vorbereiten. Gründungspartner sichern sich 30 % Lifetime-Rabatt.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot yellow">2</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="date">Juni 2026</div>
+            <strong>Launch &amp; kostenlose Testphase</strong>
+            <p>Plattform geht online. Alle Gründungspartner sind von Anfang an gelistet — 3 Monate kostenlos.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot orange">3</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="date">September 2026</div>
+            <strong>Übergang zum Abo-Modell</strong>
+            <p>Nach der Testphase stellen wir auf bezahlte Abo-Modelle um. Preismodelle werden rechtzeitig kommuniziert. Gründungspartner zahlen dauerhaft 30 % weniger.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">4</div>
+          </div>
+          <div class="timeline-content">
+            <div class="date">Laufend</div>
+            <strong>Direktanfragen &amp; Wachstum</strong>
+            <p>Mit wachsender Nutzerzahl steigen Anfragen regional an. Frühe Partner profitieren von Ranking-Vorteilen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback-Bitte -->
+    <div class="section">
+      <div class="section-title">Ihre Rückmeldung ist wichtig</div>
+      <div class="feedback-box">
+        <div class="label">Bitte beim Ausfüllen des Fragebogens beachten</div>
+        <p>
+          Wir möchten, dass Anfragen bei Ihnen <strong>direkt bearbeitbar</strong> sind — ohne Rückfragen.
+          Deshalb bitten wir Sie beim Ausfüllen des Fragebogens um folgende Einschätzung:
+        </p>
+        <br />
+        <p>
+          <strong>Fehlt in den Kundendaten etwas, das Sie für ein erstes Angebot benötigen?</strong><br />
+          (z. B. bestimmte Möbeltypen, Wohnfläche in m², Fotos, Besonderheiten Ihrer Region)
+        </p>
+        <br />
+        <p style="color:#5a7a8a">
+          Ihr Hinweis hilft uns, den Rechner gezielt zu verbessern — und spart Ihnen langfristig
+          Zeit bei jeder Anfrage.
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      Fragen? Schreiben Sie uns:<br />
+      <strong>info@meinumzugsrechner.de</strong><br />
+      <span style="color:rgba(255,255,255,0.35)">www.meinumzugsrechner.de · 360ai · Denis Schmidt</span>
+    </p>
+    <a href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
+       class="footer-cta">
+      Jetzt Partner werden →
+    </a>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
