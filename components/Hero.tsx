@@ -77,40 +77,21 @@ export function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pt-12 pb-14 sm:px-6 md:flex-row md:items-center md:pt-20 md:pb-20">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pt-12 pb-14 sm:px-6 md:flex-row md:items-center md:gap-12 md:pt-20 md:pb-20">
 
         {/* Left: Text */}
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 min-w-0 text-center md:text-left">
 
-          {/* Headline — 3 separate Zeilen */}
+          {/* Headline */}
           <h1
             className="font-black uppercase leading-[0.92] tracking-tight text-white"
-            style={{ fontFamily: '"Arial Black", Impact, sans-serif' }}
+            style={{ fontFamily: '"Arial Black", Impact, sans-serif', fontSize: "clamp(2.4rem, 6.5vw, 80px)" }}
           >
-            <span
-              className="block"
-              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
-            >
-              Dein Umzug.
-            </span>
-            <span
-              className="block whitespace-nowrap"
-              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
-            >
-              Deine Kosten.
-            </span>
-            <span
-              className="block whitespace-nowrap"
-              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
-            >
-              Deine Daten.
-            </span>
-            <span
-              className="block mt-1 whitespace-nowrap"
-              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)", color: "#FFCC00" }}
-            >
-              Kostenlos berechnet.
-            </span>
+            <span className="block">Dein Umzug.</span>
+            <span className="block">Deine Kosten.</span>
+            <span className="block">Deine Daten.</span>
+            <span className="block mt-1" style={{ color: "#FFCC00" }}>Kostenlos</span>
+            <span className="block" style={{ color: "#FFCC00" }}>berechnet.</span>
           </h1>
 
           {/* Subtext */}
@@ -140,7 +121,7 @@ export function Hero() {
         </div>
 
         {/* Right: Floating mascot + badge */}
-        <div className="relative flex-shrink-0 flex items-center justify-center">
+        <div className="relative flex-shrink-0 flex items-center justify-center w-[260px] md:w-[340px] lg:w-[400px]">
           <motion.div
             animate={{ y: [0, -18, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -150,7 +131,7 @@ export function Hero() {
               alt="meinumzugsrechner Maskottchen"
               width={600}
               height={600}
-              className="object-contain drop-shadow-2xl"
+              className="w-full object-contain drop-shadow-2xl"
               priority
             />
           </motion.div>
