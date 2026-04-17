@@ -48,7 +48,7 @@ export function Header() {
             href="/rechner/"
             className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
           >
-            <span className="hidden sm:inline">Jetzt </span>berechnen
+            Jetzt berechnen
           </Link>
           {/* Hamburger — mobile only */}
           <button

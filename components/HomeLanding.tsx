@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { HOME_PAGE_FAQS } from "@/lib/home-faq";
 
 /* ── SVG Icons ────────────────────────────────────────────────── */
@@ -399,7 +400,7 @@ export function HomeLanding() {
             </p>
             <ul className="space-y-2 text-sm text-white/60">
               {["Direktanfragen nach Berechnung", "Regionale Sichtbarkeit in Ihrem Bundesland",
-                "Eintragung kostenlos, keine Abos"].map((i) => (
+                "Preismodelle auf Anfrage"].map((i) => (
                 <li key={i} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#FFCC00" }} />
                   {i}
@@ -430,14 +431,7 @@ export function HomeLanding() {
           <p className="text-center text-sm text-[#5A7A8A] mb-10">
             Kurz beantwortet — für Suchmaschinen und Lesbarkeit auf einen Blick.
           </p>
-          <dl className="space-y-8">
-            {HOME_PAGE_FAQS.map((item) => (
-              <div key={item.question} className="rounded-2xl border border-slate-100 bg-[#FAFCFE] p-6 shadow-sm">
-                <dt className="font-bold text-[#0D2137]">{item.question}</dt>
-                <dd className="mt-2 text-sm text-[#5A7A8A] leading-relaxed">{item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <FaqAccordion items={HOME_PAGE_FAQS} />
           <p className="mt-10 text-center">
             <Link href="/rechner/" className="inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105" style={{ backgroundColor: "#FFCC00" }}>
               Jetzt Umzugskosten berechnen →

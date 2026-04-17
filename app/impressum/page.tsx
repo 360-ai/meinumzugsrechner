@@ -9,99 +9,94 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="rounded-2xl border border-slate-100 bg-[#FAFCFE] p-6 shadow-sm">
+      <h2 className="mb-3 text-base font-bold text-[#0D2137]">{title}</h2>
+      <div className="space-y-2 text-sm leading-relaxed text-slate-600">{children}</div>
+    </section>
+  );
+}
+
 export default function ImpressumPage() {
   return (
-    <article className="space-y-6 text-slate-700">
-      <h1>Impressum</h1>
-      <p className="text-sm text-muted">
-        Informationspflichten nach dem Digitale-Dienste-Gesetz (DDG), zuvor vergleichbar Telemediengesetz (TMG).
+    <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6">
+      <h1 className="mb-1 text-3xl font-bold text-[#0D2137]">Impressum</h1>
+      <p className="mb-8 text-sm text-slate-400">
+        Informationspflichten nach dem Digitale-Dienste-Gesetz (DDG)
       </p>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Diensteanbieter</h2>
-        <p>
-          Denis Schmidt
-          <br />
-          <span className="text-slate-600">
-            Geschäftlich unter der Bezeichnung <strong>360ai</strong>; dieses Angebot (Website meinumzugsrechner.de)
-            wird im Rahmen von 360ai betrieben.
-          </span>
-          <br />
-          Wangershäuser Str. 7
-          <br />
-          35066 Frankenberg (Eder)
-          <br />
-          Deutschland
-        </p>
-      </section>
+      <div className="space-y-4">
+        <Section title="Diensteanbieter">
+          <p>
+            <strong className="text-[#0D2137]">Denis Schmidt</strong>
+            <br />
+            Geschäftlich unter der Bezeichnung <strong>360ai</strong>
+            <br />
+            Wangershäuser Str. 7
+            <br />
+            35066 Frankenberg (Eder)
+            <br />
+            Deutschland
+          </p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Kontakt</h2>
-        <p>
-          E-Mail (meinumzugsrechner.de):{" "}
-          <a href="mailto:info@meinumzugsrechner.de" className="text-accent">
-            info@meinumzugsrechner.de
-          </a>
-        </p>
-        <p className="text-sm">
-          Telefon: nicht eingerichtet. Erreichbarkeit erfolgt in der Regel per E-Mail innerhalb weniger Werktage.
-        </p>
-      </section>
+        <Section title="Kontakt">
+          <p>
+            E-Mail:{" "}
+            <a href="mailto:info@meinumzugsrechner.de" className="font-medium text-[#0088CC] hover:underline">
+              info@meinumzugsrechner.de
+            </a>
+          </p>
+          <p className="text-slate-400">
+            Telefon: nicht eingerichtet — Erreichbarkeit in der Regel per E-Mail innerhalb weniger Werktage.
+          </p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Umsatzsteuer / Wirtschafts-ID</h2>
-        <p className="text-sm">
-          Sofern eine Umsatzsteuer-Identifikationsnummer nach dem Umsatzsteuergesetz oder eine
-          Wirtschafts-Identifikationsnummer nach der Abgabenordnung vorliegt, ist diese hier anzugeben
-          (Stand ab 2026 in der Praxis häufig erforderlich, sobald die Nummer zugeteilt wurde).
-        </p>
-        <p>
-          USt-IdNr.: <span className="text-muted">[falls vorhanden eintragen]</span>
-          <br />
-          W-IdNr.: <span className="text-muted">[falls vorhanden eintragen]</span>
-        </p>
-      </section>
+        <Section title="Umsatzsteuer / Wirtschafts-ID">
+          <p>
+            USt-IdNr.: <span className="text-slate-400">[falls vorhanden eintragen]</span>
+            <br />
+            W-IdNr.: <span className="text-slate-400">[falls vorhanden eintragen]</span>
+          </p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Verantwortlich für den Inhalt</h2>
-        <p>Denis Schmidt, Anschrift wie oben.</p>
-      </section>
+        <Section title="Verantwortlich für den Inhalt">
+          <p>Denis Schmidt, Anschrift wie oben.</p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Haftung für Inhalte</h2>
-        <p>
-          Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
-          Aktualität der Inhalte wird keine Gewähr übernommen. Als Diensteanbieter sind wir nach allgemeinem
-          Gesetz für eigene Inhalte auf diesen Seiten verantwortlich; für fremde Inhalte (z. B. verlinkte Seiten)
-          gilt dies nur, soweit uns Kenntnis rechtswidriger Inhalte zugekommen ist und eine technisch zumutbare
-          Sperrung möglich ist.
-        </p>
-      </section>
+        <Section title="Haftung für Inhalte">
+          <p>
+            Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+            Aktualität wird keine Gewähr übernommen. Für eigene Inhalte sind wir nach allgemeinem Gesetz
+            verantwortlich; für fremde Inhalte (z. B. verlinkte Seiten) gilt dies nur, soweit uns Kenntnis
+            rechtswidriger Inhalte zugekommen ist und eine technisch zumutbare Sperrung möglich ist.
+          </p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Haftung für Links</h2>
-        <p>
-          Unser Angebot kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte haben wir keinen
-          Einfluss; für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
-        </p>
-      </section>
+        <Section title="Haftung für Links">
+          <p>
+            Unser Angebot kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte haben wir keinen
+            Einfluss; für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
+          </p>
+        </Section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-slate-900">Online-Streitbeilegung</h2>
-        <p className="text-sm">
-          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-          <a
-            href="https://ec.europa.eu/consumers/odr"
-            className="text-accent"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://ec.europa.eu/consumers/odr
-          </a>
-          . Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht verpflichtet und nicht bereit, an
-          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-        </p>
-      </section>
-    </article>
+        <Section title="Online-Streitbeilegung">
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+            <a
+              href="https://ec.europa.eu/consumers/odr"
+              className="font-medium text-[#0088CC] hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ec.europa.eu/consumers/odr
+            </a>
+            . Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </Section>
+      </div>
+    </div>
   );
 }
