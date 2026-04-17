@@ -65,6 +65,15 @@ const TruckIcon = () => (
   </svg>
 );
 
+const NetworkIcon = ({ className = "w-10 h-10" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} style={{ color: "#0088CC" }}>
+    <circle cx="12" cy="5" r="2" />
+    <circle cx="5" cy="19" r="2" />
+    <circle cx="19" cy="19" r="2" />
+    <path d="M12 7v4M12 11l-5 6M12 11l5 6" />
+  </svg>
+);
+
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0" style={{ color: "#5A7A8A" }}>
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -236,6 +245,36 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Divider */}
+            <div className="border-t border-[#0088CC]/15" />
+
+            {/* Item 4: Partner-Netzwerk — Bild links, Text rechts */}
+            <div className="flex flex-col items-center gap-8 md:flex-row-reverse md:gap-12">
+              <div className="flex-1 text-center md:text-left">
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
+                  <NetworkIcon />
+                </div>
+                <h3 className="text-2xl font-bold text-[#0D2137]">Partner-Netzwerk</h3>
+                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
+                  Unser wachsendes Netzwerk an Umzugsunternehmen hilft uns, Preiskorridore
+                  realistisch zu kalibrieren — und kann nach der Berechnung direkt
+                  für ein verbindliches Angebot angefragt werden.
+                </p>
+                <Link
+                  href="/partner"
+                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
+                  style={{ backgroundColor: "#FFCC00" }}
+                >
+                  Partner ansehen →
+                </Link>
+              </div>
+              <div className="w-full flex-shrink-0 md:w-72 lg:w-80 flex items-center justify-center">
+                <div className="h-48 w-full rounded-2xl flex items-center justify-center" style={{ backgroundColor: "#0088CC1A" }}>
+                  <NetworkIcon className="w-24 h-24 opacity-30" />
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -281,50 +320,53 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-[#0D2137]">
-              Empfohlene Umzugsunternehmen
+              Partner Umzugsunternehmen
             </h2>
             <p className="mt-3 text-[#5A7A8A]">
-              Sorgfältig ausgewählte Partner — Ihre Daten geben wir nicht weiter.
+              Regionale Unternehmen für deinen Umzug — direkt anschreibbar nach der Berechnung.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              { name: "Mustermann Umzüge GmbH", region: "Berlin & Brandenburg", rating: 4.9, badge: "Top-Partner" },
-              { name: "Schnell & Sicher Transport", region: "Bayern & Baden-Württemberg", rating: 4.7, badge: "Empfohlen" },
-              { name: "Umzugsprofi Nord", region: "Hamburg & Schleswig-Holstein", rating: 4.8, badge: "Empfohlen" },
-            ].map((p) => (
-              <div
-                key={p.name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col gap-3"
-              >
-                <div
-                  className="h-12 w-12 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: "#EBF6FD" }}
-                >
+          <div className="grid gap-6 sm:grid-cols-2 items-center">
+            {/* Linke Seite: Stats + Text + CTA */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-14 w-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
                   <TruckIcon />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-bold text-[#0D2137] text-sm">{p.name}</h3>
-                    <span
-                      className="rounded-full px-2 py-0.5 text-[10px] font-bold text-white"
-                      style={{ backgroundColor: "#0088CC" }}
-                    >
-                      {p.badge}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 mt-0.5">
-                    <PinIcon />
-                    <p className="text-xs text-[#5A7A8A]">{p.region}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
-                  <span className="ml-1 font-bold text-sm text-[#0D2137]">{p.rating}</span>
+                  <p className="text-3xl font-black text-[#0D2137]">16</p>
+                  <p className="text-sm text-[#5A7A8A]">Bundesländer abgedeckt</p>
                 </div>
               </div>
-            ))}
+              <p className="text-[#5A7A8A] text-sm leading-relaxed">
+                Unternehmen in unserem Netzwerk helfen bei der Preisberechnung und
+                können nach der Kalkulation direkt angefragt werden —
+                ohne Datenweitergabe an Dritte.
+              </p>
+              <Link
+                href="/partner"
+                className="mt-5 inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
+                style={{ backgroundColor: "#FFCC00" }}
+              >
+                Alle Partner ansehen →
+              </Link>
+            </div>
+
+            {/* Rechte Seite: Feature-Bullets */}
+            <ul className="space-y-3">
+              {[
+                "Regionale Expertise — je Bundesland gefiltert",
+                "Verbindliche Angebote auf Basis Ihrer Kalkulation",
+                "Mögliche Partnerrabatte direkt anfragen",
+                "Keine versteckten Weiterleitungen Ihrer Daten",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#0088CC" }} />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-8 text-center">

@@ -10,6 +10,7 @@ import { ErgebnisKorridor } from "./ErgebnisKorridor";
 import { PartnerBanner } from "./PartnerBanner";
 import { PdfExportButton } from "./PdfExportButton";
 import { TrustBadges } from "./TrustBadges";
+import { WunschfirmaSection } from "./WunschfirmaSection";
 
 const BUNDESLAND_LABELS: Record<string, string> = {
   BW: "Baden-Württemberg", BY: "Bayern", BE: "Berlin", BB: "Brandenburg",
@@ -170,6 +171,11 @@ export function ErgebnisClient() {
         listings={partners.listings}
         affiliateNote={partners.note}
         anfragMailto={anfragMailto}
+      />
+
+      <WunschfirmaSection
+        bundesland={form.buildingA.bundesland}
+        anfragMailtoBase={(partnerUrl) => buildMailtoLink(form, result, partnerUrl)}
       />
 
       {/* AdSense Slot 2 — nach Genehmigung aktivieren */}

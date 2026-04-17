@@ -61,3 +61,10 @@ export function resolvePartners(
     note: p.affiliateNote,
   };
 }
+
+export function getPartnersForBundesland(bundesland: BundeslandCode): PartnerEntry[] {
+  const byBl = partners.byBundesland as Record<string, { primary: PartnerEntry; listings?: PartnerEntry[] }>;
+  const block = byBl[bundesland];
+  if (!block) return [partners.default.primary as PartnerEntry];
+  return [block.primary, ...(block.listings ?? [])].sort((a, b) => b.priority - a.priority);
+}
