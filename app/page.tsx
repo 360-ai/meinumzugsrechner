@@ -268,10 +268,14 @@ export default function HomePage() {
                   Partner ansehen →
                 </Link>
               </div>
-              <div className="w-full flex-shrink-0 md:w-72 lg:w-80 flex items-center justify-center">
-                <div className="h-48 w-full rounded-2xl flex items-center justify-center" style={{ backgroundColor: "#0088CC1A" }}>
-                  <NetworkIcon className="w-24 h-24 opacity-30" />
-                </div>
+              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
+                <Image
+                  src="/logistik-partner.png"
+                  alt="Partner Umzugsunternehmen Netzwerk"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
               </div>
             </div>
 
