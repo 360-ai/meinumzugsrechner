@@ -1,10 +1,23 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { ReactNode } from "react";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Essential-Kit: Checkliste für den ersten Tag | meinumzugsrechner.de",
-  description: "Was muss immer griffbereit sein und darf nicht im LKW verschwinden? 8 Kategorien im Überblick.",
+const PAGE_TITLE = "Essential-Kit: Checkliste für den ersten Tag | meinumzugsrechner.de";
+const PAGE_DESC =
+  "Was muss immer griffbereit sein und darf nicht im LKW verschwinden? 8 Kategorien im Überblick.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/checklisten/essential-kit/"),
+  openGraph: {
+    title: "Essential-Kit Umzug",
+    description: PAGE_DESC,
+    url: "/checklisten/essential-kit/",
+    type: "article",
+  },
 };
 
 const IconCreditCard = (
@@ -220,6 +233,10 @@ export default function EssentialKitPage() {
       category="checklisten"
       categoryLabel="Checklisten"
       sections={sections}
+      articleSeo={{
+        path: "/checklisten/essential-kit/",
+        description: "Was muss immer griffbereit sein und darf nicht im LKW verschwinden? 8 Kategorien im Überblick.",
+      }}
     >
       <div className="space-y-6">
 

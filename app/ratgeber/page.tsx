@@ -1,8 +1,17 @@
+import { JsonLd } from "@/components/JsonLd";
+import { webPageOnlySchema } from "@/lib/schema";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Ratgeber | meinumzugsrechner.de",
-  description: "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken und moderne Umzugslogistik.",
+const R_TITLE = "Ratgeber | meinumzugsrechner.de";
+const R_DESC = "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken und moderne Umzugslogistik.";
+
+export const metadata: Metadata = {
+  title: R_TITLE,
+  description: R_DESC,
+  ...pageCanonical("/ratgeber/"),
+  openGraph: { title: "Ratgeber zum Umzug", description: R_DESC, url: "/ratgeber/" },
 };
 
 const LiftIcon = () => (
@@ -37,21 +46,21 @@ const TruckIcon = () => (
 
 const guides = [
   {
-    href: "/ratgeber/ergonomie",
+    href: "/ratgeber/ergonomie/",
     icon: <LiftIcon />,
     title: "Ergonomie-Leitfaden: Sicher Heben und Tragen",
     description:
       "Rückenfreundliche Techniken, damit Ihr Umzug ohne Verletzungen gelingt. Schritt für Schritt erklärt.",
   },
   {
-    href: "/ratgeber/profi-guide-verpacken",
+    href: "/ratgeber/profi-guide-verpacken/",
     icon: <PackBoxIcon />,
     title: "Profi-Guide: Systematisches Verpacken 2026",
     description:
       "Die richtige Packtechnik für Glas, Möbel und Dokumente — damit nichts zu Bruch geht.",
   },
   {
-    href: "/ratgeber/moderne-umzugslogistik",
+    href: "/ratgeber/moderne-umzugslogistik/",
     icon: <TruckIcon />,
     title: "Leitbild: Moderne Umzugslogistik 2026",
     description:
@@ -61,6 +70,11 @@ const guides = [
 
 export default function RatgeberPage() {
   return (
+    <>
+      <JsonLd
+        id="ld-ratgeber-hub"
+        data={webPageOnlySchema({ path: "/ratgeber/", title: R_TITLE, description: R_DESC })}
+      />
     <div className="mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-6">
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-[#0D2137] sm:text-4xl">Ratgeber</h1>
@@ -88,5 +102,6 @@ export default function RatgeberPage() {
         ))}
       </div>
     </div>
+    </>
   );
 }

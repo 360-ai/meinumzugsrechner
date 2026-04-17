@@ -1,3 +1,14 @@
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AGB | meinumzugsrechner.de",
+  description:
+    "Allgemeine Geschäftsbedingungen für die Nutzung des Umzugskosten-Rechners und zugehöriger Dienste.",
+  ...pageCanonical("/agb/"),
+  robots: { index: true, follow: true },
+};
+
 export default function AgbPage() {
   return (
     <article className="space-y-6 text-slate-700">
@@ -28,6 +39,12 @@ export default function AgbPage() {
       <p>
         Die Nutzung des Rechners ist für Sie kostenlos. Die Website finanziert sich durch Werbeeinblendungen (Google
         AdSense) und Affiliate-Links (Amazon Partnerprogramm). Durch die Nutzung entstehen Ihnen keine Kosten.
+      </p>
+
+      <h2>5. Nutzungsbedingungen</h2>
+      <p>
+        Die Nutzung des Rechners ist ausschließlich zu privaten, nicht-kommerziellen Zwecken gestattet. Eine automatisierte
+        Abfrage (Scraping, Bots) sowie ein Weiterverkauf der Ergebnisse sind untersagt.
       </p>
 
       <h2>6. Affiliate / Werbung</h2>

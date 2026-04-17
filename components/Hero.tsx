@@ -102,7 +102,7 @@ export function Hero() {
           {/* CTA */}
           <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start">
             <Link
-              href="/rechner"
+              href="/rechner/"
               className="touch-target inline-flex items-center justify-center rounded-full px-8 py-3 text-lg font-bold text-[#0D2137] shadow-lg transition-transform hover:scale-105 active:scale-95"
               style={{ backgroundColor: "#FFCC00" }}
             >
@@ -128,7 +128,7 @@ export function Hero() {
           >
             <Image
               src="/logo.png"
-              alt="meinumzugsrechner Maskottchen"
+              alt="meinumzugsrechner.de — Umzugskosten-Rechner ohne Datenweitergabe"
               width={600}
               height={600}
               className="w-full object-contain drop-shadow-2xl"
@@ -138,7 +138,7 @@ export function Hero() {
 
           {/* Circular badge */}
           <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 z-20">
-            <Link href="/rechner">
+            <Link href="/rechner/">
               <CircularBadge />
             </Link>
           </div>

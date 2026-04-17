@@ -1,9 +1,21 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Site-Management: Standort & Catering | meinumzugsrechner.de",
-  description: "Standort-Vorbereitung und Team-Verpflegung am Umzugstag — alle operativen Schritte.",
+const PAGE_TITLE = "Site-Management: Standort & Catering | meinumzugsrechner.de";
+const PAGE_DESC = "Standort-Vorbereitung und Team-Verpflegung am Umzugstag — alle operativen Schritte.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/checklisten/standort-vorbereitung/"),
+  openGraph: {
+    title: "Standort & Catering am Umzugstag",
+    description: PAGE_DESC,
+    url: "/checklisten/standort-vorbereitung/",
+    type: "article",
+  },
 };
 
 const sections: GuideSection[] = [
@@ -53,6 +65,10 @@ export default function StandortVorbereitungPage() {
       category="checklisten"
       categoryLabel="Checklisten"
       sections={sections}
+      articleSeo={{
+        path: "/checklisten/standort-vorbereitung/",
+        description: "Standort-Vorbereitung und Team-Verpflegung am Umzugstag — alle operativen Schritte.",
+      }}
     >
       <div className="space-y-6">
 

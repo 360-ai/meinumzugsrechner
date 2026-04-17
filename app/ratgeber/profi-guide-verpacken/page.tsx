@@ -1,9 +1,21 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Profi-Guide: Systematisches Verpacken 2026 | meinumzugsrechner.de",
-  description: "Die richtige Packtechnik für Glas, Möbel und Dokumente — damit nichts zu Bruch geht.",
+const PAGE_TITLE = "Profi-Guide: Systematisches Verpacken 2026 | meinumzugsrechner.de";
+const PAGE_DESC = "Die richtige Packtechnik für Glas, Möbel und Dokumente — damit nichts zu Bruch geht.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/ratgeber/profi-guide-verpacken/"),
+  openGraph: {
+    title: "Systematisches Verpacken beim Umzug",
+    description: PAGE_DESC,
+    url: "/ratgeber/profi-guide-verpacken/",
+    type: "article",
+  },
 };
 
 const sections: GuideSection[] = [
@@ -51,6 +63,10 @@ export default function ProfiGuideVerpackenPage() {
       category="ratgeber"
       categoryLabel="Ratgeber"
       sections={sections}
+      articleSeo={{
+        path: "/ratgeber/profi-guide-verpacken/",
+        description: "Die richtige Packtechnik für Glas, Möbel und Dokumente — damit nichts zu Bruch geht.",
+      }}
     >
       <div className="space-y-6">
 

@@ -2,6 +2,7 @@
 
 import { calculateUmzug } from "@/lib/calculate";
 import { STORAGE_KEY, getDefaultForm } from "@/lib/form-defaults";
+import { sanitizeUmzugForm } from "@/lib/form-sanitize";
 import { resolvePartners } from "@/lib/partner";
 import type { CalculateResult, UmzugFormData } from "@/lib/types";
 import Link from "next/link";
@@ -23,7 +24,7 @@ const BUNDESLAND_LABELS: Record<string, string> = {
 function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl: string): string {
   const email = partnerUrl.startsWith("mailto:")
     ? partnerUrl.replace(/^mailto:/, "").split("?")[0]
-    : "info@360-ai.org";
+    : "info@meinumzugsrechner.de";
 
   const stadtA = form.buildingA.stadtOrt || "–";
   const stadtB = form.buildingB.gleicheStadt ? stadtA : (form.buildingB.stadtOrt || "–");
@@ -82,7 +83,7 @@ export function ErgebnisClient() {
 
     let parsed: UmzugFormData;
     try {
-      parsed = JSON.parse(raw) as UmzugFormData;
+      parsed = sanitizeUmzugForm(JSON.parse(raw) as UmzugFormData);
     } catch {
       setError("Formulardaten ungültig.");
       setLoading(false);
@@ -115,7 +116,7 @@ export function ErgebnisClient() {
     return (
       <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-red-900">
         <p className="font-semibold">{error ?? "Fehler"}</p>
-        <Link href="/rechner" className="mt-4 inline-block text-accent underline">
+        <Link href="/rechner/" className="mt-4 inline-block text-accent underline">
           Zum Rechner
         </Link>
       </div>
@@ -126,7 +127,7 @@ export function ErgebnisClient() {
     return (
       <div className="rounded-xl border border-amber-200 bg-amber-50 p-6">
         <p>Ergebnis konnte nicht geladen werden.</p>
-        <Link href="/rechner" className="mt-2 inline-block text-accent underline">
+        <Link href="/rechner/" className="mt-2 inline-block text-accent underline">
           Zurück
         </Link>
       </div>
@@ -153,7 +154,7 @@ export function ErgebnisClient() {
       <div className="no-print flex flex-wrap gap-3">
         <PdfExportButton form={form} result={result} />
         <Link
-          href="/rechner"
+          href="/rechner/"
           className="touch-target inline-flex items-center justify-center rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold hover:bg-slate-50"
           onClick={() => {
             try {

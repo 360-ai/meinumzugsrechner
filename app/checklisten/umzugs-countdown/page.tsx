@@ -1,9 +1,21 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Projektplan: Umzugs-Countdown 2026 | meinumzugsrechner.de",
-  description: "5-Phasen Umzugsplanung von der Entscheidung bis zum Einzugstag. Druckfertig als PDF.",
+const PAGE_TITLE = "Projektplan: Umzugs-Countdown 2026 | meinumzugsrechner.de";
+const PAGE_DESC = "5-Phasen Umzugsplanung von der Entscheidung bis zum Einzugstag. Druckfertig als PDF.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/checklisten/umzugs-countdown/"),
+  openGraph: {
+    title: "Umzugs-Countdown 2026",
+    description: PAGE_DESC,
+    url: "/checklisten/umzugs-countdown/",
+    type: "article",
+  },
 };
 
 const sections: GuideSection[] = [
@@ -59,6 +71,10 @@ export default function UmzugsCountdownPage() {
       category="checklisten"
       categoryLabel="Checklisten"
       sections={sections}
+      articleSeo={{
+        path: "/checklisten/umzugs-countdown/",
+        description: "5-Phasen Umzugsplanung von der Entscheidung bis zum Einzugstag. Druckfertig als PDF.",
+      }}
     >
       <div className="space-y-6">
 

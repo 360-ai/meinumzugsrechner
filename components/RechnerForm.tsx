@@ -2,6 +2,8 @@
 
 import landkreiseData from "@/data/landkreise.json";
 import { getDefaultForm, STORAGE_KEY } from "@/lib/form-defaults";
+import { sanitizeUmzugForm } from "@/lib/form-sanitize";
+import { validateFullForm, validateStepForm } from "@/lib/form-validation";
 import type { BundeslandCode, UmzugFormData } from "@/lib/types";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -111,7 +113,7 @@ export function RechnerForm() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as UmzugFormData;
-        setForm(parsed);
+        setForm(sanitizeUmzugForm(parsed));
       }
     } catch {
       /* ignore */
@@ -120,7 +122,7 @@ export function RechnerForm() {
 
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeUmzugForm(form)));
     } catch {
       /* ignore */
     }
@@ -168,27 +170,7 @@ export function RechnerForm() {
   }, []);
 
   const validateStep = useCallback(
-    (s: number): string | null => {
-      if (s === 1) {
-        if (!form.buildingA.stadtOrt.trim()) return "Bitte Ort bei Gebäude A angeben.";
-        if (form.buildingA.landkreisAgs === "00000")
-          return "Bitte einen Landkreis wählen.";
-      }
-      if (s === 2) {
-        if (!form.buildingB.gleicheStadt) {
-          if (!form.buildingB.stadtOrt.trim()) return "Bitte Ort bei Gebäude B angeben.";
-          if (form.buildingB.landkreisAgs === "00000")
-            return "Bitte einen Landkreis für Gebäude B wählen.";
-        }
-      }
-      if (s === 3) {
-        if (form.distance.km <= 0) return "Bitte die Entfernung in km angeben.";
-      }
-      if (s === 6) {
-        if (!form.summary.agbAccepted) return "Bitte AGB und Datenschutz bestätigen.";
-      }
-      return null;
-    },
+    (s: number) => validateStepForm(form, s),
     [form],
   );
 
@@ -207,17 +189,19 @@ export function RechnerForm() {
   const lkB = useMemo(() => lkFor(form.buildingB.bundesland), [form.buildingB.bundesland, lkFor]);
 
   const goErgebnis = () => {
-    const err = validateStep(6);
+    const err = validateFullForm(form);
     if (err) {
       alert(err);
       return;
     }
+    const cleaned = sanitizeUmzugForm(form);
+    setForm(cleaned);
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
     } catch {
       /* ignore */
     }
-    router.push("/ergebnis");
+    router.push("/ergebnis/");
   };
 
   return (
@@ -786,11 +770,11 @@ export function RechnerForm() {
             />
             <span className="text-sm">
               Ich habe die{" "}
-              <Link href="/agb" className="text-accent underline">
+              <Link href="/agb/" className="text-accent underline">
                 AGB
               </Link>{" "}
               und die{" "}
-              <Link href="/datenschutz" className="text-accent underline">
+              <Link href="/datenschutz/" className="text-accent underline">
                 Datenschutzerklärung
               </Link>{" "}
               gelesen.

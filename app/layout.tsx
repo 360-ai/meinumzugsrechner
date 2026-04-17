@@ -1,16 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationAndWebsiteSchema } from "@/lib/schema";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, getSiteUrl } from "@/lib/site";
 
 const comfortaa = Comfortaa({ subsets: ["latin"], variable: "--font-comfortaa", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "meinumzugsrechner.de – Umzugskosten ohne Datenweitergabe",
-  description:
-    "Realistische Umzugskosten als Preiskorridor. Kein Spam, keine Weitergabe Ihrer Umzugsdaten an Umzugsfirmen.",
+  metadataBase: getSiteUrl(),
+  title: { default: DEFAULT_TITLE, template: "%s" },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: "meinumzugsrechner.de",
+  formatDetection: { telephone: false },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    siteName: "meinumzugsrechner.de",
+  },
+  twitter: { card: "summary_large_image" },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0088CC",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -21,13 +41,8 @@ export default function RootLayout({
   return (
     <html lang="de" className={comfortaa.variable}>
       <body className="min-h-screen bg-white font-sans antialiased">
-        {/* AdSense: Nach Genehmigung Publisher-ID eintragen und auskommentieren */}
-        {/* <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-IHRE_PUBLISHER_ID"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        /> */}
+        <JsonLd id="ld-global-org-website" data={organizationAndWebsiteSchema()} />
+        {/* AdSense: Nach Genehmigung Publisher-ID eintragen und next/script nutzen */}
         <Header />
         <main>{children}</main>
         <Footer />

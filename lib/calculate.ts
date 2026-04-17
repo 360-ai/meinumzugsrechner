@@ -90,12 +90,26 @@ function estimateM3(form: UmzugFormData): number {
   return Math.round(m3 * 10) / 10;
 }
 
+type RegionRow = Matrix["regions"][keyof Matrix["regions"]];
+
 export function calculateUmzug(form: UmzugFormData): CalculateResult {
-  const regions = preismatrix.regions as Matrix["regions"];
+  const matrix = preismatrix as Matrix & {
+    region_overrides_by_ags?: Record<string, RegionRow>;
+  };
+  const regions = matrix.regions as Record<string, RegionRow>;
   const bl = form.buildingA.bundesland;
-  const region =
-    (regions as Record<string, (typeof regions)["DEFAULT"]>)[bl] ??
-    regions.DEFAULT;
+  const ags = form.buildingA.landkreisAgs;
+
+  let region: RegionRow =
+    (regions as Record<string, RegionRow>)[bl] ?? regions.DEFAULT;
+  let regionKeyOut: string = bl;
+
+  const ov = matrix.region_overrides_by_ags;
+  if (ov && ags && ags !== "00000" && ov[ags]) {
+    region = ov[ags];
+    regionKeyOut = ags;
+  }
+
   const z = preismatrix.zuschlage;
   const zm = preismatrix.moebel_zeitwerte_minuten;
   const zx = preismatrix.zusatzleistungen;
@@ -282,7 +296,7 @@ export function calculateUmzug(form: UmzugFormData): CalculateResult {
     netto: Math.round(netto),
     korridorUnten: unten,
     korridorOben: oben,
-    regionKey: bl,
+    regionKey: regionKeyOut,
     regionName: region.name,
     mindestauftrag: region.mindestauftrag,
     meta: {

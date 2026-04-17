@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /home/
+
+Sitemap: https://meinumzugsrechner.de/sitemap.xml

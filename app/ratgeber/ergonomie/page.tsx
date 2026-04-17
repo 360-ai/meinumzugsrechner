@@ -1,9 +1,22 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Ergonomie-Leitfaden: Sicher Heben und Tragen | meinumzugsrechner.de",
-  description: "Präventionsleitfaden für rückenfreundliches Arbeiten beim Umzug. Tipps zum sicheren Heben und Tragen schwerer Möbel.",
+const PAGE_TITLE = "Ergonomie-Leitfaden: Sicher Heben und Tragen | meinumzugsrechner.de";
+const PAGE_DESC =
+  "Präventionsleitfaden für rückenfreundliches Arbeiten beim Umzug. Tipps zum sicheren Heben und Tragen schwerer Möbel.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/ratgeber/ergonomie/"),
+  openGraph: {
+    title: "Ergonomie-Leitfaden: Sicher Heben und Tragen",
+    description: PAGE_DESC,
+    url: "/ratgeber/ergonomie/",
+    type: "article",
+  },
 };
 
 const sections: GuideSection[] = [
@@ -48,6 +61,11 @@ export default function ErgonomiePage() {
       category="ratgeber"
       categoryLabel="Ratgeber"
       sections={sections}
+      articleSeo={{
+        path: "/ratgeber/ergonomie/",
+        description:
+          "Präventionsleitfaden für rückenfreundliches Arbeiten beim Umzug. Tipps zum sicheren Heben und Tragen schwerer Möbel.",
+      }}
     >
       <div className="space-y-6">
 
@@ -153,7 +171,7 @@ export default function ErgonomiePage() {
           <strong>Hinweis:</strong> Bei chronischen Rückenproblemen oder größeren
           Umzügen lohnt sich die Beauftragung eines professionellen
           Umzugsunternehmens. Nutzen Sie unseren{" "}
-          <a href="/rechner" className="underline font-medium">kostenlosen Rechner</a>, um den Preiskorridor zu
+          <a href="/rechner/" className="underline font-medium">kostenlosen Rechner</a>, um den Preiskorridor zu
           ermitteln.
         </div>
 

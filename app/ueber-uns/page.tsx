@@ -1,4 +1,19 @@
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Über uns | meinumzugsrechner.de",
+  description:
+    "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — das Team und die Idee hinter meinumzugsrechner.de.",
+  ...pageCanonical("/ueber-uns/"),
+  openGraph: {
+    title: "Über meinumzugsrechner.de",
+    description:
+      "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — das Team und die Idee hinter meinumzugsrechner.de.",
+    url: "/ueber-uns/",
+  },
+};
 
 export default function UeberUnsPage() {
   return (
@@ -14,7 +29,7 @@ export default function UeberUnsPage() {
         Korridor, den Sie bei der Einholung echter Angebote als Orientierung nutzen können.
       </p>
       <p>
-        <Link href="/rechner" className="text-accent">
+        <Link href="/rechner/" className="text-accent">
           Zum Rechner
         </Link>
       </p>

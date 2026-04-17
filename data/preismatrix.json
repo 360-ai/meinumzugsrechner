@@ -1,13 +1,119 @@
 {
   "version": "1.0",
   "last_updated": "2026-04",
+  "kalibrierung_hinweis": "Je Bundesland eigener Satz (16 Angebote eintragen). Platzhalter: 42/110/0.85/280 außer HE (Pilot). DEFAULT = Fallback. region_overrides_by_ags: feinere Sätze pro Landkreis (AGS), optional.",
   "regions": {
+    "BW": {
+      "name": "Baden-Württemberg",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "BY": {
+      "name": "Bayern",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "BE": {
+      "name": "Berlin",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "BB": {
+      "name": "Brandenburg",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "HB": {
+      "name": "Bremen",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "HH": {
+      "name": "Hamburg",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
     "HE": {
       "name": "Hessen",
       "stundensatz_helfer": 45,
       "lkw_grundpauschale": 120,
       "km_pauschale": 0.9,
       "mindestauftrag": 300
+    },
+    "MV": {
+      "name": "Mecklenburg-Vorpommern",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "NI": {
+      "name": "Niedersachsen",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "NW": {
+      "name": "Nordrhein-Westfalen",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "RP": {
+      "name": "Rheinland-Pfalz",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "SL": {
+      "name": "Saarland",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "SN": {
+      "name": "Sachsen",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "ST": {
+      "name": "Sachsen-Anhalt",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "SH": {
+      "name": "Schleswig-Holstein",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
+    },
+    "TH": {
+      "name": "Thüringen",
+      "stundensatz_helfer": 42,
+      "lkw_grundpauschale": 110,
+      "km_pauschale": 0.85,
+      "mindestauftrag": 280
     },
     "DEFAULT": {
       "name": "Deutschland (Standard)",
@@ -17,6 +123,7 @@
       "mindestauftrag": 280
     }
   },
+  "region_overrides_by_ags": {},
   "moebel_zeitwerte_minuten": {
     "bett_einzel": 20,
     "bett_doppel": 30,

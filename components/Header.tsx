@@ -2,28 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NAV_LINKS_FULL = [
-  { href: "/rechner", label: "Rechner" },
-  { href: "/ratgeber", label: "Ratgeber" },
-  { href: "/checklisten", label: "Checklisten" },
-  { href: "/materialtipps", label: "Materialtipps" },
-  { href: "/partner", label: "Partner" },
-];
-
-const NAV_LINKS_PREVIEW = [
-  { href: "/ratgeber", label: "Ratgeber" },
-  { href: "/checklisten", label: "Checklisten" },
-  { href: "/materialtipps", label: "Materialtipps" },
+  { href: "/rechner/", label: "Rechner" },
+  { href: "/ratgeber/", label: "Ratgeber" },
+  { href: "/checklisten/", label: "Checklisten" },
+  { href: "/materialtipps/", label: "Materialtipps" },
+  { href: "/partner/", label: "Partner" },
 ];
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = usePathname();
-  const isFullSite = pathname.startsWith("/home");
-  const navLinks = isFullSite ? NAV_LINKS_FULL : NAV_LINKS_PREVIEW;
+  const navLinks = NAV_LINKS_FULL;
 
   return (
     <header className="relative sticky top-0 z-50 border-b-2 border-primary bg-white/95 backdrop-blur-sm">
@@ -31,7 +22,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 min-w-0">
           <Image
             src="/logo.png"
-            alt="meinumzugsrechner Maskottchen"
+            alt="meinumzugsrechner.de — Logo und Umzugs-Maskottchen"
             width={44}
             height={44}
             className="flex-shrink-0 object-contain"
@@ -53,14 +44,12 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          {isFullSite && (
-            <Link
-              href="/rechner"
-              className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
-            >
-              <span className="hidden sm:inline">Jetzt </span>berechnen
-            </Link>
-          )}
+          <Link
+            href="/rechner/"
+            className="touch-target inline-flex items-center justify-center rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition-opacity ml-2 sm:px-5 sm:py-2 sm:text-sm"
+          >
+            <span className="hidden sm:inline">Jetzt </span>berechnen
+          </Link>
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -99,16 +88,14 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            {isFullSite && (
-              <Link
-                href="/rechner"
-                onClick={() => setMobileOpen(false)}
-                className="py-3 text-sm font-bold transition-colors"
-                style={{ color: "#0088CC" }}
-              >
-                Jetzt berechnen →
-              </Link>
-            )}
+            <Link
+              href="/rechner/"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 text-sm font-bold transition-colors"
+              style={{ color: "#0088CC" }}
+            >
+              Jetzt berechnen →
+            </Link>
           </nav>
         </div>
       )}

@@ -1,9 +1,21 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { pageCanonical } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Leitbild: Moderne Umzugslogistik 2026 | meinumzugsrechner.de",
-  description: "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.",
+const PAGE_TITLE = "Leitbild: Moderne Umzugslogistik 2026 | meinumzugsrechner.de";
+const PAGE_DESC = "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
+  ...pageCanonical("/ratgeber/moderne-umzugslogistik/"),
+  openGraph: {
+    title: "Moderne Umzugslogistik 2026",
+    description: PAGE_DESC,
+    url: "/ratgeber/moderne-umzugslogistik/",
+    type: "article",
+  },
 };
 
 const sections: GuideSection[] = [
@@ -48,6 +60,10 @@ export default function ModerneUmzugslogistikPage() {
       category="ratgeber"
       categoryLabel="Ratgeber"
       sections={sections}
+      articleSeo={{
+        path: "/ratgeber/moderne-umzugslogistik/",
+        description: "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.",
+      }}
     >
       <div className="space-y-6">
 
@@ -166,7 +182,7 @@ export default function ModerneUmzugslogistikPage() {
         {/* Tip box */}
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
           Noch unsicher über die Kosten?{" "}
-          <a href="/rechner" className="underline font-medium">Berechnen Sie jetzt Ihren Preiskorridor</a> — kostenlos
+          <a href="/rechner/" className="underline font-medium">Berechnen Sie jetzt Ihren Preiskorridor</a> — kostenlos
           und ohne Datenweitergabe.
         </div>
 

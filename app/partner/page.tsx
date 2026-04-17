@@ -77,7 +77,7 @@ function PartnerCard({ partner }: { partner: PartnerWithBl }) {
   const isMailto = partner.url.startsWith("mailto:");
   const contactHref = isMailto
     ? partner.url
-    : `mailto:info@360-ai.org?subject=Anfrage%20Partner%20${encodeURIComponent(partner.name)}`;
+    : `mailto:info@meinumzugsrechner.de?subject=Anfrage%20Partner%20${encodeURIComponent(partner.name)}`;
 
   return (
     <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col gap-4">
@@ -156,7 +156,7 @@ function PartnerPageInner() {
       <div className="mb-8 flex flex-wrap gap-2">
         {[{ code: "ALLE", label: "Alle" }, ...BUNDESLAENDER].map((bl) => {
           const isActive = activeBl === bl.code;
-          const href = bl.code === "ALLE" ? "/partner" : `/partner?bl=${bl.code}`;
+          const href = bl.code === "ALLE" ? "/partner/" : `/partner/?bl=${bl.code}`;
           return (
             <Link
               key={bl.code}
@@ -193,7 +193,7 @@ function PartnerPageInner() {
           Werden Sie Partner auf meinumzugsrechner.de — regional sichtbar, ohne Datenweitergabe.
         </p>
         <a
-          href="mailto:info@360-ai.org?subject=Partnerschaft%20meinumzugsrechner.de"
+          href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
           className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
           style={{ backgroundColor: "#FFCC00" }}
         >
