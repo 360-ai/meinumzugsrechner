@@ -8,3 +8,4 @@ out
 .dev.vars
 npm-debug.log*
 .DS_Store
+*.mp4
