@@ -1,3 +1,23 @@
+const BoxIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+    <line x1="12" y1="22.08" x2="12" y2="12" />
+  </svg>
+);
+
+const ShieldIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+  </svg>
+);
+
+const WrenchIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+  </svg>
+);
+
 export const metadata = {
   title: "Materialtipps für deinen Umzug | meinumzugsrechner.de",
   description: "Empfohlenes Umzugsmaterial bei Amazon — von Kartons über Polstermaterial bis zum Transportwerkzeug.",
@@ -6,7 +26,7 @@ export const metadata = {
 const categories = [
   {
     label: "Verpackung",
-    icon: "📦",
+    icon: <BoxIcon />,
     color: "#0088CC",
     products: [
       {
@@ -25,7 +45,7 @@ const categories = [
   },
   {
     label: "Schutz",
-    icon: "🛡️",
+    icon: <ShieldIcon />,
     color: "#FF7700",
     products: [
       {
@@ -44,7 +64,7 @@ const categories = [
   },
   {
     label: "Werkzeug & Transport",
-    icon: "🔧",
+    icon: <WrenchIcon />,
     color: "#0D2137",
     products: [
       {
@@ -89,7 +109,12 @@ export default function MaterialtippsPage() {
         {categories.map((cat) => (
           <section key={cat.label}>
             <div className="mb-5 flex items-center gap-3">
-              <span className="text-3xl">{cat.icon}</span>
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-xl"
+                style={{ backgroundColor: cat.color + "18", color: cat.color }}
+              >
+                {cat.icon}
+              </div>
               <h2
                 className="text-xl font-bold"
                 style={{ color: cat.color }}

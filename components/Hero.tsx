@@ -100,7 +100,13 @@ export function Hero() {
               Deine Kosten.
             </span>
             <span
-              className="block mt-1"
+              className="block whitespace-nowrap"
+              style={{ fontSize: "clamp(2.8rem, 8vw, 96px)" }}
+            >
+              Deine Daten.
+            </span>
+            <span
+              className="block mt-1 whitespace-nowrap"
               style={{ fontSize: "clamp(2.8rem, 8vw, 96px)", color: "#FFCC00" }}
             >
               Kostenlos berechnet.
