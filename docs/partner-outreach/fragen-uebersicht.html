@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Was der Nutzer eingibt — Alle Fragen im Überblick | meinumzugsrechner.de</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2e3d;
+    background: #f4f7fa;
+    padding: 32px 16px 64px;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: #0D2137;
+    padding: 34px 40px;
+    color: white;
+  }
+  .header-badge {
+    display: inline-block;
+    background: #0088CC;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .header h1 { font-size: 24px; font-weight: 900; margin-bottom: 8px; }
+  .header h1 span { color: #FFCC00; }
+  .header p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.7; max-width: 540px; }
+
+  /* Content */
+  .content { padding: 36px 40px; }
+
+  /* Step block */
+  .step {
+    margin-bottom: 32px;
+    border: 1.5px solid #e2eaf0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: #f0f6fb;
+    border-bottom: 1.5px solid #e2eaf0;
+  }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #0D2137; color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900; flex-shrink: 0;
+  }
+  .step-num.blue { background: #0088CC; }
+  .step-num.orange { background: #FF7700; }
+  .step-title { font-size: 14px; font-weight: 700; color: #0D2137; }
+  .step-subtitle { font-size: 12px; color: #5a7a8a; margin-top: 1px; }
+
+  .step-body { padding: 20px; }
+
+  /* Question rows */
+  .q-list { display: flex; flex-direction: column; gap: 12px; }
+  .q-item { display: flex; gap: 12px; align-items: flex-start; }
+  .q-label {
+    font-size: 12px; font-weight: 700; color: #0D2137;
+    min-width: 190px; flex-shrink: 0; padding-top: 2px;
+  }
+  .q-options { display: flex; flex-wrap: wrap; gap: 5px; }
+  .opt {
+    background: #EBF6FD; color: #0D2137;
+    border-radius: 100px; padding: 2px 10px;
+    font-size: 11px; font-weight: 600;
+  }
+  .opt.num { background: #f0f0f0; color: #555; }
+  .opt.free { background: #fff8f0; color: #7a3a00; font-style: italic; }
+
+  /* Divider */
+  .q-divider {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #0088CC;
+    padding: 10px 0 6px; border-bottom: 1px solid #EBF6FD; margin-bottom: 10px;
+  }
+
+  /* Möbel grid */
+  .moebel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .moebel-section { }
+  .moebel-section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: #FF7700;
+    margin-bottom: 8px;
+  }
+  .moebel-list { display: flex; flex-direction: column; gap: 4px; }
+  .moebel-item {
+    display: flex; align-items: center; gap-6px;
+    font-size: 12px; color: #1a2e3d; gap: 6px;
+  }
+  .moebel-item::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #0088CC;
+    flex-shrink: 0;
+  }
+  .moebel-counter {
+    margin-left: auto;
+    font-size: 10px; color: #aaa; font-style: italic;
+  }
+
+  /* Extras grid */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .extra-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #1a2e3d;
+    background: #fafcfe; border: 1px solid #e2eaf0;
+    border-radius: 6px; padding: 7px 10px;
+  }
+  .extra-item::before {
+    content: "☐";
+    color: #0088CC; font-size: 13px; flex-shrink: 0;
+  }
+  .extra-note { font-size: 11px; color: #aaa; }
+
+  /* Kueche special */
+  .kueche-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+
+  /* Sperrgut */
+  .sperrgut-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+  }
+  .sperrgut-item {
+    background: #fff8f0; border: 1.5px solid #ffe0c0;
+    border-radius: 8px; padding: 10px 12px;
+    font-size: 12px; font-weight: 700; color: #7a3a00;
+  }
+  .sperrgut-item span { display: block; font-size: 11px; font-weight: 400; color: #aaa; margin-top: 2px; }
+
+  /* Feedback box */
+  .feedback-box {
+    border: 2px dashed #0088CC;
+    border-radius: 12px;
+    padding: 24px 26px;
+    background: #f8fcff;
+    margin-top: 8px;
+  }
+  .feedback-box .fb-badge {
+    display: inline-block;
+    background: #0088CC; color: white;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 100px; margin-bottom: 12px;
+  }
+  .feedback-box h3 { font-size: 15px; color: #0D2137; margin-bottom: 8px; }
+  .feedback-box p { font-size: 13px; color: #3a5060; line-height: 1.8; }
+  .feedback-box .examples {
+    margin-top: 12px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .feedback-box .example-tag {
+    background: #EBF6FD; color: #0D2137;
+    border-radius: 6px; padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  /* Footer */
+  .footer {
+    background: #0D2137;
+    padding: 22px 40px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .footer p { color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.7; }
+  .footer strong { color: #FFCC00; }
+  .footer-cta {
+    background: #0088CC; color: white;
+    font-weight: 700; font-size: 13px;
+    padding: 10px 22px; border-radius: 100px;
+    text-decoration: none; white-space: nowrap;
+  }
+
+  @media (max-width: 560px) {
+    .content { padding: 20px; }
+    .header { padding: 24px 20px; }
+    .moebel-grid, .extras-grid, .kueche-grid, .sperrgut-grid { grid-template-columns: 1fr; }
+    .q-label { min-width: 130px; }
+    .footer { padding: 20px; }
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">Fragenübersicht für Partnerunternehmen</div>
+    <h1>Was der Kunde eingibt —<br /><span>alle Fragen im Überblick</span></h1>
+    <p>
+      Diese Übersicht zeigt Ihnen alle Angaben, die ein Nutzer auf meinumzugsrechner.de macht.
+      Genau diese Daten erhalten Sie automatisch, wenn ein Kunde über unsere Plattform eine
+      Anfrage an Sie schickt.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <!-- Schritt 1: Auszugsgebäude -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num blue">1</div>
+        <div>
+          <div class="step-title">Auszugsgebäude</div>
+          <div class="step-subtitle">Wo zieht der Kunde aus?</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-label">Bundesland</div>
+            <div class="q-options"><span class="opt">Alle 16 Bundesländer</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Landkreis / Stadt</div>
+            <div class="q-options"><span class="opt">Aus Liste nach Bundesland</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Stadt / Ort</div>
+            <div class="q-options"><span class="opt free">Freitexteingabe</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Etage</div>
+            <div class="q-options">
+              <span class="opt">EG</span><span class="opt">1. OG</span><span class="opt">2. OG</span>
+              <span class="opt">3. OG</span><span class="opt">4. OG</span><span class="opt">5. OG+</span>
+              <span class="opt">Dachgeschoss</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Aufzug vorhanden?</div>
+            <div class="q-options">
+              <span class="opt">Ja</span><span class="opt">Nein</span><span class="opt">Lastenaufzug</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Treppenhaus</div>
+            <div class="q-options">
+              <span class="opt">Normal</span><span class="opt">Eng (unter 1,20 m)</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Entfernung Haustür → LKW</div>
+            <div class="q-options">
+              <span class="opt">0–10 m</span><span class="opt">10–30 m</span>
+              <span class="opt">30–50 m</span><span class="opt">über 50 m</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Halteverbot nötig?</div>
+            <div class="q-options">
+              <span class="opt">Ja</span><span class="opt">Nein</span><span class="opt">Weiß nicht</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Gebäudetyp</div>
+            <div class="q-options">
+              <span class="opt">Altbau</span><span class="opt">Neubau</span><span class="opt">Einfamilienhaus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schritt 2: Einzugsgebäude -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num blue">2</div>
+        <div>
+          <div class="step-title">Einzugsgebäude</div>
+          <div class="step-subtitle">Wohin zieht der Kunde? Alle Felder identisch wie Schritt 1.</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-label">Gleiche Stadt?</div>
+            <div class="q-options">
+              <span class="opt">Ja → Einzugsdetails = Auszug</span>
+              <span class="opt">Nein → alle Felder neu</span>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Falls andere Stadt</div>
+            <div class="q-options"><span class="opt">Bundesland, Landkreis, Ort, Etage, Aufzug, Treppenhaus, LKW-Abstand, Halteverbot, Gebäudetyp</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schritt 3: Termin & Distanz -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Termin &amp; Distanz</div>
+          <div class="step-subtitle">Wann und wie weit?</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-label">Umzugsdatum</div>
+            <div class="q-options"><span class="opt free">Datumsauswahl (Kalender)</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Distanz in km</div>
+            <div class="q-options"><span class="opt">Automatisch berechnet</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Nutzungsart</div>
+            <div class="q-options"><span class="opt">Privat</span><span class="opt">Gewerbe</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schritt 4: Möbelinventar -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num orange">4</div>
+        <div>
+          <div class="step-title">Möbelinventar</div>
+          <div class="step-subtitle">Was wird transportiert? Stückzahl je Position angeben.</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="moebel-grid">
+
+          <div class="moebel-section">
+            <div class="moebel-section-title">Schlafzimmer</div>
+            <div class="moebel-list">
+              <div class="moebel-item">Bett Einzel (90 cm)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Bett Doppel (140–180 cm)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Boxspringbett<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Kleiderschrank klein (bis 1 m)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Kleiderschrank mittel (1–2 m)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Kleiderschrank groß (über 2 m)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Begehbarer Kleiderschrank<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Kommode<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Nachttisch<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Spiegel groß (über 1 m)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Matratze extra<span class="moebel-counter">Stück</span></div>
+            </div>
+          </div>
+
+          <div class="moebel-section">
+            <div class="moebel-section-title">Wohnzimmer</div>
+            <div class="moebel-list">
+              <div class="moebel-item">Sofa 2-Sitzer<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Sofa 3-Sitzer<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Sofa L-Form<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Sessel<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Couchtisch<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">TV-Möbel / Sideboard<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Regal (bis 1 m Höhe)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Regal (über 1 m Höhe)<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Vitrine<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Teppich groß (über 4 m²)<span class="moebel-counter">Stück</span></div>
+            </div>
+          </div>
+
+          <div class="moebel-section">
+            <div class="moebel-section-title">Büro</div>
+            <div class="moebel-list">
+              <div class="moebel-item">Schreibtisch normal<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Eck-Schreibtisch<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Bürostuhl<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Aktenschrank<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Drucker / Scanner<span class="moebel-counter">Stück</span></div>
+            </div>
+          </div>
+
+          <div class="moebel-section">
+            <div class="moebel-section-title">Keller &amp; Lager</div>
+            <div class="moebel-list">
+              <div class="moebel-item">Werkzeugschrank<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Fahrrad<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Motorrad<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Kellerregal<span class="moebel-counter">Stück</span></div>
+              <div class="moebel-item">Gefriertruhe<span class="moebel-counter">Stück</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Küche -->
+        <div style="margin-top:20px">
+          <div class="q-divider">Küche</div>
+          <div class="kueche-grid">
+            <div class="q-list">
+              <div class="q-item">
+                <div class="q-label">Küche vorhanden?</div>
+                <div class="q-options"><span class="opt">Ja</span><span class="opt">Nein</span></div>
+              </div>
+              <div class="q-item">
+                <div class="q-label">Küchenzeile (Laufmeter)</div>
+                <div class="q-options">
+                  <span class="opt">bis 2 m</span><span class="opt">2–3 m</span>
+                  <span class="opt">3–4 m</span><span class="opt">über 4 m</span>
+                </div>
+              </div>
+              <div class="q-item">
+                <div class="q-label">Kühlschrank</div>
+                <div class="q-options">
+                  <span class="opt">Keiner</span><span class="opt">Standard</span><span class="opt">Side-by-Side</span>
+                </div>
+              </div>
+            </div>
+            <div class="q-list">
+              <div class="q-item">
+                <div class="q-label">Herd</div>
+                <div class="q-options">
+                  <span class="opt">Einbau</span><span class="opt">Freistehend</span><span class="opt">Keiner</span>
+                </div>
+              </div>
+              <div class="q-item">
+                <div class="q-label">Geschirrspüler</div>
+                <div class="q-options">
+                  <span class="opt">Einbau</span><span class="opt">Freistehend</span><span class="opt">Keiner</span>
+                </div>
+              </div>
+              <div class="q-item">
+                <div class="q-label">Waschmaschine / Trockner</div>
+                <div class="q-options"><span class="opt num">Stückzahl je</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sperrgut -->
+        <div style="margin-top:20px">
+          <div class="q-divider">Sperrgut &amp; Sondergüter</div>
+          <div class="sperrgut-grid">
+            <div class="sperrgut-item">Klavier<span>Stückzahl</span></div>
+            <div class="sperrgut-item">Flügel<span>Stückzahl</span></div>
+            <div class="sperrgut-item">Tresor / Schwerlast<span>Stückzahl</span></div>
+            <div class="sperrgut-item">Aquarium groß<span>Stückzahl</span></div>
+            <div class="sperrgut-item" style="grid-column:span 2">Kunst / Antiquitäten<span>Ja/Nein + Freitextbeschreibung</span></div>
+          </div>
+        </div>
+
+        <!-- Gartengeräte -->
+        <div style="margin-top:16px">
+          <div class="q-divider">Gartengeräte</div>
+          <div class="q-options" style="margin-top:6px">
+            <span class="opt">Wenig (Kleingeräte)</span>
+            <span class="opt">Mittel (inkl. Rasenmäher)</span>
+            <span class="opt">Viel (Aufsitzmäher, Geräteschuppen)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Schritt 5: Zusatzleistungen -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num orange">5</div>
+        <div>
+          <div class="step-title">Zusatzleistungen</div>
+          <div class="step-subtitle">Was soll die Umzugsfirma übernehmen? Mehrfachauswahl möglich.</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="extras-grid">
+          <div class="extra-item">Einpackservice (komplett)</div>
+          <div class="extra-item">Einpackservice (teilweise)</div>
+          <div class="extra-item">Auspackservice</div>
+          <div class="extra-item">Möbelmontage / -demontage</div>
+          <div class="extra-item">Küche de- / montieren</div>
+          <div class="extra-item">Elektro-Anschluss</div>
+          <div class="extra-item">Halteverbotszone einrichten</div>
+          <div class="extra-item">Verpackungsmaterial liefern</div>
+          <div class="extra-item">Entrümpelung <span class="extra-note">+ m³-Angabe</span></div>
+          <div class="extra-item">Zwischenlagerung <span class="extra-note">+ Tage &amp; m³</span></div>
+          <div class="extra-item">Endreinigung alte Wohnung</div>
+          <div class="extra-item">Möbellift erforderlich</div>
+          <div class="extra-item" style="grid-column:span 2">Transportversicherung gewünscht</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schritt 6: Ergebnis -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num" style="background:#FFCC00;color:#0D2137">6</div>
+        <div>
+          <div class="step-title">Ergebnis &amp; Firmenauswahl</div>
+          <div class="step-subtitle">Was der Nutzer danach sieht und tut.</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-label">Preiskorridor</div>
+            <div class="q-options"><span class="opt">Unterer und oberer Richtwert in €</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Volumen &amp; Helfer</div>
+            <div class="q-options"><span class="opt">Geschätztes m³-Volumen</span><span class="opt">Empfohlene Helferanzahl</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Partnerauswahl</div>
+            <div class="q-options"><span class="opt">Liste regionaler Partner nach Bundesland</span></div>
+          </div>
+          <div class="q-item">
+            <div class="q-label">Anfrage versenden</div>
+            <div class="q-options"><span class="opt">Klick öffnet E-Mail mit allen Umzugsdaten vorausgefüllt</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback -->
+    <div class="feedback-box">
+      <div class="fb-badge">Ihre Meinung ist gefragt</div>
+      <h3>Fehlt etwas, das Sie für ein Angebot brauchen?</h3>
+      <p>
+        Wir möchten, dass Sie eingehende Anfragen <strong>sofort bearbeiten können</strong> — ohne Rückfragen.
+        Dafür sind wir auf Ihr Feedback angewiesen: Gibt es Angaben, die in dieser Liste fehlen
+        und die Sie üblicherweise für eine Kalkulation benötigen?
+      </p>
+      <div class="examples">
+        <span class="example-tag">z. B. Wohnfläche in m²?</span>
+        <span class="example-tag">Fotos der Räume?</span>
+        <span class="example-tag">Besichtigungswunsch?</span>
+        <span class="example-tag">Flexibilität beim Datum?</span>
+        <span class="example-tag">Bestimmte Möbeltypen?</span>
+        <span class="example-tag">Etwas anderes?</span>
+      </div>
+      <p style="margin-top:14px;color:#5a7a8a">
+        Eine kurze Rückmeldung per E-Mail an <strong style="color:#0088CC">info@meinumzugsrechner.de</strong>
+        genügt. Wir prüfen alle Hinweise und passen den Rechner entsprechend an —
+        damit Anfragen für alle Beteiligten so nützlich wie möglich sind.
+      </p>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      Fragen oder Feedback:<br />
+      <strong>info@meinumzugsrechner.de</strong><br />
+      <span style="color:rgba(255,255,255,0.3)">www.meinumzugsrechner.de · 360ai · Denis Schmidt</span>
+    </p>
+    <a href="mailto:info@meinumzugsrechner.de?subject=Feedback%20Fragebogen%20meinumzugsrechner.de"
+       class="footer-cta">
+      Feedback senden →
+    </a>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

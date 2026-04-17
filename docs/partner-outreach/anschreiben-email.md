@@ -19,12 +19,15 @@ Guten Tag [Herr/Frau Nachname],
 mein Name ist Denis Schmidt, ich bin der Gründer von **meinumzugsrechner.de** — einer neuen, kostenlosen
 Plattform, auf der Privatpersonen ihren Umzug vorab selbst kalkulieren können, bevor sie Angebote einholen.
 
-Das Besondere: Wir geben keine Daten automatisch weiter. Der Nutzer entscheidet selbst, welche Firma er
-anschreibt — und er tut das **mit seiner Kalkulation in der Hand**. Das bedeutet für Sie als Umzugsunternehmen:
-qualifiziertere Anfragen, weniger Hin-und-Her, Kunden die bereits wissen was ihr Umzug ungefähr kostet.
+**Wir denken anders als die meisten Vergleichsplattformen:** Wir geben keine Kundendaten automatisch an Firmen
+weiter und verkaufen keine Leads. Der Nutzer entscheidet selbst, wen er anschreibt — und er tut das
+**mit seiner vollständigen Kalkulation in der Hand**. Das bedeutet für Sie: qualifiziertere Anfragen,
+weniger Rückfragen, Kunden die bereits wissen was ihr Umzug ungefähr kostet. Kundenorientiert, transparent,
+ohne versteckte Datenweitergabe.
 
-Wir starten im **Juni 2026** und suchen aktuell **Gründungspartner in [Stadt]**, die uns in der Aufbauphase
-unterstützen.
+Wir starten im **Juni 2026** und möchten die Plattform in einer **dreimonatigen Testphase** gemeinsam mit
+ausgewählten Partnern etablieren. Dafür suchen wir aktuell **Gründungspartner in [Stadt]**, die uns in der
+Aufbauphase unterstützen.
 
 ---
 
@@ -50,9 +53,14 @@ Das dauert etwa 10–15 Minuten.
 
 ---
 
-**Zum Fragebogen:**
+**Im Anhang dieser E-Mail finden Sie drei Dokumente:**
 
-Im Anhang finden Sie unseren Partnerfragebogen. Dieser enthält Fragen zu:
+1. **Partnerfragebogen** — bitte ausfüllen und zurücksenden (bevorzugt als HTML, PDF geht auch)
+2. **Plattform-Info** — Überblick über Funktionsweise, Vorteile und Zeitplan
+3. **Fragen-Übersicht** — alle Angaben, die ein Nutzer eingibt und die Sie automatisch mit jeder
+   Anfrage erhalten (damit Sie sehen, ob Sie damit sofort ein Angebot erstellen könnten)
+
+Der Fragebogen enthält Fragen zu:
 - Ihrer Preisgestaltung (wie Sie Umzüge kalkulieren)
 - Ihrem Leistungsumfang und Einsatzgebiet
 - Eventuellen Rabatten für Kunden, die über unsere Plattform kommen
@@ -108,6 +116,6 @@ Kleinere Familienbetriebe reagieren oft schneller als große Ketten.
 
 - Betreff immer mit dem Stadtnamen personalisieren
 - Firmenname im ersten Satz nennen wenn bekannt
-- Fragebogen als PDF oder HTML-Datei anhängen
+- **3 Anhänge mitschicken:** Partnerfragebogen + Plattform-Info + Fragen-Übersicht
 - Nachfass nach 7–10 Tagen wenn keine Antwort
 - Antworten in einer einfachen Tabelle (Excel/Sheets) erfassen: Firma | Stadt | Datum | Status | Notizen
