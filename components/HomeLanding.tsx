@@ -58,6 +58,16 @@ const BoxIcon = () => (
   </svg>
 );
 
+const KartonIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+    <line x1="12" y1="22.08" x2="12" y2="12" />
+    <line x1="8" y1="4.5" x2="8" y2="10" />
+    <line x1="16" y1="9" x2="16" y2="9" />
+  </svg>
+);
+
 const TruckIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" style={{ color: "#0088CC" }}>
     <rect x="1" y="3" width="15" height="13" rx="1" />
@@ -274,6 +284,36 @@ export function HomeLanding() {
                 <Image
                   src="/logistik-partner.png"
                   alt="Regionale Umzugsunternehmen und Partner für Festpreis-Angebote"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
+              </div>
+            </div>
+
+            <div className="border-t border-[#0088CC]/15" />
+
+            <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
+              <div className="flex-1 text-center md:text-left">
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
+                  <KartonIcon />
+                </div>
+                <h3 className="text-2xl font-bold text-[#0D2137]">Kartonrechner</h3>
+                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
+                  Wie viele Kartons brauchst du wirklich? Unser Rechner ermittelt in Sekunden die genaue Anzahl nach Typ — Standardkarton, Bücherkarton, Kleiderbox und Spezialkarton.
+                </p>
+                <Link
+                  href="/kartonrechner/"
+                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
+                  style={{ backgroundColor: "#FFCC00" }}
+                >
+                  Zum Kartonrechner →
+                </Link>
+              </div>
+              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
+                <Image
+                  src="/kartonrechner.png"
+                  alt="Kartonrechner: Wie viele Umzugskartons brauche ich?"
                   width={400}
                   height={300}
                   className="w-full rounded-2xl object-cover shadow-md"

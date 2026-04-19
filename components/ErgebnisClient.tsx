@@ -13,6 +13,146 @@ import { PdfExportButton } from "./PdfExportButton";
 import { TrustBadges } from "./TrustBadges";
 import { WunschfirmaSection } from "./WunschfirmaSection";
 
+const TRUCKS = [
+  { name: "Sprinter", m3: 10, fsk: "B", farbe: "#5A7A8A", label: "bis 1-Zi.-Wohnung" },
+  { name: "Transporter 3,5t", m3: 16, fsk: "B", farbe: "#0088CC", label: "2-Zi.-Wohnung" },
+  { name: "LKW 7,5t", m3: 30, fsk: "C1", farbe: "#FF7700", label: "3–4-Zi.-Wohnung" },
+  { name: "LKW 12t", m3: 45, fsk: "C", farbe: "#0D2137", label: "Großer Haushalt" },
+] as const;
+
+function LkwBedarfSection({ volumenM3 }: { volumenM3: number }) {
+  const vol = Math.max(1, Math.round(volumenM3));
+  return (
+    <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+      <h2 className="mb-1 text-lg font-bold text-[#0D2137]">Selbst umziehen? LKW-Bedarf</h2>
+      <p className="mb-5 text-sm text-[#5A7A8A]">
+        Dein geschätztes Volumen: <strong className="text-[#0D2137]">ca. {vol} m³</strong> — so viele Fahrten wären nötig:
+      </p>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {TRUCKS.map(truck => {
+          const fahrten = Math.ceil(vol / truck.m3);
+          const isOne = fahrten === 1;
+          const isTwo = fahrten === 2;
+          return (
+            <div
+              key={truck.name}
+              className="rounded-xl p-4 border"
+              style={{
+                borderColor: isOne ? "#22c55e" : isTwo ? truck.farbe : "#e2e8f0",
+                backgroundColor: isOne ? "#f0fdf4" : "#f8fafc",
+              }}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-[#5A7A8A] uppercase tracking-wide">{truck.name}</span>
+                <span
+                  className="text-xs font-bold rounded-full px-2 py-0.5 text-white"
+                  style={{ backgroundColor: truck.fsk === "B" ? "#22c55e" : "#FF7700" }}
+                >
+                  FS {truck.fsk}
+                </span>
+              </div>
+              <p className="text-xs text-[#5A7A8A] mb-2">{truck.label} · max. {truck.m3} m³</p>
+              <p className="text-2xl font-black" style={{ color: isOne ? "#22c55e" : truck.farbe }}>
+                {fahrten}×
+              </p>
+              <p className="text-xs text-[#5A7A8A]">{fahrten === 1 ? "Fahrt reicht" : "Fahrten nötig"}</p>
+            </div>
+          );
+        })}
+      </div>
+      <p className="mt-4 text-xs text-[#5A7A8A]">
+        ⚠ LKW ab 7,5t: Führerscheinklasse C1 erforderlich. Sprinter &amp; Transporter bis 3,5t: Klasse B genügt.
+        Alle Angaben sind Schätzwerte.
+      </p>
+      <div className="mt-3">
+        <a href="/lkw-rechner/" className="text-sm font-medium hover:underline" style={{ color: "#0088CC" }}>
+          LKW-Rechner ohne Berechnung öffnen →
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function DiyVergleichSection({ form, result }: { form: UmzugFormData; result: CalculateResult }) {
+  const vol = result.meta.volumenM3Schaetzung;
+  const km = form.distance.km || 0;
+
+  // DIY-Kostenschätzung
+  const lkwMiete = vol <= 10 ? 150 : vol <= 20 ? 220 : vol <= 35 ? 320 : 420;
+  const kraftstoff = Math.round(km * 2 * 0.35); // Hin + Zurück
+  const helferVerpflegung = result.meta.helfer * 25;
+  const diyGesamt = lkwMiete + kraftstoff + helferVerpflegung;
+
+  const preisUnten = result.korridorUnten;
+  const preisOben = result.korridorOben;
+
+  const rows = [
+    {
+      label: "Kosten",
+      diy: `ca. ${diyGesamt.toLocaleString("de-DE")} €`,
+      profi: `${preisUnten.toLocaleString("de-DE")}–${preisOben.toLocaleString("de-DE")} €`,
+      highlight: diyGesamt > preisUnten,  // true wenn Profi günstiger oder gleich
+    },
+    { label: "Zeitaufwand", diy: "12–16 Stunden", profi: "3–6 Stunden", highlight: true },
+    { label: "Versicherung", diy: "Privathaftpflicht", profi: "Inklusive", highlight: true },
+    { label: "Steuervorteil", diy: "Nein", profi: "Ja (§35a EStG)", highlight: true },
+    { label: "Stresslevel", diy: "Hoch", profi: "Niedrig", highlight: true },
+  ];
+
+  return (
+    <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+      <h2 className="mb-1 text-lg font-bold text-[#0D2137]">DIY vs. Profi: Was lohnt sich?</h2>
+      <p className="mb-5 text-sm text-[#5A7A8A]">
+        Selbst umziehen klingt günstiger — stimmt das wirklich?
+      </p>
+
+      <div className="overflow-x-auto -mx-2">
+        <table className="w-full min-w-[360px] text-sm">
+          <thead>
+            <tr>
+              <th className="text-left py-2 px-3 text-[#5A7A8A] font-medium text-xs w-28">Kriterium</th>
+              <th className="text-center py-2 px-3 text-[#5A7A8A] font-medium text-xs">
+                <span className="inline-flex items-center gap-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Selbst (DIY)
+                </span>
+              </th>
+              <th className="text-center py-2 px-3 font-bold text-xs" style={{ color: "#0088CC" }}>
+                <span className="inline-flex items-center gap-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  Profi-Firma
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr key={row.label} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
+                <td className="py-2.5 px-3 font-medium text-[#0D2137]">{row.label}</td>
+                <td className="py-2.5 px-3 text-center text-[#5A7A8A]">{row.diy}</td>
+                <td className="py-2.5 px-3 text-center font-semibold" style={{ color: "#0088CC" }}>
+                  {row.profi}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-4 rounded-xl p-3 text-xs text-[#5A7A8A]" style={{ backgroundColor: "#EBF6FD" }}>
+        DIY-Schätzung: LKW-Miete ~{lkwMiete} €{km > 0 ? ` + Kraftstoff ~${kraftstoff} € (${km} km hin & zurück)` : ""} + Verpflegung ~{helferVerpflegung} € für {result.meta.helfer} Helfer.
+        Keine Versicherung, keine Gewährleistung eingerechnet.
+      </div>
+
+      <div className="mt-4">
+        <a href="/ratgeber/steuerspartipps/" className="text-sm font-medium hover:underline" style={{ color: "#0088CC" }}>
+          Bis zu 4.000 € Steuervorteil mit Profi-Umzug →
+        </a>
+      </div>
+    </div>
+  );
+}
+
 const BUNDESLAND_LABELS: Record<string, string> = {
   BW: "Baden-Württemberg", BY: "Bayern", BE: "Berlin", BB: "Brandenburg",
   HB: "Bremen", HH: "Hamburg", HE: "Hessen", MV: "Mecklenburg-Vorpommern",
@@ -267,6 +407,11 @@ export function ErgebnisClient() {
            data-full-width-responsive="true" /> */}
 
       <ErgebnisKorridor result={result} />
+
+      {/* ── LKW-Bedarf Section ─── */}
+      <LkwBedarfSection volumenM3={result.meta.volumenM3Schaetzung} />
+
+      <DiyVergleichSection form={form} result={result} />
 
       <WunschfirmaSection
         bundesland={form.buildingA.bundesland}

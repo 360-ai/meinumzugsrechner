@@ -44,6 +44,15 @@ const TruckIcon = () => (
   </svg>
 );
 
+const EuroIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M14.5 8.5a4 4 0 1 0 0 7" />
+    <line x1="7" y1="11" x2="13" y2="11" />
+    <line x1="7" y1="13" x2="13" y2="13" />
+  </svg>
+);
+
 const guides = [
   {
     href: "/ratgeber/ergonomie/",
@@ -66,6 +75,13 @@ const guides = [
     description:
       "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.",
   },
+  {
+    href: "/ratgeber/steuerspartipps/",
+    icon: <EuroIcon />,
+    title: "Steuern sparen beim Umzug",
+    description:
+      "§35a EStG und Umzugskostenpauschale: So holen Sie sich bis zu 4.000 € vom Finanzamt zurück.",
+  },
 ];
 
 export default function RatgeberPage() {
@@ -83,7 +99,7 @@ export default function RatgeberPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {guides.map((g) => (
           <Link
             key={g.href}
