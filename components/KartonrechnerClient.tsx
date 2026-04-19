@@ -78,9 +78,9 @@ export function KartonrechnerClient() {
 
       {/* Result Box */}
       <div className="rounded-2xl p-6 shadow-sm text-white" style={{ backgroundColor: "#0D2137" }}>
-        <h2 className="mb-4 text-lg font-bold">Deine Karton-Einkaufsliste</h2>
+        <h2 className="mb-4 text-lg font-bold">Richtwert: Deine Karton-Schätzung</h2>
         {gesamt === 0 ? (
-          <p className="text-white/60 text-sm">Gib oben deine Angaben ein, um eine Empfehlung zu erhalten.</p>
+          <p className="text-white/60 text-sm">Gib oben deine Angaben ein, um einen Richtwert zu erhalten.</p>
         ) : (
           <div className="space-y-3">
             {k.standard > 0 && (
@@ -120,13 +120,13 @@ export function KartonrechnerClient() {
               </div>
             )}
             <div className="border-t border-white/20 pt-3 flex items-center justify-between">
-              <p className="text-sm text-white/70">Gesamt ca.</p>
-              <p className="text-lg font-black text-white">{gesamt} Kartons</p>
+              <p className="text-sm text-white/70">Richtwert gesamt</p>
+              <p className="text-lg font-black text-white">ca. {gesamt} Kartons</p>
             </div>
           </div>
         )}
         <p className="mt-4 text-xs text-white/40">
-          Richtwert. Wir empfehlen, 10–15 % mehr zu kaufen als Reserve.
+          Alle Angaben sind Schätzwerte — individuelle Packmenge kann abweichen. Wir empfehlen, 10–15 % mehr zu kaufen.
         </p>
       </div>
 

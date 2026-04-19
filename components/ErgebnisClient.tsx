@@ -5,6 +5,7 @@ import { STORAGE_KEY, getDefaultForm } from "@/lib/form-defaults";
 import { sanitizeUmzugForm } from "@/lib/form-sanitize";
 import { resolvePartners } from "@/lib/partner";
 import type { CalculateResult, UmzugFormData } from "@/lib/types";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ErgebnisKorridor } from "./ErgebnisKorridor";
@@ -408,17 +409,84 @@ export function ErgebnisClient() {
 
       <ErgebnisKorridor result={result} />
 
-      {/* ── LKW-Bedarf Section ─── */}
-      <LkwBedarfSection volumenM3={result.meta.volumenM3Schaetzung} />
+      {/* ── Selbst umziehen / DIY ─── */}
+      <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-0">
+          <div className="w-full sm:w-48 flex-shrink-0">
+            <Image
+              src="/umzugsvergleich.png"
+              alt="Selbst umziehen oder Profi beauftragen — Vergleich"
+              width={400}
+              height={260}
+              className="w-full h-40 sm:h-full object-cover"
+            />
+          </div>
+          <div className="flex-1 px-6 py-4 bg-white">
+            <span className="inline-block rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white mb-2" style={{ backgroundColor: "#0088CC" }}>
+              Option 1
+            </span>
+            <h2 className="text-xl font-black text-[#0D2137]">Selbst umziehen (DIY)</h2>
+            <p className="text-sm text-[#5A7A8A] mt-1">LKW-Bedarf und Kostenvergleich auf Basis deiner Angaben</p>
+          </div>
+        </div>
+        <div className="bg-white border-t border-slate-100 p-6 space-y-6">
+          <LkwBedarfSection volumenM3={result.meta.volumenM3Schaetzung} />
+          <DiyVergleichSection form={form} result={result} />
+        </div>
+      </div>
 
-      <DiyVergleichSection form={form} result={result} />
+      {/* ── Profi beauftragen ─── */}
+      <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-0">
+          <div className="w-full sm:w-48 flex-shrink-0">
+            <Image
+              src="/logistik-partner.png"
+              alt="Profi-Umzugsfirma beauftragen"
+              width={400}
+              height={260}
+              className="w-full h-40 sm:h-full object-cover"
+            />
+          </div>
+          <div className="flex-1 px-6 py-4 bg-white">
+            <span className="inline-block rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white mb-2" style={{ backgroundColor: "#FF7700" }}>
+              Option 2
+            </span>
+            <h2 className="text-xl font-black text-[#0D2137]">Profi beauftragen</h2>
+            <p className="text-sm text-[#5A7A8A] mt-1">Regionale Umzugsunternehmen direkt anschreiben</p>
+          </div>
+        </div>
+        <div className="bg-white border-t border-slate-100 p-6">
+          <WunschfirmaSection
+            bundesland={form.buildingA.bundesland}
+            anfragMailtoBase={(partnerUrl) => buildMailtoLink(form, result, partnerUrl)}
+          />
+        </div>
+      </div>
 
-      <WunschfirmaSection
-        bundesland={form.buildingA.bundesland}
-        anfragMailtoBase={(partnerUrl) => buildMailtoLink(form, result, partnerUrl)}
-      />
-
-      <AffiliateProdukte />
+      {/* ── Materialtipps ─── */}
+      <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-0">
+          <div className="w-full sm:w-48 flex-shrink-0">
+            <Image
+              src="/produkttipps.png"
+              alt="Umzugsmaterial: Kartons, Polsterfolie und mehr"
+              width={400}
+              height={260}
+              className="w-full h-40 sm:h-full object-cover"
+            />
+          </div>
+          <div className="flex-1 px-6 py-4 bg-white">
+            <span className="inline-block rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white mb-2" style={{ backgroundColor: "#FFCC00", color: "#0D2137" }}>
+              Tipp
+            </span>
+            <h2 className="text-xl font-black text-[#0D2137]">Materialtipps</h2>
+            <p className="text-sm text-[#5A7A8A] mt-1">Kartons, Polstermaterial, Transporthilfen — kuratierte Empfehlungen</p>
+          </div>
+        </div>
+        <div className="bg-white border-t border-slate-100 p-6">
+          <AffiliateProdukte />
+        </div>
+      </div>
 
       <TrustBadges />
       <div className="no-print flex flex-wrap gap-3">

@@ -300,7 +300,7 @@ export function HomeLanding() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#0D2137]">Kartonrechner</h3>
                 <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-                  Wie viele Kartons brauchst du wirklich? Unser Rechner ermittelt in Sekunden die genaue Anzahl nach Typ — Standardkarton, Bücherkarton, Kleiderbox und Spezialkarton.
+                  Wie viele Kartons brauchst du ungefähr? Unser Richtwert-Rechner zeigt dir eine Schätzung nach Kartontyp — Standardkarton, Bücherkarton, Kleiderbox und Spezialkarton.
                 </p>
                 <Link
                   href="/kartonrechner/"
@@ -314,6 +314,41 @@ export function HomeLanding() {
                 <Image
                   src="/kartonrechner.png"
                   alt="Kartonrechner: Wie viele Umzugskartons brauche ich?"
+                  width={400}
+                  height={300}
+                  className="w-full rounded-2xl object-cover shadow-md"
+                />
+              </div>
+            </div>
+
+            <div className="border-t border-[#0088CC]/15" />
+
+            <div className="flex flex-col items-center gap-8 md:flex-row-reverse md:gap-12">
+              <div className="flex-1 text-center md:text-left">
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl" style={{ backgroundColor: "#EBF6FD", border: "2px solid #0088CC22" }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+                    <rect x="1" y="3" width="15" height="13" rx="1" />
+                    <path d="M16 8h4l3 3v5h-7V8z" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-[#0D2137]">LKW-Rechner</h3>
+                <p className="mt-3 text-[#5A7A8A] leading-relaxed">
+                  Welcher LKW passt zu deinem Haushalt? Gib dein Volumen oder deine Zimmerzahl ein — der Rechner zeigt dir, welche Fahrzeuggröße du brauchst und wie viele Fahrten nötig wären.
+                </p>
+                <Link
+                  href="/lkw-rechner/"
+                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
+                  style={{ backgroundColor: "#FFCC00" }}
+                >
+                  Zum LKW-Rechner →
+                </Link>
+              </div>
+              <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
+                <Image
+                  src="/lkw-rechner.png"
+                  alt="LKW-Rechner: Welcher LKW passt für meinen Umzug?"
                   width={400}
                   height={300}
                   className="w-full rounded-2xl object-cover shadow-md"
