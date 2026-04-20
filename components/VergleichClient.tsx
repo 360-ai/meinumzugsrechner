@@ -24,7 +24,7 @@ export function VergleichClient() {
     { label: "Kosten", diy: `ca. ${diyGesamt.toLocaleString("de-DE")} €`, profi: `${profiUnten.toLocaleString("de-DE")}–${profiOben.toLocaleString("de-DE")} €` },
     { label: "Zeitaufwand", diy: "12–16 Stunden", profi: "3–6 Stunden" },
     { label: "Versicherung", diy: "Privathaftpflicht", profi: "Inklusive" },
-    { label: "Steuervorteil", diy: "Nein", profi: "Ja (§35a EStG)" },
+    { label: "Steuervorteil", diy: "Nein", profi: "Ja (35a EStG)" },
     { label: "Stresslevel", diy: "Hoch", profi: "Niedrig" },
     { label: "Haftung bei Schäden", diy: "Selbst", profi: "Umzugsfirma" },
   ];

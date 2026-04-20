@@ -397,7 +397,10 @@ export function HomeLanding() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-[#0D2137]">Partner Umzugsunternehmen</h2>
-            <p className="mt-3 text-[#5A7A8A]">Regionale Unternehmen für deinen Umzug — direkt anschreibbar nach der Berechnung.</p>
+            <p className="mt-3 text-[#5A7A8A]">
+              Regionales Netzwerk im Aufbau — wir kalibrieren Preiskorridore mit echten Partnerdaten und
+              kommen so näher an die tatsächlichen Regionskosten.
+            </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 items-center">
@@ -408,29 +411,29 @@ export function HomeLanding() {
                 </div>
                 <div>
                   <p className="text-3xl font-black text-[#0D2137]">16</p>
-                  <p className="text-sm text-[#5A7A8A]">Bundesländer abgedeckt</p>
+                  <p className="text-sm text-[#5A7A8A]">Bundesländer im Rechner abbildbar</p>
                 </div>
               </div>
               <p className="text-[#5A7A8A] text-sm leading-relaxed">
-                Unternehmen in unserem Netzwerk helfen bei der Preisberechnung und
-                können nach der Kalkulation direkt angefragt werden —
-                ohne Datenweitergabe an Dritte.
+                Die Kalkulation nutzt regionale Faktoren für alle Bundesländer. Sichtbare Partnerfirmen
+                kommen schrittweise hinzu — ohne Datenweitergabe an Dritte und ohne Ihre Eingaben zu
+                verkaufen.
               </p>
               <Link
                 href="/partner/"
                 className="mt-5 inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
                 style={{ backgroundColor: "#FFCC00" }}
               >
-                Alle Partner ansehen →
+                Partnerseite &amp; Mitmachen →
               </Link>
             </div>
 
             <ul className="space-y-3">
               {[
-                "Regionale Expertise — je Bundesland gefiltert",
-                "Auf Basis der Kalkulation Angebote einholen",
-                "Lukrative Rabatte direkt anfragen",
-                "Keine versteckten Weiterleitungen Ihrer Daten",
+                "Aktuell Aufbauphase — transparent kommuniziert",
+                "Später: Angebote auf Basis Ihrer Kalkulation einholen",
+                "Keine Weiterleitung Ihrer Umzugsdaten an Marktplätze",
+                "Je mehr regionale Partner, desto präziser die Korridore",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#0088CC" }} />

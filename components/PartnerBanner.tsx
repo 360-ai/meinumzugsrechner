@@ -1,13 +1,26 @@
 import type { PartnerEntry } from "@/lib/partner";
 
 type Props = {
-  primary: PartnerEntry;
+  primary: PartnerEntry | null;
   listings: PartnerEntry[];
   affiliateNote: string;
   anfragMailto?: string;
 };
 
 export function PartnerBanner({ primary, listings, affiliateNote, anfragMailto }: Props) {
+  if (!primary) {
+    return (
+      <section className="no-print space-y-3 rounded-2xl border border-slate-200 bg-[#EBF6FD] p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#0088CC]">Regionale Partner</p>
+        <p className="text-sm text-[#5A7A8A]">{affiliateNote}</p>
+        <p className="text-sm text-[#0D2137]">
+          Sobald Partnerfirmen angebunden sind, erscheinen hier direkte Kontaktmöglichkeiten — ohne
+          Datenweitergabe durch uns.
+        </p>
+      </section>
+    );
+  }
+
   return (
     <section className="no-print space-y-6 rounded-2xl border border-amber-200 bg-amber-50 p-6">
       <div>

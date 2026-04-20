@@ -49,6 +49,11 @@ export default function DatenschutzPage() {
               info@meinumzugsrechner.de
             </a>
           </p>
+          <p>
+            Im Impressum finden Sie die gesetzliche Anbieterkennzeichnung inkl. Steuernummer; dort
+            veröffentlichte Kontaktdaten und steuerliche Kennnummern dürfen nicht für unerwünschte
+            Werbung genutzt werden.
+          </p>
         </Section>
 
         <Section num="2" title="Hosting (Cloudflare Pages)">

@@ -101,6 +101,11 @@ export interface UmzugFormData {
   summary: {
     nutzungsart: "privat" | "gewerbe";
     agbAccepted: boolean;
+    /** Schnellschätzung (wenige Felder); detaillierte Möbelliste wird übersprungen */
+    quickEstimate?: {
+      wohnflaecheM2: number;
+      zimmer: number;
+    };
   };
 }
 

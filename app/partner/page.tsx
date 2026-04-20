@@ -56,6 +56,9 @@ interface PartnerWithBl extends PartnerEntry {
 }
 
 function getAllPartners(): PartnerWithBl[] {
+  const pd = partnersData as { networkLive?: boolean };
+  if (pd.networkLive === false) return [];
+
   const byBl = partnersData.byBundesland as Record<string, { primary: PartnerEntry; listings?: PartnerEntry[] }>;
   const result: PartnerWithBl[] = [];
 
@@ -145,44 +148,58 @@ function PartnerPageInner() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-[#0D2137] sm:text-4xl">
-          Empfohlene Umzugsunternehmen
+          Regionale Umzugsunternehmen
         </h1>
         <p className="mt-3 text-[#5A7A8A]">
-          Sorgfältig ausgewählte Partner — Ihre Daten geben wir nicht weiter.
+          Hier entsteht ein Partnernetzwerk nach Bundesland — Ihre Daten werden nicht verkauft oder
+          weitergeleitet.
         </p>
       </div>
 
-      {/* Filter Tabs */}
-      <div className="mb-8 flex flex-wrap gap-2">
-        {[{ code: "ALLE", label: "Alle" }, ...BUNDESLAENDER].map((bl) => {
-          const isActive = activeBl === bl.code;
-          const href = bl.code === "ALLE" ? "/partner/" : `/partner/?bl=${bl.code}`;
-          return (
-            <Link
-              key={bl.code}
-              href={href}
-              className="rounded-full px-3 py-1.5 text-sm font-medium transition-colors"
-              style={{
-                backgroundColor: isActive ? "#0088CC" : "#EBF6FD",
-                color: isActive ? "#fff" : "#0D2137",
-              }}
-            >
-              {bl.label}
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Partner Grid */}
-      {filtered.length === 0 ? (
-        <p className="text-[#5A7A8A]">Keine Partner für diese Region gefunden.</p>
+      {/* Filter Tabs — Blend ins Layout; ohne Partner nur Hinweis */}
+      {allPartners.length > 0 ? (
+        <div className="mb-8 flex flex-wrap gap-2">
+          {[{ code: "ALLE", label: "Alle" }, ...BUNDESLAENDER].map((bl) => {
+            const isActive = activeBl === bl.code;
+            const href = bl.code === "ALLE" ? "/partner/" : `/partner/?bl=${bl.code}`;
+            return (
+              <Link
+                key={bl.code}
+                href={href}
+                className="rounded-full px-3 py-1.5 text-sm font-medium transition-colors"
+                style={{
+                  backgroundColor: isActive ? "#0088CC" : "#EBF6FD",
+                  color: isActive ? "#fff" : "#0D2137",
+                }}
+              >
+                {bl.label}
+              </Link>
+            );
+          })}
+        </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p) => (
-            <PartnerCard key={p.id} partner={p} />
-          ))}
+        <div className="mb-8 rounded-2xl border border-dashed border-[#0088CC]/35 bg-[#EBF6FD]/60 p-6 text-center">
+          <p className="text-sm font-medium text-[#0D2137]">Aufbauphase des Partnernetzwerks</p>
+          <p className="mt-2 text-sm text-[#5A7A8A] leading-relaxed max-w-xl mx-auto">
+            Aktuell sind noch keine Umzugsfirmen öffentlich gelistet. Das Erscheinungsbild (Filter nach
+            Bundesland, Karten) bleibt erhalten — Einträge kommen schrittweise dazu, sobald Partner
+            vertraglich angebunden sind.
+          </p>
         </div>
       )}
+
+      {/* Partner Grid */}
+      {allPartners.length > 0 ? (
+        filtered.length === 0 ? (
+          <p className="text-[#5A7A8A]">Keine Partner für diese Region gefunden.</p>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((p) => (
+              <PartnerCard key={p.id} partner={p} />
+            ))}
+          </div>
+        )
+      ) : null}
 
       {/* CTA — Als Partner eintragen */}
       <div className="mt-14 rounded-2xl bg-[#EBF6FD] p-8 text-center">

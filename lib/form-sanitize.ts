@@ -178,9 +178,23 @@ export function sanitizeUmzugForm(raw: unknown): UmzugFormData {
       zwischenlagerung_m3: clampFloatNonNeg(ex.zwischenlagerung_m3, 10_000),
       entruempelung_m3: clampFloatNonNeg(ex.entruempelung_m3, 10_000),
     },
-    summary: {
-      nutzungsart: sum.nutzungsart === "gewerbe" ? "gewerbe" : "privat",
-      agbAccepted: sum.agbAccepted === true,
-    },
+    summary: (() => {
+      const nutzungsart = sum.nutzungsart === "gewerbe" ? "gewerbe" : "privat";
+      const agbAccepted = sum.agbAccepted === true;
+      const qe = sum.quickEstimate;
+      if (qe && typeof qe === "object") {
+        const q = qe as Record<string, unknown>;
+        const m2 = clampFloatNonNeg(q.wohnflaecheM2, 2000);
+        const zi = clampInt(q.zimmer, 1, 20);
+        if (m2 >= 10 && zi >= 1) {
+          return {
+            nutzungsart,
+            agbAccepted,
+            quickEstimate: { wohnflaecheM2: Math.min(m2, 800), zimmer: zi },
+          };
+        }
+      }
+      return { nutzungsart, agbAccepted };
+    })(),
   };
 }

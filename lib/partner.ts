@@ -13,23 +13,36 @@ export interface PartnerEntry {
 }
 
 export interface ResolvedPartners {
-  primary: PartnerEntry;
+  primary: PartnerEntry | null;
   listings: PartnerEntry[];
   note: string;
 }
 
-function normalizeListings(
-  listings: PartnerEntry[] | undefined,
-): PartnerEntry[] {
+type PartnersFile = typeof partners & {
+  networkLive?: boolean;
+  default?: { primary: PartnerEntry | null; listings?: PartnerEntry[] };
+};
+
+function normalizeListings(listings: PartnerEntry[] | undefined): PartnerEntry[] {
   if (!listings?.length) return [];
   return [...listings].sort((a, b) => b.priority - a.priority);
+}
+
+export function isPartnerNetworkLive(): boolean {
+  return (partners as PartnersFile).networkLive === true;
 }
 
 export function resolvePartners(
   landkreisAgs: string,
   bundesland: BundeslandCode,
 ): ResolvedPartners {
-  const p = partners;
+  const p = partners as PartnersFile;
+  const note = p.affiliateNote;
+
+  if (!p.networkLive) {
+    return { primary: null, listings: [], note };
+  }
+
   const byAgs = p.byAgs as Record<string, { primary: PartnerEntry; listings?: PartnerEntry[] }>;
   const byBl = p.byBundesland as Record<
     string,
@@ -41,7 +54,7 @@ export function resolvePartners(
     return {
       primary: block.primary,
       listings: normalizeListings(block.listings),
-      note: p.affiliateNote,
+      note,
     };
   }
 
@@ -50,21 +63,31 @@ export function resolvePartners(
     return {
       primary: block.primary,
       listings: normalizeListings(block.listings),
-      note: p.affiliateNote,
+      note,
     };
   }
 
   const d = p.default;
+  if (!d?.primary) {
+    return { primary: null, listings: [], note };
+  }
   return {
-    primary: d.primary as PartnerEntry,
-    listings: normalizeListings(d.listings as PartnerEntry[]),
-    note: p.affiliateNote,
+    primary: d.primary,
+    listings: normalizeListings(d.listings as PartnerEntry[] | undefined),
+    note,
   };
 }
 
 export function getPartnersForBundesland(bundesland: BundeslandCode): PartnerEntry[] {
-  const byBl = partners.byBundesland as Record<string, { primary: PartnerEntry; listings?: PartnerEntry[] }>;
+  const p = partners as PartnersFile;
+  if (!p.networkLive) return [];
+
+  const byBl = p.byBundesland as Record<string, { primary: PartnerEntry; listings?: PartnerEntry[] }>;
   const block = byBl[bundesland];
-  if (!block) return [partners.default.primary as PartnerEntry];
+  if (!block?.primary) {
+    const d = p.default;
+    if (!d?.primary) return [];
+    return [d.primary];
+  }
   return [block.primary, ...(block.listings ?? [])].sort((a, b) => b.priority - a.priority);
 }

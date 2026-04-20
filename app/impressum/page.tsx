@@ -53,11 +53,13 @@ export default function ImpressumPage() {
           </p>
         </Section>
 
-        <Section title="Umsatzsteuer / Wirtschafts-ID">
+        <Section title="Umsatzsteuer / Steuernummer">
           <p>
-            USt-IdNr.: <span className="text-slate-400">[falls vorhanden eintragen]</span>
+            Steuernummer: <strong className="text-[#0D2137]">027 866 03049</strong> (Finanzamt Frankenberg)
             <br />
-            W-IdNr.: <span className="text-slate-400">[falls vorhanden eintragen]</span>
+            USt-IdNr.: wird nach Erteilung ergänzt, sofern umsatzsteuerpflichtig ausgewiesen wird.
+            <br />
+            Wirtschafts-Identifikationsnummer: <span className="text-slate-400">[falls vorhanden]</span>
           </p>
         </Section>
 

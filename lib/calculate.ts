@@ -92,119 +92,16 @@ function estimateM3(form: UmzugFormData): number {
 
 type RegionRow = Matrix["regions"][keyof Matrix["regions"]];
 
-export function calculateUmzug(form: UmzugFormData): CalculateResult {
-  const matrix = preismatrix as Matrix & {
-    region_overrides_by_ags?: Record<string, RegionRow>;
-  };
-  const regions = matrix.regions as Record<string, RegionRow>;
-  const bl = form.buildingA.bundesland;
-  const ags = form.buildingA.landkreisAgs;
-
-  let region: RegionRow =
-    (regions as Record<string, RegionRow>)[bl] ?? regions.DEFAULT;
-  let regionKeyOut: string = bl;
-
-  const ov = matrix.region_overrides_by_ags;
-  if (ov && ags && ags !== "00000" && ov[ags]) {
-    region = ov[ags];
-    regionKeyOut = ags;
-  }
-
+function finalizeKorridor(
+  form: UmzugFormData,
+  region: RegionRow,
+  regionKeyOut: string,
+  minuten: number,
+  volumenM3: number,
+): CalculateResult {
   const z = preismatrix.zuschlage;
-  const zm = preismatrix.moebel_zeitwerte_minuten;
   const zx = preismatrix.zusatzleistungen;
 
-  let minuten = 0;
-
-  minuten += sumCounterMinutes(
-    zm,
-    form.inventory.schlafzimmer,
-    [
-      "bett_einzel",
-      "bett_doppel",
-      "boxspringbett",
-      "kleiderschrank_klein",
-      "kleiderschrank_mittel",
-      "kleiderschrank_gross",
-      "kleiderschrank_begehbar",
-      "kommode",
-      "nachttisch",
-      "spiegel_gross",
-      "matratze_extra",
-    ] as (keyof typeof zm)[],
-  );
-
-  minuten += sumCounterMinutes(
-    zm,
-    form.inventory.wohnzimmer,
-    [
-      "sofa_2sitzer",
-      "sofa_3sitzer",
-      "sofa_l_form",
-      "sessel",
-      "couchtisch",
-      "tv_moebel",
-      "regal_klein",
-      "regal_gross",
-      "vitrine",
-      "teppich_gross",
-    ] as (keyof typeof zm)[],
-  );
-
-  if (form.inventory.kueche.kueche_vorhanden === "ja") {
-    const lfm = form.inventory.kueche.kueche_laufmeter;
-    const add = preismatrix.kueche_laufmeter[lfm as keyof typeof preismatrix.kueche_laufmeter];
-    minuten += Math.round(add / 5);
-  }
-
-  if (form.inventory.kueche.kuehlschrank === "standard")
-    minuten += zm.kuehlschrank_standard;
-  if (form.inventory.kueche.kuehlschrank === "sidebyside")
-    minuten += zm.kuehlschrank_sidebyside;
-
-  if (form.inventory.kueche.herd !== "keiner") minuten += 10;
-  if (form.inventory.kueche.geschirrspueler !== "keiner") minuten += 10;
-
-  minuten += form.inventory.kueche.waschmaschine * zm.waschmaschine;
-  minuten += form.inventory.kueche.trockner * zm.trockner;
-
-  minuten += sumCounterMinutes(
-    zm,
-    form.inventory.buero,
-    [
-      "schreibtisch_normal",
-      "schreibtisch_eck",
-      "buerostuhl",
-      "buecherregal",
-      "drucker",
-    ] as (keyof typeof zm)[],
-  );
-
-  minuten += sumCounterMinutes(
-    zm,
-    form.inventory.keller,
-    ["fahrrad", "ebike", "motorrad", "werkzeugschrank", "kellerregal"] as (keyof typeof zm)[],
-  );
-
-  const gg = form.inventory.gartengeraete;
-  if (gg === "wenig") minuten += zm.gartengeraete_wenig;
-  else if (gg === "mittel") minuten += zm.gartengeraete_mittel;
-  else minuten += zm.gartengeraete_viel;
-
-  const sp = form.inventory.sperrgut;
-  minuten += sp.klavier * zm.klavier;
-  minuten += sp.fluegel * zm.fluegel;
-  minuten += sp.safe_schwer * zm.safe_schwer;
-  minuten += sp.aquarium_gross * zm.aquarium_gross;
-  if (sp.kunst_antik) minuten += 45;
-
-  minuten += sumCounterMinutes(
-    zm,
-    form.inventory.kartons,
-    ["karton_standard", "karton_buch", "haengekarton", "karton_spezial"] as (keyof typeof zm)[],
-  );
-
-  const volumenM3 = estimateM3(form);
   let helfer = preismatrix.anzahl_helfer_basis;
   const volThreshold =
     (preismatrix as Matrix & { volumen_m3_fuer_dritter_helfer?: number })
@@ -306,4 +203,131 @@ export function calculateUmzug(form: UmzugFormData): CalculateResult {
       volumenM3Schaetzung: volumenM3,
     },
   };
+}
+
+export function calculateUmzug(form: UmzugFormData): CalculateResult {
+  const matrix = preismatrix as Matrix & {
+    region_overrides_by_ags?: Record<string, RegionRow>;
+  };
+  const regions = matrix.regions as Record<string, RegionRow>;
+  const bl = form.buildingA.bundesland;
+  const ags = form.buildingA.landkreisAgs;
+
+  let region: RegionRow =
+    (regions as Record<string, RegionRow>)[bl] ?? regions.DEFAULT;
+  let regionKeyOut: string = bl;
+
+  const ov = matrix.region_overrides_by_ags;
+  if (ov && ags && ags !== "00000" && ov[ags]) {
+    region = ov[ags];
+    regionKeyOut = ags;
+  }
+
+  const zm = preismatrix.moebel_zeitwerte_minuten;
+
+  let minuten = 0;
+  let volumenM3: number;
+
+  if (form.summary.quickEstimate) {
+    const q = form.summary.quickEstimate;
+    volumenM3 = Math.round(q.wohnflaecheM2 * 0.18 * 10) / 10;
+    minuten = Math.round(
+      Math.min(
+        3200,
+        Math.max(160, 200 + q.zimmer * 85 + q.wohnflaecheM2 * 1.5),
+      ),
+    );
+    return finalizeKorridor(form, region, regionKeyOut, minuten, volumenM3);
+  }
+
+  minuten += sumCounterMinutes(
+    zm,
+    form.inventory.schlafzimmer,
+    [
+      "bett_einzel",
+      "bett_doppel",
+      "boxspringbett",
+      "kleiderschrank_klein",
+      "kleiderschrank_mittel",
+      "kleiderschrank_gross",
+      "kleiderschrank_begehbar",
+      "kommode",
+      "nachttisch",
+      "spiegel_gross",
+      "matratze_extra",
+    ] as (keyof typeof zm)[],
+  );
+
+  minuten += sumCounterMinutes(
+    zm,
+    form.inventory.wohnzimmer,
+    [
+      "sofa_2sitzer",
+      "sofa_3sitzer",
+      "sofa_l_form",
+      "sessel",
+      "couchtisch",
+      "tv_moebel",
+      "regal_klein",
+      "regal_gross",
+      "vitrine",
+      "teppich_gross",
+    ] as (keyof typeof zm)[],
+  );
+
+  if (form.inventory.kueche.kueche_vorhanden === "ja") {
+    const lfm = form.inventory.kueche.kueche_laufmeter;
+    const add = preismatrix.kueche_laufmeter[lfm as keyof typeof preismatrix.kueche_laufmeter];
+    minuten += Math.round(add / 5);
+  }
+
+  if (form.inventory.kueche.kuehlschrank === "standard")
+    minuten += zm.kuehlschrank_standard;
+  if (form.inventory.kueche.kuehlschrank === "sidebyside")
+    minuten += zm.kuehlschrank_sidebyside;
+
+  if (form.inventory.kueche.herd !== "keiner") minuten += 10;
+  if (form.inventory.kueche.geschirrspueler !== "keiner") minuten += 10;
+
+  minuten += form.inventory.kueche.waschmaschine * zm.waschmaschine;
+  minuten += form.inventory.kueche.trockner * zm.trockner;
+
+  minuten += sumCounterMinutes(
+    zm,
+    form.inventory.buero,
+    [
+      "schreibtisch_normal",
+      "schreibtisch_eck",
+      "buerostuhl",
+      "buecherregal",
+      "drucker",
+    ] as (keyof typeof zm)[],
+  );
+
+  minuten += sumCounterMinutes(
+    zm,
+    form.inventory.keller,
+    ["fahrrad", "ebike", "motorrad", "werkzeugschrank", "kellerregal"] as (keyof typeof zm)[],
+  );
+
+  const gg = form.inventory.gartengeraete;
+  if (gg === "wenig") minuten += zm.gartengeraete_wenig;
+  else if (gg === "mittel") minuten += zm.gartengeraete_mittel;
+  else minuten += zm.gartengeraete_viel;
+
+  const sp = form.inventory.sperrgut;
+  minuten += sp.klavier * zm.klavier;
+  minuten += sp.fluegel * zm.fluegel;
+  minuten += sp.safe_schwer * zm.safe_schwer;
+  minuten += sp.aquarium_gross * zm.aquarium_gross;
+  if (sp.kunst_antik) minuten += 45;
+
+  minuten += sumCounterMinutes(
+    zm,
+    form.inventory.kartons,
+    ["karton_standard", "karton_buch", "haengekarton", "karton_spezial"] as (keyof typeof zm)[],
+  );
+
+  volumenM3 = estimateM3(form);
+  return finalizeKorridor(form, region, regionKeyOut, minuten, volumenM3);
 }

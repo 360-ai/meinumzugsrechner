@@ -18,6 +18,27 @@ type Props = {
 export function WunschfirmaSection({ bundesland, anfragMailtoBase }: Props) {
   const firmList = getPartnersForBundesland(bundesland);
 
+  if (firmList.length === 0) {
+    return (
+      <section className="rounded-2xl border border-dashed border-[#0088CC]/40 bg-white p-6">
+        <h3 className="mb-1 font-bold text-[#0D2137]">Direktanfrage an Umzugsfirmen</h3>
+        <p className="text-sm text-[#5A7A8A] leading-relaxed">
+          Unser regionales Partnernetzwerk startet gerade: Es sind noch keine Firmen für Ihre Auswahl
+          hinterlegt. Ihre Daten werden von uns nicht an Dritte übermittelt. Sie können Ihre Kalkulation
+          per E-Mail selbst an beliebige Anbieter schicken — oder später hier nach passenden Partnern
+          schauen.
+        </p>
+        <a
+          href="/partner/"
+          className="mt-4 inline-flex text-sm font-bold hover:underline"
+          style={{ color: "#0088CC" }}
+        >
+          Mehr zum Partnerprogramm →
+        </a>
+      </section>
+    );
+  }
+
   return (
     <section className="rounded-2xl border border-[#0088CC]/20 bg-[#EBF6FD] p-6">
       <h3 className="mb-1 font-bold text-[#0D2137]">

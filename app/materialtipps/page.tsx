@@ -182,9 +182,17 @@ export default function MaterialtippsPage() {
         <p className="text-lg font-bold text-[#0D2137] mb-2">
           Noch nicht sicher, was Ihr Umzug kostet?
         </p>
-        <p className="text-sm text-[#5A7A8A]">
-          Der Umzugskostenrechner kommt bald — kostenlos und ohne Datenweitergabe.
+        <p className="text-sm text-[#5A7A8A] mb-4">
+          Jetzt Umzugskosten als realistischen Preiskorridor schätzen — kostenlos und ohne
+          Datenweitergabe an Umzugsfirmen.
         </p>
+        <a
+          href="/rechner/"
+          className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-bold text-[#0D2137] transition-opacity hover:opacity-90"
+          style={{ backgroundColor: "#FFCC00" }}
+        >
+          Zum Umzugskosten-Rechner →
+        </a>
       </div>
     </div>
     </>

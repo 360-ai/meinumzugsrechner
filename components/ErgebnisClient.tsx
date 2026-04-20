@@ -96,7 +96,7 @@ function DiyVergleichSection({ form, result }: { form: UmzugFormData; result: Ca
     },
     { label: "Zeitaufwand", diy: "12–16 Stunden", profi: "3–6 Stunden", highlight: true },
     { label: "Versicherung", diy: "Privathaftpflicht", profi: "Inklusive", highlight: true },
-    { label: "Steuervorteil", diy: "Nein", profi: "Ja (§35a EStG)", highlight: true },
+    { label: "Steuervorteil", diy: "Nein", profi: "Ja (35a EStG)", highlight: true },
     { label: "Stresslevel", diy: "Hoch", profi: "Niedrig", highlight: true },
   ];
 
@@ -396,7 +396,9 @@ export function ErgebnisClient() {
   }
 
   const partners = resolvePartners(form.buildingA.landkreisAgs, form.buildingA.bundesland);
-  const anfragMailto = buildMailtoLink(form, result, partners.primary.url);
+  const anfragMailto =
+    partners.primary &&
+    buildMailtoLink(form, result, partners.primary.url);
 
   return (
     <div className="space-y-8">
@@ -509,7 +511,7 @@ export function ErgebnisClient() {
         primary={partners.primary}
         listings={partners.listings}
         affiliateNote={partners.note}
-        anfragMailto={anfragMailto}
+        anfragMailto={anfragMailto ?? undefined}
       />
 
       {/* AdSense Slot 2 — nach Genehmigung aktivieren */}

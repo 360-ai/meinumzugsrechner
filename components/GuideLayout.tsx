@@ -72,7 +72,11 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
       <div className="no-print mt-12 rounded-2xl border border-slate-100 bg-[#EBF6FD] p-6 text-sm text-[#5A7A8A]">
         <p>
           <strong className="text-[#0D2137]">meinumzugsrechner.de</strong> —
-          Kostenloser Umzugskostenrechner ohne Datenweitergabe. Bald verfügbar.
+          Umzugskostenrechner, Kartonrechner und LKW-Rechner — kostenlos und ohne Weitergabe Ihrer
+          Daten an Umzugsfirmen.{" "}
+          <Link href="/rechner/" className="font-medium text-[#0088CC] hover:underline">
+            Zum Umzugskosten-Rechner
+          </Link>
         </p>
       </div>
     </div>
