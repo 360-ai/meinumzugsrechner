@@ -30,4 +30,24 @@ export const HOME_PAGE_FAQS: { question: string; answer: string }[] = [
     answer:
       "Kostenlose Ratgeber (z. B. Ergonomie, Verpacken, Logistik), druckbare Checklisten und kuratierte Materialtipps für Kartons und Transporthilfen.",
   },
+  {
+    question: "Wie genau ist die Schätzung?",
+    answer:
+      "Je nach Route und Ausstattung liegen echte Angebote oft in einem Bereich von etwa ±20–30 % um die Schätzung — je detaillierter Ihre Angaben (Möbelliste, Zugang), desto näher kommen spätere Angebote. Nutzen Sie den Korridor als Orientierung, nicht als verbindliches Angebot.",
+  },
+  {
+    question: "Soll ich mehrere Angebote einholen?",
+    answer:
+      "Ja. Mindestens drei unabhängige Angebote helfen, Ausreißer zu erkennen und Preis-Leistung zu vergleichen — unabhängig von unserer Schätzung.",
+  },
+  {
+    question: "Was ist der Unterschied zwischen Schnell schätzen und der detaillierten Kalkulation?",
+    answer:
+      "„Schnell schätzen“ nutzt wenige Eingaben (u. a. Wohnfläche, Zimmer, Entfernung). Die detaillierte Kalkulation erfasst Möbel und Gebäude — besser für konkrete Anfragen bei Umzugsfirmen. Beides finden Sie unter dem Umzugskosten-Rechner.",
+  },
+  {
+    question: "Wo erklärt ihr die Berechnung im Detail?",
+    answer:
+      "Auf der Seite „So rechnen wir“ beschreiben wir Grundlagen, typische Zusatzkosten und ein Rechenbeispiel — transparent und ohne Fachjargon.",
+  },
 ];

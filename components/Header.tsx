@@ -13,6 +13,7 @@ const NAV_STRUCTURE: NavEntry[] = [
     label: "Rechner",
     items: [
       { href: "/rechner/", label: "Umzugskosten-Rechner" },
+      { href: "/so-rechnen-wir/", label: "So rechnen wir" },
       { href: "/kartonrechner/", label: "Kartonrechner" },
       { href: "/lkw-rechner/", label: "LKW-Rechner" },
     ],

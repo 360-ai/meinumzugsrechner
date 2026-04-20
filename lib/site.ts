@@ -9,10 +9,10 @@ export const DEFAULT_TITLE =
   "Umzugskosten-Rechner: realistischer Preiskorridor ohne Datenweitergabe | meinumzugsrechner.de";
 
 export const DEFAULT_DESCRIPTION =
-  "Kostenlose Umzugskosten-Schätzung als Preiskorridor: kein Spam, keine Weitergabe Ihrer Umzugsdaten an Umzugsfirmen. Ratgeber, Checklisten & Materialtipps.";
+  "Umzugskosten in Deutschland schätzen: Preiskorridor, Schnell- oder Detailrechner, ohne Datenweitergabe. Methodik transparent erklärt — plus Ratgeber, Checklisten & Materialtipps.";
 
 /** ISO date for editorial / Article schema (Launch-Pflege) */
-export const SITE_CONTENT_DATE = "2026-04-17";
+export const SITE_CONTENT_DATE = "2026-04-20";
 
 export function getSiteUrl(): URL {
   const raw = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${SITE_HOST}`).trim();

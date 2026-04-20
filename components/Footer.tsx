@@ -24,6 +24,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/so-rechnen-wir/" className="hover:text-white transition-colors">
+                  So rechnen wir
+                </Link>
+              </li>
+              <li>
                 <Link href="/ratgeber/" className="hover:text-white transition-colors">
                   Ratgeber
                 </Link>

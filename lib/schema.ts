@@ -27,7 +27,7 @@ export function organizationAndWebsiteSchema() {
         inLanguage: "de-DE",
         publisher: { "@id": ORG_ID },
         description:
-          "Umzugskosten-Rechner und Ratgeber-Inhalte ohne Weitergabe Ihrer Umzugsdaten an Umzugsunternehmen.",
+          "Umzugskosten-Rechner mit transparenter Methodik, Ratgebern und Checklisten — ohne Weitergabe Ihrer Umzugsdaten an Umzugsunternehmen.",
       },
     ],
   };

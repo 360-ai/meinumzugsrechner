@@ -151,6 +151,22 @@ export function HomeLanding() {
         </div>
       </section>
 
+      <section className="border-y border-slate-100 bg-[#FAFCFE] py-8">
+        <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6">
+          <p className="text-sm leading-relaxed text-[#0D2137]">
+            <strong>Transparenz:</strong> So entsteht der Preiskorridor — Regionalfaktoren, Zeitwerte und
+            typische Zusatzkosten in Klartext.
+          </p>
+          <Link
+            href="/so-rechnen-wir/"
+            className="inline-flex flex-shrink-0 items-center justify-center rounded-full px-6 py-2.5 text-sm font-bold text-[#0D2137] transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "#FFCC00" }}
+          >
+            So rechnen wir →
+          </Link>
+        </div>
+      </section>
+
       <section className="py-16" style={{ backgroundColor: "#EBF6FD" }}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-12 text-center">
@@ -169,13 +185,21 @@ export function HomeLanding() {
                   In unter 10 Minuten erhältst du einen realistischen Preiskorridor für deinen Umzug —
                   ohne Anmeldung, ohne Zahlung, ohne dass deine Daten an Umzugsfirmen weitergegeben werden.
                 </p>
-                <Link
-                  href="/rechner/"
-                  className="mt-5 inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
-                  style={{ backgroundColor: "#FFCC00" }}
-                >
-                  Jetzt berechnen →
-                </Link>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link
+                    href="/rechner/"
+                    className="inline-flex items-center justify-center rounded-full px-6 py-2.5 font-bold text-[#0D2137] transition-transform hover:scale-105"
+                    style={{ backgroundColor: "#FFCC00" }}
+                  >
+                    Jetzt berechnen →
+                  </Link>
+                  <Link
+                    href="/so-rechnen-wir/"
+                    className="inline-flex items-center justify-center rounded-full border-2 border-[#0088CC] px-4 py-2 text-sm font-bold text-[#0088CC] hover:bg-[#EBF6FD]"
+                  >
+                    Methodik lesen
+                  </Link>
+                </div>
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
@@ -183,6 +207,8 @@ export function HomeLanding() {
                   alt="Umzugskosten-Rechner: kostenlose Berechnung des Preiskorridors auf meinumzugsrechner.de"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -223,6 +249,8 @@ export function HomeLanding() {
                   alt="Umzug: Ratgeber und Checklisten zum Packen und zur Planung"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -254,6 +282,8 @@ export function HomeLanding() {
                   alt="Umzugsmaterial: Kartons, Polsterfolie und Transporthilfen"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -286,6 +316,8 @@ export function HomeLanding() {
                   alt="Regionale Umzugsunternehmen und Partner für Festpreis-Angebote"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -316,6 +348,8 @@ export function HomeLanding() {
                   alt="Kartonrechner: Wie viele Umzugskartons brauche ich?"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -351,6 +385,8 @@ export function HomeLanding() {
                   alt="LKW-Rechner: Welcher LKW passt für meinen Umzug?"
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover shadow-md"
                 />
               </div>
@@ -508,6 +544,11 @@ export function HomeLanding() {
             Häufige Fragen zum Umzugskosten-Rechner
           </h2>
           <FaqAccordion items={HOME_PAGE_FAQS} />
+          <p className="mt-8 text-center text-sm text-[#5A7A8A]">
+            <Link href="/so-rechnen-wir/" className="font-medium text-[#0088CC] hover:underline">
+              So rechnen wir: Methodik &amp; typische Zusatzkosten
+            </Link>
+          </p>
           <p className="mt-10 text-center">
             <Link href="/rechner/" className="inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105" style={{ backgroundColor: "#FFCC00" }}>
               Jetzt Umzugskosten berechnen →

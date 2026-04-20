@@ -6,6 +6,10 @@ export const dynamic = "force-static";
 const ROUTES = [
   "/",
   "/rechner/",
+  "/so-rechnen-wir/",
+  "/kartonrechner/",
+  "/lkw-rechner/",
+  "/vergleich/",
   "/ratgeber/",
   "/checklisten/",
   "/materialtipps/",
@@ -17,16 +21,27 @@ const ROUTES = [
   "/ratgeber/ergonomie/",
   "/ratgeber/moderne-umzugslogistik/",
   "/ratgeber/profi-guide-verpacken/",
+  "/ratgeber/steuerspartipps/",
   "/checklisten/essential-kit/",
   "/checklisten/standort-vorbereitung/",
   "/checklisten/umzugs-countdown/",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.map((path) => ({
-    url: absoluteUrl(path),
-    lastModified: new Date(),
-    changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : path === "/rechner/" ? 0.95 : 0.75,
-  }));
+  return ROUTES.map((path) => {
+    const priority =
+      path === "/"
+        ? 1
+        : path === "/rechner/" || path === "/so-rechnen-wir/"
+          ? 0.95
+          : path === "/kartonrechner/" || path === "/lkw-rechner/"
+            ? 0.85
+            : 0.75;
+    return {
+      url: absoluteUrl(path),
+      lastModified: new Date(),
+      changeFrequency: path === "/" || path === "/rechner/" ? "weekly" : "monthly",
+      priority,
+    };
+  });
 }
