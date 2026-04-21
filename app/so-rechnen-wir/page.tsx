@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const TITLE = "So rechnen wir: Methodik & Preiskorridor | meinumzugsrechner.de";
 const DESC =
-  "Wie der Umzugskosten-Rechner arbeitet: Regionalfaktoren, Zeitwerte, typische Zusatzkosten und ein Rechenbeispiel — transparent erklärt.";
+  "Wie der Umzugskosten-Rechner arbeitet: Zeitbedarf, Regionalfaktoren, Zusatzleistungen und Preisrahmen transparent erklärt.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,7 +30,7 @@ export default function SoRechnenWirPage() {
     <>
       <JsonLd id="ld-so-rechnen-wir" data={ld} />
       <div className="mx-auto max-w-3xl px-4 pb-16 pt-10 sm:px-6">
-        <nav className="text-sm text-[#5A7A8A] mb-6">
+        <nav className="mb-6 text-sm text-[#5A7A8A]">
           <Link href="/" className="hover:text-[#0088CC]">
             Start
           </Link>
@@ -39,55 +39,65 @@ export default function SoRechnenWirPage() {
         </nav>
 
         <h1 className="text-3xl font-bold text-[#0D2137] sm:text-4xl">So rechnen wir</h1>
-        <p className="mt-3 text-[#5A7A8A] leading-relaxed">
-          Hier beschreiben wir, wie aus Ihren Eingaben ein <strong className="text-[#0D2137]">Preiskorridor</strong>{" "}
-          entsteht — ohne Behauptung eines Festpreises und ohne Ihre Daten an Umzugsfirmen zu übermitteln.
+        <p className="mt-3 leading-relaxed text-[#5A7A8A]">
+          Auf dieser Seite erklären wir, wie aus Ihren Angaben ein{" "}
+          <strong className="text-[#0D2137]">realistischer Preisrahmen</strong> entsteht. Das
+          Ergebnis ist bewusst als Korridor aufgebaut: transparent genug zur Einordnung, aber ohne
+          einen verbindlichen Festpreis vorzutäuschen.
         </p>
 
         <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-[#0D2137]">Grundlagen</h2>
-          <ul className="list-disc pl-5 space-y-2 text-sm text-[#5A7A8A] leading-relaxed">
+          <h2 className="text-xl font-bold text-[#0D2137]">Welche Faktoren fließen ein?</h2>
+          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#5A7A8A]">
             <li>
-              <strong className="text-[#0D2137]">Personalkosten:</strong> Die geschätzte Dauer wird mit
-              Stundensätzen für Umzugshelfer in Ihrer Region bewertet (inkl. Mindestzeiten).
+              <strong className="text-[#0D2137]">Arbeitszeit und Teamgröße:</strong> Je nach Umfang
+              des Inventars, Zugangsweg und Zusatzleistungen entsteht ein anderer Zeitbedarf für
+              Tragen, Laden, Fahren und Entladen.
             </li>
             <li>
-              <strong className="text-[#0D2137]">Transport:</strong> Zur Kalkulation gehören u. a. eine
-              Lkw-Grundpauschale und eine Kilometerkomponente für die Strecke zwischen Auszug und Einzug.
+              <strong className="text-[#0D2137]">Transport und Strecke:</strong> Die Entfernung
+              beeinflusst Fahrzeugkosten, Fahrzeit und organisatorischen Aufwand zwischen Auszug und
+              Einzug.
             </li>
             <li>
-              <strong className="text-[#0D2137]">Gebäude &amp; Weg:</strong> Etage ohne Aufzug, enge
-              Treppenhäuser, Parkentfernung und Gebäudetyp können als Zuschläge einfließen.
+              <strong className="text-[#0D2137]">Gebäudesituation:</strong> Etage, Aufzug,
+              Treppenhaus, Parkdistanz oder knappe Zufahrten können den Aufwand deutlich verändern.
             </li>
             <li>
-              <strong className="text-[#0D2137]">Termin:</strong> Wochenende oder hohe Nachfrage können über
-              einen Tagesfaktor berücksichtigt werden.
+              <strong className="text-[#0D2137]">Termin und Nachfrage:</strong> Stark gefragte Tage,
+              kurze Vorlaufzeiten oder saisonale Spitzen wirken sich häufig auf Preise aus.
             </li>
             <li>
-              <strong className="text-[#0D2137]">Volumen:</strong> Bei der detaillierten Erfassung leiten wir
-              das Transportvolumen aus Möbelstücken und Kartons ab; bei der Schnellschätzung nutzen wir eine
-              Heuristik aus Wohnfläche und Zimmeranzahl.
+              <strong className="text-[#0D2137]">Inventar und Volumen:</strong> Im Detailmodus werden
+              Möbel, Kartons und Besonderheiten genauer erfasst. Die Schnellschätzung nutzt dagegen
+              bewusst einfachere Annahmen aus Wohnfläche, Zimmern und Distanz.
             </li>
           </ul>
         </section>
 
         <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-[#0D2137]">Genauigkeit</h2>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            Marktpreise schwanken je nach Saison, Auslastung und Auftragsdetails. Realistisch sind oft
-            Abweichungen in der Größenordnung von etwa ±20–30 % zu unserem Korridor — bei Sperrgut,
-            schwierigen Zufahrten oder kurzfristiger Buchung auch mehr. Nutzen Sie das Ergebnis als{" "}
-            <strong className="text-[#0D2137]">Orientierung</strong> und holen Sie mehrere Festpreisangebote
-            ein.
+          <h2 className="text-xl font-bold text-[#0D2137]">Warum wir mit einem Korridor arbeiten</h2>
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            Umzugsangebote unterscheiden sich oft stärker als viele erwarten. Schon kleine Details
+            wie lange Laufwege, kurzfristige Buchung, schwere Einzelstücke oder eine enge
+            Parksituation können den Aufwand sichtbar erhöhen. Deshalb zeigen wir keinen
+            Fantasie-Festpreis, sondern einen Bereich, in dem sich vergleichbare Angebote häufig
+            bewegen.
+          </p>
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            In normalen Fällen ist ein Richtwert im Bereich von etwa 20 bis 30 Prozent Abweichung
+            zum späteren Angebot realistisch. Bei Sonderfällen kann der Abstand größer ausfallen.
+            Der Rechner ist damit vor allem ein Werkzeug zur{" "}
+            <strong className="text-[#0D2137]">Einordnung und Vorbereitung</strong>.
           </p>
         </section>
 
         <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-[#0D2137]">Typische Zusatzkosten (Richtwerte)</h2>
+          <h2 className="text-xl font-bold text-[#0D2137]">Typische Zusatzkosten im Überblick</h2>
           <p className="text-sm text-[#5A7A8A]">
-            Diese Positionen sind oft <em>nicht</em> in einem einfachen Pauschalpreis enthalten — deshalb
-            tauchen sie in Angeboten separat auf. Beträge sind Erfahrungsrahmen für Deutschland, keine
-            Garantie.
+            Viele Angebote wirken auf den ersten Blick günstig und werden erst durch Zusatzposten
+            teurer. Die folgenden Werte sind grobe Erfahrungsrahmen für Deutschland und helfen
+            dabei, Angebote besser zu lesen und nachzufragen.
           </p>
           <div className="overflow-x-auto rounded-xl border border-slate-200">
             <table className="min-w-full text-sm">
@@ -98,40 +108,41 @@ export default function SoRechnenWirPage() {
                   <th className="px-4 py-3 font-bold">Hinweis</th>
                 </tr>
               </thead>
-              <tbody className="text-[#5A7A8A] divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 text-[#5A7A8A]">
                 <tr>
-                  <td className="px-4 py-3">Küche demontieren / montieren</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 250–450 €</td>
-                  <td className="px-4 py-3">Abhängig von Küchentyp und Elektro</td>
+                  <td className="px-4 py-3">Küche ab- und aufbauen</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 250–450 €</td>
+                  <td className="px-4 py-3">Je nach Aufbau, Anschlüssen und Zuschnitt</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3">Möbelmontage (komplett)</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 150–350 €</td>
-                  <td className="px-4 py-3">Oft pro Raum oder Stückliste</td>
+                  <td className="px-4 py-3">Möbelmontage</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 150–350 €</td>
+                  <td className="px-4 py-3">Häufig abhängig von Raumzahl und Möbelliste</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3">Einpackservice (komplett)</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 200–500 €</td>
-                  <td className="px-4 py-3">Material oft extra</td>
+                  <td className="px-4 py-3">Einpackservice</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 200–500 €</td>
+                  <td className="px-4 py-3">Verpackungsmaterial wird oft separat berechnet</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Halteverbotszone beantragen</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 50–120 €</td>
-                  <td className="px-4 py-3">Behörde + ggf. Schilderstellung</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 50–120 €</td>
+                  <td className="px-4 py-3">Gebühren plus mögliche Schilder- und Servicekosten</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Klaviertransport</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 200–500 €</td>
-                  <td className="px-4 py-3">Flügel deutlich höher</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 200–500 €</td>
+                  <td className="px-4 py-3">Für Flügel oder schwierige Wege meist deutlich mehr</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Umzugskartons (20 Stück, neu)</td>
-                  <td className="px-4 py-3 whitespace-nowrap">ca. 25–45 €</td>
+                  <td className="whitespace-nowrap px-4 py-3">ca. 25–45 €</td>
                   <td className="px-4 py-3">
-                    Bedarf auch mit unserem{" "}
+                    Bedarf vorab mit unserem{" "}
                     <Link href="/kartonrechner/" className="text-[#0088CC] hover:underline">
                       Kartonrechner
-                    </Link>
+                    </Link>{" "}
+                    abschätzen
                   </td>
                 </tr>
               </tbody>
@@ -140,21 +151,22 @@ export default function SoRechnenWirPage() {
         </section>
 
         <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-[#0D2137]">Rechenbeispiel (vereinfacht)</h2>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            <strong className="text-[#0D2137]">Ausgangslage:</strong> Familie zieht mit einer
-            detailliert erfassten 3-Zimmer-Wohnung (ca. 75 m² Wohnfläche) über etwa 80 km innerhalb
-            Deutschlands — Umzug unter der Woche, normale Zufahrt, Aufzug vorhanden.
+          <h2 className="text-xl font-bold text-[#0D2137]">Ein vereinfachtes Beispiel</h2>
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            <strong className="text-[#0D2137]">Ausgangslage:</strong> Ein Haushalt mit etwa 75 m²,
+            drei Zimmern und normaler Möblierung zieht rund 80 Kilometer weit. Beide Adressen sind
+            gut erreichbar, der Termin liegt unter der Woche und ein Aufzug ist vorhanden.
           </p>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            Der Rechner ermittelt daraus u. a. Personalzeit, Transportanteil und regionale Faktoren und
-            zeigt einen <strong className="text-[#0D2137]">Korridor</strong> (z. B. zwei gerundete Beträge
-            als Unter- und Obergrenze). So sehen Sie schnell, ob spätere Angebote im erwartbaren Rahmen
-            liegen — ohne dass wir einen Festpreis versprechen.
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            Daraus werden Personalaufwand, Transportanteil, regionale Preisfaktoren und mögliche
+            Basiszuschläge abgeleitet. Das Ergebnis erscheint als{" "}
+            <strong className="text-[#0D2137]">untere und obere Orientierung</strong>, damit Sie
+            spätere Angebote besser einordnen und auffällige Ausreißer schneller erkennen können.
           </p>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            <strong className="text-[#0D2137]">Steuern &amp; Absetzbarkeit:</strong> Ob und wie Sie Kosten
-            absetzen können, hängt von Ihrer Situation ab — siehe{" "}
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            <strong className="text-[#0D2137]">Steuern &amp; Absetzbarkeit:</strong> Ob und in
+            welchem Umfang Kosten steuerlich relevant sind, hängt von Ihrer persönlichen Situation
+            ab. Einen kompakten Überblick finden Sie in unserem Beitrag{" "}
             <Link href="/ratgeber/steuerspartipps/" className="text-[#0088CC] hover:underline">
               Steuern sparen beim Umzug
             </Link>
@@ -165,7 +177,8 @@ export default function SoRechnenWirPage() {
         <section className="mt-10 rounded-2xl bg-[#EBF6FD] p-6">
           <h2 className="text-lg font-bold text-[#0D2137]">Jetzt selbst rechnen</h2>
           <p className="mt-2 text-sm text-[#5A7A8A]">
-            Schnellschätzung oder detaillierte Möbelliste — Sie wählen im Rechner den passenden Modus.
+            Ob Schnellschätzung oder detaillierte Eingabe: Sie wählen die passende Tiefe und sehen
+            sofort einen nachvollziehbaren Preisrahmen.
           </p>
           <Link
             href="/rechner/"
@@ -177,7 +190,7 @@ export default function SoRechnenWirPage() {
         </section>
 
         <section className="mt-14" id="faq-methodik" aria-labelledby="faq-methodik-h">
-          <h2 id="faq-methodik-h" className="text-xl font-bold text-[#0D2137] mb-6">
+          <h2 id="faq-methodik-h" className="mb-6 text-xl font-bold text-[#0D2137]">
             Fragen zur Methodik
           </h2>
           <FaqAccordion items={METHODOLOGY_FAQS} />

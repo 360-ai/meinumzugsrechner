@@ -5,14 +5,30 @@ import Link from "next/link";
 import { motion } from "motion/react";
 
 const LockIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 flex-shrink-0">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-5 w-5 flex-shrink-0"
+  >
     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
   </svg>
 );
 
 const CalcIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-8 w-8"
+  >
     <rect x="4" y="2" width="16" height="20" rx="2" />
     <line x1="8" y1="6" x2="16" y2="6" />
     <rect x="8" y="10" width="2" height="2" rx="0.5" />
@@ -28,15 +44,19 @@ const CalcIcon = () => (
 
 const CircularBadge = () => (
   <div
-    className="relative w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center shadow-xl rotate-12 hover:scale-105 transition-transform cursor-pointer border-[3px] border-black/10"
+    className="relative h-28 w-28 cursor-pointer items-center justify-center rounded-full border-[3px] border-black/10 shadow-xl transition-transform hover:scale-105 md:h-36 md:w-36"
     style={{ backgroundColor: "#FFCC00" }}
   >
     <div className="absolute inset-1 animate-[spin_12s_linear_infinite]">
-      <svg viewBox="0 0 100 100" className="w-full h-full">
-        <path id="circlePath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none" />
+      <svg viewBox="0 0 100 100" className="h-full w-full">
+        <path
+          id="circlePath"
+          d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
+          fill="none"
+        />
         <text style={{ fontSize: "10px", fontWeight: 900, letterSpacing: "0.12em" }} fill="#0D2137">
           <textPath href="#circlePath" startOffset="0%">
-            KOSTENLOSE PREISPROGNOSE · KOSTENLOSE PREISPROGNOSE ·
+            ORIENTIERUNG OHNE LEADVERKAUF · ORIENTIERUNG OHNE LEADVERKAUF ·
           </textPath>
         </text>
       </svg>
@@ -49,11 +69,12 @@ const CircularBadge = () => (
 
 export function Hero() {
   return (
-    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#0D2137", minHeight: "92vh" }}>
-
-      {/* Background photo at 35% opacity */}
+    <div
+      className="relative w-full overflow-hidden"
+      style={{ backgroundColor: "#0D2137", minHeight: "92vh" }}
+    >
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage: "url('/herohintergrund.webp')",
           backgroundSize: "cover",
@@ -62,44 +83,43 @@ export function Hero() {
         }}
       />
 
-      {/* USP Banner */}
-      <div className="relative z-20 w-full border-b border-[#0088CC]/40" style={{ backgroundColor: "rgba(0,136,204,0.18)" }}>
+      <div
+        className="relative z-20 w-full border-b border-[#0088CC]/40"
+        style={{ backgroundColor: "rgba(0,136,204,0.18)" }}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-3.5 sm:px-6">
           <LockIcon />
           <p
-            className="text-center font-black tracking-widest text-white uppercase"
+            className="text-center font-black uppercase tracking-widest text-white"
             style={{ fontSize: "clamp(0.75rem, 2.5vw, 1rem)", letterSpacing: "0.1em" }}
           >
-            Keine Datenweitergabe an Umzugsfirmen — Deine Daten gehören nur Dir
+            Keine Weitergabe an Umzugsfirmen - erst rechnen, dann selbst entscheiden
           </p>
           <LockIcon />
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pt-12 pb-14 sm:px-6 md:flex-row md:items-center md:gap-12 md:pt-20 md:pb-20">
-
-        {/* Left: Text */}
-        <div className="flex-1 min-w-0 text-center md:text-left">
-
-          {/* Headline */}
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pb-14 pt-12 sm:px-6 md:flex-row md:items-center md:gap-12 md:pb-20 md:pt-20">
+        <div className="min-w-0 flex-1 text-center md:text-left">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7ED0FF]">
+            Umzugskosten realistisch einordnen
+          </p>
           <h1
-            className="font-black uppercase leading-[0.92] tracking-tight text-white"
+            className="mt-3 font-black uppercase leading-[0.92] tracking-tight text-white"
             style={{ fontFamily: '"Arial Black", Impact, sans-serif', fontSize: "clamp(2.4rem, 6.5vw, 80px)" }}
           >
-            <span className="block">Dein Umzug.</span>
-            <span className="block whitespace-nowrap">Deine Kosten.</span>
-            <span className="block">Deine Daten.</span>
-            <span className="block mt-1" style={{ color: "#FFCC00" }}>Kostenlos</span>
-            <span className="block" style={{ color: "#FFCC00" }}>berechnen.</span>
+            <span className="block">Was kostet</span>
+            <span className="block whitespace-nowrap">mein Umzug</span>
+            <span className="mt-1 block" style={{ color: "#FFCC00" }}>
+              wirklich?
+            </span>
           </h1>
 
-          {/* Subtext */}
-          <p className="mx-auto mt-6 max-w-md text-base text-white/75 md:mx-0 md:text-lg">
-            Realistischer Preiskorridor in unter 10 Minuten — ohne Spam, ohne Datenweitergabe.
+          <p className="mx-auto mt-6 max-w-xl text-base text-white/80 md:mx-0 md:text-lg">
+            Berechnen Sie online einen nachvollziehbaren Preisrahmen für Ihren Umzug in Deutschland
+            - ohne Registrierung, ohne Spam und ohne automatische Vermittlung Ihrer Daten.
           </p>
 
-          {/* CTA */}
           <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start">
             <Link
               href="/rechner/"
@@ -108,27 +128,39 @@ export function Hero() {
             >
               Jetzt kostenlos berechnen →
             </Link>
+            <Link
+              href="/so-rechnen-wir/"
+              className="touch-target inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
+            >
+              Berechnung verstehen
+            </Link>
           </div>
-          <div className="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm text-white/50 md:justify-start">
-            <span>✓ Kein Konto</span>
-            <span>·</span>
-            <span>✓ Kein Spam</span>
-            <span>·</span>
-            <span>✓ Sofortiges Ergebnis</span>
-            <span>·</span>
-            <span>✓ Deine Daten gehören dir</span>
+
+          <div className="mt-5 grid max-w-xl gap-3 text-left sm:grid-cols-2">
+            {[
+              "Schnelle Orientierung für erste Angebote",
+              "Detaillierter Modus mit Möbeln und Zusatzaufwand",
+              "Regionale Faktoren statt Fantasiepreise",
+              "Sie entscheiden selbst, ob Sie Firmen kontaktieren",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Right: Floating mascot + badge */}
-        <div className="relative flex-shrink-0 flex items-center justify-center w-[260px] md:w-[340px] lg:w-[400px]">
+        <div className="relative flex w-[260px] flex-shrink-0 items-center justify-center md:w-[340px] lg:w-[400px]">
           <motion.div
             animate={{ y: [0, -18, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
               src="/logo.webp"
-              alt="meinumzugsrechner.de — Umzugskosten-Rechner ohne Datenweitergabe"
+              alt="meinumzugsrechner.de - Umzugskosten-Rechner ohne Datenweitergabe"
               width={600}
               height={600}
               className="w-full object-contain drop-shadow-2xl"
@@ -136,8 +168,7 @@ export function Hero() {
             />
           </motion.div>
 
-          {/* Circular badge */}
-          <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 z-20">
+          <div className="absolute -bottom-4 -right-4 z-20 md:-bottom-6 md:-right-6">
             <Link href="/rechner/">
               <CircularBadge />
             </Link>

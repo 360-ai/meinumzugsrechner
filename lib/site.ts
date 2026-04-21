@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 
-/** Production domain — used when NEXT_PUBLIC_APP_URL is unset */
+/** Production domain - used when NEXT_PUBLIC_APP_URL is unset */
 export const SITE_HOST = "meinumzugsrechner.de";
 
 export const SITE_NAME = "meinumzugsrechner.de";
 
 export const DEFAULT_TITLE =
-  "Umzugskosten-Rechner: realistischer Preiskorridor ohne Datenweitergabe | meinumzugsrechner.de";
+  "Umzugskosten-Rechner ohne Datenweitergabe | realistischer Preisrahmen für Deutschland";
 
 export const DEFAULT_DESCRIPTION =
-  "Umzugskosten in Deutschland schätzen: Preiskorridor, Schnell- oder Detailrechner, ohne Datenweitergabe. Methodik transparent erklärt — plus Ratgeber, Checklisten & Materialtipps.";
+  "Umzugskosten online einordnen: Schnellschätzung oder Detailrechner mit regionalen Faktoren, transparenter Methodik und ohne automatische Weitergabe Ihrer Daten an Umzugsfirmen.";
 
 /** ISO date for editorial / Article schema (Launch-Pflege) */
-export const SITE_CONTENT_DATE = "2026-04-20";
+export const SITE_CONTENT_DATE = "2026-04-21";
 
 export function getSiteUrl(): URL {
   const raw = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${SITE_HOST}`).trim();

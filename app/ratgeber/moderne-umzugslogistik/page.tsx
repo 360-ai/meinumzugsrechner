@@ -3,15 +3,16 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Leitbild: Moderne Umzugslogistik 2026 | meinumzugsrechner.de";
-const PAGE_DESC = "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.";
+const PAGE_TITLE = "Moderne Umzugslogistik: besser planen statt hektisch reagieren | meinumzugsrechner.de";
+const PAGE_DESC =
+  "Wie zeitgemäße Umzugsplanung funktioniert: Ressourcen passend einsetzen, Wege vorbereiten und Kosten durch gute Abläufe beherrschbarer machen.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
   ...pageCanonical("/ratgeber/moderne-umzugslogistik/"),
   openGraph: {
-    title: "Moderne Umzugslogistik 2026",
+    title: "Moderne Umzugslogistik verständlich erklärt",
     description: PAGE_DESC,
     url: "/ratgeber/moderne-umzugslogistik/",
     type: "article",
@@ -20,35 +21,33 @@ export const metadata: Metadata = {
 
 const sections: GuideSection[] = [
   {
-    heading: "Vision 2026: Intelligente Logistiklösungen",
+    heading: "Worum es bei guter Umzugslogistik heute geht",
     items: [
-      { label: "", text: "Wir definieren Umzug neu: Effizienz trifft auf maximale Sorgfalt. Unser Ziel ist eine nahtlose Transition in Ihr neues Zuhause durch technologisch gestützte Planung und erstklassigen Service." },
+      { label: "", text: "Ein gut geplanter Umzug ist vor allem ein Koordinationsproblem: Volumen, Zeitfenster, Zugang und Helfer müssen zusammenpassen." },
     ],
   },
   {
-    heading: "Die 5 Säulen moderner Umzugslogistik",
+    heading: "Vier Hebel, die den Ablauf spürbar verbessern",
     items: [
-      { label: "1. Digitale Planung", text: "Moderne Umzüge beginnen nicht am Umzugstag, sondern Wochen vorher am Bildschirm. Tools wie digitale Möbelplaner und Online-Kostenrechner ermöglichen präzise Vorbereitung." },
-      { label: "2. Ressourceneffizienz", text: "Das richtige Fahrzeug für das richtige Volumen. Richtwert: 1 m³ Ladevolumen pro 4–6 m² Wohnfläche." },
-      { label: "3. Nachhaltigkeit", text: "Mietboxen aus recyceltem Kunststoff, Textilien als Polstermaterial, Möbel verkaufen statt entsorgen." },
-      { label: "4. Transparente Preisgestaltung", text: "Seriöse Anbieter geben Preise pro Stunde oder als Festpreis an. Nutzen Sie unseren Rechner für einen realistischen Vergleichswert." },
-      { label: "5. Standort-Management", text: "Freie Zufahrt, gesicherte Parkflächen und koordinierte Schlüsselübergaben reduzieren Wartezeiten und Kosten." },
+      { label: "1. Früh strukturieren", text: "Nicht erst am Umzugstag entscheiden, sondern Möbel, Kartons, Wege und Zuständigkeiten vorher festlegen." },
+      { label: "2. Fahrzeug passend wählen", text: "Zu klein bedeutet Zusatzfahrten, zu groß bedeutet unnötige Kosten und manchmal schlechtere Zufahrt." },
+      { label: "3. Wege entschärfen", text: "Parken, Aufzug, Treppenhaus und Laufwege wirken stärker auf Zeit und Preis als viele erwarten." },
+      { label: "4. Übergaben sauber timen", text: "Schlüssel, Hausverwaltung, Helfer und Ladefenster sollten möglichst nicht gegeneinander arbeiten." },
     ],
   },
   {
-    heading: "Checkliste: Standort-Vorbereitung",
+    heading: "Standortvorbereitung",
     items: [
-      { label: "", text: "Halteverbotszone vor altem und neuem Objekt frühzeitig beantragen" },
-      { label: "", text: "Aufzugszeiten mit Hausverwaltung abstimmen" },
-      { label: "", text: "Nachbarn über Lärm und Beeinträchtigungen informieren" },
-      { label: "", text: "Freie Gehwege und Flure sicherstellen" },
-      { label: "", text: "Schlüsselübergabe beider Wohnungen koordinieren" },
+      { label: "", text: "Park- und Ladeflächen früh prüfen" },
+      { label: "", text: "Aufzugsnutzung und Hausregeln vorher klären" },
+      { label: "", text: "Tragewege freihalten und Stolperstellen minimieren" },
+      { label: "", text: "Schlüssel- und Zeitfenster nicht zu knapp takten" },
     ],
   },
   {
     heading: "Fazit",
     items: [
-      { label: "", text: "Moderner Umzug ist keine Frage des Budgets, sondern der Vorbereitung. Mit dem richtigen Werkzeug, einer klaren Planung und einem seriösen Partner gelingt der Wohnungswechsel auch ohne professionelle Umzugsfirma." },
+      { label: "", text: "Moderne Umzugslogistik ist weniger eine Frage großer Theorie als guter Vorbereitung. Wer die Engstellen vorher erkennt, spart am Ende meist Zeit, Nerven und oft auch Geld." },
     ],
   },
 ];
@@ -56,136 +55,114 @@ const sections: GuideSection[] = [
 export default function ModerneUmzugslogistikPage() {
   return (
     <GuideLayout
-      title="Leitbild: Moderne Umzugslogistik 2026"
+      title="Moderne Umzugslogistik verständlich erklärt"
       category="ratgeber"
       categoryLabel="Ratgeber"
       sections={sections}
       articleSeo={{
         path: "/ratgeber/moderne-umzugslogistik/",
-        description: "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.",
+        description: PAGE_DESC,
       }}
     >
       <div className="space-y-6">
-
-        {/* Intro */}
-        <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #0088CC" }}>
-          <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Vision 2026: Intelligente Logistiklösungen</h2>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            Wir definieren Umzug neu: Effizienz trifft auf maximale Sorgfalt. Unser
-            Ziel ist eine nahtlose Transition in Ihr neues Zuhause durch technologisch
-            gestützte Planung und erstklassigen Service.
+        <div
+          className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
+          style={{ borderLeft: "4px solid #0088CC" }}
+        >
+          <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Weniger Improvisation, mehr Ablaufklarheit</h2>
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            Viele Umzüge scheitern nicht an fehlender Motivation, sondern an schlecht vorbereiteten
+            Übergängen: zu kleines Fahrzeug, blockierte Zufahrt, unklare Helferrollen oder zu knapp
+            gesetzte Zeitfenster. Moderne Umzugslogistik bedeutet deshalb vor allem, diese Stellen
+            früh sichtbar zu machen.
           </p>
         </div>
 
-        {/* Die 5 Säulen */}
         <div>
-          <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Die 5 Säulen moderner Umzugslogistik</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="flex h-6 w-6 rounded-full items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: "#0088CC" }}>1</div>
-                <h3 className="font-bold text-[#0D2137] text-sm">Digitale Planung</h3>
+          <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Vier Hebel mit großem Effekt</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                n: "1",
+                title: "Früh strukturieren",
+                text: "Inventar, Kartonbedarf, Reihenfolge und Helferrollen sollten vor dem Umzugstag geklärt sein. Dadurch sinkt das Chaos deutlich.",
+              },
+              {
+                n: "2",
+                title: "Fahrzeug passend wählen",
+                text: "Die richtige Größe spart entweder Fahrten oder unnötige Miet- und Betriebskosten. Zu groß ist nicht automatisch besser.",
+              },
+              {
+                n: "3",
+                title: "Wege vorbereiten",
+                text: "Treppenhaus, Aufzug, Parken und Laufwege bestimmen oft den echten Aufwand stärker als die reine Distanz zwischen den Adressen.",
+              },
+              {
+                n: "4",
+                title: "Übergaben sauber koordinieren",
+                text: "Schlüssel, Hausverwaltung, Helferankunft und Ladezeiten sollten zusammenpassen, damit kein Leerlauf entsteht.",
+              },
+            ].map((item) => (
+              <div key={item.n} className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
+                <div className="mb-2 flex items-center gap-2">
+                  <div
+                    className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
+                    style={{ backgroundColor: "#0088CC" }}
+                  >
+                    {item.n}
+                  </div>
+                  <h3 className="text-sm font-bold text-[#0D2137]">{item.title}</h3>
+                </div>
+                <p className="text-sm text-[#5A7A8A]">{item.text}</p>
               </div>
-              <p className="text-xs text-[#5A7A8A]">
-                Moderne Umzüge beginnen nicht am Umzugstag, sondern Wochen vorher am
-                Bildschirm. Tools wie digitale Möbelplaner, Online-Kostenrechner und
-                Kalender-Apps ermöglichen eine präzise Vorbereitung ohne
-                Vor-Ort-Termine.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="flex h-6 w-6 rounded-full items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: "#0088CC" }}>2</div>
-                <h3 className="font-bold text-[#0D2137] text-sm">Ressourceneffizienz</h3>
-              </div>
-              <p className="text-xs text-[#5A7A8A]">
-                Professionelle Logistik bedeutet: Das richtige Fahrzeug für das richtige
-                Volumen. Zu große LKW verschwenden Kraftstoff und Kapazität; zu kleine
-                erfordern mehrere Fahrten. Ein guter Richtwert: 1 m³ Ladevolumen pro 4–6
-                m² Wohnfläche.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="flex h-6 w-6 rounded-full items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: "#0088CC" }}>3</div>
-                <h3 className="font-bold text-[#0D2137] text-sm">Nachhaltigkeit</h3>
-              </div>
-              <p className="text-xs text-[#5A7A8A]">
-                Mietboxen aus recyceltem Kunststoff statt Einwegkartons, Textilien als
-                Polstermaterial, Möbel verkaufen oder spenden statt entsorgen,
-                Lieferanten mit Elektrofahrzeugen bevorzugen.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="flex h-6 w-6 rounded-full items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: "#0088CC" }}>4</div>
-                <h3 className="font-bold text-[#0D2137] text-sm">Transparente Preisgestaltung</h3>
-              </div>
-              <p className="text-xs text-[#5A7A8A]">
-                Intransparente Kostenstrukturen sind einer der häufigsten
-                Streitpunkte bei Umzügen. Seriöse Anbieter geben Preise pro Stunde oder
-                als Festpreis an, aufgeschlüsselt nach Leistungen.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="flex h-6 w-6 rounded-full items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: "#0088CC" }}>5</div>
-                <h3 className="font-bold text-[#0D2137] text-sm">Standort-Management</h3>
-              </div>
-              <p className="text-xs text-[#5A7A8A]">
-                Ein oft unterschätzter Faktor: die Vorbereitung beider Standorte. Freie
-                Zufahrt, gesicherte Parkflächen und koordinierte Schlüsselübergaben
-                reduzieren Wartezeiten und damit Kosten erheblich.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Checkliste Standort */}
-        <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #0088CC" }}>
-          <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Checkliste: Standort-Vorbereitung</h2>
+        <div
+          className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
+          style={{ borderLeft: "4px solid #0088CC" }}
+        >
+          <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Standortvorbereitung in der Praxis</h2>
           <ul className="space-y-3">
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
-              <span>Halteverbotszone vor altem und neuem Objekt frühzeitig beantragen</span>
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>Prüfen Sie früh, wo realistisch geladen und entladen werden kann.</span>
             </li>
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
-              <span>Aufzugszeiten mit Hausverwaltung abstimmen</span>
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>Klären Sie Hausregeln, Aufzugszeiten und sensible Flächen vorher ab.</span>
             </li>
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
-              <span>Nachbarn über Lärm und Beeinträchtigungen informieren</span>
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>Halten Sie Laufwege frei und planen Sie Engstellen nicht nur auf dem Papier.</span>
             </li>
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
-              <span>Freie Gehwege und Flure sicherstellen</span>
-            </li>
-            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
-              <span>Schlüsselübergabe beider Wohnungen koordinieren</span>
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>Setzen Sie Übergaben und Einzugsfenster mit etwas Puffer statt auf die Minute.</span>
             </li>
           </ul>
         </div>
 
-        {/* Fazit */}
-        <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #0088CC" }}>
+        <div
+          className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
+          style={{ borderLeft: "4px solid #0088CC" }}
+        >
           <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Fazit</h2>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            Moderner Umzug ist keine Frage des Budgets, sondern der Vorbereitung.
-            Mit dem richtigen Werkzeug, einer klaren Planung und einem seriösen
-            Partner gelingt der Wohnungswechsel auch ohne professionelle
-            Umzugsfirma — oder zumindest deutlich günstiger als ohne Vorbereitung.
+          <p className="text-sm leading-relaxed text-[#5A7A8A]">
+            Gute Umzugslogistik heißt nicht, alles maximal groß oder maximal professionell zu
+            machen. Entscheidend ist, Engpässe rechtzeitig zu erkennen und Aufwand realistisch zu
+            verteilen. Genau dabei helfen Rechner, Checklisten und eine saubere Vorbereitung.
           </p>
         </div>
 
-        {/* Tip box */}
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
-          Noch unsicher über die Kosten?{" "}
-          <a href="/rechner/" className="underline font-medium">Berechnen Sie jetzt Ihren Preiskorridor</a> — kostenlos
-          und ohne Datenweitergabe.
+          Noch unsicher beim Aufwand?{" "}
+          <a href="/rechner/" className="font-medium underline">
+            Berechnen Sie jetzt Ihren Preisrahmen
+          </a>{" "}
+          und prüfen Sie danach Fahrzeug, Material und Ablauf gezielter.
         </div>
-
       </div>
     </GuideLayout>
   );

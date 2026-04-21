@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { RechnerForm } from "./RechnerForm";
 import { EinfacherRechnerForm } from "./EinfacherRechnerForm";
+import { RechnerForm } from "./RechnerForm";
 
 export function RechnerModeTabs() {
   const sp = useSearchParams();
@@ -42,11 +42,18 @@ export function RechnerModeTabs() {
       </div>
 
       {mode === "einfach" ? (
-        <EinfacherRechnerForm />
+        <>
+          <div className="rounded-2xl border border-slate-100 bg-[#FAFCFE] p-4 text-sm text-[#5A7A8A]">
+            Die Schnellschätzung konzentriert sich auf Wohnfläche, Zimmerzahl, Region und Distanz.
+            Sie ist gedacht für eine erste Preisorientierung, wenn Sie noch keine vollständige
+            Möbelliste vorbereitet haben.
+          </div>
+          <EinfacherRechnerForm />
+        </>
       ) : (
         <>
           <p className="text-sm text-[#5A7A8A]">
-            Volle Möbelliste, Streckendetails und Zusatzleistungen — ideal, wenn Sie später
+            Volle Möbelliste, Streckendetails und Zusatzleistungen – ideal, wenn Sie später
             vergleichbare Angebote einholen möchten.
           </p>
           <RechnerForm />

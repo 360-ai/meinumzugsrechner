@@ -1,53 +1,48 @@
 /** Sichtbare FAQ + FAQPage-Schema (GEO / Rich Results) */
 export const HOME_PAGE_FAQS: { question: string; answer: string }[] = [
   {
-    question: "Was ist meinumzugsrechner.de?",
+    question: "Was macht meinumzugsrechner.de anders?",
     answer:
-      "Ein kostenloser Umzugskosten-Rechner für Deutschland, der einen realistischen Preiskorridor aus Ihren Angaben ableitet — ohne Weitergabe Ihrer Umzugsdaten an Umzugsfirmen und ohne klassischen Lead-Verkauf.",
+      "Die Seite ist als Orientierungswerkzeug aufgebaut, nicht als klassisches Lead-Portal. Sie erhalten einen Preisrahmen für Ihren Umzug und entscheiden danach selbst, ob Sie mit Firmen sprechen möchten.",
   },
   {
-    question: "Erhalte ich einen Festpreis für meinen Umzug?",
+    question: "Bekomme ich hier einen Festpreis?",
     answer:
-      "Nein. Sie erhalten eine nachvollziehbare Kostenschätzung als Korridor. Verbindliche Festpreise geben Ihnen nur Umzugsunternehmen nach Vor-Ort-Termin oder detaillierter Angebotserstellung.",
+      "Nein. Der Rechner zeigt einen Preisrahmen für typische Marktbedingungen. Ein verbindlicher Preis entsteht erst, wenn ein Umzugsunternehmen Ihren Fall konkret anbietet oder besichtigt.",
   },
   {
-    question: "Werden meine Daten an Umzugsunternehmen verkauft?",
+    question: "Werden meine Angaben verkauft oder automatisch weitergeleitet?",
     answer:
-      "Nein. Ihre Möbelliste und Standorte werden nicht an Dritte verkauft oder automatisch verteilt. Sie entscheiden selbst, ob und welche Partner Sie nach der Berechnung kontaktieren.",
+      "Nein. Ihre Eingaben dienen zuerst Ihrer eigenen Orientierung. Es gibt keine automatische Verteilung Ihrer Daten an Umzugsunternehmen oder Marktplätze.",
   },
   {
-    question: "Wie regional ist die Berechnung?",
+    question: "Für wen ist die Schnellschätzung gedacht?",
     answer:
-      "Die Schätzung berücksichtigt u. a. Faktoren nach Bundesland und Landkreis, damit der Korridor zu typischen Marktpreisen in Ihrer Region passt.",
+      "Für alle, die ohne lange Vorbereitung schnell ein Gefühl für den möglichen Kostenrahmen bekommen möchten. Wenn Sie schon genauer planen, ist der Detailrechner die bessere Wahl.",
   },
   {
-    question: "Brauche ich ein Konto oder eine Anmeldung?",
+    question: "Wie detailliert kann ich meinen Umzug erfassen?",
     answer:
-      "Nein. Sie können den Rechner nutzen, ohne sich zu registrieren. Es gibt keine Pflicht-E-Mail für das Ergebnis.",
+      "Im ausführlichen Modus lassen sich Gebäude, Inventar und zusätzliche Leistungen deutlich genauer abbilden. Dadurch wird der Richtwert belastbarer als bei einer reinen Wohnflächen-Schätzung.",
   },
   {
-    question: "Was bietet die Website außer dem Rechner?",
+    question: "Wie nah liegt die Schätzung später am Angebot?",
     answer:
-      "Kostenlose Ratgeber (z. B. Ergonomie, Verpacken, Logistik), druckbare Checklisten und kuratierte Materialtipps für Kartons und Transporthilfen.",
+      "Das hängt stark von Zugang, Saison, Strecke und Sonderfällen ab. In vielen Standardsituationen ist der Preisrahmen gut zur Einordnung geeignet, bei Spezialfällen oder knappen Terminen können Angebote aber spürbar darüber oder darunter liegen.",
   },
   {
-    question: "Wie genau ist die Schätzung?",
+    question: "Sollte ich trotzdem Vergleichsangebote einholen?",
     answer:
-      "Je nach Route und Ausstattung liegen echte Angebote oft in einem Bereich von etwa ±20–30 % um die Schätzung — je detaillierter Ihre Angaben (Möbelliste, Zugang), desto näher kommen spätere Angebote. Nutzen Sie den Korridor als Orientierung, nicht als verbindliches Angebot.",
+      "Ja. Der Rechner hilft vor allem dabei, Angebote besser einzuordnen, Ausreißer schneller zu erkennen und gezielter nachzufragen. Er ersetzt kein verbindliches Angebot.",
   },
   {
-    question: "Soll ich mehrere Angebote einholen?",
+    question: "Welche Inhalte gibt es außer dem Kostenrechner?",
     answer:
-      "Ja. Mindestens drei unabhängige Angebote helfen, Ausreißer zu erkennen und Preis-Leistung zu vergleichen — unabhängig von unserer Schätzung.",
+      "Zusätzlich finden Sie Hilfen für die praktische Planung: Kartonrechner, LKW-Rechner, Checklisten, Ratgeber und Materialtipps für den Umzug.",
   },
   {
-    question: "Was ist der Unterschied zwischen Schnell schätzen und der detaillierten Kalkulation?",
+    question: "Wo erklärt ihr die Berechnungslogik?",
     answer:
-      "„Schnell schätzen“ nutzt wenige Eingaben (u. a. Wohnfläche, Zimmer, Entfernung). Die detaillierte Kalkulation erfasst Möbel und Gebäude — besser für konkrete Anfragen bei Umzugsfirmen. Beides finden Sie unter dem Umzugskosten-Rechner.",
-  },
-  {
-    question: "Wo erklärt ihr die Berechnung im Detail?",
-    answer:
-      "Auf der Seite „So rechnen wir“ beschreiben wir Grundlagen, typische Zusatzkosten und ein Rechenbeispiel — transparent und ohne Fachjargon.",
+      "Auf der Seite „So rechnen wir“ zeigen wir, welche Faktoren in die Schätzung einfließen, welche Zusatzkosten häufig übersehen werden und warum das Ergebnis als Korridor dargestellt wird.",
   },
 ];
