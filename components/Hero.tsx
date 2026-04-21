@@ -108,10 +108,14 @@ export function Hero() {
             className="mt-3 font-black uppercase leading-[0.92] tracking-tight text-white"
             style={{ fontFamily: '"Arial Black", Impact, sans-serif', fontSize: "clamp(2.4rem, 6.5vw, 80px)" }}
           >
-            <span className="block">Was kostet</span>
-            <span className="block whitespace-nowrap">mein Umzug</span>
+            <span className="block">Dein Umzug.</span>
+            <span className="block whitespace-nowrap">Deine Kosten.</span>
+            <span className="block">Deine Daten.</span>
             <span className="mt-1 block" style={{ color: "#FFCC00" }}>
-              wirklich?
+              Kostenlos
+            </span>
+            <span className="block" style={{ color: "#FFCC00" }}>
+              berechnet.
             </span>
           </h1>
 
