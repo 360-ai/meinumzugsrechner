@@ -98,7 +98,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2 min-w-0">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="meinumzugsrechner.de — Logo und Umzugs-Maskottchen"
             width={44}
             height={44}

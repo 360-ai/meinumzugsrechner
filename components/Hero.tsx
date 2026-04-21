@@ -55,7 +55,7 @@ export function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/herohintergrund.jpg')",
+          backgroundImage: "url('/herohintergrund.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
           opacity: 0.35,
@@ -127,7 +127,7 @@ export function Hero() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="meinumzugsrechner.de — Umzugskosten-Rechner ohne Datenweitergabe"
               width={600}
               height={600}

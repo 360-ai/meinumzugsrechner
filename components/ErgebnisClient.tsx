@@ -416,7 +416,7 @@ export function ErgebnisClient() {
         <div className="flex flex-col sm:flex-row items-center gap-0">
           <div className="w-full sm:w-48 flex-shrink-0">
             <Image
-              src="/umzugsvergleich.png"
+              src="/umzugsvergleich.webp"
               alt="Selbst umziehen oder Profi beauftragen — Vergleich"
               width={400}
               height={260}
@@ -442,7 +442,7 @@ export function ErgebnisClient() {
         <div className="flex flex-col sm:flex-row items-center gap-0">
           <div className="w-full sm:w-48 flex-shrink-0">
             <Image
-              src="/logistik-partner.png"
+              src="/logistik-partner.webp"
               alt="Profi-Umzugsfirma beauftragen"
               width={400}
               height={260}
@@ -470,7 +470,7 @@ export function ErgebnisClient() {
         <div className="flex flex-col sm:flex-row items-center gap-0">
           <div className="w-full sm:w-48 flex-shrink-0">
             <Image
-              src="/produkttipps.png"
+              src="/produkttipps.webp"
               alt="Umzugsmaterial: Kartons, Polsterfolie und mehr"
               width={400}
               height={260}

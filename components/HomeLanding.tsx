@@ -203,7 +203,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/berechnung.png"
+                  src="/berechnung.webp"
                   alt="Umzugskosten-Rechner: kostenlose Berechnung des Preiskorridors auf meinumzugsrechner.de"
                   width={400}
                   height={300}
@@ -245,7 +245,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/checklisten.png"
+                  src="/checklisten.webp"
                   alt="Umzug: Ratgeber und Checklisten zum Packen und zur Planung"
                   width={400}
                   height={300}
@@ -278,7 +278,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/produkttipps.png"
+                  src="/produkttipps.webp"
                   alt="Umzugsmaterial: Kartons, Polsterfolie und Transporthilfen"
                   width={400}
                   height={300}
@@ -312,7 +312,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/logistik-partner.png"
+                  src="/logistik-partner.webp"
                   alt="Regionale Umzugsunternehmen und Partner für Festpreis-Angebote"
                   width={400}
                   height={300}
@@ -344,7 +344,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/kartonrechner.png"
+                  src="/kartonrechner.webp"
                   alt="Kartonrechner: Wie viele Umzugskartons brauche ich?"
                   width={400}
                   height={300}
@@ -381,7 +381,7 @@ export function HomeLanding() {
               </div>
               <div className="w-full flex-shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/lkw-rechner.png"
+                  src="/lkw-rechner.webp"
                   alt="LKW-Rechner: Welcher LKW passt für meinen Umzug?"
                   width={400}
                   height={300}
