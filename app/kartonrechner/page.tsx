@@ -9,7 +9,7 @@ import { Suspense } from "react";
 
 const PAGE_TITLE = "Kartonrechner: Wie viele Umzugskartons brauche ich? | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Kostenloser Kartonrechner für deinen Umzug: Richtwert für Standardkartons, Bücherkartons, Kleiderboxen und sinnvolle Reserve.";
+  "Kostenloser Kartonrechner für deinen Umzug: Kartonbedarf nach Packzonen, Haushaltsprofil, schweren Inhalten und Reserve schätzen.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -40,8 +40,8 @@ export default function KartonrechnerPage() {
           </h1>
           <p className="mt-3 leading-relaxed text-[#5A7A8A]">
             Der Kartonrechner gibt dir in wenigen Klicks einen belastbaren Richtwert für deinen
-            Kartonbedarf. Statt pauschaler Schätzungen teilst du grob nach Wohnbereichen,
-            Büchern, Küche, Kleidung und empfindlichen Dingen auf.
+            Kartonbedarf. Statt nur eine pauschale Zimmerzahl zu nutzen, rechnest du nach
+            Packzonen: Räume, Küche, Bücher, Kleidung, Zerbrechliches und Stauraum.
           </p>
         </div>
         <Suspense fallback={<p className="py-12 text-center text-[#5A7A8A]">Lädt…</p>}>
@@ -51,10 +51,10 @@ export default function KartonrechnerPage() {
         <section className="mt-10 space-y-4">
           <h2 className="text-xl font-bold text-[#0D2137]">Wofür der Rechner gut ist</h2>
           <p className="text-sm leading-relaxed text-[#5A7A8A]">
-            Der Richtwert hilft vor allem bei der Einkaufsplanung: Wie viele Standardkartons
-            sollten bereitstehen, ob sich Bücherkartons lohnen und ob Kleiderboxen oder
-            Spezialkartons sinnvoll sind. Gerade bei größeren Haushalten spart das unnötige
-            Nachbestellungen kurz vor dem Umzug.
+            Der Richtwert hilft vor allem bei der Einkaufsplanung: Wie viele Alltagskartons
+            sollten bereitstehen, wie viel Reserve ist sinnvoll und welche Inhalte brauchen eher
+            kleine, stabile oder gut gepolsterte Kartons. Gerade bei größeren Haushalten spart das
+            unnötige Nachbestellungen kurz vor dem Umzug.
           </p>
           <p className="text-sm leading-relaxed text-[#5A7A8A]">
             Wenn du zusätzlich abschätzen möchtest, welches Fahrzeug du brauchst oder was ein
@@ -73,10 +73,10 @@ export default function KartonrechnerPage() {
         <section className="mt-10 space-y-4">
           <h2 className="text-xl font-bold text-[#0D2137]">Praktische Faustregeln</h2>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#5A7A8A]">
-            <li>Schwere Inhalte lieber in kleinere, tragbare Kartons packen.</li>
-            <li>Kleiderboxen sparen Zeit, wenn viel hängende Kleidung vorhanden ist.</li>
-            <li>Für Glas, Elektronik und empfindliche Dinge lohnen sich Spezialkartons.</li>
-            <li>Plane 10 bis 15 Prozent Reserve ein, damit am Umzugstag nichts knapp wird.</li>
+            <li>Schwere Inhalte lieber auf mehrere kleine, tragbare Kartons verteilen.</li>
+            <li>Hängende Kleidung separat planen, wenn sie nicht gefaltet werden soll.</li>
+            <li>Glas, Elektronik und Erinnerungsstücke brauchen mehr Polsterraum als gedacht.</li>
+            <li>Plane rund 10 bis 15 Prozent Reserve ein, damit am Umzugstag nichts knapp wird.</li>
           </ul>
         </section>
 

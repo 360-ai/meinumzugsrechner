@@ -26,6 +26,7 @@ export type KuecheLfm = "bis_2m" | "2_3m" | "3_4m" | "ueber_4m";
 export type KuehlschrankKey = "keiner" | "standard" | "sidebyside";
 export type EinbauKey = "einbau" | "freistehend" | "keiner";
 export type GartenMenge = "wenig" | "mittel" | "viel";
+export type HaushaltGroesse = "1" | "2" | "3_4" | "5plus";
 
 export interface UmzugFormData {
   buildingA: {
@@ -105,6 +106,7 @@ export interface UmzugFormData {
     quickEstimate?: {
       wohnflaecheM2: number;
       zimmer: number;
+      haushaltGroesse: HaushaltGroesse;
     };
   };
 }

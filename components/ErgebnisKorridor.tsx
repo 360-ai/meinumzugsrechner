@@ -1,4 +1,5 @@
 import type { CalculateResult } from "@/lib/types";
+import { describeVolume } from "@/lib/volume-explanation";
 
 type Props = {
   result: CalculateResult;
@@ -7,6 +8,8 @@ type Props = {
 export function ErgebnisKorridor({ result }: Props) {
   const fmt = (n: number) =>
     new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
+  const volume = describeVolume(result.meta.volumenM3Schaetzung);
+  const roundedVolume = Math.round(result.meta.volumenM3Schaetzung);
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-[var(--bg-soft)] p-8 text-center border-t-4 border-t-accent">
@@ -17,6 +20,29 @@ export function ErgebnisKorridor({ result }: Props) {
       <p className="mt-4 text-sm text-muted">
         Region: {result.regionName} · Mindestauftrag ab {fmt(result.mindestauftrag)}
       </p>
+      <div className="mt-6 rounded-xl border border-white/70 bg-white p-4 text-left shadow-sm">
+        <p className="text-xs font-bold uppercase tracking-wide text-[#FF7700]">
+          Was bedeutet ca. {roundedVolume} m³?
+        </p>
+        <p className="mt-2 text-sm font-semibold text-primary">
+          Ungefähr wie eine {volume.bandLabel}.
+        </p>
+        <div className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
+          <div className="rounded-lg bg-[#F4FAFE] p-3">
+            <span className="block text-xs font-bold text-[#5A7A8A]">Kartons</span>
+            <span className="mt-1 block text-primary">{volume.cartonRange}</span>
+          </div>
+          <div className="rounded-lg bg-[#FFF8F3] p-3">
+            <span className="block text-xs font-bold text-[#5A7A8A]">Wohnung</span>
+            <span className="mt-1 block text-primary">{volume.bandLabel}</span>
+          </div>
+          <div className="rounded-lg bg-white p-3 ring-1 ring-slate-100">
+            <span className="block text-xs font-bold text-[#5A7A8A]">Fahrzeug</span>
+            <span className="mt-1 block text-primary">{volume.vehicleLabel}</span>
+          </div>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed text-muted">{volume.note}</p>
+      </div>
       <details className="mt-6 text-left text-sm text-muted">
         <summary className="cursor-pointer font-medium text-slate-700">Technische Schätzgrößen</summary>
         <ul className="mt-2 list-inside list-disc space-y-1">

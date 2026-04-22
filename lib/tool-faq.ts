@@ -2,17 +2,17 @@ export const KARTONRECHNER_FAQS: { question: string; answer: string }[] = [
   {
     question: "Wie genau ist der Kartonrechner?",
     answer:
-      "Der Rechner liefert einen praxistauglichen Richtwert auf Basis typischer Haushaltsmengen. Je nach Packstil, Kellerbestand und Anteil zerbrechlicher Gegenstände sollten Sie etwa 10 bis 15 Prozent Reserve einplanen.",
+      "Der Rechner liefert einen praxistauglichen Richtwert aus Packzonen, Haushaltsprofil, schweren Inhalten, Kleidung und Stauraum. Er ersetzt keine Inventarliste, hilft aber beim Einkauf und plant eine Reserve automatisch mit ein.",
   },
   {
-    question: "Welche Kartons brauche ich für Bücher und schwere Dinge?",
+    question: "Warum unterscheidet der Rechner schwere und leichte Inhalte?",
     answer:
-      "Für schwere Inhalte sind kleinere, stabile Bücherkartons meist die bessere Wahl. Standardkartons eignen sich eher für Kleidung, Küchenzubehör und leichte Haushaltsgegenstände.",
+      "Schwere Inhalte wie Bücher, Akten, Werkzeug oder Geschirr sollten nicht in große Kartons gepackt werden. Mehr kleine Kartons sind beim Tragen meist sicherer und verhindern, dass einzelne Kisten zu schwer werden.",
   },
   {
-    question: "Wie viele Kleiderboxen sind sinnvoll?",
+    question: "Warum wird eine Reserve eingerechnet?",
     answer:
-      "Als grobe Faustregel reicht eine Kleiderbox oft pro gut gefüllter Kleiderstange oder Schranksegment. Wer Hemden, Kleider und Jacken knitterarm transportieren möchte, spart damit viel Umpackarbeit.",
+      "Beim Packen tauchen fast immer zusätzliche Dinge aus Bad, Flur, Schubladen, Keller oder Abstellraum auf. Eine Reserve von rund 10 bis 15 Prozent verhindert, dass kurz vor dem Umzug Kartons fehlen.",
   },
 ];
 

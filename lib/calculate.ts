@@ -1,5 +1,6 @@
 import preismatrix from "@/data/preismatrix.json";
 import type { CalculateResult, UmzugFormData } from "./types";
+import { estimateQuickMoveVolume } from "./volume-explanation";
 
 type Matrix = typeof preismatrix;
 
@@ -230,11 +231,11 @@ export function calculateUmzug(form: UmzugFormData): CalculateResult {
 
   if (form.summary.quickEstimate) {
     const q = form.summary.quickEstimate;
-    volumenM3 = Math.round(q.wohnflaecheM2 * 0.18 * 10) / 10;
+    volumenM3 = estimateQuickMoveVolume(q);
     minuten = Math.round(
       Math.min(
         3200,
-        Math.max(160, 200 + q.zimmer * 85 + q.wohnflaecheM2 * 1.5),
+        Math.max(180, 170 + volumenM3 * 10 + q.zimmer * 55),
       ),
     );
     return finalizeKorridor(form, region, regionKeyOut, minuten, volumenM3);

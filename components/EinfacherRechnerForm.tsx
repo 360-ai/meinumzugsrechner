@@ -2,7 +2,7 @@
 
 import { getDefaultForm, STORAGE_KEY } from "@/lib/form-defaults";
 import { sanitizeUmzugForm } from "@/lib/form-sanitize";
-import type { BundeslandCode, UmzugFormData } from "@/lib/types";
+import type { BundeslandCode, HaushaltGroesse, UmzugFormData } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
@@ -25,11 +25,19 @@ const BUNDESLAENDER: { value: BundeslandCode; label: string }[] = [
   { value: "TH", label: "Thüringen" },
 ];
 
+const HAUSHALT_OPTIONS: { value: HaushaltGroesse; label: string; hint: string }[] = [
+  { value: "1", label: "1 Person", hint: "kleiner Haushalt, ca. 20-40 Kartons" },
+  { value: "2", label: "2 Personen", hint: "Paar-Haushalt, ca. 40-70 Kartons" },
+  { value: "3_4", label: "3-4 Personen", hint: "Familie, ca. 70-110 Kartons" },
+  { value: "5plus", label: "5+ Personen", hint: "großer Haushalt, oft 110+ Kartons" },
+];
+
 export function EinfacherRechnerForm() {
   const router = useRouter();
   const [bundesland, setBundesland] = useState<BundeslandCode>("HE");
   const [wohnflaeche, setWohnflaeche] = useState(70);
   const [zimmer, setZimmer] = useState(3);
+  const [haushaltGroesse, setHaushaltGroesse] = useState<HaushaltGroesse>("2");
   const [km, setKm] = useState(50);
   const [agb, setAgb] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -72,7 +80,7 @@ export function EinfacherRechnerForm() {
       summary: {
         nutzungsart: "privat",
         agbAccepted: true,
-        quickEstimate: { wohnflaecheM2: wohnflaeche, zimmer },
+        quickEstimate: { wohnflaecheM2: wohnflaeche, zimmer, haushaltGroesse },
       },
     };
 
@@ -84,7 +92,7 @@ export function EinfacherRechnerForm() {
       return;
     }
     router.push("/ergebnis/");
-  }, [agb, bundesland, km, wohnflaeche, zimmer, router]);
+  }, [agb, bundesland, haushaltGroesse, km, wohnflaeche, zimmer, router]);
 
   return (
     <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
@@ -139,6 +147,24 @@ export function EinfacherRechnerForm() {
               </option>
             ))}
           </select>
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-medium text-[#0D2137]">Haushaltsgröße</span>
+          <select
+            value={haushaltGroesse}
+            onChange={(e) => setHaushaltGroesse(e.target.value as HaushaltGroesse)}
+            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+          >
+            {HAUSHALT_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+          <span className="mt-1 block text-xs text-[#5A7A8A]">
+            {HAUSHALT_OPTIONS.find((o) => o.value === haushaltGroesse)?.hint}
+          </span>
         </label>
 
         <label className="block">

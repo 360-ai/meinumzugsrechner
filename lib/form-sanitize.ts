@@ -6,6 +6,7 @@ import type {
   GebaeudeTyp,
   GartenMenge,
   HalteverbotKey,
+  HaushaltGroesse,
   KuecheLfm,
   KuehlschrankKey,
   EinbauKey,
@@ -43,6 +44,7 @@ const KUECHE_LFM = new Set<string>(["bis_2m", "2_3m", "3_4m", "ueber_4m"]);
 const KUEHL = new Set<string>(["keiner", "standard", "sidebyside"]);
 const EINBAU = new Set<string>(["einbau", "freistehend", "keiner"]);
 const GARTEN = new Set<string>(["wenig", "mittel", "viel"]);
+const HAUSHALT = new Set<string>(["1", "2", "3_4", "5plus"]);
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const AGS = /^\d{5}$/;
@@ -186,11 +188,12 @@ export function sanitizeUmzugForm(raw: unknown): UmzugFormData {
         const q = qe as Record<string, unknown>;
         const m2 = clampFloatNonNeg(q.wohnflaecheM2, 2000);
         const zi = clampInt(q.zimmer, 1, 20);
+        const hh = pick<HaushaltGroesse>(q.haushaltGroesse, HAUSHALT, "2");
         if (m2 >= 10 && zi >= 1) {
           return {
             nutzungsart,
             agbAccepted,
-            quickEstimate: { wohnflaecheM2: Math.min(m2, 800), zimmer: zi },
+            quickEstimate: { wohnflaecheM2: Math.min(m2, 800), zimmer: zi, haushaltGroesse: hh },
           };
         }
       }
