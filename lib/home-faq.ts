@@ -1,7 +1,7 @@
 /** Sichtbare FAQ + FAQPage-Schema (GEO / Rich Results) */
 export const HOME_PAGE_FAQS: { question: string; answer: string }[] = [
   {
-    question: "Was macht meinumzugsrechner.de anders?",
+    question: "Was macht meinumzugsrechner.com anders?",
     answer:
       "Die Seite ist als Orientierungswerkzeug aufgebaut, nicht als klassisches Lead-Portal. Sie erhalten einen Preisrahmen für Ihren Umzug und entscheiden danach selbst, ob Sie mit Firmen sprechen möchten.",
   },

@@ -1,6 +1,6 @@
 # Was wir aktuell abfragen — Übersicht für Partneranschreiben
 
-Diese Übersicht zeigt, welche Daten ein Nutzer bei meinumzugsrechner.de eingibt
+Diese Übersicht zeigt, welche Daten ein Nutzer bei meinumzugsrechner.com eingibt
 und welche Informationen eine Umzugsfirma automatisch per E-Mail erhält, wenn
 ein Nutzer über unsere Plattform eine Anfrage stellt.
 

@@ -507,7 +507,7 @@ import { Header } from "@/components/Header";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "meinumzugsrechner.de – Umzugskosten ohne Datenweitergabe",
+  title: "meinumzugsrechner.com – Umzugskosten ohne Datenweitergabe",
   description:
     "Realistische Umzugskosten als Preiskorridor. Kein Spam, keine Weitergabe Ihrer Umzugsdaten an Umzugsfirmen.",
 };
@@ -573,7 +573,7 @@ export default function DatenschutzPage() {
       </p>
 
       <h2>Verantwortlicher</h2>
-      <p>Denis Schmidt, 360ai, Frankenberg (Eder) – Kontakt: info@360-ai.org</p>
+      <p>Denis Schmidt, 360ai, Frankenberg (Eder) – Kontakt: info@meinumzugsrechner.com</p>
 
       <h2>Hosting & Zugriffsdaten</h2>
       <p>
@@ -766,7 +766,7 @@ Cloudflare baut die Seite (2–3 Minuten). Danach erscheint eine URL wie `meinum
 
 - [ ] **Step 5: Eigene Domain einrichten**
 
-In Cloudflare Pages Projekt → **Custom domains** → **Set up a custom domain** → Domain eingeben (z. B. `meinumzugsrechner.de`)
+In Cloudflare Pages Projekt → **Custom domains** → **Set up a custom domain** → Domain eingeben (z. B. `meinumzugsrechner.com`)
 
 Cloudflare zeigt einen **CNAME-Eintrag**. Diesen beim Domain-Anbieter eintragen:
 
@@ -788,7 +788,7 @@ URL: https://adsense.google.com → Mit Google-Account anmelden → **Jetzt star
 
 - [ ] **Step 2: Website eintragen**
 
-Domain `meinumzugsrechner.de` eintragen. Google generiert einen Code-Snippet.
+Domain `meinumzugsrechner.com` eintragen. Google generiert einen Code-Snippet.
 
 - [ ] **Step 3: AdSense-Snippet aktivieren**
 

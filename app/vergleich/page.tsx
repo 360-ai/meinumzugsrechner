@@ -3,7 +3,7 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-const PAGE_TITLE = "Selbst umziehen oder Umzugsfirma? Aufwand und Kosten vergleichen | meinumzugsrechner.de";
+const PAGE_TITLE = "Selbst umziehen oder Umzugsfirma? Aufwand und Kosten vergleichen | meinumzugsrechner.com";
 const PAGE_DESC =
   "Orientierung für die Entscheidung zwischen Eigenregie und Umzugsfirma: Aufwand, Zeit, Risiko und typische Kosten übersichtlich gegenübergestellt.";
 

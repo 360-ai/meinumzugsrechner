@@ -99,7 +99,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 min-w-0">
           <Image
             src="/logo.webp"
-            alt="meinumzugsrechner.de — Logo und Umzugs-Maskottchen"
+            alt="meinumzugsrechner.com — Logo und Umzugs-Maskottchen"
             width={44}
             height={44}
             className="flex-shrink-0 object-contain"

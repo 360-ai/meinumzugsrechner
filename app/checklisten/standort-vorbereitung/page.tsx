@@ -3,7 +3,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Site-Management: Standort & Catering | meinumzugsrechner.de";
+const PAGE_TITLE = "Site-Management: Standort & Catering | meinumzugsrechner.com";
 const PAGE_DESC = "Standort-Vorbereitung und Team-Verpflegung am Umzugstag — alle operativen Schritte.";
 
 export const metadata: Metadata = {

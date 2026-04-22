@@ -6,7 +6,7 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const TITLE = "So rechnen wir: Methodik & Preiskorridor | meinumzugsrechner.de";
+const TITLE = "So rechnen wir: Methodik & Preiskorridor | meinumzugsrechner.com";
 const DESC =
   "Wie der Umzugskosten-Rechner arbeitet: Zeitbedarf, Regionalfaktoren, Zusatzleistungen und Preisrahmen transparent erklärt.";
 

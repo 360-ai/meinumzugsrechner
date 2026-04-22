@@ -1,13 +1,13 @@
-# Claude Code Briefing – meinumzugsrechner.de
+# Claude Code Briefing – meinumzugsrechner.com
 **Erstellt von:** Denis Schmidt / 360ai  
 **Datum:** April 2026  
-**Zweck:** Vollständige Projektbeschreibung für die Entwicklung der Plattform meinumzugsrechner.de
+**Zweck:** Vollständige Projektbeschreibung für die Entwicklung der Plattform meinumzugsrechner.com
 
 ---
 
 ## 1. PROJEKTZIEL & POSITIONIERUNG
 
-Baue eine vollständige, produktionsreife Webanwendung unter dem Namen **meinumzugsrechner.de**.
+Baue eine vollständige, produktionsreife Webanwendung unter dem Namen **meinumzugsrechner.com**.
 
 ### Was die Plattform macht
 Nutzer können ihren geplanten Umzug detailliert eingeben und erhalten einen **realistischen Preiskorridor** (z.B. "ca. 850 – 1.150 €") für einen professionellen Umzugsservice. Die Berechnung erfolgt anonym, sicher und ohne Lead-Weitergabe.
@@ -37,7 +37,7 @@ Backend:      Cloudflare Workers (serverless) ODER Node.js/Express auf eigenem S
 Datenbank:    KEINE persistente Nutzerdaten-DB (DSGVO)
               Nur: Preismatrix als JSON/statische Datei im Backend
 Geolocation:  ipapi.co API oder Cloudflare CF-IPCountry/CF-Region Header
-Domain:       meinumzugsrechner.de (zu registrieren)
+Domain:       meinumzugsrechner.com (zu registrieren)
 ```
 
 ### Wichtige Architektur-Entscheidung
@@ -444,7 +444,7 @@ const PARTNER = {
 ## 8. DESIGN & UI
 
 ### Farben (eigenes CI – NICHT 360ai CI verwenden)
-meinumzugsrechner.de bekommt ein **eigenes CI**, das vertrauenswürdig und neutral wirkt.
+meinumzugsrechner.com bekommt ein **eigenes CI**, das vertrauenswürdig und neutral wirkt.
 
 ```css
 :root {
@@ -539,14 +539,14 @@ STRIPE_PRICE_ID=price_...
 IPAPI_KEY=...
 
 # App
-NEXT_PUBLIC_BASE_URL=https://meinumzugsrechner.de
+NEXT_PUBLIC_BASE_URL=https://meinumzugsrechner.com
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 
 # Betreiber (für Impressum)
 BETREIBER_NAME="Denis Schmidt"
 BETREIBER_FIRMA="360ai"
 BETREIBER_ORT="Frankenberg (Eder)"
-BETREIBER_EMAIL="info@360-ai.org"
+BETREIBER_EMAIL="info@meinumzugsrechner.com"
 ```
 
 ---
@@ -556,7 +556,7 @@ BETREIBER_EMAIL="info@360-ai.org"
 | Punkt | Status | Aktion |
 |-------|--------|--------|
 | Preismatrix-Werte | Offen | Gespräch mit Atlas MKK, Tabelle befüllen lassen |
-| Domain meinumzugsrechner.de | Prüfen | Registrierung bei Strato / united-domains |
+| Domain meinumzugsrechner.com | Prüfen | Registrierung bei Strato / united-domains |
 | Stripe Konto | Offen | Anlegen unter 360ai / Denis Schmidt |
 | Atlas MKK Logo + Banner | Offen | Nach Gespräch anfordern |
 | Impressum-Adresse | Vorhanden | Denis Schmidt, 360ai, Frankenberg (Eder) |
@@ -638,4 +638,4 @@ meinumzugsrechner/
 ---
 
 *Dokument erstellt von Denis Schmidt / 360ai – April 2026*  
-*Für Rückfragen: info@360-ai.org*
+*Für Rückfragen: info@meinumzugsrechner.com*

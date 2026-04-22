@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     url: "/",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    siteName: "meinumzugsrechner.de",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "meinumzugsrechner.de Logo" }],
+    siteName: "meinumzugsrechner.com",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "meinumzugsrechner.com Logo" }],
   },
   twitter: {
     card: "summary_large_image",

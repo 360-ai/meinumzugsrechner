@@ -1,6 +1,6 @@
-# Brand Identity & Asset Guide: meinumzugsrechner.de
+# Brand Identity & Asset Guide: meinumzugsrechner.com
 
-Dieses Dokument dient als zentrale Referenz für die visuelle Identität von **meinumzugsrechner.de**. Es ist darauf optimiert, von LLMs (wie Claude oder GPT) als Kontext für die Entwicklung von Benutzeroberflächen, Werbemitteln und konsistenten Charakter-Szenarien genutzt zu werden.
+Dieses Dokument dient als zentrale Referenz für die visuelle Identität von **meinumzugsrechner.com**. Es ist darauf optimiert, von LLMs (wie Claude oder GPT) als Kontext für die Entwicklung von Benutzeroberflächen, Werbemitteln und konsistenten Charakter-Szenarien genutzt zu werden.
 
 ## 1. Der Kern-Charakter: "Der Umzugs-Buddy"
 Ein anthropomorpher, freundlicher 3D-Roboter, der aus einem Umzugskarton besteht.
@@ -37,7 +37,7 @@ Für CSS-Implementierungen und UI-Design sind folgende Werte zu nutzen:
 Das Logo und die UI-Elemente folgen einem modernen, freundlichen Stil.
 
 - **Logo-Schrift:** Eine serifenlose, stark abgerundete Bold-Schrift (ähnlich *VAG Rundschrift* oder *Comfortaa*).
-- **Stil:** Alles kleingeschrieben: `meinumzugsrechner.de`.
+- **Stil:** Alles kleingeschrieben: `meinumzugsrechner.com`.
 - **Farbverlauf:** Blau für "mein", Orange für "umzugsrechner", Blau für ".de".
 
 ## 4. UI/UX Design-Richtlinien für KI-Prompts
@@ -50,7 +50,7 @@ Wenn Code für die Webseite generiert wird, sollten folgende Prinzipien beachtet
 
 ## 5. Charakter-Konsistenz (Prompting Snippet)
 Nutze diesen Textbaustein für die Generierung neuer Bilder:
-> "High-contrast 3D character, friendly moving box robot for meinumzugsrechner.de. Body is blue (top) and orange (bottom) cardboard. Head flaps open with miniature furniture (sofa, lamps, plants) peaking out. Cardboard segmented arms and legs. Wearing red high-top sneakers. Holding a yellow calculator showing '651312'. 3D gloss finish, vivid colors, white background, masterpiece quality."
+> "High-contrast 3D character, friendly moving box robot for meinumzugsrechner.com. Body is blue (top) and orange (bottom) cardboard. Head flaps open with miniature furniture (sofa, lamps, plants) peaking out. Cardboard segmented arms and legs. Wearing red high-top sneakers. Holding a yellow calculator showing '651312'. 3D gloss finish, vivid colors, white background, masterpiece quality."
 
 ---
-*Dokument erstellt für meinumzugsrechner.de - Stand: April 2024*
+*Dokument erstellt für meinumzugsrechner.com - Stand: April 2024*

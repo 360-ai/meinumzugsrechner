@@ -2,9 +2,9 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impressum | meinumzugsrechner.de",
+  title: "Impressum | meinumzugsrechner.com",
   description:
-    "Gesetzliche Anbieterkennzeichnung nach DDG: Kontakt, Verantwortlicher und Hinweise zu meinumzugsrechner.de.",
+    "Gesetzliche Anbieterkennzeichnung nach DDG: Kontakt, Verantwortlicher und Hinweise zu meinumzugsrechner.com.",
   ...pageCanonical("/impressum/"),
   robots: { index: true, follow: true },
 };
@@ -44,8 +44,8 @@ export default function ImpressumPage() {
         <Section title="Kontakt">
           <p>
             E-Mail:{" "}
-            <a href="mailto:info@meinumzugsrechner.de" className="font-medium text-[#0088CC] hover:underline">
-              info@meinumzugsrechner.de
+            <a href="mailto:info@meinumzugsrechner.com" className="font-medium text-[#0088CC] hover:underline">
+              info@meinumzugsrechner.com
             </a>
           </p>
           <p className="text-slate-400">

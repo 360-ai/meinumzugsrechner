@@ -164,7 +164,7 @@ export function Hero() {
           >
             <Image
               src="/logo.webp"
-              alt="meinumzugsrechner.de - Umzugskosten-Rechner ohne Datenweitergabe"
+              alt="meinumzugsrechner.com - Umzugskosten-Rechner ohne Datenweitergabe"
               width={600}
               height={600}
               className="w-full object-contain drop-shadow-2xl"

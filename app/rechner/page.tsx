@@ -7,7 +7,7 @@ import { RECHNER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-const PAGE_TITLE = "Umzugskosten-Rechner (kostenlos): Preiskorridor berechnen | meinumzugsrechner.de";
+const PAGE_TITLE = "Umzugskosten-Rechner (kostenlos): Preiskorridor berechnen | meinumzugsrechner.com";
 const PAGE_DESC =
   "Umzugskosten in Deutschland schätzen: Schnellüberblick oder detaillierte Kalkulation mit Möbelliste und Region. Keine Datenweitergabe an Umzugsfirmen.";
 

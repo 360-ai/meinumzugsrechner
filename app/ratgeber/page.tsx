@@ -4,7 +4,7 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const R_TITLE = "Ratgeber | meinumzugsrechner.de";
+const R_TITLE = "Ratgeber | meinumzugsrechner.com";
 const R_DESC = "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken und moderne Umzugslogistik.";
 
 export const metadata: Metadata = {

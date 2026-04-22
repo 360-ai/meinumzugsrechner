@@ -2,9 +2,9 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung | meinumzugsrechner.de",
+  title: "Datenschutzerklärung | meinumzugsrechner.com",
   description:
-    "Informationen zur Verarbeitung personenbezogener Daten bei meinumzugsrechner.de (Stand April 2026).",
+    "Informationen zur Verarbeitung personenbezogener Daten bei meinumzugsrechner.com (Stand April 2026).",
   ...pageCanonical("/datenschutz/"),
   robots: { index: true, follow: true },
 };
@@ -31,7 +31,7 @@ export default function DatenschutzPage() {
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6">
       <h1 className="mb-1 text-3xl font-bold text-[#0D2137]">Datenschutzerklärung</h1>
       <p className="mb-8 text-sm text-slate-400">
-        Stand: April 2026 · meinumzugsrechner.de
+        Stand: April 2026 · meinumzugsrechner.com
       </p>
 
       <div className="space-y-4">
@@ -45,8 +45,8 @@ export default function DatenschutzPage() {
           </p>
           <p>
             Kontakt:{" "}
-            <a href="mailto:info@meinumzugsrechner.de" className="font-medium text-[#0088CC] hover:underline">
-              info@meinumzugsrechner.de
+            <a href="mailto:info@meinumzugsrechner.com" className="font-medium text-[#0088CC] hover:underline">
+              info@meinumzugsrechner.com
             </a>
           </p>
           <p>
@@ -145,8 +145,8 @@ export default function DatenschutzPage() {
           </p>
           <p>
             Kontakt für Datenschutzanfragen:{" "}
-            <a href="mailto:info@meinumzugsrechner.de" className="font-medium text-[#0088CC] hover:underline">
-              info@meinumzugsrechner.de
+            <a href="mailto:info@meinumzugsrechner.com" className="font-medium text-[#0088CC] hover:underline">
+              info@meinumzugsrechner.com
             </a>
           </p>
         </Section>

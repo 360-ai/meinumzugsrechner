@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
   title: { default: DEFAULT_TITLE, template: "%s" },
   description: DEFAULT_DESCRIPTION,
-  applicationName: "meinumzugsrechner.de",
+  applicationName: "meinumzugsrechner.com",
   formatDetection: { telephone: false },
   openGraph: {
     type: "website",
     locale: "de_DE",
-    siteName: "meinumzugsrechner.de",
+    siteName: "meinumzugsrechner.com",
   },
   twitter: { card: "summary_large_image" },
   icons: {

@@ -23,7 +23,7 @@ const WrenchIcon = () => (
   </svg>
 );
 
-const MT_TITLE = "Materialtipps für deinen Umzug | meinumzugsrechner.de";
+const MT_TITLE = "Materialtipps für deinen Umzug | meinumzugsrechner.com";
 const MT_DESC =
   "Empfohlenes Umzugsmaterial bei Amazon — von Kartons über Polstermaterial bis zum Transportwerkzeug.";
 

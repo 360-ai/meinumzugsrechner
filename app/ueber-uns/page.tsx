@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Über uns | meinumzugsrechner.de",
+  title: "Über uns | meinumzugsrechner.com",
   description:
-    "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.de.",
+    "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.com.",
   ...pageCanonical("/ueber-uns/"),
   openGraph: {
-    title: "Über meinumzugsrechner.de",
+    title: "Über meinumzugsrechner.com",
     description:
-      "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.de.",
+      "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.com.",
     url: "/ueber-uns/",
   },
 };
@@ -29,13 +29,13 @@ export default function UeberUnsPage() {
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6">
       <h1 className="mb-1 text-3xl font-bold text-[#0D2137]">Über uns</h1>
       <p className="mb-8 text-sm text-slate-400">
-        Die Idee hinter meinumzugsrechner.de
+        Die Idee hinter meinumzugsrechner.com
       </p>
 
       <div className="space-y-4">
         <Section title="Wer steckt dahinter?">
           <p>
-            meinumzugsrechner.de ist ein Projekt von{" "}
+            meinumzugsrechner.com ist ein Projekt von{" "}
             <strong className="text-[#0D2137]">Denis Schmidt</strong> unter dem Label{" "}
             <strong className="text-[#0D2137]">360ai</strong> aus Frankenberg (Eder), Deutschland.
           </p>
@@ -48,7 +48,7 @@ export default function UeberUnsPage() {
         <Section title="Die Idee">
           <p>
             Wer umzieht, möchte wissen, was ihn das kostet — bevor er bei einer Umzugsfirma anruft und sofort
-            im Verkaufsgespräch landet. Genau das löst meinumzugsrechner.de:
+            im Verkaufsgespräch landet. Genau das löst meinumzugsrechner.com:
           </p>
           <p>
             Du gibst deine Umzugsdaten ein, erhältst einen realistischen{" "}
@@ -85,10 +85,10 @@ export default function UeberUnsPage() {
           <p>
             Interesse?{" "}
             <a
-              href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
+              href="mailto:info@meinumzugsrechner.com?subject=Partnerschaft%20meinumzugsrechner.com"
               className="font-medium text-[#0088CC] hover:underline"
             >
-              info@meinumzugsrechner.de
+              info@meinumzugsrechner.com
             </a>
           </p>
         </Section>

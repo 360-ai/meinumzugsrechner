@@ -265,7 +265,7 @@ function extrasLines(form: UmzugFormData): string[] {
 function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl: string): string {
   const email = partnerUrl.startsWith("mailto:")
     ? partnerUrl.replace(/^mailto:/, "").split("?")[0]
-    : "info@meinumzugsrechner.de";
+    : "info@meinumzugsrechner.com";
 
   const stadtA = form.buildingA.stadtOrt || "–";
   const stadtB = form.buildingB.gleicheStadt ? stadtA : (form.buildingB.stadtOrt || "–");
@@ -286,7 +286,7 @@ function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUr
   const body = [
     "Guten Tag,",
     "",
-    "ich habe meinen Umzug auf meinumzugsrechner.de vorkalkuliert und möchte ein Angebot anfragen.",
+    "ich habe meinen Umzug auf meinumzugsrechner.com vorkalkuliert und möchte ein Angebot anfragen.",
     "Alle relevanten Details sind unten aufgeführt — eine Rückfrage sollte damit nicht mehr nötig sein.",
     "",
     "══ AUSZUG ══",
@@ -315,7 +315,7 @@ function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUr
     "",
     "══ PREISKORRIDOR (Eigenberechnung) ══",
     `${preisUnten} – ${preisOben}`,
-    "(Orientierungswert aus meinumzugsrechner.de — kein verbindlicher Preis)",
+    "(Orientierungswert aus meinumzugsrechner.com — kein verbindlicher Preis)",
     "",
     "Ich freue mich auf Ihr Angebot.",
   ].join("\n");
