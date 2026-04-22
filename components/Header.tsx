@@ -107,7 +107,7 @@ export function Header() {
           <span className="text-base sm:text-lg font-bold leading-none">
             <span style={{ color: "#0088CC" }}>mein</span>
             <span style={{ color: "#FF7700" }}>umzugsrechner</span>
-            <span style={{ color: "#0088CC" }}>.de</span>
+            <span style={{ color: "#0088CC" }}>.com</span>
           </span>
         </Link>
 

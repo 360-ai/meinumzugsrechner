@@ -9,7 +9,7 @@ export function Footer() {
             <p className="text-base font-bold">
               <span className="text-white">mein</span>
               <span style={{ color: "#FFCC00" }}>umzugsrechner</span>
-              <span className="text-white">.de</span>
+              <span className="text-white">.com</span>
             </p>
             <p className="mt-1 text-xs text-white/60">
               Richtwerte, keine Festpreise. Keine Datenweitergabe.
