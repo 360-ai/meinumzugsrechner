@@ -1,6 +1,9 @@
 import { GuideLayout } from "@/components/GuideLayout";
+import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { webPageAndFaqSchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
+import { HAUSTIERE_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
 
 const PAGE_TITLE = "Umzug mit Haustieren: Katze, Hund & Co. stressfrei umziehen | meinumzugsrechner.de";
@@ -77,7 +80,16 @@ const sections: GuideSection[] = [
 ];
 
 export default function HaustiereRatgeberPage() {
+  const faqLd = webPageAndFaqSchema({
+    path: "/ratgeber/haustiere/",
+    title: PAGE_TITLE,
+    description: PAGE_DESC,
+    faqs: HAUSTIERE_FAQS,
+  });
+
   return (
+    <>
+    <JsonLd id="ld-haustiere-faq" data={faqLd} />
     <GuideLayout
       title="Umzug mit Haustieren: Katze, Hund & Co. stressfrei umziehen"
       category="ratgeber"
@@ -226,6 +238,24 @@ export default function HaustiereRatgeberPage() {
           </div>
         </div>
 
+        {/* FAQ */}
+        <section>
+          <h2 className="mb-4 text-xl font-bold text-[#0D2137]">Häufige Fragen</h2>
+          <div className="space-y-3">
+            {HAUSTIERE_FAQS.map((faq) => (
+              <details key={faq.question} className="group rounded-2xl border border-slate-100 bg-white shadow-sm">
+                <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-[#0D2137] list-none">
+                  {faq.question}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-4 w-4 flex-shrink-0 text-[#0088CC] transition-transform group-open:rotate-180">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </summary>
+                <p className="px-5 pb-4 text-sm leading-relaxed text-[#5A7A8A]">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* CTA */}
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
           <strong>Umzug mit Haustier planen?</strong> Nutzen Sie unseren{" "}
@@ -234,5 +264,6 @@ export default function HaustiereRatgeberPage() {
 
       </div>
     </GuideLayout>
+    </>
   );
 }
