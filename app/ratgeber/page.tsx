@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const R_TITLE = "Ratgeber | meinumzugsrechner.de";
-const R_DESC = "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken und moderne Umzugslogistik.";
+const R_DESC = "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken, Haustiere, Selbst vs. Profi und mehr.";
 
 export const metadata: Metadata = {
   title: R_TITLE,
@@ -82,6 +82,34 @@ const guides = [
     description:
       "§35a EStG und Umzugskostenpauschale: So holen Sie sich bis zu 4.000 € vom Finanzamt zurück.",
   },
+  {
+    href: "/ratgeber/haustiere/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703.729 1.997 3.5 2 2.323.003 3-1.5 3-2.5V5.172z"/>
+        <path d="M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-.729 1.997-3.5 2-2.323.003-3-1.5-3-2.5V5.172z"/>
+        <path d="M8 14v.5C8 17.5 11.5 21 12 21s4-3.5 4-6.5V14"/>
+        <path d="M12 14c-2.5 0-6-2-6-6"/>
+        <path d="M12 14c2.5 0 6-2 6-6"/>
+      </svg>
+    ),
+    title: "Umzug mit Haustieren: Katze, Hund & Co. stressfrei umziehen",
+    description:
+      "Was Tierbesitzer vor, während und nach dem Umzug beachten sollten — mit konkreten Tipps je nach Tierart.",
+  },
+  {
+    href: "/ratgeber/selbst-vs-profi/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <line x1="12" y1="2" x2="12" y2="22"/>
+        <path d="M6 8h6l-6 8h6"/>
+        <path d="M18 8h-6l6 8h-6"/>
+      </svg>
+    ),
+    title: "Selbst umziehen oder Umzugsfirma? Ehrlicher Vergleich",
+    description:
+      "Was kostet wirklich mehr — Eigenregie oder Profi? Versteckte Kosten, Risiken und wann welche Option sinnvoll ist.",
+  },
 ];
 
 export default function RatgeberPage() {
@@ -99,7 +127,7 @@ export default function RatgeberPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((g) => (
           <Link
             key={g.href}
