@@ -4,7 +4,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Projektplan: Umzugs-Countdown 2026 | meinumzugsrechner.com";
+const PAGE_TITLE = "Projektplan: Umzugs-Countdown 2026 | meinumzugsrechner.de";
 const PAGE_DESC = "5-Phasen Umzugsplanung von der Entscheidung bis zum Einzugstag. Druckfertig als PDF.";
 
 export const metadata: Metadata = {
@@ -81,3 +81,4 @@ export default function UmzugsCountdownPage() {
     </GuideLayout>
   );
 }
+

@@ -7,6 +7,7 @@ import {
   type FragileLevel,
   type HouseholdLevel,
   type StorageLevel,
+  type WohndauerLevel,
 } from "@/lib/carton-estimate";
 import Link from "next/link";
 import { useState } from "react";
@@ -78,6 +79,12 @@ const STORAGE_OPTIONS: { value: StorageLevel; label: string }[] = [
   { value: "full", label: "Voller Keller/Garage" },
 ];
 
+const WOHNDAUER_OPTIONS: { value: WohndauerLevel; label: string; hint: string }[] = [
+  { value: "kurz", label: "Bis 3 Jahre", hint: "wenig Zeit zum Ansammeln" },
+  { value: "mittel", label: "3–10 Jahre", hint: "typischer Haushalt" },
+  { value: "lang", label: "10+ Jahre", hint: "viel angesammelt über die Zeit" },
+];
+
 const RESULT_ROWS = [
   {
     key: "allround",
@@ -105,6 +112,7 @@ export function KartonrechnerClient() {
   const [state, setState] = useState<CartonEstimateInput>({
     rooms: 3,
     householdLevel: "normal",
+    wohndauer: "mittel",
     bookMeters: 2,
     kitchenCabinets: 5,
     wardrobeMeters: 2,
@@ -143,6 +151,27 @@ export function KartonrechnerClient() {
                   onClick={() => setState((s) => ({ ...s, householdLevel: option.value }))}
                   className={`rounded-xl border p-3 text-left text-sm transition-colors ${
                     state.householdLevel === option.value
+                      ? "border-[#0088CC] bg-[#F4FAFE] text-[#0D2137]"
+                      : "border-slate-200 bg-white text-[#5A7A8A] hover:border-[#0088CC]/50"
+                  }`}
+                >
+                  <span className="block font-bold">{option.label}</span>
+                  <span className="mt-1 block text-xs">{option.hint}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-2 text-sm font-medium text-[#0D2137]">Wie lange wohnst du schon dort?</p>
+            <div className="grid gap-2 sm:grid-cols-3">
+              {WOHNDAUER_OPTIONS.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => setState((s) => ({ ...s, wohndauer: option.value }))}
+                  className={`rounded-xl border p-3 text-left text-sm transition-colors ${
+                    state.wohndauer === option.value
                       ? "border-[#0088CC] bg-[#F4FAFE] text-[#0D2137]"
                       : "border-slate-200 bg-white text-[#5A7A8A] hover:border-[#0088CC]/50"
                   }`}

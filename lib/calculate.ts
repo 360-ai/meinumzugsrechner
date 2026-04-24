@@ -1,6 +1,6 @@
 import preismatrix from "@/data/preismatrix.json";
 import type { CalculateResult, UmzugFormData } from "./types";
-import { estimateQuickMoveVolume } from "./volume-explanation";
+import { estimateMarketBenchmark } from "./market-benchmark";
 
 type Matrix = typeof preismatrix;
 
@@ -231,14 +231,28 @@ export function calculateUmzug(form: UmzugFormData): CalculateResult {
 
   if (form.summary.quickEstimate) {
     const q = form.summary.quickEstimate;
-    volumenM3 = estimateQuickMoveVolume(q);
-    minuten = Math.round(
-      Math.min(
-        3200,
-        Math.max(180, 170 + volumenM3 * 10 + q.zimmer * 55),
-      ),
-    );
-    return finalizeKorridor(form, region, regionKeyOut, minuten, volumenM3);
+    const benchmark = estimateMarketBenchmark({
+      bundesland: bl,
+      wohnflaecheM2: q.wohnflaecheM2,
+      zimmer: q.zimmer,
+      haushaltGroesse: q.haushaltGroesse,
+      km: form.distance.km,
+    });
+
+    return {
+      netto: benchmark.netto,
+      korridorUnten: Math.max(benchmark.korridorUnten, region.mindestauftrag),
+      korridorOben: Math.max(benchmark.korridorOben, region.mindestauftrag + 50),
+      regionKey: regionKeyOut,
+      regionName: region.name,
+      mindestauftrag: region.mindestauftrag,
+      meta: {
+        gesamtMinuten: benchmark.gesamtMinuten,
+        helfer: benchmark.helfer,
+        zeitStunden: benchmark.zeitStunden,
+        volumenM3Schaetzung: benchmark.volumenM3Schaetzung,
+      },
+    };
   }
 
   minuten += sumCounterMinutes(

@@ -106,7 +106,7 @@ export function RechnerModeTabs() {
                 mode === "detail" ? "bg-[#FF7700] text-white" : "bg-slate-100 text-[#5A7A8A]"
               }`}
             >
-              F&uuml;r Angebotsvergleich
+              Beta / Testphase
             </span>
           </button>
         </div>
@@ -128,10 +128,11 @@ export function RechnerModeTabs() {
         <>
           <div className="rounded-2xl border border-[#FF7700]/20 bg-[#FFF8F3] p-4 text-sm text-[#5A7A8A]">
             <span className="mb-1 block font-bold text-[#0D2137]">
-              Detaillierte Kalkulation aktiv
+              Detaillierte Kalkulation in Testphase
             </span>
-            Volle M&ouml;belliste, Streckendetails und Zusatzleistungen - ideal, wenn Sie
-            sp&auml;ter vergleichbare Angebote einholen m&ouml;chten.
+            Die M&ouml;belliste hilft beim Vorbereiten einer Anfrage. Der Preisrahmen wird
+            schrittweise mit echten Angebotsdaten kalibriert und ist aktuell als Beta-Wert zu
+            verstehen.
           </div>
           <RechnerForm />
         </>

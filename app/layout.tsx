@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
   title: { default: DEFAULT_TITLE, template: "%s" },
   description: DEFAULT_DESCRIPTION,
-  applicationName: "meinumzugsrechner.com",
+  applicationName: "meinumzugsrechner.de",
   formatDetection: { telephone: false },
   openGraph: {
     type: "website",
     locale: "de_DE",
-    siteName: "meinumzugsrechner.com",
+    siteName: "meinumzugsrechner.de",
   },
   twitter: { card: "summary_large_image" },
   icons: {
@@ -50,3 +50,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -4,7 +4,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Essential-Kit: Checkliste für den ersten Tag | meinumzugsrechner.com";
+const PAGE_TITLE = "Essential-Kit: Checkliste für den ersten Tag | meinumzugsrechner.de";
 const PAGE_DESC =
   "Was muss immer griffbereit sein und darf nicht im LKW verschwinden? 8 Kategorien im Überblick.";
 
@@ -284,3 +284,4 @@ export default function EssentialKitPage() {
     </GuideLayout>
   );
 }
+

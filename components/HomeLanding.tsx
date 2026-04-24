@@ -445,7 +445,7 @@ export function HomeLanding() {
             <p className="text-sm text-[#5A7A8A]">
               Umzugsunternehmen?{" "}
               <a
-                href="mailto:info@meinumzugsrechner.com?subject=Partnerschaft%20meinumzugsrechner.com"
+                href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
                 className="font-bold hover:underline"
                 style={{ color: "#0088CC" }}
               >
@@ -490,7 +490,7 @@ export function HomeLanding() {
 
           <div className="flex flex-shrink-0 flex-col items-center gap-4">
             <a
-              href="mailto:info@meinumzugsrechner.com?subject=Partnerschaft%20meinumzugsrechner.com"
+              href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
               className="block"
             >
               <PartnerBadge />
@@ -525,3 +525,4 @@ export function HomeLanding() {
     </div>
   );
 }
+

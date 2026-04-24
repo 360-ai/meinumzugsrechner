@@ -18,7 +18,7 @@ export function PdfExportButton({ form, result }: Props) {
     };
     let y = 48;
     doc.setFontSize(16);
-    y = line(y, "meinumzugsrechner.com – Angebotsvorlage / Richtwert");
+    y = line(y, "meinumzugsrechner.de – Angebotsvorlage / Richtwert");
     doc.setFontSize(10);
     y += 8;
     y = line(
@@ -53,3 +53,4 @@ export function PdfExportButton({ form, result }: Props) {
     </button>
   );
 }
+

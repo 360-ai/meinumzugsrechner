@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 /** Production domain - used when NEXT_PUBLIC_APP_URL is unset */
-export const SITE_HOST = "meinumzugsrechner.com";
+export const SITE_HOST = "meinumzugsrechner.de";
 
-export const SITE_NAME = "meinumzugsrechner.com";
+export const SITE_NAME = "meinumzugsrechner.de";
 
 export const DEFAULT_TITLE =
   "Umzugskosten-Rechner ohne Datenweitergabe | realistischer Preisrahmen für Deutschland";
@@ -38,3 +38,4 @@ export function absoluteUrl(path: string): string {
 export function pageCanonical(path: string): NonNullable<Metadata["alternates"]> {
   return { canonical: withTrailingSlash(path) };
 }
+

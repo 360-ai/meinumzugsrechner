@@ -3,7 +3,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Profi-Guide: Systematisches Verpacken 2026 | meinumzugsrechner.com";
+const PAGE_TITLE = "Profi-Guide: Systematisches Verpacken 2026 | meinumzugsrechner.de";
 const PAGE_DESC = "Die richtige Packtechnik für Glas, Möbel und Dokumente — damit nichts zu Bruch geht.";
 
 export const metadata: Metadata = {
@@ -185,3 +185,4 @@ export default function ProfiGuideVerpackenPage() {
     </GuideLayout>
   );
 }
+

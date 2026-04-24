@@ -47,7 +47,7 @@ export function generateGuidePdf(
     doc.setFontSize(7);
     doc.setFont("helvetica", "normal");
     doc.setTextColor(...BRAND_MUTED);
-    doc.text("meinumzugsrechner.com — Kostenloser Umzugskostenrechner", margin, pageHeight - 7);
+    doc.text("meinumzugsrechner.de — Kostenloser Umzugskostenrechner", margin, pageHeight - 7);
     doc.text(`Seite ${pageNum}`, pageWidth - margin, pageHeight - 7, { align: "right" });
   }
 
@@ -156,3 +156,4 @@ export function generateGuidePdf(
   addFooter();
   doc.save(`${title.replace(/[^a-zA-Z0-9äöüÄÖÜß]/g, "-").toLowerCase()}.pdf`);
 }
+

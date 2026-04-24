@@ -265,7 +265,7 @@ function extrasLines(form: UmzugFormData): string[] {
 function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl: string): string {
   const email = partnerUrl.startsWith("mailto:")
     ? partnerUrl.replace(/^mailto:/, "").split("?")[0]
-    : "info@meinumzugsrechner.com";
+    : "info@meinumzugsrechner.de";
 
   const stadtA = form.buildingA.stadtOrt || "–";
   const stadtB = form.buildingB.gleicheStadt ? stadtA : (form.buildingB.stadtOrt || "–");
@@ -286,7 +286,7 @@ function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUr
   const body = [
     "Guten Tag,",
     "",
-    "ich habe meinen Umzug auf meinumzugsrechner.com vorkalkuliert und möchte ein Angebot anfragen.",
+    "ich habe meinen Umzug auf meinumzugsrechner.de vorkalkuliert und möchte ein Angebot anfragen.",
     "Alle relevanten Details sind unten aufgeführt — eine Rückfrage sollte damit nicht mehr nötig sein.",
     "",
     "══ AUSZUG ══",
@@ -315,7 +315,7 @@ function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUr
     "",
     "══ PREISKORRIDOR (Eigenberechnung) ══",
     `${preisUnten} – ${preisOben}`,
-    "(Orientierungswert aus meinumzugsrechner.com — kein verbindlicher Preis)",
+    "(Orientierungswert aus meinumzugsrechner.de — kein verbindlicher Preis)",
     "",
     "Ich freue mich auf Ihr Angebot.",
   ].join("\n");
@@ -408,6 +408,17 @@ export function ErgebnisClient() {
            data-ad-slot="XXXXXXXXXX"
            data-ad-format="auto"
            data-full-width-responsive="true" /> */}
+
+      {!form.summary.quickEstimate && (
+        <div className="rounded-2xl border border-[#FF7700]/30 bg-[#FFF8F3] p-4 text-sm leading-relaxed text-[#5A7A8A]">
+          <span className="mb-1 block font-bold text-[#0D2137]">
+            Detailberechnung in Beta-Testphase
+          </span>
+          Dieser detaillierte Preisrahmen wird schrittweise mit echten Angebotsdaten kalibriert.
+          Nutzen Sie ihn als strukturierte Vorbereitung f&uuml;r Angebotsanfragen; verbindlich ist
+          erst das individuelle Angebot eines Umzugsunternehmens.
+        </div>
+      )}
 
       <ErgebnisKorridor result={result} />
 
@@ -590,3 +601,4 @@ function AffiliateProdukte() {
     </section>
   );
 }
+

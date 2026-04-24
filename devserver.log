@@ -1,0 +1,268 @@
+
+> meinumzugsrechner@0.1.0 dev
+> next dev -p 3000
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.179.10:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.3s (1447 modules)
+ GET / 200 in 4234ms
+ GET / 200 in 247ms
+ GET / 200 in 359ms
+ ○ Compiling /rechner ...
+ ✓ Compiled /rechner in 1528ms (1474 modules)
+ GET /rechner/ 200 in 1792ms
+ ○ Compiling /manifest.webmanifest ...
+ ✓ Compiled /manifest.webmanifest in 961ms (1496 modules)
+ GET /manifest.webmanifest 200 in 1166ms
+ GET /rechner/ 200 in 1164ms
+ GET /manifest.webmanifest 200 in 24ms
+ GET /rechner/?mode=detail 200 in 32ms
+ GET /manifest.webmanifest 200 in 17ms
+ GET /rechner/?mode=einfach 200 in 32ms
+ GET /manifest.webmanifest 200 in 18ms
+ GET /rechner/?mode=detail 200 in 37ms
+ GET /manifest.webmanifest 200 in 17ms
+ ✓ Compiled in 2.1s (659 modules)
+ ✓ Compiled in 667ms (1489 modules)
+ GET / 200 in 892ms
+ GET / 200 in 83ms
+ ✓ Compiled in 391ms (670 modules)
+ ✓ Compiled in 238ms (670 modules)
+ GET / 200 in 252ms
+ GET / 200 in 69ms
+ ✓ Compiled in 1860ms (1489 modules)
+ GET / 200 in 184ms
+ ✓ Compiled in 639ms (1489 modules)
+ GET / 200 in 190ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\cache\webpack\client-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\cache\webpack\server-development\17.pack.gz_' -> 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\cache\webpack\server-development\17.pack.gz'
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '1126905091'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2185364674'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2185364674'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2185364674'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '1126905091'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '1126905091'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '1634049092'
+}
+ ⨯ Error: Could not find the module "C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '1126905091'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 2.7s (1821 modules)
+ ⨯ Error: Cannot find module './124.js'
+Require stack:
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\webpack-runtime.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages\_document.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\require.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\load-components.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\utils.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\options.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\index.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\next-config-ts\transpile-config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\next.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13441)
+    at Object.<anonymous> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13495) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ GET / 500 in 7640ms
+ GET / 500 in 2093ms
+ ⨯ Error: Cannot find module './124.js'
+Require stack:
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\webpack-runtime.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages\_document.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\require.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\load-components.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\utils.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\options.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\index.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\next-config-ts\transpile-config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\next.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13441)
+    at Object.<anonymous> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13495) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ GET / 500 in 277ms
+ ⨯ Error: Cannot find module './124.js'
+Require stack:
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\webpack-runtime.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages\_document.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\require.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\load-components.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\utils.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\options.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\index.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\next-config-ts\transpile-config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\next.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13441)
+    at Object.<anonymous> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13495) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ GET / 500 in 296ms
+ ⨯ Error: Cannot find module './124.js'
+Require stack:
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\webpack-runtime.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages\_document.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\require.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\load-components.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\utils.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\options.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\swc\index.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\build\next-config-ts\transpile-config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\config.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\next.js
+- C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13441)
+    at Object.<anonymous> (C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app\page.js:2:13495) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ GET / 500 in 299ms
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\routes-manifest.json'
+}
+ GET / 500 in 3028ms
+ GET / 500 in 59ms
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\routes-manifest.json'
+}
+ GET / 500 in 156ms
+ GET / 500 in 53ms
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Ai Automations\Documents\360ai\Produkte\06_meinumzugsrechner\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Ai Automations\\Documents\\360ai\\Produkte\\06_meinumzugsrechner\\.next\\routes-manifest.json'
+}
+ GET / 500 in 170ms
+ GET / 500 in 65ms
+[?25h

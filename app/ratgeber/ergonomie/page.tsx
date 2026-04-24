@@ -3,7 +3,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Ergonomie-Leitfaden: Sicher Heben und Tragen | meinumzugsrechner.com";
+const PAGE_TITLE = "Ergonomie-Leitfaden: Sicher Heben und Tragen | meinumzugsrechner.de";
 const PAGE_DESC =
   "Präventionsleitfaden für rückenfreundliches Arbeiten beim Umzug. Tipps zum sicheren Heben und Tragen schwerer Möbel.";
 
@@ -179,3 +179,4 @@ export default function ErgonomiePage() {
     </GuideLayout>
   );
 }
+

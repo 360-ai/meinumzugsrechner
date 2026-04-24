@@ -1,11 +1,11 @@
-# E-Mail Anschreiben — Partneranfrage meinumzugsrechner.com
+# E-Mail Anschreiben — Partneranfrage meinumzugsrechner.de
 
 ---
 
 ## Betreff-Vorschläge (A/B testen)
 
 - `Neue Plattform sucht Gründungspartner in [Stadt] — 3 Monate kostenlos`
-- `Werden Sie Gründungspartner bei meinumzugsrechner.com — exklusiv für frühe Unterstützer`
+- `Werden Sie Gründungspartner bei meinumzugsrechner.de — exklusiv für frühe Unterstützer`
 - `[Firmenname] als erster Partner in [Stadt] — Anfragen direkt von vorkalkulierten Kunden`
 
 ---
@@ -16,7 +16,7 @@
 
 Guten Tag [Herr/Frau Nachname],
 
-mein Name ist Denis Schmidt, ich bin der Gründer von **meinumzugsrechner.com** — einer neuen, kostenlosen
+mein Name ist Denis Schmidt, ich bin der Gründer von **meinumzugsrechner.de** — einer neuen, kostenlosen
 Plattform, auf der Privatpersonen ihren Umzug vorab selbst kalkulieren können, bevor sie Angebote einholen.
 
 Das Besondere: Wir geben keine Daten automatisch weiter. Der Nutzer entscheidet selbst, welche Firma er
@@ -68,9 +68,9 @@ Ich freue mich auf Ihre Rückmeldung und stehe für Rückfragen gerne zur Verfü
 Mit freundlichen Grüßen,
 
 **Denis Schmidt**
-Gründer, meinumzugsrechner.com | 360ai
-E-Mail: info@meinumzugsrechner.com
-Web: www.meinumzugsrechner.com
+Gründer, meinumzugsrechner.de | 360ai
+E-Mail: info@meinumzugsrechner.de
+Web: www.meinumzugsrechner.de
 
 ---
 

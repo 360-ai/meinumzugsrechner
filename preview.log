@@ -1,0 +1,17 @@
+
+> meinumzugsrechner@0.1.0 start
+> npx serve out -l 3000
+
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  23.4.2026 22:57:46 ::1 GET /_next/webpack-hmr
+ HTTP  23.4.2026 22:57:46 ::1 Returned 404 in 21 ms
+ HTTP  23.4.2026 22:57:47 ::1 GET /_next/webpack-hmr
+ HTTP  23.4.2026 22:57:47 ::1 Returned 404 in 1 ms
+ HTTP  23.4.2026 22:57:48 ::1 GET /_next/webpack-hmr
+ HTTP  23.4.2026 22:57:48 ::1 Returned 404 in 1 ms
+ HTTP  23.4.2026 22:57:49 ::1 GET /_next/webpack-hmr
+ HTTP  23.4.2026 22:57:49 ::1 Returned 404 in 1 ms
+ HTTP  23.4.2026 22:57:50 ::1 GET /_next/webpack-hmr
+ HTTP  23.4.2026 22:57:50 ::1 Returned 404 in 2 ms
+ HTTP  23.4.2026 22:57:51 127.0.0.1 GET /
+ HTTP  23.4.2026 22:57:51 127.0.0.1 Returned 200 in 7 ms

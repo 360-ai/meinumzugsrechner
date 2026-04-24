@@ -3,7 +3,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Umzugskosten und Steuer: was privat und beruflich möglich ist | meinumzugsrechner.com";
+const PAGE_TITLE = "Umzugskosten und Steuer: was privat und beruflich möglich ist | meinumzugsrechner.de";
 const PAGE_DESC =
   "Orientierung zu Umzugskosten in der Steuer: §35a EStG bei privaten Umzügen und Werbungskosten bei beruflicher Veranlassung, kompakt erklärt.";
 
@@ -188,3 +188,4 @@ export default function SteuerspartippsPage() {
     </GuideLayout>
   );
 }
+

@@ -99,7 +99,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 min-w-0">
           <Image
             src="/logo.webp"
-            alt="meinumzugsrechner.com — Logo und Umzugs-Maskottchen"
+            alt="meinumzugsrechner.de — Logo und Umzugs-Maskottchen"
             width={44}
             height={44}
             className="flex-shrink-0 object-contain"
@@ -107,7 +107,7 @@ export function Header() {
           <span className="text-base sm:text-lg font-bold leading-none">
             <span style={{ color: "#0088CC" }}>mein</span>
             <span style={{ color: "#FF7700" }}>umzugsrechner</span>
-            <span style={{ color: "#0088CC" }}>.com</span>
+            <span style={{ color: "#0088CC" }}>.de</span>
           </span>
         </Link>
 
@@ -185,3 +185,4 @@ export function Header() {
     </header>
   );
 }
+

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Ihr Ergebnis: Umzugskosten-Preiskorridor | meinumzugsrechner.com",
+  title: "Ihr Ergebnis: Umzugskosten-Preiskorridor | meinumzugsrechner.de",
   description:
     "Auswertung Ihrer Umzugskosten-Berechnung: Preiskorridor und Hinweise. Persönliches Ergebnis — nicht für die allgemeine Suche indexiert.",
   ...pageCanonical("/ergebnis/"),
@@ -20,3 +20,4 @@ export default function ErgebnisPage() {
     </Suspense>
   );
 }
+

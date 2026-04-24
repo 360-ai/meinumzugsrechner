@@ -60,7 +60,7 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
       {/* Print header (only visible when printing) */}
       <div className="hidden print:block mb-8">
         <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
-          meinumzugsrechner.com · {categoryLabel}
+          meinumzugsrechner.de · {categoryLabel}
         </p>
         <h1 className="text-2xl font-bold text-[#0D2137]">{title}</h1>
       </div>
@@ -71,7 +71,7 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
       {/* Footer note */}
       <div className="no-print mt-12 rounded-2xl border border-slate-100 bg-[#EBF6FD] p-6 text-sm text-[#5A7A8A]">
         <p>
-          <strong className="text-[#0D2137]">meinumzugsrechner.com</strong> —
+          <strong className="text-[#0D2137]">meinumzugsrechner.de</strong> —
           Umzugskostenrechner, Kartonrechner und LKW-Rechner — kostenlos und ohne Weitergabe Ihrer
           Daten an Umzugsfirmen.{" "}
           <Link href="/rechner/" className="font-medium text-[#0088CC] hover:underline">
@@ -82,3 +82,4 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
     </div>
   );
 }
+

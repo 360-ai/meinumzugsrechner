@@ -3,7 +3,7 @@ import type { GuideSection } from "@/lib/generateGuidePdf";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
-const PAGE_TITLE = "Moderne Umzugslogistik: besser planen statt hektisch reagieren | meinumzugsrechner.com";
+const PAGE_TITLE = "Moderne Umzugslogistik: besser planen statt hektisch reagieren | meinumzugsrechner.de";
 const PAGE_DESC =
   "Wie zeitgemäße Umzugsplanung funktioniert: Ressourcen passend einsetzen, Wege vorbereiten und Kosten durch gute Abläufe beherrschbarer machen.";
 
@@ -167,3 +167,4 @@ export default function ModerneUmzugslogistikPage() {
     </GuideLayout>
   );
 }
+

@@ -1,10 +1,12 @@
 export type HouseholdLevel = "minimal" | "normal" | "full";
 export type FragileLevel = "low" | "normal" | "high";
 export type StorageLevel = "none" | "some" | "full";
+export type WohndauerLevel = "kurz" | "mittel" | "lang";
 
 export type CartonEstimateInput = {
   rooms: number;
   householdLevel: HouseholdLevel;
+  wohndauer: WohndauerLevel;
   bookMeters: number;
   kitchenCabinets: number;
   wardrobeMeters: number;
@@ -37,6 +39,12 @@ const HOUSEHOLD_MULTIPLIER: Record<HouseholdLevel, number> = {
   full: 1.25,
 };
 
+const WOHNDAUER_MULTIPLIER: Record<WohndauerLevel, number> = {
+  kurz: 0.85,  // 0–3 Jahre: wenig angesammelt
+  mittel: 1.0, // 3–10 Jahre: typisch
+  lang: 1.2,   // 10+ Jahre: viel angesammelt
+};
+
 const FRAGILE_BOXES: Record<FragileLevel, number> = {
   low: 2,
   normal: 5,
@@ -56,10 +64,12 @@ function roundCartons(value: number): number {
 export function calculateCartonEstimate(input: CartonEstimateInput): CartonEstimateResult {
   const rooms = Math.max(0, input.rooms);
   const householdMultiplier = HOUSEHOLD_MULTIPLIER[input.householdLevel];
+  const wohndauerMultiplier = WOHNDAUER_MULTIPLIER[input.wohndauer];
 
   const allround = roundCartons(
     (rooms * 4 + input.kitchenCabinets + STORAGE_BOXES[input.storageLevel]) *
-      householdMultiplier,
+      householdMultiplier *
+      wohndauerMultiplier,
   );
   const heavy = roundCartons(input.bookMeters * 2.2 + Math.max(0, input.kitchenCabinets) * 0.6);
   const wardrobe = roundCartons(Math.max(0, input.wardrobeMeters));

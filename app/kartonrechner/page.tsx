@@ -7,7 +7,7 @@ import { KARTONRECHNER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-const PAGE_TITLE = "Kartonrechner: Wie viele Umzugskartons brauche ich? | meinumzugsrechner.com";
+const PAGE_TITLE = "Kartonrechner: Wie viele Umzugskartons brauche ich? | meinumzugsrechner.de";
 const PAGE_DESC =
   "Kostenloser Kartonrechner für deinen Umzug: Kartonbedarf nach Packzonen, Haushaltsprofil, schweren Inhalten und Reserve schätzen.";
 
@@ -90,3 +90,4 @@ export default function KartonrechnerPage() {
     </>
   );
 }
+

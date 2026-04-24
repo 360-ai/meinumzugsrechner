@@ -2,7 +2,7 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AGB | meinumzugsrechner.com",
+  title: "AGB | meinumzugsrechner.de",
   description:
     "Allgemeine Geschäftsbedingungen für die Nutzung des Umzugskosten-Rechners und zugehöriger Dienste.",
   ...pageCanonical("/agb/"),
@@ -35,7 +35,7 @@ export default function AgbPage() {
       <div className="space-y-4">
         <Section num="1" title="Leistungsgegenstand">
           <p>
-            meinumzugsrechner.com bietet eine <strong className="text-[#0D2137]">kostenlose, unverbindliche
+            meinumzugsrechner.de bietet eine <strong className="text-[#0D2137]">kostenlose, unverbindliche
             Kostenschätzung</strong> (Preiskorridor) auf Basis Ihrer Angaben und einer internen Preismatrix.
             Es wird kein Umzug und kein Festpreis angeboten.
           </p>
@@ -84,3 +84,4 @@ export default function AgbPage() {
     </div>
   );
 }
+

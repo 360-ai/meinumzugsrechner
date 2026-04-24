@@ -4,7 +4,7 @@ import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const C_TITLE = "Checklisten | meinumzugsrechner.com";
+const C_TITLE = "Checklisten | meinumzugsrechner.de";
 const C_DESC = "Kostenlose Umzugs-Checklisten: Countdown, Essential-Kit und Standort-Vorbereitung.";
 
 export const metadata: Metadata = {
@@ -106,3 +106,4 @@ export default function ChecklistenPage() {
     </>
   );
 }
+

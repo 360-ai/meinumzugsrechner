@@ -80,7 +80,7 @@ function PartnerCard({ partner }: { partner: PartnerWithBl }) {
   const isMailto = partner.url.startsWith("mailto:");
   const contactHref = isMailto
     ? partner.url
-    : `mailto:info@meinumzugsrechner.com?subject=Anfrage%20Partner%20${encodeURIComponent(partner.name)}`;
+    : `mailto:info@meinumzugsrechner.de?subject=Anfrage%20Partner%20${encodeURIComponent(partner.name)}`;
 
   return (
     <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col gap-4">
@@ -207,10 +207,10 @@ function PartnerPageInner() {
           Ihr Unternehmen hier listen?
         </p>
         <p className="text-sm text-[#5A7A8A] mb-5">
-          Werden Sie Partner auf meinumzugsrechner.com — regional sichtbar, ohne Datenweitergabe.
+          Werden Sie Partner auf meinumzugsrechner.de — regional sichtbar, ohne Datenweitergabe.
         </p>
         <a
-          href="mailto:info@meinumzugsrechner.com?subject=Partnerschaft%20meinumzugsrechner.com"
+          href="mailto:info@meinumzugsrechner.de?subject=Partnerschaft%20meinumzugsrechner.de"
           className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold text-[#0D2137] transition-transform hover:scale-105"
           style={{ backgroundColor: "#FFCC00" }}
         >
@@ -230,3 +230,4 @@ export default function PartnerPage() {
     </Suspense>
   );
 }
+
