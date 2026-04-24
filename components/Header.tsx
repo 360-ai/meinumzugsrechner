@@ -26,6 +26,8 @@ const NAV_STRUCTURE: NavEntry[] = [
       { href: "/ratgeber/profi-guide-verpacken/", label: "Profi-Guide Verpacken" },
       { href: "/ratgeber/moderne-umzugslogistik/", label: "Moderne Umzugslogistik" },
       { href: "/ratgeber/steuerspartipps/", label: "Steuern sparen" },
+      { href: "/ratgeber/haustiere/", label: "Umzug mit Haustieren" },
+      { href: "/ratgeber/selbst-vs-profi/", label: "Selbst oder Profi?" },
     ],
   },
   {
