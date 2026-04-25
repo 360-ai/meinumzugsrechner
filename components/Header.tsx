@@ -34,6 +34,7 @@ const NAV_STRUCTURE: NavEntry[] = [
     href: "/checklisten/",
     label: "Checklisten",
     items: [
+      { href: "/checklisten/umzugscheckliste/", label: "Vollständige Checkliste" },
       { href: "/checklisten/umzugs-countdown/", label: "Umzugs-Countdown" },
       { href: "/checklisten/essential-kit/", label: "Essential-Kit" },
       { href: "/checklisten/standort-vorbereitung/", label: "Standort & Catering" },

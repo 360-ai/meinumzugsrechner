@@ -1,0 +1,130 @@
+{
+  "name": "Partnermail meinumzugsrechner.de",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Partner-Mail senden",
+        "formDescription": "Empfängerdaten eingeben und Mail abschicken",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Firmenname",
+              "placeholder": "z. B. Umzüge Müller GmbH",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Anrede",
+              "placeholder": "z. B. Becher (erscheint als: Liebes Becher Team)",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Stadt",
+              "placeholder": "z. B. Berlin",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "E-Mail",
+              "fieldType": "email",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "name": "Formular",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [240, 300],
+      "webhookId": "partnermail-meinumzugsrechner"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['E-Mail'] }}",
+        "subject": "Partneranfrage meinumzugsrechner.de",
+        "emailType": "text",
+        "message": "=Liebes {{ $json['Anrede'] }} Team,\n\nmein Name ist Denis, ich schreibe Ihnen, weil ich gerade dabei bin, eine neue Plattform aufzubauen: meinumzugsrechner.de.\n\nIhre Firma ist mir bei meiner Recherche aufgefallen. Ich wende mich aktuell an einige ausgewählte Unternehmen pro Region, weil ich für einen realistischen Rechner echte Einblicke in die regionale Preisgestaltung brauche.\n\nPrivatpersonen sollen ihren Umzug vorab kostenlos selbst kalkulieren können, ganz ohne Anmeldung und ohne Angabe persönlicher Daten. Der Nutzer gibt an, was er hat: Möbel, Etagen, Entfernung, Besonderheiten. Der Rechner liefert eine realistische Kostenschätzung. Wenn er dann ein Angebot möchte, schreibt er selbst das Unternehmen seiner Wahl an, mit seiner Kalkulation bereits in der Hand. Keine Datenweitergabe im Hintergrund, der Nutzer behält die volle Kontrolle.\n\nLangfristig soll daraus Deutschlands umfassendste Umzugsplattform werden, mit Kartonrechner, Checklisten und Ratgebern rund um den Umzug.\n\nWas ich mir von Ihnen wünsche: dass Sie unseren kurzen Partnerfragebogen ausfüllen. Die Angaben bleiben intern und werden ausschließlich zur Kalibrierung unserer Preiskorridore genutzt.\n\nZum Fragebogen: https://partner.meinumzugsrechner.de/partnerfragebogen\n\nWeitere Informationen zur Plattform finden Sie hier: https://partner.meinumzugsrechner.de/Wissenswertes_meinumzugsrechner.de.pdf\n\nAls Gründungspartner erhalten Sie die ersten 6 Monate kostenlos sowie 30 % Lifetime-Rabatt auf alle zukünftigen Abo-Modelle. Die Plätze sind begrenzt, da wir pro Region bewusst klein starten möchten.\n\nMit freundlichen Grüßen,\n\nDenis Schmidt\nmeinumzugsrechner.de | 360ai\ninfo@meinumzugsrechner.de\n01522 9239908",
+        "options": {
+          "appendAttribution": false,
+          "replyTo": "info@meinumzugsrechner.de"
+        }
+      },
+      "id": "a1b2c3d4-0002-0002-0002-000000000002",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [500, 300],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1yfAadX0aLEQCVFlALNeKSjYHSKj1s8h_e1MqsrsYK1A",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Firmenname": "={{ $('Formular').item.json['Firmenname'] }}",
+            "E-Mail": "={{ $('Formular').item.json['E-Mail'] }}",
+            "Stadt": "={{ $('Formular').item.json['Stadt'] }}",
+            "Versanddatum": "={{ $now.format('dd.MM.yyyy HH:mm') }}",
+            "Status": "Angeschrieben",
+            "Notizen": ""
+          }
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0003-0003-0003-000000000003",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [760, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Formular": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

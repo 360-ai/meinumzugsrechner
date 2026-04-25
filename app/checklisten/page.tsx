@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const C_TITLE = "Checklisten | meinumzugsrechner.de";
-const C_DESC = "Kostenlose Umzugs-Checklisten: Countdown, Essential-Kit und Standort-Vorbereitung.";
+const C_DESC = "Kostenlose Umzugs-Checklisten: Vollständige Umzugscheckliste mit 48 Aufgaben, Countdown, Essential-Kit und mehr.";
 
 export const metadata: Metadata = {
   title: C_TITLE,
@@ -45,11 +45,25 @@ const HomeIcon = () => (
 
 const checklists = [
   {
+    href: "/checklisten/umzugscheckliste/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#FF7700" }}>
+        <path d="M9 11l3 3L22 4" />
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+      </svg>
+    ),
+    title: "Vollständige Umzugscheckliste: 48 Aufgaben in 7 Phasen",
+    description:
+      "Von der Kündigung bis zur Ummeldung — alle Aufgaben interaktiv abhaken, Fortschritt wird gespeichert.",
+    highlight: true,
+  },
+  {
     href: "/checklisten/umzugs-countdown/",
     icon: <CalendarIcon />,
     title: "Projektplan: Umzugs-Countdown 2026",
     description:
       "5 Phasen von der ersten Planung bis zum Umzugstag — mit allen wichtigen Aufgaben im Überblick.",
+    highlight: false,
   },
   {
     href: "/checklisten/essential-kit/",
@@ -57,6 +71,7 @@ const checklists = [
     title: "Essential-Kit: Checkliste für den ersten Tag",
     description:
       "Was muss immer griffbereit sein und darf nicht im LKW verschwinden? 8 Kategorien im Überblick.",
+    highlight: false,
   },
   {
     href: "/checklisten/standort-vorbereitung/",
@@ -64,6 +79,7 @@ const checklists = [
     title: "Site-Management: Standort & Catering",
     description:
       "Freie Zufahrt, sichere Lagerung und Verpflegung für Ihr Helfer-Team — operative Schritte vor Ort.",
+    highlight: false,
   },
 ];
 
@@ -82,12 +98,12 @@ export default function ChecklistenPage() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {checklists.map((c) => (
             <Link
               key={c.href}
               href={c.href}
-              className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3"
+              className={`group rounded-2xl border p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 ${c.highlight ? "border-[#FF7700] bg-[#FFF8F3]" : "border-slate-100 bg-white"}`}
             >
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl" style={{ backgroundColor: "#FFF3E8" }}>
                 {c.icon}
