@@ -149,6 +149,107 @@ export function HomeLanding() {
         </div>
       </section>
 
+      <section className="py-16" style={{ backgroundColor: "#0D2137" }}>
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <span
+              className="mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider"
+              style={{ backgroundColor: "#FF7700", color: "white" }}
+            >
+              Unser Versprechen
+            </span>
+            <h2 className="text-3xl font-black text-white">
+              Kein Anruf. Kein Formular. Kein Haken.
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-white/60">
+              Die meisten Portale verdienen ihr Geld, wenn Sie eine Anfrage abschicken. Deshalb ist
+              deren Rechner oft nur ein Türöffner zum Lead-Formular — und danach melden sich mehrere
+              Firmen bei Ihnen. Hier läuft das anders.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="mb-5 text-xs font-bold uppercase tracking-wider text-white/40">
+                Typische Vergleichsportale
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Preisschätzung nur als Einstieg zur Angebotsanfrage",
+                  "Kontaktdaten gehen gleichzeitig an mehrere Firmen",
+                  "Firmen rufen aktiv zurück — oft mehrfach",
+                  "Detaillierte Infos oder Checklisten nur mit Konto",
+                  "Rechner bewusst simpel, um zur Anfrage zu drängen",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/50">
+                    <span
+                      className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
+                      style={{ backgroundColor: "rgba(239,68,68,0.15)" }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#ef4444"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        className="h-3 w-3"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div
+              className="rounded-2xl border p-6"
+              style={{ borderColor: "rgba(0,136,204,0.35)", backgroundColor: "rgba(0,136,204,0.08)" }}
+            >
+              <p className="mb-5 text-xs font-bold uppercase tracking-wider" style={{ color: "#0088CC" }}>
+                meinumzugsrechner.de
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Sofortiges Ergebnis — ohne Formular, ohne Pflichtfelder",
+                  "Keine Kontaktdaten nötig, nichts wird weitergegeben",
+                  "Kein Anruf, keine E-Mail von fremden Firmen",
+                  "Alle Tools kostenlos und ohne Konto nutzbar",
+                  "Detaillierter Rechner: Möbel, Zugang, Zusatzaufwand",
+                  "Mit Ihrem Ergebnis gezielt auf Firmen zugehen — auf Ihre Initiative",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white">
+                    <span
+                      className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
+                      style={{ backgroundColor: "rgba(0,136,204,0.25)" }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#0088CC"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-3 w-3"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-8 text-center text-sm text-white/40">
+            Sie entscheiden selbst — wann, ob und an wen Sie sich mit Ihrer Anfrage wenden.
+          </p>
+        </div>
+      </section>
+
       <section className="border-y border-slate-100 bg-[#FAFCFE] py-8">
         <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6">
           <p className="text-sm leading-relaxed text-[#0D2137]">
