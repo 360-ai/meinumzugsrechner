@@ -50,103 +50,102 @@ function amazonLink(asin: string) {
   return `https://www.amazon.de/dp/${asin}/?tag=${AMAZON_TAG}`;
 }
 
-const categories = [
-  {
-    label: "Verpackung",
-    icon: <BoxIcon />,
-    color: "#0088CC",
-    products: [
-      {
-        name: "Umzugskartons (25er-Set, zweiwellig)",
-        description: "Stabile doppelwellige Kartons mit Grifflöchern — bewährt für Haushaltsumzüge aller Größen.",
-        tag: "Bestseller",
-        href: amazonLink("B00PB03S5S"),
-      },
-      {
-        name: "Packpapier / Einschlagpapier",
-        description: "Unbedrucktes Papier in Industriequalität für Glas, Porzellan und Keramik. Schützt besser als Zeitungspapier.",
-        tag: "Empfohlen",
-        href: amazonLink("B00EZNLETE"),
-      },
-      {
-        name: "Paketband-Abroller (tesa-Set)",
-        description: "Abroller mit Paketbändern im Set — macht das Verschließen schwerer Kartons deutlich schneller und sicherer.",
-        tag: "Zeitsparend",
-        href: amazonLink("B000Z6F7IY"),
-      },
-    ],
-  },
-  {
-    label: "Schutz",
-    icon: <ShieldIcon />,
-    color: "#FF7700",
-    products: [
-      {
-        name: "Möbelschutzdecken (Set)",
-        description: "Gepolsterte Decken für Holzmöbel, Türfronten und empfindliche Oberflächen beim Transport.",
-        tag: "Top-Qualität",
-        href: amazonLink("B01MRO5PDS"),
-      },
-      {
-        name: "Stretchfolie transparent",
-        description: "Hält Schubladen und Türen geschlossen, bündelt Stangen, schützt Polstermöbel vor Schmutz.",
-        tag: "Vielseitig",
-        href: amazonLink("B08GNNDDWH"),
-      },
-      {
-        name: "Luftpolsterfolie (40 cm Breite)",
-        description: "Für zerbrechliche Gegenstände, die kein Papier ausreichend schützt — Figuren, Elektronik, Vasen.",
-        tag: "Stoßschutz",
-        href: amazonLink("B09685PW98"),
-      },
-      {
-        name: "Matratzenhülle / Matratzenfolie",
-        description: "Schützt die Matratze vor Schmutz, Feuchtigkeit und Beschädigungen beim Transport — unverzichtbar bei jedem Umzug.",
-        tag: "Hygieneschutz",
-        href: amazonLink("B0C4LJ1G2L"),
-      },
-    ],
-  },
-  {
-    label: "Werkzeug & Transport",
-    icon: <WrenchIcon />,
-    color: "#0D2137",
-    products: [
-      {
-        name: "Möbeltransportgurt (Schultertragegurt)",
-        description: "Verteilt das Gewicht auf Schultern und Hüfte statt auf den Rücken — unverzichtbar für schwere Möbel.",
-        tag: "Rückenschonend",
-        href: amazonLink("B0CFPP9GW2"),
-      },
-      {
-        name: "Möbelheber / Möbelroller",
-        description: "Für glatten Untergrund: Kühlschrank, Waschmaschine oder Schrank mühelos alleine bewegen.",
-        tag: "Zeitsparer",
-        href: amazonLink("B0B3XTLW16"),
-      },
-      {
-        name: "Spanngurte / Zurrgurte mit Ratsche",
-        description: "Sichern Ladung im LKW gegen Verrutschen. Bei Eigenumzug mit Mietfahrzeug Pflicht.",
-        tag: "Ladungssicherung",
-        href: amazonLink("B09VPD324B"),
-      },
-      {
-        name: "Werkzeugkoffer (bestückt, Alu)",
-        description: "Beim Umzug unverzichtbar: Möbel zerlegen, aufbauen, Haken montieren — alles Nötige in einem Koffer.",
-        tag: "Komplett-Set",
-        href: amazonLink("B005ERFK9U"),
-      },
-      {
-        name: "Arbeitshandschuhe (ATG MaxiFlex)",
-        description: "Rutschfeste Montagehandschuhe für sicheren Grip beim Tragen schwerer Kartons und Möbel.",
-        tag: "Griffsicher",
-        href: amazonLink("B07B8TNL1J"),
-      },
-    ],
-  },
-];
-
 export default function MaterialtippsPage() {
+  const categories = [
+    {
+      label: "Verpackung",
+      icon: <BoxIcon />,
+      color: "#0088CC",
+      products: [
+        {
+          name: "Umzugskartons (25er-Set, zweiwellig)",
+          description: "Stabile doppelwellige Kartons mit Grifflöchern — bewährt für Haushaltsumzüge aller Größen.",
+          tag: "Bestseller",
+          href: amazonLink("B00PB03S5S"),
+        },
+        {
+          name: "Packpapier / Einschlagpapier",
+          description: "Unbedrucktes Papier in Industriequalität für Glas, Porzellan und Keramik. Schützt besser als Zeitungspapier.",
+          tag: "Empfohlen",
+          href: amazonLink("B00EZNLETE"),
+        },
+        {
+          name: "Paketband-Abroller (tesa-Set)",
+          description: "Abroller mit Paketbändern im Set — macht das Verschließen schwerer Kartons deutlich schneller und sicherer.",
+          tag: "Zeitsparend",
+          href: amazonLink("B000Z6F7IY"),
+        },
+      ],
+    },
+    {
+      label: "Schutz",
+      icon: <ShieldIcon />,
+      color: "#FF7700",
+      products: [
+        {
+          name: "Möbelschutzdecken (Set)",
+          description: "Gepolsterte Decken für Holzmöbel, Türfronten und empfindliche Oberflächen beim Transport.",
+          tag: "Top-Qualität",
+          href: amazonLink("B01MRO5PDS"),
+        },
+        {
+          name: "Stretchfolie transparent",
+          description: "Hält Schubladen und Türen geschlossen, bündelt Stangen, schützt Polstermöbel vor Schmutz.",
+          tag: "Vielseitig",
+          href: amazonLink("B08GNNDDWH"),
+        },
+        {
+          name: "Luftpolsterfolie (40 cm Breite)",
+          description: "Für zerbrechliche Gegenstände, die kein Papier ausreichend schützt — Figuren, Elektronik, Vasen.",
+          tag: "Stoßschutz",
+          href: amazonLink("B09685PW98"),
+        },
+        {
+          name: "Matratzenhülle / Matratzenfolie",
+          description: "Schützt die Matratze vor Schmutz, Feuchtigkeit und Beschädigungen beim Transport — unverzichtbar bei jedem Umzug.",
+          tag: "Hygieneschutz",
+          href: amazonLink("B0C4LJ1G2L"),
+        },
+      ],
+    },
+    {
+      label: "Werkzeug & Transport",
+      icon: <WrenchIcon />,
+      color: "#0D2137",
+      products: [
+        {
+          name: "Möbeltransportgurt (Schultertragegurt)",
+          description: "Verteilt das Gewicht auf Schultern und Hüfte statt auf den Rücken — unverzichtbar für schwere Möbel.",
+          tag: "Rückenschonend",
+          href: amazonLink("B0CFPP9GW2"),
+        },
+        {
+          name: "Möbelheber / Möbelroller",
+          description: "Für glatten Untergrund: Kühlschrank, Waschmaschine oder Schrank mühelos alleine bewegen.",
+          tag: "Zeitsparer",
+          href: amazonLink("B0B3XTLW16"),
+        },
+        {
+          name: "Spanngurte / Zurrgurte mit Ratsche",
+          description: "Sichern Ladung im LKW gegen Verrutschen. Bei Eigenumzug mit Mietfahrzeug Pflicht.",
+          tag: "Ladungssicherung",
+          href: amazonLink("B09VPD324B"),
+        },
+        {
+          name: "Werkzeugkoffer (bestückt, Alu)",
+          description: "Beim Umzug unverzichtbar: Möbel zerlegen, aufbauen, Haken montieren — alles Nötige in einem Koffer.",
+          tag: "Komplett-Set",
+          href: amazonLink("B005ERFK9U"),
+        },
+        {
+          name: "Arbeitshandschuhe (ATG MaxiFlex)",
+          description: "Rutschfeste Montagehandschuhe für sicheren Grip beim Tragen schwerer Kartons und Möbel.",
+          tag: "Griffsicher",
+          href: amazonLink("B07B8TNL1J"),
+        },
+      ],
+    },
+  ];
   return (
     <>
       <JsonLd
