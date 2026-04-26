@@ -50,13 +50,6 @@ function amazonLink(asin: string) {
   return `https://www.amazon.de/dp/${asin}/?tag=${AMAZON_TAG}`;
 }
 
-// ASINs via Amazon SiteStripe holen:
-// 1. Auf affiliate-program.amazon.de einloggen
-// 2. amazon.de öffnen → oben erscheint die SiteStripe-Leiste
-// 3. Produkt suchen → auf der Produktseite "Text" in der SiteStripe klicken
-// 4. Die ASIN aus dem Link kopieren (Format: amazon.de/dp/XXXXXXXXXX/)
-// 5. ASIN unten ersetzen
-
 const categories = [
   {
     label: "Verpackung",
@@ -64,28 +57,22 @@ const categories = [
     color: "#0088CC",
     products: [
       {
-        name: "Umzugskartons (10er-Set, stabil)",
-        description: "Doppelwellige Kartons mit Grifflöchern, stapelbar bis 30 kg. Standard für Haushaltsumzüge.",
+        name: "Umzugskartons (25er-Set, zweiwellig)",
+        description: "Stabile doppelwellige Kartons mit Grifflöchern — bewährt für Haushaltsumzüge aller Größen.",
         tag: "Bestseller",
-        href: amazonLink("ASIN_KARTONS"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B00PB03S5S"),
       },
       {
-        name: "Packpapier / Einschlagpapier (10 kg)",
-        description: "Unbedrucktes, säurefreies Papier für Glas, Porzellan und Keramik. Schützt besser als Zeitungspapier.",
+        name: "Packpapier / Einschlagpapier",
+        description: "Unbedrucktes Papier in Industriequalität für Glas, Porzellan und Keramik. Schützt besser als Zeitungspapier.",
         tag: "Empfohlen",
-        href: amazonLink("ASIN_PACKPAPIER"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B00EZNLETE"),
       },
       {
-        name: "Klebeband extra stark (6er-Pack)",
-        description: "Breites Paketklebeband (66 m × 50 mm). Hält auch schwere Kartons sicher verschlossen.",
-        tag: "Unverzichtbar",
-        href: amazonLink("ASIN_KLEBEBAND"), // TODO: ASIN von amazon.de eintragen
-      },
-      {
-        name: "Luftpolsterfolie (Rolle, 50 m)",
-        description: "Für zerbrechliche Dinge, die kein Einschlagpapier aufnehmen kann — z. B. Figuren oder Elektronik.",
-        tag: "Schutz",
-        href: amazonLink("ASIN_LUFTPOLSTER"), // TODO: ASIN von amazon.de eintragen
+        name: "Paketband-Abroller (tesa-Set)",
+        description: "Abroller mit Paketbändern im Set — macht das Verschließen schwerer Kartons deutlich schneller und sicherer.",
+        tag: "Zeitsparend",
+        href: amazonLink("B000Z6F7IY"),
       },
     ],
   },
@@ -95,28 +82,28 @@ const categories = [
     color: "#FF7700",
     products: [
       {
-        name: "Möbelschutzdecken (4er-Set)",
+        name: "Möbelschutzdecken (Set)",
         description: "Gepolsterte Decken für Holzmöbel, Türfronten und empfindliche Oberflächen beim Transport.",
         tag: "Top-Qualität",
-        href: amazonLink("ASIN_MOEBELDECKEN"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B01MRO5PDS"),
       },
       {
-        name: "Stretchfolie (450 m × 50 cm)",
+        name: "Stretchfolie transparent",
         description: "Hält Schubladen und Türen geschlossen, bündelt Stangen, schützt Polstermöbel vor Schmutz.",
         tag: "Vielseitig",
-        href: amazonLink("ASIN_STRETCHFOLIE"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B08GNNDDWH"),
       },
       {
-        name: "Matratzenfolie / Matratzenhülle",
-        description: "Schützt die Matratze vor Schmutz und Nässe beim Tragen und Transport im LKW.",
-        tag: "Oft vergessen",
-        href: amazonLink("ASIN_MATRATZENFOLIE"), // TODO: ASIN von amazon.de eintragen
+        name: "Luftpolsterfolie (40 cm Breite)",
+        description: "Für zerbrechliche Gegenstände, die kein Papier ausreichend schützt — Figuren, Elektronik, Vasen.",
+        tag: "Stoßschutz",
+        href: amazonLink("B09685PW98"),
       },
       {
-        name: "Kantenschutz / Wandschutzecken",
-        description: "Schützt Türrahmen und Wände vor Kratzern beim Durchschieben von Möbeln.",
-        tag: "Kaution sichern",
-        href: amazonLink("ASIN_KANTENSCHUTZ"), // TODO: ASIN von amazon.de eintragen
+        name: "Matratzenhülle / Matratzenfolie",
+        description: "Schützt die Matratze vor Schmutz, Feuchtigkeit und Beschädigungen beim Transport — unverzichtbar bei jedem Umzug.",
+        tag: "Hygieneschutz",
+        href: amazonLink("B0C4LJ1G2L"),
       },
     ],
   },
@@ -126,28 +113,34 @@ const categories = [
     color: "#0D2137",
     products: [
       {
-        name: "Schultertragegurte für Möbel",
-        description: "Verteilen das Gewicht auf Schultern und Hüfte statt auf den Rücken. Unverzichtbar für schwere Möbel.",
+        name: "Möbeltransportgurt (Schultertragegurt)",
+        description: "Verteilt das Gewicht auf Schultern und Hüfte statt auf den Rücken — unverzichtbar für schwere Möbel.",
         tag: "Rückenschonend",
-        href: amazonLink("ASIN_TRAGEGURTE"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B0CFPP9GW2"),
       },
       {
-        name: "Möbelroller / Rollbrett (4er-Set)",
-        description: "Für glatten Untergrund. Bewegen Sie Kühlschrank oder Waschmaschine problemlos alleine.",
+        name: "Möbelheber / Möbelroller",
+        description: "Für glatten Untergrund: Kühlschrank, Waschmaschine oder Schrank mühelos alleine bewegen.",
         tag: "Zeitsparer",
-        href: amazonLink("ASIN_MOEBELROLLER"), // TODO: ASIN von amazon.de eintragen
+        href: amazonLink("B0B3XTLW16"),
       },
       {
-        name: "Sackkarre (faltbar, bis 150 kg)",
-        description: "Faltbare Sackkarre für Kartons und Geräte. Leicht zu verstauen im Transporter.",
-        tag: "Praktisch",
-        href: amazonLink("ASIN_SACKKARRE"), // TODO: ASIN von amazon.de eintragen
+        name: "Spanngurte / Zurrgurte mit Ratsche",
+        description: "Sichern Ladung im LKW gegen Verrutschen. Bei Eigenumzug mit Mietfahrzeug Pflicht.",
+        tag: "Ladungssicherung",
+        href: amazonLink("B09VPD324B"),
       },
       {
-        name: "Spanngurte (4er-Set, 5 m)",
-        description: "Sichern Ladung im LKW gegen Verrutschen. Pflicht bei Eigenumzug mit Mietfahrzeug.",
-        tag: "Sicherheit",
-        href: amazonLink("ASIN_SPANNGURTE"), // TODO: ASIN von amazon.de eintragen
+        name: "Werkzeugkoffer (bestückt, Alu)",
+        description: "Beim Umzug unverzichtbar: Möbel zerlegen, aufbauen, Haken montieren — alles Nötige in einem Koffer.",
+        tag: "Komplett-Set",
+        href: amazonLink("B005ERFK9U"),
+      },
+      {
+        name: "Arbeitshandschuhe (ATG MaxiFlex)",
+        description: "Rutschfeste Montagehandschuhe für sicheren Grip beim Tragen schwerer Kartons und Möbel.",
+        tag: "Griffsicher",
+        href: amazonLink("B07B8TNL1J"),
       },
     ],
   },

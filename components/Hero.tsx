@@ -127,16 +127,10 @@ export function Hero() {
           <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start">
             <Link
               href="/rechner/"
-              className="touch-target inline-flex items-center justify-center rounded-full px-8 py-3 text-lg font-bold text-[#0D2137] shadow-lg transition-transform hover:scale-105 active:scale-95"
-              style={{ backgroundColor: "#FFCC00" }}
+              className="touch-target inline-flex items-center justify-center rounded-full px-8 py-3 text-lg font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
+              style={{ backgroundColor: "#FF7700" }}
             >
               Jetzt kostenlos berechnen →
-            </Link>
-            <Link
-              href="/so-rechnen-wir/"
-              className="touch-target inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
-            >
-              Berechnung verstehen
             </Link>
           </div>
 
