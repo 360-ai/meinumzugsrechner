@@ -105,13 +105,38 @@ export default function DatenschutzPage() {
           <p className="text-slate-400">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
         </Section>
 
-        <Section num="5" title="Affiliate-Links (Amazon)">
+        <Section num="5" title="Affiliate-Links (Amazon Partnerprogramm)">
           <p>
-            Die Website kann am Amazon-Partnerprogramm teilnehmen. Mit * gekennzeichnete Links können
-            Affiliate-Links sein; beim Kauf über solche Links kann eine Provision anfallen, ohne dass sich der
-            Preis für Sie erhöht.
+            Diese Website nimmt am Amazon-Partnerprogramm teil. Auf der Seite /materialtipps/ sind Produkte
+            bei Amazon verlinkt. Beim Klick auf einen solchen Link und bei einem anschließenden Kauf erhalten
+            wir eine Provision; der Preis für Sie ändert sich dadurch nicht.
           </p>
-          <p className="text-slate-400">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</p>
+          <p>
+            Technischer Hintergrund: Wenn Sie auf einen Affiliate-Link klicken, wird durch Amazon ein
+            Cookie in Ihrem Browser gesetzt (Session-Cookie sowie ein Tracking-Cookie mit einer Laufzeit
+            von bis zu 89 Tagen). Dieser Cookie dient Amazon dazu, den Kauf Ihrem Klick zuzuordnen und
+            uns die entsprechende Provision gutzuschreiben. Die Datenverarbeitung durch Amazon wird durch
+            Amazons eigene Datenschutzerklärung geregelt:{" "}
+            <a
+              href="https://www.amazon.de/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ"
+              className="font-medium text-[#0088CC] hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Amazon Datenschutzhinweis
+            </a>
+            .
+          </p>
+          <p>
+            Die Affiliate-Links sind auf der Seite als „Anzeige" gekennzeichnet. Amazon-Partner-Links
+            werden nur auf der Materialtipps-Seite eingesetzt; es findet keine Verbindung zu Ihren
+            Umzugsdaten aus dem Rechner statt.
+          </p>
+          <p className="text-slate-400">
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Monetarisierung
+            des kostenlosen Angebots). Cookies durch Amazon nach § 25 TTDSG: Setzen erfolgt erst durch
+            aktiven Klick des Nutzers auf den Link (nutzerinitiert).
+          </p>
         </Section>
 
         <Section num="6" title="Regionale Partnerhinweise">

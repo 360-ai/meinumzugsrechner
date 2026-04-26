@@ -49,7 +49,7 @@ export default function ImpressumPage() {
             </a>
           </p>
           <p className="text-slate-400">
-            Telefon: nicht eingerichtet — Erreichbarkeit in der Regel per E-Mail innerhalb weniger Werktage.
+            Telefon: nicht eingerichtet — Anfragen per E-Mail werden in der Regel innerhalb von 48 Stunden beantwortet.
           </p>
         </Section>
 
@@ -58,8 +58,6 @@ export default function ImpressumPage() {
             Steuernummer: <strong className="text-[#0D2137]">027 866 03049</strong> (Finanzamt Frankenberg)
             <br />
             USt-IdNr.: wird nach Erteilung ergänzt, sofern umsatzsteuerpflichtig ausgewiesen wird.
-            <br />
-            Wirtschafts-Identifikationsnummer: <span className="text-slate-400">[falls vorhanden]</span>
           </p>
         </Section>
 

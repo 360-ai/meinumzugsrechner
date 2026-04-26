@@ -38,6 +38,25 @@ export const metadata: Metadata = {
   },
 };
 
+// ─── Amazon Partnerprogramm ──────────────────────────────────────────────────
+// 1. Account anlegen: https://affiliate-program.amazon.de/
+// 2. Tracking-ID (z. B. "meinumzug-21") hier eintragen:
+const AMAZON_TAG = "360ai-21";
+// 3. Für jedes Produkt die ASIN aus der Amazon-URL holen (amazon.de/dp/ASIN/...)
+//    und in das href-Feld eintragen: `${amazonLink("ASIN")}`
+// ─────────────────────────────────────────────────────────────────────────────
+
+function amazonLink(asin: string) {
+  return `https://www.amazon.de/dp/${asin}/?tag=${AMAZON_TAG}`;
+}
+
+// ASINs via Amazon SiteStripe holen:
+// 1. Auf affiliate-program.amazon.de einloggen
+// 2. amazon.de öffnen → oben erscheint die SiteStripe-Leiste
+// 3. Produkt suchen → auf der Produktseite "Text" in der SiteStripe klicken
+// 4. Die ASIN aus dem Link kopieren (Format: amazon.de/dp/XXXXXXXXXX/)
+// 5. ASIN unten ersetzen
+
 const categories = [
   {
     label: "Verpackung",
@@ -48,13 +67,25 @@ const categories = [
         name: "Umzugskartons (10er-Set, stabil)",
         description: "Doppelwellige Kartons mit Grifflöchern, stapelbar bis 30 kg. Standard für Haushaltsumzüge.",
         tag: "Bestseller",
-        href: "#",
+        href: amazonLink("ASIN_KARTONS"), // TODO: ASIN von amazon.de eintragen
       },
       {
-        name: "Einschlagpapier (Bögen, 100 Stück)",
-        description: "Säurefreies Packpapier für Glas, Porzellan und Keramik. Besser als Zeitungspapier.",
+        name: "Packpapier / Einschlagpapier (10 kg)",
+        description: "Unbedrucktes, säurefreies Papier für Glas, Porzellan und Keramik. Schützt besser als Zeitungspapier.",
         tag: "Empfohlen",
-        href: "#",
+        href: amazonLink("ASIN_PACKPAPIER"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Klebeband extra stark (6er-Pack)",
+        description: "Breites Paketklebeband (66 m × 50 mm). Hält auch schwere Kartons sicher verschlossen.",
+        tag: "Unverzichtbar",
+        href: amazonLink("ASIN_KLEBEBAND"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Luftpolsterfolie (Rolle, 50 m)",
+        description: "Für zerbrechliche Dinge, die kein Einschlagpapier aufnehmen kann — z. B. Figuren oder Elektronik.",
+        tag: "Schutz",
+        href: amazonLink("ASIN_LUFTPOLSTER"), // TODO: ASIN von amazon.de eintragen
       },
     ],
   },
@@ -65,15 +96,27 @@ const categories = [
     products: [
       {
         name: "Möbelschutzdecken (4er-Set)",
-        description: "Gepolsterte Decken für Holzmöbel, Türfronten und empfindliche Oberflächen.",
+        description: "Gepolsterte Decken für Holzmöbel, Türfronten und empfindliche Oberflächen beim Transport.",
         tag: "Top-Qualität",
-        href: "#",
+        href: amazonLink("ASIN_MOEBELDECKEN"), // TODO: ASIN von amazon.de eintragen
       },
       {
-        name: "Stretchfolie / Stretchband (450 m)",
-        description: "Hält Schubladen geschlossen, bündelt Stangen und schützt Polstermöbel.",
+        name: "Stretchfolie (450 m × 50 cm)",
+        description: "Hält Schubladen und Türen geschlossen, bündelt Stangen, schützt Polstermöbel vor Schmutz.",
         tag: "Vielseitig",
-        href: "#",
+        href: amazonLink("ASIN_STRETCHFOLIE"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Matratzenfolie / Matratzenhülle",
+        description: "Schützt die Matratze vor Schmutz und Nässe beim Tragen und Transport im LKW.",
+        tag: "Oft vergessen",
+        href: amazonLink("ASIN_MATRATZENFOLIE"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Kantenschutz / Wandschutzecken",
+        description: "Schützt Türrahmen und Wände vor Kratzern beim Durchschieben von Möbeln.",
+        tag: "Kaution sichern",
+        href: amazonLink("ASIN_KANTENSCHUTZ"), // TODO: ASIN von amazon.de eintragen
       },
     ],
   },
@@ -83,16 +126,28 @@ const categories = [
     color: "#0D2137",
     products: [
       {
-        name: "Transportgurte / Schultertragegurte",
-        description: "Verteilen das Gewicht auf Schultern und Hüfte. Unverzichtbar für schwere Möbel.",
+        name: "Schultertragegurte für Möbel",
+        description: "Verteilen das Gewicht auf Schultern und Hüfte statt auf den Rücken. Unverzichtbar für schwere Möbel.",
         tag: "Rückenschonend",
-        href: "#",
+        href: amazonLink("ASIN_TRAGEGURTE"), // TODO: ASIN von amazon.de eintragen
       },
       {
         name: "Möbelroller / Rollbrett (4er-Set)",
-        description: "Für glatten Untergrund. Bewegen Sie Kühlschrank oder Waschmaschine alleine.",
+        description: "Für glatten Untergrund. Bewegen Sie Kühlschrank oder Waschmaschine problemlos alleine.",
         tag: "Zeitsparer",
-        href: "#",
+        href: amazonLink("ASIN_MOEBELROLLER"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Sackkarre (faltbar, bis 150 kg)",
+        description: "Faltbare Sackkarre für Kartons und Geräte. Leicht zu verstauen im Transporter.",
+        tag: "Praktisch",
+        href: amazonLink("ASIN_SACKKARRE"), // TODO: ASIN von amazon.de eintragen
+      },
+      {
+        name: "Spanngurte (4er-Set, 5 m)",
+        description: "Sichern Ladung im LKW gegen Verrutschen. Pflicht bei Eigenumzug mit Mietfahrzeug.",
+        tag: "Sicherheit",
+        href: amazonLink("ASIN_SPANNGURTE"), // TODO: ASIN von amazon.de eintragen
       },
     ],
   },
@@ -120,12 +175,14 @@ export default function MaterialtippsPage() {
         </p>
       </div>
 
-      {/* Affiliate disclaimer */}
+      {/* Affiliate disclaimer — Amazon-Pflichttext + ehrliche Erklärung */}
       <div
         className="mb-10 rounded-2xl border p-5 text-sm"
         style={{ borderColor: "#FF770040", backgroundColor: "#FFF3E8" }}
       >
-        <p className="mb-1 font-bold text-[#0D2137]">Kurze ehrliche Erklärung — weil Transparenz uns wichtig ist</p>
+        <p className="mb-1 font-bold text-[#0D2137]">
+          Anzeige · Als Amazon-Partner verdiene ich an qualifizierten Käufen.
+        </p>
         <p className="text-[#5A7A8A] leading-relaxed">
           meinumzugsrechner.de ist und bleibt kostenlos: kein Konto, kein Formular, keine
           Datenweitergabe. Damit das so bleibt, finanzieren wir uns über Amazon-Partnerlinks auf
@@ -175,9 +232,12 @@ export default function MaterialtippsPage() {
                     </span>
                   </div>
                   <p className="text-sm text-[#5A7A8A]">{p.description}</p>
-                  <span className="text-sm font-medium text-[#0088CC] group-hover:underline">
-                    Bei Amazon ansehen →
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-[#0088CC] group-hover:underline">
+                      Bei Amazon ansehen →
+                    </span>
+                    <span className="text-[10px] text-slate-400">Anzeige</span>
+                  </div>
                 </a>
               ))}
             </div>
