@@ -128,7 +128,7 @@ export default function DatenschutzPage() {
             .
           </p>
           <p>
-            Die Affiliate-Links sind auf der Seite als „Anzeige" gekennzeichnet. Amazon-Partner-Links
+            Die Affiliate-Links sind auf der Seite als &bdquo;Anzeige&ldquo; gekennzeichnet. Amazon-Partner-Links
             werden nur auf der Materialtipps-Seite eingesetzt; es findet keine Verbindung zu Ihren
             Umzugsdaten aus dem Rechner statt.
           </p>
