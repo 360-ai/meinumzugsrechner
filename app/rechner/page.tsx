@@ -1,7 +1,7 @@
 ﻿import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { RechnerModeTabs } from "@/components/RechnerModeTabs";
-import { webPageAndFaqSchema } from "@/lib/schema";
+import { webApplicationSchema, webPageAndFaqSchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import { RECHNER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
@@ -35,6 +35,7 @@ export default function RechnerPage() {
   return (
     <>
       <JsonLd id="ld-rechner" data={ld} />
+      <JsonLd id="ld-rechner-app" data={webApplicationSchema()} />
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[#0D2137] sm:text-3xl">Umzugskosten-Rechner</h1>

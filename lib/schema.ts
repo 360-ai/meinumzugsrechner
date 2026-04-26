@@ -2,6 +2,7 @@ import { absoluteUrl, getSiteUrl, SITE_CONTENT_DATE, SITE_NAME } from "@/lib/sit
 
 const ORG_ID = `${getSiteUrl().origin}/#organization`;
 const WEBSITE_ID = `${getSiteUrl().origin}/#website`;
+const AUTHOR_ID = `${getSiteUrl().origin}/#author`;
 
 export function organizationAndWebsiteSchema() {
   const origin = getSiteUrl().origin;
@@ -9,14 +10,31 @@ export function organizationAndWebsiteSchema() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": AUTHOR_ID,
+        name: "Denis Schmidt",
+        jobTitle: "Gründer & Betreiber",
+        worksFor: { "@id": ORG_ID },
+        url: `${origin}/ueber-uns/`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Frankenberg (Eder)",
+          addressCountry: "DE",
+        },
+      },
+      {
         "@type": "Organization",
         "@id": ORG_ID,
         name: "360ai",
         url: origin,
         logo: { "@type": "ImageObject", url: `${origin}/logo.png` },
-        brand: {
-          "@type": "Brand",
-          name: SITE_NAME,
+        brand: { "@type": "Brand", name: SITE_NAME },
+        founder: { "@id": AUTHOR_ID },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: "info@meinumzugsrechner.de",
+          availableLanguage: "de",
         },
       },
       {
@@ -30,6 +48,26 @@ export function organizationAndWebsiteSchema() {
           "Umzugskosten-Rechner mit transparenter Methodik, Ratgebern und Checklisten — ohne Weitergabe Ihrer Umzugsdaten an Umzugsunternehmen.",
       },
     ],
+  };
+}
+
+export function webApplicationSchema() {
+  const origin = getSiteUrl().origin;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${origin}/rechner/#app`,
+    name: "Umzugskosten-Rechner",
+    description:
+      "Kostenloser Online-Rechner für Umzugskosten in Deutschland — als Preiskorridor ohne Datenweitergabe an Umzugsunternehmen.",
+    url: `${origin}/rechner/`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
+    inLanguage: "de-DE",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+    provider: { "@id": ORG_ID },
+    author: { "@id": AUTHOR_ID },
   };
 }
 
@@ -108,7 +146,7 @@ export function articleAndBreadcrumbSchema(args: {
     description: args.description,
     inLanguage: "de-DE",
     isPartOf: { "@id": WEBSITE_ID },
-    author: { "@id": ORG_ID },
+    author: { "@id": AUTHOR_ID },
     publisher: { "@id": ORG_ID },
     image: [`${origin}/logo.png`],
     datePublished: args.datePublished ?? SITE_CONTENT_DATE,
