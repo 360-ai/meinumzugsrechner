@@ -508,3 +508,37 @@ export const RECHNER_FAQS: { question: string; answer: string }[] = [
       "Nein. Der Rechner ist auf Orientierung ausgelegt und dient gerade dazu, ohne Lead-Weitergabe ein erstes Preisgefühl zu bekommen.",
   },
 ];
+
+export const WOHNUNGSAUFLOESUNG_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Wie lange haben Erben Zeit, die Wohnung zu kündigen?",
+    answer:
+      "Nach einem Todesfall können Erben das Mietverhältnis mit dem außerordentlichen Sonderkündigungsrecht nach § 580 BGB innerhalb eines Monats nach Kenntnis des Todesfalls kündigen. Danach gilt die reguläre Kündigungsfrist von drei Monaten. Insgesamt endet das Mietverhältnis also frühestens nach vier Monaten ab Todesfall.",
+  },
+  {
+    question: "Wer bezahlt die Wohnungsauflösung, wenn jemand ins Pflegeheim zieht?",
+    answer:
+      "Die Pflegeversicherung übernimmt die Kosten der Wohnungsauflösung nicht. Die Kosten trägt die betroffene Person aus eigenem Vermögen. Ist das Vermögen aufgebraucht und liegt es unter dem Schonvermögen von 10.000 Euro, kann das Sozialamt nach § 35 SGB XII einspringen — aber nur, wenn der Antrag vor Beauftragung einer Firma gestellt wird.",
+  },
+  {
+    question: "Darf ich als Angehöriger die Wohnung eines Demenzkranken kündigen?",
+    answer:
+      "Nur wenn Sie eine notariell beglaubigte Vorsorgevollmacht besitzen, die Wohnungskündigungen ausdrücklich einschließt. Liegt keine Vollmacht vor, muss das Betreuungsgericht einen Betreuer bestellen und die Kündigung genehmigen (§ 1833 BGB). Eigenmächtige Kündigungen sind unwirksam.",
+  },
+  {
+    question: "Können Kinder für Pflegeheimkosten oder Wohnungsauflösung haftbar gemacht werden?",
+    answer:
+      "Nein. Das Angehörigen-Entlastungsgesetz schützt Kinder vor direkter Kostenbeteiligung, solange ihr Jahresbruttoeinkommen unter 100.000 Euro liegt. Sie haften also nicht persönlich für Miet- oder Auflösungskosten der Eltern.",
+  },
+  {
+    question: "Was kostet eine Wohnungsauflösung für eine 60-m²-Wohnung?",
+    answer:
+      "In deutschen Großstädten liegen die Kosten für eine 60-m²-Wohnung in der Regel zwischen 950 und 1.650 Euro. Der Preis hängt vom Inhalt, der Etage, dem Aufzug und dem Zustand ab. Brauchbare Gegenstände können den Preis senken, wenn die Firma Wertanrechnung anbietet.",
+  },
+  {
+    question: "Können die Kosten der Wohnungsauflösung steuerlich abgesetzt werden?",
+    answer:
+      "Im Todesfall ja: Kosten für die Wohnungsauflösung gelten als Nachlassverbindlichkeit und können in der Erbschaftssteuererklärung abgezogen werden, wenn sie innerhalb der ersten 6 Monate nach dem Tod entstehen. Wer keine Erbschaftssteuer zahlt, kann alternativ haushaltsnahe Dienstleistungen nach § 35a EStG geltend machen: 20 Prozent der Kosten, maximal 4.000 Euro Steuerersparnis pro Jahr.",
+  },
+];
+

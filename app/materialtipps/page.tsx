@@ -121,11 +121,19 @@ export default function MaterialtippsPage() {
       </div>
 
       {/* Affiliate disclaimer */}
-      <div className="mb-10 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
-        <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.
-        Beim Kauf über unsere Links erhalten wir eine kleine Provision — für Sie
-        entstehen keine Mehrkosten. Die Empfehlungen basieren auf Qualität und
-        Preis-Leistungs-Verhältnis, nicht auf der Provisionshöhe.
+      <div
+        className="mb-10 rounded-2xl border p-5 text-sm"
+        style={{ borderColor: "#FF770040", backgroundColor: "#FFF3E8" }}
+      >
+        <p className="mb-1 font-bold text-[#0D2137]">Kurze ehrliche Erklärung — weil Transparenz uns wichtig ist</p>
+        <p className="text-[#5A7A8A] leading-relaxed">
+          meinumzugsrechner.de ist und bleibt kostenlos: kein Konto, kein Formular, keine
+          Datenweitergabe. Damit das so bleibt, finanzieren wir uns über Amazon-Partnerlinks auf
+          dieser Seite. Wenn Sie über einen unserer Links einkaufen, erhalten wir eine kleine
+          Provision — der Preis für Sie bleibt dabei exakt gleich. Die Produktauswahl treffen wir
+          unabhängig davon: Hier landen nur Artikel, die wir wirklich empfehlen würden. Danke,
+          dass Sie den Service dadurch am Leben halten.
+        </p>
       </div>
 
       {/* Product categories */}
