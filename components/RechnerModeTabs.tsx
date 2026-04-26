@@ -126,13 +126,28 @@ export function RechnerModeTabs() {
         </>
       ) : (
         <>
-          <div className="rounded-2xl border border-[#FF7700]/20 bg-[#FFF8F3] p-4 text-sm text-[#5A7A8A]">
-            <span className="mb-1 block font-bold text-[#0D2137]">
+          <div className="relative overflow-hidden rounded-2xl border-2 border-[#FF7700] bg-[#FFF3E8] p-5">
+            {/* Diagonal banner */}
+            <div
+              className="pointer-events-none absolute -right-8 top-4 w-40 rotate-[30deg] py-1 text-center text-[11px] font-black uppercase tracking-widest text-white"
+              style={{ backgroundColor: "#FF7700" }}
+            >
+              Beta
+            </div>
+            <p className="text-base font-black uppercase tracking-wide text-[#FF7700]">
+              ⚠ Nur Testdaten
+            </p>
+            <p className="mt-1 text-sm font-bold text-[#0D2137]">
               Detaillierte Kalkulation in Testphase
-            </span>
-            Die M&ouml;belliste hilft beim Vorbereiten einer Anfrage. Der Preisrahmen wird
-            schrittweise mit echten Angebotsdaten kalibriert und ist aktuell als Beta-Wert zu
-            verstehen.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-[#5A7A8A]">
+              Die M&ouml;belliste hilft beim Vorbereiten einer Anfrage. Der Preisrahmen wird
+              schrittweise mit echten Angebotsdaten kalibriert und ist aktuell als Beta-Wert zu
+              verstehen.
+            </p>
+            <p className="mt-3 text-sm font-bold text-[#FF7700]">
+              Achtung: Nur Testdaten — Rechner geht demnächst Live.
+            </p>
           </div>
           <RechnerForm />
         </>
