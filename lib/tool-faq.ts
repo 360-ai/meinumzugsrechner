@@ -425,6 +425,72 @@ export const MOEBEL_EINLAGERN_FAQS: { question: string; answer: string }[] = [
   },
 ];
 
+export const ENTRUEMPELUNG_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Was kostet eine Entrümpelung?",
+    answer:
+      "Die Kosten liegen je nach Objekt und Region zwischen 15 und 55 Euro pro Quadratmeter. Eine 3-Zimmer-Wohnung kostet beim Profi oft 500 bis 800 Euro pro Zimmer. Keller und Garagen starten ab rund 150 Euro. Großstädte wie München oder Hamburg liegen am oberen Rand, ländliche Regionen meist darunter.",
+  },
+  {
+    question: "Was ist der Unterschied zwischen Entrümpelung und Haushaltsauflösung?",
+    answer:
+      "Bei einer Entrümpelung wird ausgemistet — Gerümpel, Sperrmüll und überflüssige Gegenstände werden entsorgt. Eine Haushaltsauflösung geht weiter: Der gesamte Haushalt wird komplett geräumt, oft mit Wertermittlung und Verkauf verwertbarer Stücke. Die Haushaltsauflösung ist typisch bei Umzügen ins Pflegeheim oder nach einem Erbfall.",
+  },
+  {
+    question: "Was ist Wertanrechnung und lohnt sie sich?",
+    answer:
+      "Seriöse Entrümpler schauen sich verwertbare Gegenstände an — gut erhaltene Möbel, Antiquitäten, funktionstüchtige Elektrogeräte — und ziehen deren Marktwert vom Gesamtpreis ab. Im besten Fall, bei sehr hochwertigem Inventar, kann die Entrümpelung dadurch kostenlos oder sogar mit einer kleinen Auszahlung enden. Fordern Sie immer eine schriftliche Aufschlüsselung.",
+  },
+  {
+    question: "Kann ich vor dem Umzug selbst entrümpeln?",
+    answer:
+      "Ja — und es lohnt sich. Alles was Sie selbst weg­bringen, reduziert Transportvolumen und damit Umzugskosten. Kleidung, Bücher und Kleinkram können Sie leicht selbst über Wertstoffhöfe (oft bis zu 2 m³ kostenlos), Spendenboxen oder Online-Kleinanzeigen loswerden. Nur bei großem Sperrmüll, mehreren Stockwerken ohne Aufzug oder Zeitdruck macht ein Profi mehr Sinn.",
+  },
+  {
+    question: "Wie erkenne ich eine seriöse Entrümpelungsfirma?",
+    answer:
+      "Seriöse Anbieter besichtigen das Objekt kostenlos vor Ort (oder verlangen aussagekräftige Fotos), geben ein schriftliches Festpreisangebot und stellen Entsorgungsnachweise aus. Holen Sie mindestens drei Angebote ein — regionale Preisunterschiede können bis zu 40 Prozent betragen. Vorsicht bei Firmen, die ausschließlich telefonische Sofortpreise nennen oder Vorauszahlung verlangen.",
+  },
+  {
+    question: "Wie viel kann ich durch Eigenleistung bei der Entrümpelung sparen?",
+    answer:
+      "Wer Kleinzeug, Kleidung und leichte Gegenstände selbst vorsortiert und entsorgt, kann die Kosten für den Profi um 20 bis 40 Prozent senken. Zusätzlich lassen sich gut erhaltene Möbel und Elektrogeräte über Kleinanzeigen oder Flohmärkte verkaufen — das reduziert das Volumen und bringt etwas Geld zurück.",
+  },
+];
+
+export const UMZUGSHELFER_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Was kostet ein professioneller Umzugshelfer?",
+    answer:
+      "Studentische und private Umzugshelfer kosten je nach Stadt und Erfahrung zwischen 13 und 17 Euro pro Stunde — wobei der gesetzliche Mindestlohn 2026 bei 13,90 Euro liegt und auch für privat bezahlte Helfer gilt. Professionelle Möbelpacker von Umzugsfirmen liegen bei 17 bis 28 Euro pro Stunde, bringen aber eigenes Werkzeug und Versicherungsschutz mit.",
+  },
+  {
+    question: "Darf ich Freunde für die Umzugshilfe bezahlen?",
+    answer:
+      "Freunde helfen üblicherweise als Gefälligkeit — ohne formelle Bezahlung. Eine Aufwandsentschädigung für Fahrtkosten oder ein gemeinsames Abendessen danach ist problemlos möglich und üblich. Sobald Sie regelmäßig und in nennenswerter Höhe zahlen, kann das steuerlich als Arbeitsverhältnis eingestuft werden. Für einmalige Umzüge ist die Abgrenzung aber in der Regel unkritisch.",
+  },
+  {
+    question: "Was passiert, wenn ein Freund beim Umzug etwas beschädigt?",
+    answer:
+      "Freundschaftshilfe gilt rechtlich als Gefälligkeitsdienst — Helfer haften in der Regel nicht für Schäden, solange keine grobe Fahrlässigkeit oder Absicht vorliegt. Seit einem BGH-Urteil von 2016 decken moderne Privathaftpflichtversicherungen solche Gefälligkeitsschäden jedoch ein. Prüfen Sie vorher, ob die Haftpflicht Ihres Helfers eine entsprechende Klausel enthält.",
+  },
+  {
+    question: "Wie viele Helfer brauche ich für meinen Umzug?",
+    answer:
+      "Als Faustregel: 2 Zimmer = 2 Helfer, 3–4 Zimmer = 3–4 Helfer. Wichtiger als die Anzahl ist die Rollenverteilung: Jemand koordiniert beim LKW, jemand führt in der alten Wohnung, jemand empfängt in der neuen. Ohne klare Aufgaben entsteht Chaos und der Umzug dauert länger.",
+  },
+  {
+    question: "Was muss ich für meine Umzugshelfer bereitstellen?",
+    answer:
+      "Verpflegung ist Pflicht: ausreichend Wasser, Snacks, eine warme Mahlzeit. Dazu: geeignetes Werkzeug (Sackkarre, Tragegurte, Inbusschlüssel, Akkuschrauber), Verpackungsmaterial und Kartons, die nicht überladen sind. Schwere Kisten sind nicht nur körperlich belastend — sie erhöhen auch das Verletzungsrisiko.",
+  },
+  {
+    question: "Wann sollte ich Profis statt Freunden beauftragen?",
+    answer:
+      "Profis lohnen sich bei schweren oder sperrigen Möbeln, engen Treppenhäusern, Klavieren oder wertvollen Gegenständen — und wenn Sie Versicherungsschutz wollen. Freunde sind eine gute Wahl für überschaubare Haushalte, wenn Sie genug Zeit einplanen und gut organisieren. Viele kombinieren beides: Freunde für leichte Kartons, Profis für die schweren Möbel.",
+  },
+];
+
 export const RECHNER_FAQS: { question: string; answer: string }[] = [
   {
     question: "Was ist der Unterschied zwischen Schnellschätzung und Detailrechner?",

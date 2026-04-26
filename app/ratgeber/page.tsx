@@ -253,6 +253,35 @@ const guides = [
     description:
       "Wann ein Lagerraum sinnvoll ist, was Self-Storage kostet und wie man Möbel richtig für die Zwischenlagerung vorbereitet.",
   },
+  {
+    href: "/ratgeber/entruempelung/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <polyline points="3 6 5 6 21 6" />
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+        <path d="M10 11v6" />
+        <path d="M14 11v6" />
+        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+      </svg>
+    ),
+    title: "Entrümpelung vor dem Umzug: Kosten, Tipps & wann sich ein Profi lohnt",
+    description:
+      "Was kostet eine Entrümpelung, was ist Wertanrechnung und wie viel kann man durch Eigenleistung sparen — vor dem Umzug richtig aussortieren.",
+  },
+  {
+    href: "/ratgeber/umzugshelfer/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    title: "Umzugshelfer organisieren: Freunde, Studenten oder Profis?",
+    description:
+      "Was kosten Umzugshelfer, was gilt bei Mindestlohn und Haftung — und wie Sie den Umzugstag mit der richtigen Mannschaft reibungslos planen.",
+  },
 ];
 
 export default function RatgeberPage() {

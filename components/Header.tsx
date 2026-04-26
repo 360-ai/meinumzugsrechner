@@ -38,6 +38,8 @@ const NAV_STRUCTURE: NavEntry[] = [
       { href: "/ratgeber/lkw-mieten/", label: "LKW mieten" },
       { href: "/ratgeber/sperrgut/", label: "Sperrgut transportieren" },
       { href: "/ratgeber/moebel-einlagern/", label: "Möbel einlagern" },
+      { href: "/ratgeber/entruempelung/", label: "Entrümpelung vor dem Umzug" },
+      { href: "/ratgeber/umzugshelfer/", label: "Umzugshelfer organisieren" },
     ],
   },
   {
