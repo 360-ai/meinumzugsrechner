@@ -125,6 +125,44 @@ export function webPageAndFaqSchema(args: {
   };
 }
 
+export function speakableSchema(path: string) {
+  const pageUrl = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      xpath: [
+        "/html/head/title",
+        "//main//h1[1]",
+        "//main//h1[1]/following-sibling::p[1]",
+      ],
+    },
+  };
+}
+
+export function howToSchema(args: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: args.name,
+    description: args.description,
+    inLanguage: "de-DE",
+    step: args.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
 export function articleAndBreadcrumbSchema(args: {
   path: string;
   headline: string;

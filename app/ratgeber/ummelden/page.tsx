@@ -1,7 +1,7 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
-import { webPageAndFaqSchema } from "@/lib/schema";
+import { howToSchema, webPageAndFaqSchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import { UMMELDEN_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
@@ -74,6 +74,22 @@ export default function UmmeldenRatgeberPage() {
   return (
     <>
       <JsonLd id="ld-ummelden-faq" data={faqLd} />
+      <JsonLd
+        id="ld-ummelden-howto"
+        data={howToSchema({
+          name: "Ummelden nach dem Umzug: Schritt für Schritt",
+          description: "Was nach dem Umzug erledigt werden muss — von der Pflichtanmeldung beim Einwohnermeldeamt bis zur Benachrichtigung aller wichtigen Stellen.",
+          steps: [
+            { name: "Wohnungsgeberbestätigung besorgen", text: "Vom Vermieter die Wohnungsgeberbestätigung anfordern — Pflichtdokument seit 2015, ohne das die Ummeldung nicht möglich ist." },
+            { name: "Termin beim Einwohnermeldeamt buchen", text: "Online-Terminbuchung nutzen, am besten schon vor dem Umzugstag. Viele Ämter haben lange Wartezeiten." },
+            { name: "Beim Einwohnermeldeamt ummelden", text: "Personalausweis und Wohnungsgeberbestätigung mitbringen. Frist: 14 Tage nach Einzug (in einigen Bundesländern 7 Tage). Bei Versäumnis droht ein Bußgeld bis 1.000 Euro." },
+            { name: "KFZ ummelden (falls Landkreiswechsel)", text: "Bei Umzug in einen anderen Landkreis: Zulassungsbescheinigung Teil I, Personalausweis und eVB-Nummer der KFZ-Versicherung zur Zulassungsstelle mitbringen." },
+            { name: "KFZ-Versicherung informieren", text: "Wohnortwechsel der Versicherung melden — die Regionalklasse kann sich ändern und damit der Beitrag." },
+            { name: "Alle weiteren Stellen benachrichtigen", text: "Finanzamt, Kranken- und Rentenversicherung, Beitragsservice (GEZ), Arbeitgeber sowie alle Banken und Kreditkarten direkt informieren." },
+            { name: "Nachsendeauftrag beauftragen", text: "Mindestens 5 Werktage vor dem Umzug bei der Deutschen Post buchen. Kosten: ca. 28 Euro für 6 Monate. Er fängt Post auf, die trotz aller Adressänderungen noch an die alte Adresse geht." },
+          ],
+        })}
+      />
       <GuideLayout
         title="Ummelden nach dem Umzug: Fristen, Dokumente & was viele vergessen"
         category="ratgeber"

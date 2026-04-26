@@ -1,7 +1,7 @@
 import { GuideLayout } from "@/components/GuideLayout";
 import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
-import { webPageAndFaqSchema } from "@/lib/schema";
+import { howToSchema, webPageAndFaqSchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import { HALTEVERBOT_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
@@ -70,6 +70,20 @@ export default function HalteverbotRatgeberPage() {
   return (
     <>
       <JsonLd id="ld-halteverbot-faq" data={faqLd} />
+      <JsonLd
+        id="ld-halteverbot-howto"
+        data={howToSchema({
+          name: "Halteverbot für den Umzug beantragen",
+          description: "Schritt-für-Schritt-Anleitung zum Beantragen einer temporären Halteverbotszone für den Umzugstag.",
+          steps: [
+            { name: "Bedarf prüfen", text: "Überlegen, ob eine Halteverbotszone an der alten Adresse (Einladen), der neuen Adresse (Ausladen) oder an beiden Stellen benötigt wird." },
+            { name: "Zuständige Behörde ermitteln", text: "Straßenverkehrsamt oder Ordnungsamt der jeweiligen Stadt bzw. Gemeinde herausfinden — für jede Adresse separat." },
+            { name: "Antrag rechtzeitig stellen", text: "Mindestens eine Woche vor dem Umzugstag beantragen, besser zwei Wochen. Angaben: Straße, Hausnummer, Zonenlänge, Datum, Uhrzeit und Fahrzeugtyp." },
+            { name: "Schilder organisieren", text: "In vielen Kommunen werden die Schilder vom Amt gestellt; in anderen muss man sie selbst besorgen oder mieten (ca. 20–50 Euro Leihgebühr)." },
+            { name: "Schilder mindestens 48 Stunden vorher aufstellen", text: "Nur so haben Anwohner genug Zeit, ihre Fahrzeuge wegzubewegen. Zu spät aufgestellte Schilder sind rechtlich unwirksam." },
+          ],
+        })}
+      />
       <GuideLayout
         title="Halteverbot für den Umzug beantragen: Schritt für Schritt"
         category="ratgeber"

@@ -2,7 +2,7 @@ import { HomeLanding } from "@/components/HomeLanding";
 import { JsonLd } from "@/components/JsonLd";
 import { HOME_PAGE_FAQS } from "@/lib/home-faq";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageCanonical } from "@/lib/site";
-import { webPageAndFaqSchema } from "@/lib/schema";
+import { speakableSchema, webPageAndFaqSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,6 +46,7 @@ export default function Page() {
   return (
     <>
       <JsonLd id="ld-home-webpage-faq" data={pageSchema} />
+      <JsonLd id="ld-home-speakable" data={speakableSchema("/")} />
       <HomeLanding />
     </>
   );

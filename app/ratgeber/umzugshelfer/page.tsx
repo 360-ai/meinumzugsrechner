@@ -2,7 +2,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { GuideLayout } from "@/components/GuideLayout";
 import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
-import { webPageAndFaqSchema } from "@/lib/schema";
+import { howToSchema, webPageAndFaqSchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import { UMZUGSHELFER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
@@ -72,6 +72,21 @@ const sections: GuideSection[] = [
 export default function UmzugshelferPage() {
   return (
     <>
+      <JsonLd
+        id="ld-umzugshelfer-howto"
+        data={howToSchema({
+          name: "Umzugshelfer organisieren: Schritt für Schritt",
+          description: "Wie man Umzugshelfer richtig plant, auswählt und auf den Umzugstag vorbereitet — von der Bedarfsermittlung bis zur Aufgabenverteilung.",
+          steps: [
+            { name: "Bedarf ermitteln", text: "Wohnungsgröße und Möbelumfang einschätzen: Bis 2 Zimmer reichen 2 Helfer, bei 3–4 Zimmern sind 3–4 Helfer sinnvoll, ab 5 Zimmern empfehlen sich Profis." },
+            { name: "Helfertyp auswählen", text: "Entscheiden zwischen Freunden (kostenlos, kein Versicherungsschutz), studentischen Helfern (13–17 €/h, Mindestlohn beachten) und professionellen Möbelpackern (17–28 €/h, mit Versicherung)." },
+            { name: "Helfer rechtzeitig einplanen oder buchen", text: "Freunde und Studenten früh fragen — gute Profis sind an Wochenenden schnell ausgebucht. Mindestens 2–3 Wochen Vorlauf einplanen." },
+            { name: "Halteverbotszone beantragen", text: "Beim zuständigen Ordnungsamt mindestens 1 Woche vor dem Umzugstag beantragen. Schilder mindestens 48 Stunden vorher aufstellen." },
+            { name: "Werkzeug und Verpflegung vorbereiten", text: "Sackkarre, Tragegurte, Akkuschrauber und Inbusschlüssel bereitstellen. Ausreichend Wasser, Snacks und eine warme Mahlzeit einplanen." },
+            { name: "Klare Aufgaben zuweisen", text: "Vor dem Umzugstag festlegen, wer am LKW koordiniert, wer trägt und wer in der neuen Wohnung einräumt. Ohne klare Rollen geht viel Zeit verloren." },
+          ],
+        })}
+      />
       <JsonLd
         id="ld-umzugshelfer-faq"
         data={webPageAndFaqSchema({
