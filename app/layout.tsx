@@ -19,8 +19,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     siteName: "meinumzugsrechner.de",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "meinumzugsrechner.de — Umzugskosten berechnen ohne Datenweitergabe" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
+  },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
