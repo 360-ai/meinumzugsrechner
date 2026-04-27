@@ -99,6 +99,26 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Laufschrift: Aufbau-Hinweis */}
+      <div className="relative z-20 w-full overflow-hidden border-b border-[#FFCC00]/30" style={{ backgroundColor: "#FFCC00" }}>
+        <div
+          className="flex whitespace-nowrap py-2"
+          style={{ animation: "marquee 28s linear infinite" }}
+        >
+          {Array.from({ length: 6 }).map((_, i) => (
+            <span key={i} className="mx-8 text-sm font-bold uppercase tracking-widest text-[#0D2137]">
+              Wir befinden uns noch im Aufbau — schaut gerne schon rein und gebt uns Feedback!&nbsp;&nbsp;·
+            </span>
+          ))}
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
+      </div>
+
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 pb-14 pt-12 sm:px-6 md:flex-row md:items-center md:gap-12 md:pb-20 md:pt-20">
         <div className="min-w-0 flex-1 text-center md:text-left">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7ED0FF]">
