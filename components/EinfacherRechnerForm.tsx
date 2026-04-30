@@ -2,6 +2,7 @@
 
 import { getDefaultForm, STORAGE_KEY } from "@/lib/form-defaults";
 import { sanitizeUmzugForm } from "@/lib/form-sanitize";
+import { MAX_ROOM_SELECTION } from "@/lib/move-logistics";
 import type { BundeslandCode, HaushaltGroesse, UmzugFormData } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
@@ -42,7 +43,7 @@ export function EinfacherRechnerForm() {
   const [agb, setAgb] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
-  const zimmerOptions = useMemo(() => Array.from({ length: 10 }, (_, i) => i + 1), []);
+  const zimmerOptions = useMemo(() => Array.from({ length: MAX_ROOM_SELECTION }, (_, i) => i + 1), []);
 
   const submit = useCallback(() => {
     setErr(null);

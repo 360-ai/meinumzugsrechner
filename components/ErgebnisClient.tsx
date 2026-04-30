@@ -3,6 +3,7 @@
 import { calculateUmzug } from "@/lib/calculate";
 import { STORAGE_KEY, getDefaultForm } from "@/lib/form-defaults";
 import { sanitizeUmzugForm } from "@/lib/form-sanitize";
+import { describeVolume, estimateTruckTrips } from "@/lib/move-logistics";
 import { resolvePartners } from "@/lib/partner";
 import type { CalculateResult, UmzugFormData } from "@/lib/types";
 import Image from "next/image";
@@ -14,33 +15,29 @@ import { PdfExportButton } from "./PdfExportButton";
 import { TrustBadges } from "./TrustBadges";
 import { WunschfirmaSection } from "./WunschfirmaSection";
 
-const TRUCKS = [
-  { name: "Sprinter", m3: 10, fsk: "B", farbe: "#5A7A8A", label: "bis 1-Zi.-Wohnung" },
-  { name: "Transporter 3,5t", m3: 16, fsk: "B", farbe: "#0088CC", label: "2-Zi.-Wohnung" },
-  { name: "LKW 7,5t", m3: 30, fsk: "C1", farbe: "#FF7700", label: "3–4-Zi.-Wohnung" },
-  { name: "LKW 12t", m3: 45, fsk: "C", farbe: "#0D2137", label: "Großer Haushalt" },
-] as const;
-
 function LkwBedarfSection({ volumenM3 }: { volumenM3: number }) {
   const vol = Math.max(1, Math.round(volumenM3));
+  const volumeDescription = describeVolume(vol);
+  const truckTrips = estimateTruckTrips(vol);
   return (
     <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
       <h2 className="mb-1 text-lg font-bold text-[#0D2137]">Selbst umziehen? LKW-Bedarf</h2>
       <p className="mb-5 text-sm text-[#5A7A8A]">
         Dein geschätztes Volumen: <strong className="text-[#0D2137]">ca. {vol} m³</strong> — so viele Fahrten wären nötig:
       </p>
+      <p className="mb-5 rounded-xl bg-[#F4FAFE] p-3 text-sm text-[#5A7A8A]">
+        Karton-Richtwert: <strong className="text-[#0D2137]">{volumeDescription.cartonRange}</strong>
+      </p>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {TRUCKS.map(truck => {
-          const fahrten = Math.ceil(vol / truck.m3);
-          const isOne = fahrten === 1;
+        {truckTrips.map(({ truck, fahrten, fitsOneTrip }) => {
           const isTwo = fahrten === 2;
           return (
             <div
               key={truck.name}
               className="rounded-xl p-4 border"
               style={{
-                borderColor: isOne ? "#22c55e" : isTwo ? truck.farbe : "#e2e8f0",
-                backgroundColor: isOne ? "#f0fdf4" : "#f8fafc",
+                borderColor: fitsOneTrip ? "#22c55e" : isTwo ? truck.color : "#e2e8f0",
+                backgroundColor: fitsOneTrip ? "#f0fdf4" : "#f8fafc",
               }}
             >
               <div className="flex items-center justify-between mb-2">
@@ -53,7 +50,7 @@ function LkwBedarfSection({ volumenM3 }: { volumenM3: number }) {
                 </span>
               </div>
               <p className="text-xs text-[#5A7A8A] mb-2">{truck.label} · max. {truck.m3} m³</p>
-              <p className="text-2xl font-black" style={{ color: isOne ? "#22c55e" : truck.farbe }}>
+              <p className="text-2xl font-black" style={{ color: fitsOneTrip ? "#22c55e" : truck.color }}>
                 {fahrten}×
               </p>
               <p className="text-xs text-[#5A7A8A]">{fahrten === 1 ? "Fahrt reicht" : "Fahrten nötig"}</p>
@@ -169,7 +166,7 @@ const AUFZUG_LABELS: Record<string, string> = { ja: "Ja", nein: "Nein", lasten: 
 const TREPPEN_LABELS: Record<string, string> = { normal: "Normal", eng: "Eng (< 1,20 m)" };
 const PARK_LABELS: Record<string, string> = { "0_10": "0–10 m", "10_30": "10–30 m", "30_50": "30–50 m", "50plus": "über 50 m" };
 const HALTEVERBOT_LABELS: Record<string, string> = { ja: "Ja, wird benötigt", nein: "Nein", weiss_nicht: "Unbekannt" };
-const GEBAEUDE_LABELS: Record<string, string> = { altbau: "Altbau", neubau: "Neubau", efh: "Einfamilienhaus" };
+const GEBAEUDE_LABELS: Record<string, string> = { altbau: "Altbau", neubau: "Neubau", efh: "Einfamilienhaus", mfh: "Mehrfamilienhaus" };
 const KUECHE_LFM_LABELS: Record<string, string> = { bis_2m: "bis 2 m", "2_3m": "2–3 m", "3_4m": "3–4 m", ueber_4m: "über 4 m" };
 const KUEHLSCHRANK_LABELS: Record<string, string> = { keiner: "keiner", standard: "Standard", sidebyside: "Side-by-Side" };
 const EINBAU_LABELS: Record<string, string> = { einbau: "Einbau", freistehend: "Freistehend", keiner: "–" };
@@ -189,11 +186,15 @@ const INVENTORY_LABELS: Record<string, Record<string, string>> = {
   },
   buero: {
     schreibtisch_normal: "Schreibtisch", schreibtisch_eck: "Eck-Schreibtisch", buerostuhl: "Bürostuhl",
-    aktenschrank: "Aktenschrank", drucker: "Drucker/Scanner",
+    buecherregal: "Bücherregal", drucker: "Drucker/Scanner",
   },
   keller: {
-    werkzeugschrank: "Werkzeugschrank", fahrrad: "Fahrrad", motorrad: "Motorrad",
-    kellerregal: "Kellerregal", gefriertruhe: "Gefriertruhe",
+    fahrrad: "Fahrrad", ebike: "E-Bike", motorrad: "Motorrad",
+    werkzeugschrank: "Werkzeugschrank", kellerregal: "Kellerregal",
+  },
+  kartons: {
+    karton_standard: "Standard-Karton", karton_buch: "Bücherkarton",
+    haengekarton: "Hängekarton", karton_spezial: "Spezialkarton",
   },
 };
 
@@ -262,10 +263,10 @@ function extrasLines(form: UmzugFormData): string[] {
   return active;
 }
 
-function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl: string): string {
-  const email = partnerUrl.startsWith("mailto:")
+function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUrl?: string): string {
+  const email = partnerUrl?.startsWith("mailto:")
     ? partnerUrl.replace(/^mailto:/, "").split("?")[0]
-    : "info@meinumzugsrechner.de";
+    : "";
 
   const stadtA = form.buildingA.stadtOrt || "–";
   const stadtB = form.buildingB.gleicheStadt ? stadtA : (form.buildingB.stadtOrt || "–");
@@ -288,6 +289,7 @@ function buildMailtoLink(form: UmzugFormData, result: CalculateResult, partnerUr
     "",
     "ich habe meinen Umzug auf meinumzugsrechner.de vorkalkuliert und möchte ein Angebot anfragen.",
     "Alle relevanten Details sind unten aufgeführt — eine Rückfrage sollte damit nicht mehr nötig sein.",
+    "Die PDF-Zusammenfassung aus dem Rechner hänge ich der Anfrage bei.",
     "",
     "══ AUSZUG ══",
     `Ort: ${stadtA}, ${blA}`,
@@ -396,9 +398,7 @@ export function ErgebnisClient() {
   }
 
   const partners = resolvePartners(form.buildingA.landkreisAgs, form.buildingA.bundesland);
-  const anfragMailto =
-    partners.primary &&
-    buildMailtoLink(form, result, partners.primary.url);
+  const anfragMailto = buildMailtoLink(form, result, partners.primary?.url);
 
   return (
     <div className="space-y-8">
@@ -420,7 +420,7 @@ export function ErgebnisClient() {
         </div>
       )}
 
-      <ErgebnisKorridor result={result} />
+      <ErgebnisKorridor result={result} anfragMailto={anfragMailto} />
 
       {/* ── Selbst umziehen / DIY ─── */}
       <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
@@ -502,7 +502,9 @@ export function ErgebnisClient() {
       </div>
 
       <TrustBadges />
-      <div className="no-print flex flex-wrap gap-3">
+      <div id="export-pdf" className="no-print scroll-mt-24 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+        <p className="mb-3 text-sm font-bold text-[#0D2137]">PDF und nächste Schritte</p>
+        <div className="flex flex-wrap gap-3">
         <PdfExportButton form={form} result={result} />
         <Link
           href="/rechner/"
@@ -517,6 +519,7 @@ export function ErgebnisClient() {
         >
           Neue Berechnung
         </Link>
+        </div>
       </div>
       <PartnerBanner
         primary={partners.primary}

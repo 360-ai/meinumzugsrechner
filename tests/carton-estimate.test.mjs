@@ -6,6 +6,7 @@ test("calculates cartons from pack zones with reserve", () => {
   const result = calculateCartonEstimate({
     rooms: 3,
     householdLevel: "normal",
+    wohndauer: "mittel",
     bookMeters: 2,
     kitchenCabinets: 5,
     wardrobeMeters: 2,
@@ -24,8 +25,8 @@ test("calculates cartons from pack zones with reserve", () => {
   });
 });
 
-test("describes a larger carton load without relying on exact box dimensions", () => {
-  const description = describeCartonLoad(58);
+test("describes carton loads with the shared volume bands", () => {
+  const description = describeCartonLoad(90);
 
   assert.equal(description.label, "größerer Haushalt");
   assert.equal(description.hint, "ähnlich wie eine gut gefüllte 4-Zimmer-Wohnung");

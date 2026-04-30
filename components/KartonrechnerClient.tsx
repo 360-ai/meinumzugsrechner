@@ -9,6 +9,7 @@ import {
   type StorageLevel,
   type WohndauerLevel,
 } from "@/lib/carton-estimate";
+import { MAX_ROOM_SELECTION } from "@/lib/move-logistics";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -28,7 +29,7 @@ const COUNTERS: {
     label: "Räume, die gepackt werden",
     sub: "Wohn-, Schlaf-, Kinderzimmer, Büro und Flur",
     min: 1,
-    max: 10,
+    max: MAX_ROOM_SELECTION,
     step: 1,
     suffix: "Räume",
   },

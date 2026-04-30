@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
 
 const LockIcon = () => (
   <svg
@@ -47,7 +46,7 @@ const CircularBadge = () => (
     className="relative h-28 w-28 cursor-pointer items-center justify-center rounded-full border-[3px] border-black/10 shadow-xl transition-transform hover:scale-105 md:h-36 md:w-36"
     style={{ backgroundColor: "#FFCC00" }}
   >
-    <div className="absolute inset-1 animate-[spin_12s_linear_infinite]">
+    <div className="hero-badge-spin absolute inset-1">
       <svg viewBox="0 0 100 100" className="h-full w-full">
         <path
           id="circlePath"
@@ -101,10 +100,7 @@ export function Hero() {
 
       {/* Laufschrift: Aufbau-Hinweis */}
       <div className="relative z-20 w-full overflow-hidden border-b border-[#FFCC00]/30" style={{ backgroundColor: "#FFCC00" }}>
-        <div
-          className="flex whitespace-nowrap py-2"
-          style={{ animation: "marquee 28s linear infinite" }}
-        >
+        <div className="hero-marquee-track flex whitespace-nowrap py-2">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="mx-8 text-sm font-bold uppercase tracking-widest text-[#0D2137]">
               Wir befinden uns noch im Aufbau — schaut gerne schon rein und gebt uns Feedback!&nbsp;&nbsp;·
@@ -112,9 +108,51 @@ export function Hero() {
           ))}
         </div>
         <style>{`
-          @keyframes marquee {
+          .hero-marquee-track {
+            animation: hero-marquee 18s linear infinite;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+          }
+
+          .hero-float {
+            animation: hero-float 5s ease-in-out infinite;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+          }
+
+          .hero-badge-spin {
+            animation: hero-spin 14s linear infinite;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+          }
+
+          @media (max-width: 640px) {
+            .hero-marquee-track {
+              animation-duration: 12s;
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .hero-marquee-track,
+            .hero-float,
+            .hero-badge-spin {
+              animation: none !important;
+              transform: none !important;
+            }
+          }
+
+          @keyframes hero-marquee {
             0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+          }
+
+          @keyframes hero-float {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -14px, 0); }
+          }
+
+          @keyframes hero-spin {
+            to { transform: rotate(360deg); }
           }
         `}</style>
       </div>
@@ -172,10 +210,7 @@ export function Hero() {
         </div>
 
         <div className="relative flex w-[260px] flex-shrink-0 items-center justify-center md:w-[340px] lg:w-[400px]">
-          <motion.div
-            animate={{ y: [0, -18, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
+          <div className="hero-float">
             <Image
               src="/logo.webp"
               alt="meinumzugsrechner.de - Umzugskosten-Rechner ohne Datenweitergabe"
@@ -184,7 +219,7 @@ export function Hero() {
               className="w-full object-contain drop-shadow-2xl"
               priority
             />
-          </motion.div>
+          </div>
 
           <div className="absolute -bottom-4 -right-4 z-20 md:-bottom-6 md:-right-6">
             <Link href="/rechner/">

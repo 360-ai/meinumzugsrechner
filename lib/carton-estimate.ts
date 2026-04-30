@@ -88,21 +88,21 @@ export function calculateCartonEstimate(input: CartonEstimateInput): CartonEstim
 }
 
 export function describeCartonLoad(total: number): CartonLoadDescription {
-  if (total <= 20) {
+  if (total <= 30) {
     return {
       label: "kleiner Umzug",
       hint: "ähnlich wie ein WG-Zimmer oder ein reduziertes 1-Zimmer-Apartment",
     };
   }
 
-  if (total <= 35) {
+  if (total <= 65) {
     return {
       label: "mittlerer Haushalt",
       hint: "ähnlich wie eine 2- bis 3-Zimmer-Wohnung mit normaler Ausstattung",
     };
   }
 
-  if (total <= 60) {
+  if (total <= 110) {
     return {
       label: "größerer Haushalt",
       hint: "ähnlich wie eine gut gefüllte 4-Zimmer-Wohnung",

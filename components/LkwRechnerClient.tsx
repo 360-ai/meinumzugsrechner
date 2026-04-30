@@ -1,15 +1,13 @@
 "use client";
 
-import { describeRoomSelection, describeVolume } from "@/lib/volume-explanation";
+import {
+  MAX_ROOM_SELECTION,
+  describeRoomSelection,
+  describeVolume,
+  estimateTruckTrips,
+} from "@/lib/move-logistics";
 import Link from "next/link";
 import { useState } from "react";
-
-const TRUCKS = [
-  { name: "Sprinter", m3: 10, fsk: "B", label: "bis 1-Zi.-Wohnung", example: "Studio, Single-Haushalt" },
-  { name: "Transporter 3,5t", m3: 16, fsk: "B", label: "2-Zi.-Wohnung", example: "Paar oder kleiner Haushalt" },
-  { name: "LKW 7,5t", m3: 30, fsk: "C1", label: "3-4-Zi.-Wohnung", example: "Familie, mehr Möbel" },
-  { name: "LKW 12t", m3: 45, fsk: "C", label: "Großer Haushalt", example: "Haus oder großes Inventar" },
-] as const;
 
 type InputMode = "zimmer" | "m3";
 
@@ -22,6 +20,8 @@ export function LkwRechnerClient() {
   const volumen = mode === "zimmer" ? roomDescription.volumeM3 : m3;
   const vol = Math.max(1, volumen);
   const volumeDescription = describeVolume(vol);
+  const truckTrips = estimateTruckTrips(vol);
+  const roomMarks = [1, 3, 6, 9, 12, MAX_ROOM_SELECTION];
 
   return (
     <div className="space-y-8">
@@ -56,7 +56,7 @@ export function LkwRechnerClient() {
             <input
               type="range"
               min={1}
-              max={6}
+              max={MAX_ROOM_SELECTION}
               step={1}
               value={zimmer}
               onChange={(e) => setZimmer(Number(e.target.value))}
@@ -64,12 +64,9 @@ export function LkwRechnerClient() {
               style={{ accentColor: "#0088CC" }}
             />
             <div className="mt-1 flex justify-between text-xs text-[#5A7A8A]">
-              <span>1 Zi.</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>6+ Zi.</span>
+              {roomMarks.map((mark) => (
+                <span key={mark}>{mark === 1 ? "1 Zi." : mark}</span>
+              ))}
             </div>
             <p className="mt-3 text-sm text-[#5A7A8A]">
               Geschätztes Volumen:{" "}
@@ -121,16 +118,14 @@ export function LkwRechnerClient() {
       <div>
         <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Wie viele Fahrten?</h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          {TRUCKS.map((truck) => {
-            const fahrten = Math.ceil(vol / truck.m3);
-            const isOne = fahrten === 1;
+          {truckTrips.map(({ truck, fahrten, fitsOneTrip }) => {
             return (
               <div
                 key={truck.name}
                 className="rounded-2xl border p-5 shadow-sm"
                 style={{
-                  borderColor: isOne ? "#22c55e" : "#e2e8f0",
-                  backgroundColor: isOne ? "#f0fdf4" : "white",
+                  borderColor: fitsOneTrip ? "#22c55e" : "#e2e8f0",
+                  backgroundColor: fitsOneTrip ? "#f0fdf4" : "white",
                 }}
               >
                 <div className="mb-3 flex items-start justify-between">
@@ -149,7 +144,7 @@ export function LkwRechnerClient() {
                   </span>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black" style={{ color: isOne ? "#22c55e" : "#0088CC" }}>
+                  <span className="text-3xl font-black" style={{ color: fitsOneTrip ? "#22c55e" : "#0088CC" }}>
                     {fahrten}x
                   </span>
                   <span className="text-sm text-[#5A7A8A]">

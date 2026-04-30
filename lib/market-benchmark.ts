@@ -125,7 +125,7 @@ function estimateBenchmarkVolume(input: MarketBenchmarkInput): number {
   const roomVolume = zimmer * 2.2;
   const raw = (areaVolume + roomVolume + householdExtra) * householdFactor;
 
-  return Math.round(Math.min(95, Math.max(6, raw)) * 10) / 10;
+  return Math.round(Math.min(220, Math.max(6, raw)) * 10) / 10;
 }
 
 export function estimateMarketBenchmark(input: MarketBenchmarkInput): MarketBenchmarkResult {

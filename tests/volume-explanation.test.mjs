@@ -4,14 +4,14 @@ import {
   describeRoomSelection,
   describeVolume,
   estimateQuickMoveVolume,
-} from "../lib/volume-explanation.ts";
+} from "../lib/move-logistics.ts";
 
 test("describes move volume with everyday comparisons", () => {
   const description = describeVolume(32);
 
   assert.equal(description.bandLabel, "3-Zimmer-Wohnung");
   assert.equal(description.cartonRange, "ca. 65-80 Kartons plus Möbel");
-  assert.equal(description.vehicleLabel, "1x LKW 7,5t oder 2x Transporter 3,5t");
+  assert.equal(description.vehicleLabel, "1x LKW 12t oder 2x LKW 7,5t");
 });
 
 test("quick volume estimate increases for larger households", () => {

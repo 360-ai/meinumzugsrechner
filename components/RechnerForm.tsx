@@ -7,7 +7,7 @@ import { validateFullForm, validateStepForm } from "@/lib/form-validation";
 import type { BundeslandCode, UmzugFormData } from "@/lib/types";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import { MoebelZaehler } from "./MoebelZaehler";
 import { Stepper } from "./Stepper";
@@ -99,6 +99,8 @@ export function RechnerForm() {
   const params = useSearchParams();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<UmzugFormData>(() => getDefaultForm());
+  const formTopRef = useRef<HTMLDivElement | null>(null);
+  const didMountRef = useRef(false);
 
   useEffect(() => {
     const s = params.get("step");
@@ -127,6 +129,17 @@ export function RechnerForm() {
       /* ignore */
     }
   }, [form]);
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+
+    window.setTimeout(() => {
+      formTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  }, [step]);
 
   const lkFor = useCallback((bl: BundeslandCode) => {
     return (landkreiseData as Lk[]).filter(
@@ -205,12 +218,20 @@ export function RechnerForm() {
   };
 
   return (
-    <div>
+    <div ref={formTopRef} className="scroll-mt-24">
       <Stepper current={step} total={TOTAL_STEPS} />
 
       {step === 1 && (
         <section className="space-y-4">
-          <h1 className="text-xl font-semibold text-primary">Gebäude A (Auszug)</h1>
+          <div className="rounded-xl border border-[#0088CC]/20 bg-[#F4FAFE] p-4">
+            <p className="text-xs font-black uppercase tracking-wide text-[#0088CC]">
+              Schritt 1 von 6 · Auszug
+            </p>
+            <h1 className="mt-1 text-2xl font-black text-[#0D2137]">Gebäude A</h1>
+            <p className="mt-1 text-sm text-[#5A7A8A]">
+              Alte Adresse, Zugang und Parkweg. Diese Angaben beschreiben den Startpunkt des Umzugs.
+            </p>
+          </div>
           <label className="block text-sm font-medium">Bundesland</label>
           <select
             className="w-full rounded-md border border-slate-300 p-3 text-base"
@@ -261,7 +282,15 @@ export function RechnerForm() {
 
       {step === 2 && (
         <section className="space-y-4">
-          <h1 className="text-xl font-semibold text-primary">Gebäude B (Einzug)</h1>
+          <div className="rounded-xl border border-[#FF7700]/25 bg-[#FFF8F3] p-4">
+            <p className="text-xs font-black uppercase tracking-wide text-[#FF7700]">
+              Schritt 2 von 6 · Einzug
+            </p>
+            <h1 className="mt-1 text-2xl font-black text-[#0D2137]">Gebäude B</h1>
+            <p className="mt-1 text-sm text-[#5A7A8A]">
+              Neue Adresse, Zugang und Parkweg. Ab hier geht es um den Zielort des Umzugs.
+            </p>
+          </div>
           <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
             <input
               type="checkbox"
@@ -898,6 +927,7 @@ function EtageBlock({
           { v: "altbau", l: "Altbau" },
           { v: "neubau", l: "Neubau" },
           { v: "efh", l: "Einfamilienhaus" },
+          { v: "mfh", l: "Mehrfamilienhaus" },
         ]}
         onChange={(v) => set({ gebaeudetyp: v as UmzugFormData["buildingA"]["gebaeudetyp"] })}
       />

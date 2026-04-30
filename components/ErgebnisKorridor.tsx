@@ -3,9 +3,10 @@ import { describeVolume } from "@/lib/volume-explanation";
 
 type Props = {
   result: CalculateResult;
+  anfragMailto?: string;
 };
 
-export function ErgebnisKorridor({ result }: Props) {
+export function ErgebnisKorridor({ result, anfragMailto }: Props) {
   const fmt = (n: number) =>
     new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
   const volume = describeVolume(result.meta.volumenM3Schaetzung);
@@ -51,6 +52,22 @@ export function ErgebnisKorridor({ result }: Props) {
           <li>Zeit × Helfer: ca. {result.meta.zeitStunden} h</li>
           <li>Volumen (Schätzung): ca. {result.meta.volumenM3Schaetzung} m³</li>
         </ul>
+        <div className="no-print mt-4 flex flex-wrap gap-3">
+          <a
+            href="#export-pdf"
+            className="touch-target inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+          >
+            Zur PDF springen
+          </a>
+          {anfragMailto && (
+            <a
+              href={anfragMailto}
+              className="touch-target inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-primary hover:bg-slate-50"
+            >
+              E-Mail-Vorlage öffnen
+            </a>
+          )}
+        </div>
       </details>
     </div>
   );

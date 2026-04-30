@@ -1,9 +1,9 @@
 "use client";
 
+import { MAX_ROOM_SELECTION, describeRoomSelection } from "@/lib/move-logistics";
 import Link from "next/link";
 import { useState } from "react";
 
-const ZIMMER_TO_M3: Record<number, number> = { 1: 8, 2: 16, 3: 28, 4: 38, 5: 50, 6: 65 };
 const PROFI_KORRIDOR: Record<number, [number, number]> = {
   1: [350, 600],
   2: [600, 1000],
@@ -13,18 +13,26 @@ const PROFI_KORRIDOR: Record<number, [number, number]> = {
   6: [2500, 4000],
 };
 
+function profiKorridorForRooms(zimmer: number): [number, number] {
+  const known = PROFI_KORRIDOR[zimmer];
+  if (known) return known;
+
+  const extraRooms = Math.max(0, zimmer - 6);
+  return [2500 + extraRooms * 450, 4000 + extraRooms * 700];
+}
+
 export function VergleichClient() {
   const [zimmer, setZimmer] = useState(3);
   const [km, setKm] = useState(20);
   const [helfer, setHelfer] = useState(2);
 
-  const vol = ZIMMER_TO_M3[zimmer] ?? 28;
+  const vol = describeRoomSelection(zimmer).volumeM3;
   const lkwMiete = vol <= 10 ? 150 : vol <= 20 ? 220 : vol <= 35 ? 320 : 420;
   const kraftstoff = Math.round(km * 2 * 0.35);
   const verpflegung = helfer * 25;
   const puffer = Math.round((lkwMiete + kraftstoff) * 0.12);
   const diyGesamt = lkwMiete + kraftstoff + verpflegung + puffer;
-  const [profiUnten, profiOben] = PROFI_KORRIDOR[zimmer] ?? [900, 1500];
+  const [profiUnten, profiOben] = profiKorridorForRooms(zimmer);
 
   const rows = [
     {
@@ -59,7 +67,7 @@ export function VergleichClient() {
             <input
               type="range"
               min={1}
-              max={6}
+              max={MAX_ROOM_SELECTION}
               step={1}
               value={zimmer}
               onChange={(e) => setZimmer(Number(e.target.value))}
@@ -72,7 +80,7 @@ export function VergleichClient() {
               <span>3</span>
               <span>4</span>
               <span>5</span>
-              <span>6+</span>
+              <span>{MAX_ROOM_SELECTION}</span>
             </div>
           </div>
           <div>
