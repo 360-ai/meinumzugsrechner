@@ -44,7 +44,7 @@ export function ErgebnisKorridor({ result, anfragMailto }: Props) {
         </div>
         <p className="mt-3 text-xs leading-relaxed text-muted">{volume.note}</p>
       </div>
-      <details className="mt-6 text-left text-sm text-muted">
+      <details open className="mt-6 text-left text-sm text-muted">
         <summary className="cursor-pointer font-medium text-slate-700">Technische Schätzgrößen</summary>
         <ul className="mt-2 list-inside list-disc space-y-1">
           <li>Zeit (Richtwert): ca. {result.meta.gesamtMinuten} Minuten Gesamtarbeit</li>

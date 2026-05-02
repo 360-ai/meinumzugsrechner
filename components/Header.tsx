@@ -105,7 +105,7 @@ function DesktopNavDropdown({ entry }: { entry: NavEntry }) {
         className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity absolute left-0 top-full pt-1 z-[60] min-w-[220px]"
         style={{ pointerEvents: "auto" }}
       >
-        <div className="rounded-xl border border-slate-100 bg-white py-2 shadow-lg">
+        <div className="rounded-xl border border-slate-100 bg-white py-2 shadow-lg max-h-[min(70vh,600px)] overflow-y-auto">
           {entry.items.map((item) => (
             <Link
               key={item.href + item.label}
