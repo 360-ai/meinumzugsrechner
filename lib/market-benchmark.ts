@@ -1,3 +1,4 @@
+import { HELFER_VOLUMEN_SCHWELLE_M3, estimateVolumeFromQuickInput, roundTo50 } from "./shared-constants";
 import type { BundeslandCode, HaushaltGroesse } from "./types";
 
 export type BenchmarkDistanceClass = "local" | "regional" | "long_distance";
@@ -72,23 +73,7 @@ const REGION_FACTOR: Partial<Record<BundeslandCode, number>> = {
   MV: 0.95,
 };
 
-const VOLUME_FACTOR: Record<HaushaltGroesse, number> = {
-  "1": 0.9,
-  "2": 1,
-  "3_4": 1.15,
-  "5plus": 1.3,
-};
-
-const VOLUME_EXTRA_M3: Record<HaushaltGroesse, number> = {
-  "1": 0,
-  "2": 2,
-  "3_4": 5,
-  "5plus": 9,
-};
-
-function roundTo50(value: number): number {
-  return Math.round(value / 50) * 50;
-}
+// VOLUME_FACTOR, VOLUME_EXTRA_M3 und roundTo50 jetzt zentral in shared-constants.ts
 
 function distanceClass(km: number): BenchmarkDistanceClass {
   if (km <= 50) return "local";
@@ -117,15 +102,7 @@ function maxSizeClass(a: BenchmarkSizeClass, b: BenchmarkSizeClass): BenchmarkSi
 }
 
 function estimateBenchmarkVolume(input: MarketBenchmarkInput): number {
-  const wohnflaeche = Math.max(10, input.wohnflaecheM2);
-  const zimmer = Math.max(1, input.zimmer);
-  const householdFactor = VOLUME_FACTOR[input.haushaltGroesse];
-  const householdExtra = VOLUME_EXTRA_M3[input.haushaltGroesse];
-  const areaVolume = wohnflaeche * 0.34;
-  const roomVolume = zimmer * 2.2;
-  const raw = (areaVolume + roomVolume + householdExtra) * householdFactor;
-
-  return Math.round(Math.min(220, Math.max(6, raw)) * 10) / 10;
+  return estimateVolumeFromQuickInput(input.wohnflaecheM2, input.zimmer, input.haushaltGroesse);
 }
 
 export function estimateMarketBenchmark(input: MarketBenchmarkInput): MarketBenchmarkResult {
@@ -141,7 +118,7 @@ export function estimateMarketBenchmark(input: MarketBenchmarkInput): MarketBenc
   const korridorUnten = roundTo50(baseLow * factor);
   const korridorOben = Math.max(korridorUnten + 50, roundTo50(baseHigh * factor));
   const volumenM3Schaetzung = estimateBenchmarkVolume(input);
-  const helfer = volumenM3Schaetzung >= 35 || sizeClass === "house" ? 3 : 2;
+  const helfer = volumenM3Schaetzung >= HELFER_VOLUMEN_SCHWELLE_M3 || sizeClass === "house" ? 3 : 2;
   const zeitStunden = Math.round(Math.max(3, volumenM3Schaetzung / 7.5) * 100) / 100;
   const gesamtMinuten = Math.round(zeitStunden * 60 * helfer);
 

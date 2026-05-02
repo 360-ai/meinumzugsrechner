@@ -14,6 +14,7 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugskosten Rechner", "Umzugskosten berechnen", "was kostet ein Umzug", "Umzug Kosten Rechner"],
   ...pageCanonical("/rechner/"),
   openGraph: {
     title: "Umzugskosten-Rechner: Preiskorridor berechnen",

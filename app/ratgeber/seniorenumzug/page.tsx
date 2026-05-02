@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Seniorenumzug", "Umzug Senioren", "altersgerecht umziehen"],
   ...pageCanonical("/ratgeber/seniorenumzug/"),
   openGraph: {
     title: "Seniorenumzug: Stressfrei umziehen im Alter 2026",
     description: PAGE_DESC,
     url: "/ratgeber/seniorenumzug/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

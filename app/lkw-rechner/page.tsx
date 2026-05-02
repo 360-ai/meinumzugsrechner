@@ -14,12 +14,15 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["LKW Rechner Umzug", "Transporter Größe berechnen", "LKW mieten Umzug", "Umzugswagen Größe"],
   ...pageCanonical("/lkw-rechner/"),
   openGraph: {
+    type: "website",
     title: "LKW-Rechner: Welches Fahrzeug brauche ich beim Umzug?",
     description: PAGE_DESC,
     url: "/lkw-rechner/",
   },
+  robots: { index: true, follow: true },
 };
 
 export default function LkwRechnerPage() {

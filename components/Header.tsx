@@ -13,9 +13,12 @@ const NAV_STRUCTURE: NavEntry[] = [
     label: "Rechner",
     items: [
       { href: "/rechner/", label: "Umzugskosten-Rechner" },
+      { href: "/umzugskosten/", label: "Kosten nach Stadt" },
       { href: "/so-rechnen-wir/", label: "So rechnen wir" },
       { href: "/kartonrechner/", label: "Kartonrechner" },
       { href: "/lkw-rechner/", label: "LKW-Rechner" },
+      { href: "/umzugstag-planer/", label: "Umzugstag-Planer" },
+      { href: "/entruempelungsrechner/", label: "Entrümpelungs-Rechner" },
     ],
   },
   {
@@ -24,12 +27,15 @@ const NAV_STRUCTURE: NavEntry[] = [
     items: [
       { href: "/ratgeber/entruempelung/", label: "Entrümpelung vor dem Umzug" },
       { href: "/ratgeber/ergonomie/", label: "Ergonomie & Heben" },
+      { href: "/ratgeber/erste-eigene-wohnung/", label: "Erste eigene Wohnung" },
       { href: "/ratgeber/firmenumzug/", label: "Firmenumzug" },
       { href: "/ratgeber/halteverbot/", label: "Halteverbot beantragen" },
       { href: "/ratgeber/moderne-umzugslogistik/", label: "Moderne Umzugslogistik" },
+      { href: "/ratgeber/nachsendeauftrag/", label: "Nachsendeauftrag" },
       { href: "/ratgeber/lkw-mieten/", label: "LKW mieten" },
       { href: "/ratgeber/moebel-einlagern/", label: "Möbel einlagern" },
       { href: "/ratgeber/profi-guide-verpacken/", label: "Profi-Guide Verpacken" },
+      { href: "/ratgeber/renovierungspflicht/", label: "Renovierungspflicht" },
       { href: "/ratgeber/selbst-vs-profi/", label: "Selbst oder Profi?" },
       { href: "/ratgeber/seniorenumzug/", label: "Seniorenumzug" },
       { href: "/ratgeber/sonderurlaub/", label: "Sonderurlaub" },
@@ -39,6 +45,8 @@ const NAV_STRUCTURE: NavEntry[] = [
       { href: "/ratgeber/teilumzug/", label: "Teilumzug" },
       { href: "/ratgeber/ummelden/", label: "Ummelden nach Umzug" },
       { href: "/ratgeber/haustiere/", label: "Umzug mit Haustieren" },
+      { href: "/ratgeber/umzug-mit-kindern/", label: "Umzug mit Kindern" },
+      { href: "/ratgeber/umzugsfirma-finden/", label: "Umzugsfirma finden" },
       { href: "/ratgeber/umzugshelfer/", label: "Umzugshelfer organisieren" },
       { href: "/ratgeber/wohnungsaufloesung/", label: "Wohnungsauflösung" },
     ],
@@ -51,6 +59,8 @@ const NAV_STRUCTURE: NavEntry[] = [
       { href: "/checklisten/umzugs-countdown/", label: "Umzugs-Countdown" },
       { href: "/checklisten/essential-kit/", label: "Essential-Kit" },
       { href: "/checklisten/standort-vorbereitung/", label: "Standort & Catering" },
+      { href: "/checklisten/adressaenderung/", label: "Adressänderung" },
+      { href: "/checklisten/uebergabeprotokoll/", label: "Übergabeprotokoll" },
     ],
   },
   {
@@ -62,6 +72,11 @@ const NAV_STRUCTURE: NavEntry[] = [
     href: "/partner/",
     label: "Partner",
     items: [{ href: "/partner/", label: "Partnernetzwerk" }],
+  },
+  {
+    href: "/ueber-uns/",
+    label: "Über uns",
+    items: [{ href: "/ueber-uns/", label: "Über meinumzugsrechner.de" }],
   },
 ];
 

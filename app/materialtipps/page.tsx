@@ -30,12 +30,15 @@ const MT_DESC =
 export const metadata: Metadata = {
   title: MT_TITLE,
   description: MT_DESC,
+  keywords: ["Umzugsmaterial", "Umzugskartons kaufen", "Verpackungsmaterial Umzug"],
   ...pageCanonical("/materialtipps/"),
   openGraph: {
+    type: "website",
     title: "Materialtipps für deinen Umzug",
     description: MT_DESC,
     url: "/materialtipps/",
   },
+  robots: { index: true, follow: true },
 };
 
 // ─── Amazon Partnerprogramm ──────────────────────────────────────────────────

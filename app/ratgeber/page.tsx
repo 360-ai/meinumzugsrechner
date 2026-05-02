@@ -10,8 +10,10 @@ const R_DESC = "Experten-Ratgeber rund um Ihren Umzug: Ergonomie, Verpacken, Hau
 export const metadata: Metadata = {
   title: R_TITLE,
   description: R_DESC,
+  keywords: ["Umzug Ratgeber", "Umzugstipps", "Umzug planen", "Umzugsguide"],
   ...pageCanonical("/ratgeber/"),
-  openGraph: { title: "Ratgeber zum Umzug", description: R_DESC, url: "/ratgeber/" },
+  openGraph: { type: "website", title: "Ratgeber zum Umzug", description: R_DESC, url: "/ratgeber/" },
+  robots: { index: true, follow: true },
 };
 
 const LiftIcon = () => (
@@ -70,6 +72,20 @@ const guides = [
       "Was kostet eine Entrümpelung, was ist Wertanrechnung und wie viel kann man durch Eigenleistung sparen — vor dem Umzug richtig aussortieren.",
   },
   {
+    href: "/ratgeber/erste-eigene-wohnung/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <path d="M9 22V12h6v10"/>
+        <path d="M12 8l2 2"/>
+        <circle cx="14" cy="6" r="1" fill="currentColor"/>
+      </svg>
+    ),
+    title: "Erste eigene Wohnung: Checkliste, Kosten & Grundausstattung",
+    description:
+      "Was Sie für die erste Wohnung brauchen: Budget, Grundausstattung, Mietvertrag und Versicherungen — alles auf einen Blick.",
+  },
+  {
     href: "/ratgeber/ergonomie/",
     icon: <LiftIcon />,
     title: "Ergonomie-Leitfaden: Sicher Heben und Tragen",
@@ -110,6 +126,18 @@ const guides = [
       "So planen Sie Ihren Umzug wie ein Profi — effizient, nachhaltig und stressfrei.",
   },
   {
+    href: "/ratgeber/nachsendeauftrag/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+    ),
+    title: "Nachsendeauftrag bei der Post",
+    description:
+      "Was ein Nachsendeauftrag kostet, wie lange er dauert, online vs. Filiale — und welche Post trotzdem nicht weitergeleitet wird.",
+  },
+  {
     href: "/ratgeber/lkw-mieten/",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
@@ -140,6 +168,17 @@ const guides = [
     title: "Möbel einlagern: Self-Storage, Kosten & worauf es ankommt",
     description:
       "Wann ein Lagerraum sinnvoll ist, was Self-Storage kostet und wie man Möbel richtig für die Zwischenlagerung vorbereitet.",
+  },
+  {
+    href: "/ratgeber/renovierungspflicht/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    ),
+    title: "Renovierungspflicht beim Auszug: Was Mieter wirklich müssen",
+    description:
+      "Schönheitsreparaturen, unwirksame Klauseln, besenrein — was Sie beim Auszug renovieren müssen und was nicht.",
   },
   {
     href: "/ratgeber/profi-guide-verpacken/",
@@ -252,6 +291,34 @@ const guides = [
     title: "Ummelden nach dem Umzug: Fristen & Checkliste",
     description:
       "Wann muss man sich ummelden, was ist mitzubringen — und welche Behörden informiert man selbst? Alles auf einen Blick.",
+  },
+  {
+    href: "/ratgeber/umzugsfirma-finden/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <path d="M8 11h6"/>
+        <path d="M11 8v6"/>
+      </svg>
+    ),
+    title: "Umzugsfirma finden: Seriositäts-Check & Vertragstipps",
+    description:
+      "Woran Sie eine seriöse Umzugsfirma erkennen, was im Vertrag stehen muss und wie Sie Angebote richtig vergleichen.",
+  },
+  {
+    href: "/ratgeber/umzug-mit-kindern/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10" style={{ color: "#0088CC" }}>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M21 12a3 3 0 0 0-3-3h-1" />
+        <circle cx="18" cy="5" r="2" />
+      </svg>
+    ),
+    title: "Umzug mit Kindern: Stressfrei umziehen mit der Familie",
+    description:
+      "Schulwechsel, Kita-Anmeldung, emotionale Vorbereitung — wie Sie einen Umzug mit Kindern altersgerecht planen.",
   },
   {
     href: "/ratgeber/haustiere/",

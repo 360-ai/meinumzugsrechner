@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Halteverbot Umzug", "Halteverbotszone beantragen", "Umzug Parkverbot"],
   ...pageCanonical("/ratgeber/halteverbot/"),
   openGraph: {
     title: "Halteverbot für Umzug beantragen: So geht es richtig 2026",
     description: PAGE_DESC,
     url: "/ratgeber/halteverbot/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Firmenumzug", "Büroumzug", "Gewerbeumzug Kosten"],
   ...pageCanonical("/ratgeber/firmenumzug/"),
   openGraph: {
     title: "Firmenumzug planen: Checkliste für Büro & Gewerbe 2026",
     description: PAGE_DESC,
     url: "/ratgeber/firmenumzug/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

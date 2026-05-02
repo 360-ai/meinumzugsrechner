@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Sonderurlaub Umzug", "Umzug Freistellung", "Urlaubstage Umzug"],
   ...pageCanonical("/ratgeber/sonderurlaub/"),
   openGraph: {
     title: "Sonderurlaub beim Umzug: Anspruch, Tarifverträge & wie beantragen 2026",
     description: PAGE_DESC,
     url: "/ratgeber/sonderurlaub/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

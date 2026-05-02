@@ -1,5 +1,7 @@
 import { GuideLayout } from "@/components/GuideLayout";
+import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -10,12 +12,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug Ergonomie", "richtig heben tragen", "Rückenschmerzen Umzug vermeiden"],
   ...pageCanonical("/ratgeber/ergonomie/"),
   openGraph: {
     title: "Ergonomie-Leitfaden: Sicher Heben und Tragen",
     description: PAGE_DESC,
     url: "/ratgeber/ergonomie/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -56,7 +60,9 @@ const sections: GuideSection[] = [
 
 export default function ErgonomiePage() {
   return (
-    <GuideLayout
+    <>
+      <JsonLd id="ld-ergonomie" data={webPageOnlySchema({ path: "/ratgeber/ergonomie/", title: PAGE_TITLE, description: PAGE_DESC })} />
+      <GuideLayout
       title="Ergonomie-Leitfaden: Sicher Heben und Tragen"
       category="ratgeber"
       categoryLabel="Ratgeber"
@@ -177,6 +183,7 @@ export default function ErgonomiePage() {
 
       </div>
     </GuideLayout>
+    </>
   );
 }
 

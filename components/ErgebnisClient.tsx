@@ -5,6 +5,7 @@ import { STORAGE_KEY, getDefaultForm } from "@/lib/form-defaults";
 import { sanitizeUmzugForm } from "@/lib/form-sanitize";
 import { describeVolume, estimateTruckTrips } from "@/lib/move-logistics";
 import { resolvePartners } from "@/lib/partner";
+import { estimateDiyKosten } from "@/lib/shared-constants";
 import type { CalculateResult, UmzugFormData } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -75,11 +76,10 @@ function DiyVergleichSection({ form, result }: { form: UmzugFormData; result: Ca
   const vol = result.meta.volumenM3Schaetzung;
   const km = form.distance.km || 0;
 
-  // DIY-Kostenschätzung
-  const lkwMiete = vol <= 10 ? 150 : vol <= 20 ? 220 : vol <= 35 ? 320 : 420;
-  const kraftstoff = Math.round(km * 2 * 0.35); // Hin + Zurück
-  const helferVerpflegung = result.meta.helfer * 25;
-  const diyGesamt = lkwMiete + kraftstoff + helferVerpflegung;
+  // DIY-Kostenschätzung (zentrale Konstanten aus shared-constants.ts)
+  const diy = estimateDiyKosten(vol, km, result.meta.helfer);
+  const { lkwMiete, kraftstoff, helferVerpflegung } = diy;
+  const diyGesamt = diy.gesamt;
 
   const preisUnten = result.korridorUnten;
   const preisOben = result.korridorOben;

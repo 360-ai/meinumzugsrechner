@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["LKW mieten Umzug", "Transporter mieten", "Umzugswagen leihen"],
   ...pageCanonical("/ratgeber/lkw-mieten/"),
   openGraph: {
     title: "Umzugswagen mieten: Führerschein, Größe & Beladetipps 2026",
     description: PAGE_DESC,
     url: "/ratgeber/lkw-mieten/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

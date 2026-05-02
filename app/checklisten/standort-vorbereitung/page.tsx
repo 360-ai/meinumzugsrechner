@@ -1,5 +1,7 @@
 import { GuideLayout } from "@/components/GuideLayout";
+import { JsonLd } from "@/components/JsonLd";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -9,12 +11,14 @@ const PAGE_DESC = "Standort-Vorbereitung und Team-Verpflegung am Umzugstag — a
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug Wohnung vorbereiten", "Umzug Standort Checkliste"],
   ...pageCanonical("/checklisten/standort-vorbereitung/"),
   openGraph: {
     title: "Standort & Catering am Umzugstag",
     description: PAGE_DESC,
     url: "/checklisten/standort-vorbereitung/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -60,7 +64,9 @@ const sections: GuideSection[] = [
 
 export default function StandortVorbereitungPage() {
   return (
-    <GuideLayout
+    <>
+      <JsonLd id="ld-standort-vorbereitung" data={webPageOnlySchema({ path: "/checklisten/standort-vorbereitung/", title: PAGE_TITLE, description: PAGE_DESC })} />
+      <GuideLayout
       title="Site-Management: Standort & Catering"
       category="checklisten"
       categoryLabel="Checklisten"
@@ -205,6 +211,7 @@ export default function StandortVorbereitungPage() {
 
       </div>
     </GuideLayout>
+    </>
   );
 }
 

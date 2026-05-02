@@ -9,12 +9,14 @@ const PAGE_DESC = "Die richtige Packtechnik für Glas, Möbel und Dokumente — 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["richtig verpacken Umzug", "Umzugskartons packen", "Verpackungstipps"],
   ...pageCanonical("/ratgeber/profi-guide-verpacken/"),
   openGraph: {
     title: "Systematisches Verpacken beim Umzug",
     description: PAGE_DESC,
     url: "/ratgeber/profi-guide-verpacken/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -42,7 +44,11 @@ const sections: GuideSection[] = [
   {
     heading: "Am Umzugstag",
     items: [
-      { label: "", text: "Halten Sie Reserve-Boxen bereit. Es tauchen immer Last-Minute-Gegenstände auf: Gardinen, Reinigungsutensilien, vergessene Küchenutensilien." },
+      { label: "Reserve-Kartons bereithalten", text: "3–5 leere Kartons plus Packpapier für Last-Minute-Gegenstände griffbereit lassen." },
+      { label: "Kühlschrank vorbereiten", text: "Mind. 24 Stunden vorher abtauen, Restwasser auffangen, Innenraum auswischen. Tür beim Transport leicht geöffnet lassen." },
+      { label: "Empfindliche Geräte sichern", text: "Waschmaschine mit Transportsicherung fixieren. TV/Monitore mit Decken polstern. Drucker: Tintenkartuschen entfernen." },
+      { label: "Reihenfolge beim Beladen", text: "Schwere Gegenstände zuerst (Waschmaschine, Sofa, Schränke), dann Kartons, fragile Gegenstände zuletzt." },
+      { label: "Letzter Rundgang", text: "Alle Räume, Keller, Dachboden und Briefkasten kontrollieren. Zähler ablesen, Schlüssel bereitlegen." },
     ],
   },
   {
@@ -147,11 +153,51 @@ export default function ProfiGuideVerpackenPage() {
         {/* Section 3 */}
         <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #0088CC" }}>
           <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Am Umzugstag</h2>
-          <p className="text-sm text-[#5A7A8A] leading-relaxed">
-            Halten Sie am Umzugstag einige leere Reserve-Boxen bereit. Erfahrungsgemäß
-            tauchen immer Last-Minute-Gegenstände auf: Gardinen, Reinigungsutensilien
-            oder vergessene Küchenutensilien.
-          </p>
+          <ul className="space-y-2">
+            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>
+                <strong className="text-[#0D2137]">Reserve-Kartons bereithalten:</strong>{" "}
+                Es tauchen immer Last-Minute-Gegenstände auf — Gardinen, Reinigungsutensilien,
+                vergessene Küchenutensilien. 3–5 leere Kartons plus Packpapier griffbereit lassen.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>
+                <strong className="text-[#0D2137]">Kühlschrank vorbereiten:</strong>{" "}
+                Mindestens 24 Stunden vor dem Umzug abtauen. Restwasser auffangen, Innenraum
+                auswischen. Tür beim Transport leicht geöffnet lassen (Gummiband), damit keine
+                Gerüche entstehen.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>
+                <strong className="text-[#0D2137]">Empfindliche Geräte sichern:</strong>{" "}
+                Waschmaschine mit Transportsicherung fixieren (oft im Lieferumfang enthalten).
+                TV und Monitore mit Decken und Gurten polstern, nicht flach legen. Drucker:
+                Tintenkartuschen entfernen.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>
+                <strong className="text-[#0D2137]">Reihenfolge beim Beladen:</strong>{" "}
+                Schwere, stabile Gegenstände zuerst (Waschmaschine, Sofa, Schränke) — sie
+                bilden die Basis. Dann Kartons stapeln, fragile Gegenstände zuletzt. Den
+                Zielraum auf jeden Karton schreiben erleichtert das Ausladen enorm.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
+              <span>
+                <strong className="text-[#0D2137]">Letzter Rundgang:</strong>{" "}
+                Bevor der LKW abfährt: alle Räume, Keller, Dachboden und Briefkasten
+                kontrollieren. Zähler ablesen und dokumentieren. Schlüssel bereitlegen.
+              </span>
+            </li>
+          </ul>
         </div>
 
         {/* Section 4 */}

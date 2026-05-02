@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Sperrgut Umzug", "Klavier transportieren", "schwere Möbel umziehen"],
   ...pageCanonical("/ratgeber/sperrgut/"),
   openGraph: {
     title: "Sperrgut beim Umzug: Kühlschrank, Klavier & Co. richtig transportieren",
     description: PAGE_DESC,
     url: "/ratgeber/sperrgut/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

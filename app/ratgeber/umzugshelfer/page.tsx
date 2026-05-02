@@ -15,12 +15,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugshelfer finden", "Umzugshelfer Kosten", "private Umzugshelfer"],
   ...pageCanonical("/ratgeber/umzugshelfer/"),
   openGraph: {
     title: "Umzugshelfer: Freunde, Studenten oder Profis?",
     description: PAGE_DESC,
     url: "/ratgeber/umzugshelfer/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

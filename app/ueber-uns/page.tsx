@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/JsonLd";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -6,13 +8,16 @@ export const metadata: Metadata = {
   title: "Über uns | meinumzugsrechner.de",
   description:
     "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.de.",
+  keywords: ["meinumzugsrechner", "Umzugsrechner", "Umzugskosten berechnen"],
   ...pageCanonical("/ueber-uns/"),
   openGraph: {
+    type: "website",
     title: "Über meinumzugsrechner.de",
     description:
       "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.de.",
     url: "/ueber-uns/",
   },
+  robots: { index: true, follow: true },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -26,7 +31,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function UeberUnsPage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6">
+    <>
+      <JsonLd id="ld-ueber-uns" data={webPageOnlySchema({ path: "/ueber-uns/", title: "Über uns | meinumzugsrechner.de", description: "Transparente Umzugskosten-Richtwerte ohne Verkauf Ihrer Daten — die Idee und das Team hinter meinumzugsrechner.de." })} />
+      <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6">
       <h1 className="mb-1 text-3xl font-bold text-[#0D2137]">Über uns</h1>
       <p className="mb-8 text-sm text-slate-400">
         Die Idee hinter meinumzugsrechner.de
@@ -105,6 +112,7 @@ export default function UeberUnsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

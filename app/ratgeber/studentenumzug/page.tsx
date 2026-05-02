@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Studentenumzug", "Umzug Studium", "günstig umziehen Student"],
   ...pageCanonical("/ratgeber/studentenumzug/"),
   openGraph: {
     title: "Studentenumzug: Günstig & stressfrei ins WG-Zimmer 2026",
     description: PAGE_DESC,
     url: "/ratgeber/studentenumzug/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

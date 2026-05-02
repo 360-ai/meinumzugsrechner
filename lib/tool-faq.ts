@@ -509,6 +509,29 @@ export const RECHNER_FAQS: { question: string; answer: string }[] = [
   },
 ];
 
+export const NACHSENDEAUFTRAG_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Was kostet ein Nachsendeauftrag bei der Post?",
+    answer: "Ein Nachsendeauftrag kostet bei der Deutschen Post online ab 28,90 € für 6 Monate und ab 38,90 € für 12 Monate. In der Filiale ist es etwas teurer. Für Geschäftskunden gelten andere Tarife.",
+  },
+  {
+    question: "Wie lange dauert es, bis der Nachsendeauftrag aktiv ist?",
+    answer: "Online-Aufträge sind in der Regel nach 5 Werktagen aktiv. In der Filiale kann es etwas schneller gehen. Es empfiehlt sich, den Auftrag mindestens eine Woche vor dem Umzug einzurichten.",
+  },
+  {
+    question: "Werden alle Sendungen nachgesendet?",
+    answer: "Der Nachsendeauftrag gilt für Briefe, Postkarten und Pakete der Deutschen Post und DHL. Sendungen anderer Zusteller wie Hermes, DPD oder GLS werden nicht nachgesendet — diese müssen separat informiert werden.",
+  },
+  {
+    question: "Kann ich den Nachsendeauftrag verlängern?",
+    answer: "Ja, ein Nachsendeauftrag kann einmalig um weitere 6 oder 12 Monate verlängert werden. Die maximale Gesamtlaufzeit beträgt 24 Monate. Danach muss ein neuer Auftrag eingerichtet werden.",
+  },
+  {
+    question: "Nachsendeauftrag online oder in der Filiale?",
+    answer: "Online ist günstiger und bequemer. Sie brauchen nur Ihre alte und neue Adresse, eine E-Mail-Adresse und ein Zahlungsmittel. In der Filiale zahlen Sie einen Aufschlag, haben aber den Vorteil der sofortigen Identitätsprüfung.",
+  },
+];
+
 export const WOHNUNGSAUFLOESUNG_FAQS: { question: string; answer: string }[] = [
   {
     question: "Wie lange haben Erben Zeit, die Wohnung zu kündigen?",
@@ -539,6 +562,178 @@ export const WOHNUNGSAUFLOESUNG_FAQS: { question: string; answer: string }[] = [
     question: "Können die Kosten der Wohnungsauflösung steuerlich abgesetzt werden?",
     answer:
       "Im Todesfall ja: Kosten für die Wohnungsauflösung gelten als Nachlassverbindlichkeit und können in der Erbschaftssteuererklärung abgezogen werden, wenn sie innerhalb der ersten 6 Monate nach dem Tod entstehen. Wer keine Erbschaftssteuer zahlt, kann alternativ haushaltsnahe Dienstleistungen nach § 35a EStG geltend machen: 20 Prozent der Kosten, maximal 4.000 Euro Steuerersparnis pro Jahr.",
+  },
+];
+
+export const ADRESSAENDERUNG_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Welche Stellen muss ich bei einem Umzug informieren?",
+    answer: "Pflicht sind: Einwohnermeldeamt (Ummeldung), KFZ-Zulassungsstelle (bei Kreiswechsel), Arbeitgeber, Finanzamt, Krankenkasse und Rentenversicherung. Dazu kommen Banken, Versicherungen, Versorger, Abos, Online-Shops und der Nachsendeauftrag bei der Post.",
+  },
+  {
+    question: "In welcher Reihenfolge sollte ich die Adressänderungen vornehmen?",
+    answer: "Zuerst: Nachsendeauftrag einrichten (1–2 Wochen vor Umzug). Dann am Umzugstag: Einwohnermeldeamt (innerhalb von 14 Tagen). Danach: Arbeitgeber, Bank, Versicherungen und Versorger. Zuletzt: Online-Shops, Vereine, Abos.",
+  },
+  {
+    question: "Kann ich die Adressänderung online erledigen?",
+    answer: "Viele Stellen bieten Online-Formulare an — Banken, Versicherungen, Online-Shops und der Nachsendeauftrag. Das Einwohnermeldeamt erfordert in den meisten Gemeinden noch einen persönlichen Besuch. Einige Kommunen bieten inzwischen digitale Ummeldung an.",
+  },
+  {
+    question: "Was passiert, wenn ich mich nicht ummelde?",
+    answer: "Die Ummeldung beim Einwohnermeldeamt ist gesetzlich vorgeschrieben. Wer die Frist versäumt, riskiert ein Bußgeld von bis zu 1.000 Euro. Bei anderen Stellen drohen keine Bußgelder, aber wichtige Post kann verloren gehen.",
+  },
+];
+
+export const UMZUG_MIT_KINDERN_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Ab welchem Alter sollte man Kinder in die Umzugsplanung einbeziehen?",
+    answer: "Bereits ab 3–4 Jahren können Kinder altersgerecht einbezogen werden. Zeigen Sie ihnen Fotos der neuen Wohnung, lassen Sie sie beim Packen eigener Spielsachen helfen. Schulkinder sollten aktiv mitreden dürfen — etwa bei der Gestaltung ihres neuen Zimmers.",
+  },
+  {
+    question: "Wann ist der beste Zeitpunkt für einen Umzug mit Kindern?",
+    answer: "Ideal sind die Sommerferien: Kein Schulstress, genug Zeit zum Einleben, und der Schulwechsel fällt auf den Jahresbeginn. Vermeiden Sie Umzüge kurz vor Prüfungen oder in der Eingewöhnungsphase (erste Schulwochen, Kita-Start).",
+  },
+  {
+    question: "Wie meldet man Kinder in der neuen Schule an?",
+    answer: "Kontaktieren Sie das Schulamt am neuen Wohnort möglichst früh. Benötigt werden: Geburtsurkunde, letztes Zeugnis, Anmeldebestätigung des Einwohnermeldeamts. Bei Grundschulen gilt oft ein Sprengelprinzip — das Schulamt weist die zuständige Schule zu.",
+  },
+  {
+    question: "Wie reagieren Kinder typischerweise auf einen Umzug?",
+    answer: "Kleinkinder (bis 3) passen sich meist schnell an. Kindergartenkinder (3–6) können Trennungsangst zeigen. Grundschulkinder trauern oft um Freundschaften. Teenager können mit Wut oder Rückzug reagieren. Alle Reaktionen sind normal und gehen in der Regel nach einigen Wochen zurück.",
+  },
+  {
+    question: "Muss die Kita-Anmeldung am neuen Wohnort vorab erfolgen?",
+    answer: "Ja, unbedingt. Kita-Plätze sind knapp — melden Sie Ihr Kind so früh wie möglich am neuen Wohnort an, idealerweise 3–6 Monate vor dem Umzug. In vielen Städten gibt es zentrale Online-Portale (z. B. Little Bird, Kita-Navigator).",
+  },
+];
+
+export const ERSTE_WOHNUNG_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Was kostet die Grundausstattung für die erste eigene Wohnung?",
+    answer: "Für eine spartanische Grundausstattung sollten Sie mit 2.000–3.500 Euro rechnen: Bett und Matratze (300–600 €), Kühlschrank (200–400 €), Waschmaschine (300–500 €), Herd/Kochfeld (150–400 €), Geschirr und Besteck (50–100 €), Bettwäsche und Handtücher (80–150 €). Gebrauchte Möbel von Kleinanzeigen oder Sozialkaufhäusern können die Kosten erheblich senken.",
+  },
+  {
+    question: "Welche laufenden Kosten kommen auf mich zu?",
+    answer: "Neben der Kaltmiete: Nebenkosten (ca. 2,50–3,50 €/m²), Strom (ca. 40–60 €/Monat für 1 Person), Internet (25–45 €), Rundfunkbeitrag (18,36 €), Haftpflichtversicherung (5–10 €) und Lebensmittel (200–350 €). Als Faustregel gilt: Die Warmmiete sollte maximal ein Drittel des Nettoeinkommens betragen.",
+  },
+  {
+    question: "Was muss ich vor dem Einzug erledigen?",
+    answer: "Strom- und Gasanbieter anmelden (sonst Grundversorgung zu teuren Tarifen), Internetanschluss bestellen (Wartezeit oft 2–4 Wochen), Nachsendeauftrag einrichten, Einwohnermeldeamt (innerhalb von 14 Tagen), GEZ-Anmeldung, Schlüsselübergabe mit Übergabeprotokoll, Haftpflichtversicherung abschließen.",
+  },
+  {
+    question: "Brauche ich eine Hausratversicherung?",
+    answer: "Für die erste Wohnung mit wenig Inventar ist eine Hausratversicherung optional. Eine private Haftpflichtversicherung ist dagegen Pflicht — sie schützt bei Schäden an der Mietwohnung (z. B. Wasserschaden). Hausrat lohnt sich erst, wenn der Besitz einen nennenswerten Wert hat (ab ca. 10.000 €).",
+  },
+  {
+    question: "Kann ich als Student oder Azubi eine Wohnung mieten?",
+    answer: "Ja, aber Vermieter verlangen oft Sicherheiten: Bürgschaft der Eltern, Mietkaution (max. 3 Monatsmieten), Einkommensnachweise oder BAföG-Bescheid. Eine Elternbürgschaft ist das gängigste Modell. WG-Zimmer sind die günstigere Alternative mit weniger bürokratischen Hürden.",
+  },
+];
+
+export const UMZUGSFIRMA_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Woran erkenne ich eine seriöse Umzugsfirma?",
+    answer: "Achten Sie auf: Festpreisangebot nach Besichtigung (nicht nur telefonisch), transparente AGB, gültige Transportversicherung, Handelsregistereintrag, positive Bewertungen auf unabhängigen Portalen. Seriöse Firmen drängen nicht zum Sofort-Abschluss und verlangen keine Vorauszahlung.",
+  },
+  {
+    question: "Was kostet eine Umzugsfirma für eine 3-Zimmer-Wohnung?",
+    answer: "Für einen lokalen Umzug (unter 50 km) einer 3-Zimmer-Wohnung liegt der Preiskorridor bei 800–1.800 Euro. Fernumzüge kosten 1.500–3.500 Euro. Der Preis hängt von Volumen, Etage, Parkplatzsituation und gewählten Zusatzleistungen (Ein-/Auspacken, Möbelmontage) ab.",
+  },
+  {
+    question: "Wie viele Angebote sollte ich einholen?",
+    answer: "Mindestens drei Angebote von verschiedenen Firmen, idealerweise nach einer Vor-Ort-Besichtigung. Telefonische Pauschalangebote sind oft ungenau und führen zu Nachforderungen am Umzugstag. Vergleichen Sie nicht nur den Preis, sondern auch den Leistungsumfang und die Versicherungssumme.",
+  },
+  {
+    question: "Was ist bei der Transportversicherung zu beachten?",
+    answer: "Seriöse Umzugsfirmen haben eine Transportversicherung mit mindestens 620 Euro pro Kubikmeter Ladegut (gesetzliches Minimum). Hochwertige Möbel oder Elektronik sollten per Zusatzversicherung abgesichert werden. Lassen Sie sich die Versicherungspolice zeigen und klären Sie die Selbstbeteiligung.",
+  },
+  {
+    question: "Kann ich Teilleistungen buchen?",
+    answer: "Ja, viele Firmen bieten modulare Angebote: nur Transport (Sie packen selbst), Transport + Möbelmontage, Komplettumzug mit Ein- und Auspacken. Teilleistungen können die Kosten deutlich senken — der reine Transport einer 3-Zimmer-Wohnung ist oft 30–40 % günstiger als ein Komplettumzug.",
+  },
+];
+
+export const RENOVIERUNGSPFLICHT_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Muss ich beim Auszug renovieren?",
+    answer: "Nur wenn der Mietvertrag eine wirksame Schönheitsreparaturklausel enthält UND Sie die Wohnung in renoviertem Zustand übernommen haben. Starre Fristenpläne (z. B. 'alle 3 Jahre Küche streichen') sind unwirksam. Im Zweifel gilt: unrenoviert übernommen = unrenoviert zurückgeben.",
+  },
+  {
+    question: "Was zählt als Schönheitsreparatur?",
+    answer: "Tapezieren, Anstreichen oder Kalken der Wände und Decken, Streichen der Fußböden, Heizkörper, Innentüren, Fenster und Außentüren von innen. Nicht dazu gehören: Parkett abschleifen, Teppichboden erneuern, Außenanstrich, Reparaturen an der Bausubstanz.",
+  },
+  {
+    question: "Was bedeutet 'besenrein' zurückgeben?",
+    answer: "Besenrein bedeutet: grob gereinigt, keine persönlichen Gegenstände, keine groben Verschmutzungen. Es bedeutet NICHT: professionelle Grundreinigung, streichen oder tapezieren. Besenrein ist der Minimalstandard, den jeder Mieter schuldet — unabhängig von der Renovierungsklausel.",
+  },
+  {
+    question: "Kann der Vermieter eine bestimmte Farbe beim Streichen verlangen?",
+    answer: "Während der Mietzeit dürfen Sie die Wohnung in jeder Farbe streichen. Beim Auszug darf der Vermieter nur neutrale, helle Farben verlangen (Weiß, Hellbeige, Hellgrau). Eine Klausel, die während der Mietzeit bestimmte Farben vorschreibt, ist unwirksam (BGH, 2009).",
+  },
+  {
+    question: "Wann ist eine Renovierungsklausel im Mietvertrag unwirksam?",
+    answer: "Unwirksam sind: starre Fristenpläne ohne Berücksichtigung des tatsächlichen Zustands, Endrenovierungsklauseln (die immer zum Auszug verpflichten), Farbwahlklauseln während der Mietzeit, Renovierungspflicht bei unrenoviert übernommener Wohnung ohne angemessenen Ausgleich. Im Zweifel lohnt sich ein Blick in die Rechtsprechung des BGH.",
+  },
+];
+
+export const UEBERGABEPROTOKOLL_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Ist ein Übergabeprotokoll Pflicht?",
+    answer: "Nein, es gibt keine gesetzliche Pflicht. Aber ohne Protokoll stehen Sie im Streitfall ohne Beweis da. Sowohl Mieter als auch Vermieter profitieren von einer sauberen Dokumentation — es schützt beide Seiten vor ungerechtfertigten Forderungen.",
+  },
+  {
+    question: "Was muss in einem Übergabeprotokoll stehen?",
+    answer: "Datum, Namen beider Parteien, Adresse der Wohnung, Zustand jedes Raums (Wände, Böden, Fenster, Türen), alle Zählerstände (Strom, Gas, Wasser), Anzahl übergebener Schlüssel, vorhandene Mängel und Schäden mit Beschreibung, Unterschriften beider Parteien.",
+  },
+  {
+    question: "Wer erstellt das Übergabeprotokoll?",
+    answer: "Üblicherweise der Vermieter oder die Hausverwaltung. Aber: Wenn der Vermieter keins mitbringt, erstellen Sie selbst eines. Es gibt kein festgelegtes Format — wichtig ist nur, dass beide Parteien es unterschreiben.",
+  },
+  {
+    question: "Soll ich Fotos beim Übergabeprotokoll machen?",
+    answer: "Unbedingt. Fotografieren Sie jeden Raum, alle vorhandenen Mängel und die Zählerstände. Fotos mit Zeitstempel sind vor Gericht als Beweis verwertbar. Idealerweise in Anwesenheit des Vermieters, damit der Zustand unstrittig dokumentiert ist.",
+  },
+  {
+    question: "Was tun, wenn der Vermieter das Protokoll nicht unterschreiben will?",
+    answer: "Notieren Sie den Zustand trotzdem schriftlich, machen Sie Fotos mit Zeitstempel und nehmen Sie einen Zeugen mit. In einem Streitfall haben Sie so zumindest eine einseitige Dokumentation. Im Zweifelsfall den Mieterschutzbund kontaktieren.",
+  },
+];
+
+export const UMZUGSTAG_PLANER_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Wie lange dauert ein Umzug am Umzugstag?",
+    answer: "Ein typischer lokaler Umzug einer 3-Zimmer-Wohnung dauert 6–10 Stunden inklusive Be- und Entladen, Fahrt und Grundeinrichtung. Mit professionellen Helfern eher 5–7 Stunden, in Eigenregie oft länger.",
+  },
+  {
+    question: "Wann sollte der Umzugstag beginnen?",
+    answer: "Idealerweise zwischen 7:00 und 8:00 Uhr. So haben Sie genug Tageslicht und Puffer für Unvorhergesehenes. Beachten Sie eventuelle Ruhezeiten in Mietwohnungen (oft vor 8:00 und nach 20:00 Uhr).",
+  },
+  {
+    question: "Was muss am Vorabend erledigt sein?",
+    answer: "Alle Kartons gepackt und beschriftet, Möbel demontiert, Kühlschrank abgetaut, Halteverbot kontrolliert, Schlüssel bereitlegen, Verpflegung für Helfer vorbereiten, LKW oder Transporter bestätigt.",
+  },
+  {
+    question: "Wie viele Helfer brauche ich?",
+    answer: "Faustregel: 1 Helfer pro Zimmer, mindestens 2 Personen. Für eine 3-Zimmer-Wohnung sind 3–4 Helfer ideal. Bei schwerem Mobiliar (Klavier, Tresor) mindestens 4 kräftige Personen einplanen.",
+  },
+];
+
+export const ENTRUEMPELUNG_RECHNER_FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Was kostet eine Entrümpelung pro Quadratmeter?",
+    answer: "Als grobe Orientierung: 30–80 Euro pro Quadratmeter je nach Füllgrad, Etage und Region. Eine leicht gefüllte 60-m²-Wohnung im Erdgeschoss kann ab 500 Euro kosten, eine vollgestopfte 60-m²-Wohnung im 4. OG ohne Aufzug bis 3.000 Euro.",
+  },
+  {
+    question: "Was kostet ein Container für die Entrümpelung?",
+    answer: "Ein 5-m³-Container (Absetzcontainer) kostet 200–400 Euro inkl. Lieferung und Abholung. Ein 10-m³-Container liegt bei 350–600 Euro. Hinzu kommen Entsorgungsgebühren je nach Abfallart. Sperrmüll ist günstiger als Bauschutt oder Sondermüll.",
+  },
+  {
+    question: "Lohnt sich eine Entrümpelungsfirma?",
+    answer: "Bei großen Mengen, schweren Möbeln, höheren Etagen oder Sondermüll (Farben, Elektrogeräte) lohnt sich eine Firma fast immer. Sie übernimmt Sortierung, Transport und fachgerechte Entsorgung. Brauchbare Gegenstände können den Preis über Wertanrechnung senken.",
+  },
+  {
+    question: "Wie kann ich die Entrümpelungskosten senken?",
+    answer: "Selbst aussortieren und Brauchbares über Kleinanzeigen, Sozialkaufhäuser oder Verschenk-Gruppen abgeben. Sperrmüll-Abholung der Stadt nutzen (oft kostenlos oder günstig). Nur den Rest von einer Firma entsorgen lassen. Mehrere Angebote vergleichen.",
   },
 ];
 

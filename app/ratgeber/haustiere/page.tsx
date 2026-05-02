@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug mit Haustier", "Umzug Hund Katze", "Haustier Umzug Stress"],
   ...pageCanonical("/ratgeber/haustiere/"),
   openGraph: {
     title: "Umzug mit Haustieren: Katze, Hund & Co. stressfrei umziehen",
     description: PAGE_DESC,
     url: "/ratgeber/haustiere/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

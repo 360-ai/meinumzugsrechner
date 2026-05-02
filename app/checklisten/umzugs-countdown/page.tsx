@@ -1,6 +1,8 @@
 import { GuideLayout } from "@/components/GuideLayout";
+import { JsonLd } from "@/components/JsonLd";
 import { UmzugsCountdownClient } from "@/components/UmzugsCountdownClient";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -10,12 +12,14 @@ const PAGE_DESC = "5-Phasen Umzugsplanung von der Entscheidung bis zum Einzugsta
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug Countdown", "Umzug Zeitplan", "Umzug Wochen vorher"],
   ...pageCanonical("/checklisten/umzugs-countdown/"),
   openGraph: {
     title: "Umzugs-Countdown 2026",
     description: PAGE_DESC,
     url: "/checklisten/umzugs-countdown/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -67,7 +71,9 @@ const sections: GuideSection[] = [
 
 export default function UmzugsCountdownPage() {
   return (
-    <GuideLayout
+    <>
+      <JsonLd id="ld-umzugs-countdown" data={webPageOnlySchema({ path: "/checklisten/umzugs-countdown/", title: PAGE_TITLE, description: PAGE_DESC })} />
+      <GuideLayout
       title="Projektplan: Umzugs-Countdown 2026"
       category="checklisten"
       categoryLabel="Checklisten"
@@ -79,6 +85,7 @@ export default function UmzugsCountdownPage() {
     >
       <UmzugsCountdownClient />
     </GuideLayout>
+    </>
   );
 }
 

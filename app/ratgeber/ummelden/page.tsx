@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Ummelden Umzug", "Wohnsitz ummelden", "Adressänderung Umzug"],
   ...pageCanonical("/ratgeber/ummelden/"),
   openGraph: {
     title: "Ummelden nach dem Umzug: Fristen, Dokumente & Checkliste 2026",
     description: PAGE_DESC,
     url: "/ratgeber/ummelden/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -26,7 +28,7 @@ const sections: GuideSection[] = [
   {
     heading: "Pflicht: Ummeldung beim Einwohnermeldeamt",
     items: [
-      { label: "Gesetzliche Frist", text: "In den meisten Bundesländern 14 Tage nach Einzug, in einigen nur 7 Tage. Wer zu spät kommt, riskiert ein Bußgeld bis 1.000 Euro." },
+      { label: "Gesetzliche Frist", text: "Seit dem Bundesmeldegesetz (BMG 2015) gilt bundesweit einheitlich: Ummeldung innerhalb von 14 Tagen nach Einzug. Wer die Frist versäumt, riskiert ein Bußgeld bis 1.000 Euro." },
       { label: "Wohnungsgeberbestätigung", text: "Pflichtdokument seit 2015. Der Vermieter muss es innerhalb von zwei Wochen nach Einzug ausstellen — ohne dieses Papier ist die Ummeldung nicht möglich." },
       { label: "Personalausweis / Reisepass", text: "Gültiges Ausweisdokument zwingend erforderlich. Wer nur einen abgelaufenen Ausweis hat, muss diesen parallel erneuern lassen." },
       { label: "Termin vorab buchen", text: "Viele Einwohnermeldeämter bieten Online-Terminbuchung an. Ohne Termin sind die Wartezeiten oft lang — am besten schon vor dem Umzug buchen." },
@@ -82,7 +84,7 @@ export default function UmmeldenRatgeberPage() {
           steps: [
             { name: "Wohnungsgeberbestätigung besorgen", text: "Vom Vermieter die Wohnungsgeberbestätigung anfordern — Pflichtdokument seit 2015, ohne das die Ummeldung nicht möglich ist." },
             { name: "Termin beim Einwohnermeldeamt buchen", text: "Online-Terminbuchung nutzen, am besten schon vor dem Umzugstag. Viele Ämter haben lange Wartezeiten." },
-            { name: "Beim Einwohnermeldeamt ummelden", text: "Personalausweis und Wohnungsgeberbestätigung mitbringen. Frist: 14 Tage nach Einzug (in einigen Bundesländern 7 Tage). Bei Versäumnis droht ein Bußgeld bis 1.000 Euro." },
+            { name: "Beim Einwohnermeldeamt ummelden", text: "Personalausweis und Wohnungsgeberbestätigung mitbringen. Frist: 14 Tage nach Einzug (bundesweit einheitlich seit BMG 2015). Bei Versäumnis droht ein Bußgeld bis 1.000 Euro." },
             { name: "KFZ ummelden (falls Landkreiswechsel)", text: "Bei Umzug in einen anderen Landkreis: Zulassungsbescheinigung Teil I, Personalausweis und eVB-Nummer der KFZ-Versicherung zur Zulassungsstelle mitbringen." },
             { name: "KFZ-Versicherung informieren", text: "Wohnortwechsel der Versicherung melden — die Regionalklasse kann sich ändern und damit der Beitrag." },
             { name: "Alle weiteren Stellen benachrichtigen", text: "Finanzamt, Kranken- und Rentenversicherung, Beitragsservice (GEZ), Arbeitgeber sowie alle Banken und Kreditkarten direkt informieren." },
@@ -115,7 +117,7 @@ export default function UmmeldenRatgeberPage() {
             <h2 className="mb-3 text-sm font-bold text-amber-800">Frist auf einen Blick</h2>
             <div className="grid gap-3 sm:grid-cols-3 text-sm">
               {[
-                { label: "Einwohnermeldeamt", value: "14 Tage (einige BL: 7 Tage)" },
+                { label: "Einwohnermeldeamt", value: "14 Tage (bundesweit)" },
                 { label: "KFZ-Zulassung", value: "kein fixer Termin, aber zügig" },
                 { label: "Nachsendeauftrag", value: "mind. 5 Werktage vorher" },
               ].map((item) => (
@@ -132,7 +134,7 @@ export default function UmmeldenRatgeberPage() {
             <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Pflicht: Ummeldung beim Einwohnermeldeamt</h2>
             <ul className="space-y-3">
               {[
-                { label: "Gesetzliche Frist", text: "14 Tage nach Einzug in den meisten Bundesländern, in einigen nur 7 Tage. Bußgeld bei Versäumnis: bis zu 1.000 Euro." },
+                { label: "Gesetzliche Frist", text: "14 Tage nach Einzug — bundesweit einheitlich seit dem Bundesmeldegesetz 2015. Bußgeld bei Versäumnis: bis zu 1.000 Euro." },
                 { label: "Wohnungsgeberbestätigung", text: "Pflichtdokument seit 2015 — muss vom Vermieter ausgestellt werden. Ohne dieses Formular läuft die Ummeldung nicht." },
                 { label: "Personalausweis / Reisepass", text: "Gültiges Ausweisdokument mitbringen. Wer nur einen abgelaufenen Ausweis hat, sollte diesen parallel erneuern lassen." },
                 { label: "Termin vorab buchen", text: "Online-Terminbuchung nutzen, viele Ämter haben lange Wartezeiten. Am besten bereits vor dem Umzugstag buchen." },

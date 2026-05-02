@@ -13,6 +13,7 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
+  keywords: ["Umzugskosten Methodik", "Umzugskosten Berechnung", "Umzugsrechner Methode"],
   ...pageCanonical("/so-rechnen-wir/"),
   openGraph: { title: "So rechnen wir", description: DESC, url: "/so-rechnen-wir/" },
   robots: { index: true, follow: true },

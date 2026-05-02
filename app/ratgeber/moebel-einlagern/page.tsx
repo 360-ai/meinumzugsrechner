@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Möbel einlagern", "Selfstorage Umzug", "Lagerraum mieten"],
   ...pageCanonical("/ratgeber/moebel-einlagern/"),
   openGraph: {
     title: "Möbel einlagern: Kosten, Self-Storage & Tipps 2026",
     description: PAGE_DESC,
     url: "/ratgeber/moebel-einlagern/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -68,6 +70,15 @@ const sections: GuideSection[] = [
       { label: "Schweres nach unten, Leichtes nach oben", text: "Stabile Möbel und schwere Kartons als Basis, fragile Gegenstände und leichtes Material darüber. Polstermöbel aufrecht stellen, nicht stapeln." },
       { label: "Holzmöbel mit Decken einwickeln", text: "Nicht in Plastikfolie — die verhindert die Belüftung und fördert Schimmelbildung. Baumwolldecken oder Möbeldecken erlauben Luftzirkulation." },
       { label: "Was nicht gelagert werden sollte", text: "Lebensmittel, Pflanzen, brennbare Flüssigkeiten, Chemikalien und Bargeld sind bei den meisten Anbietern verboten. Wertgegenstände wie Schmuck oder Dokumente besser im Banktresor oder Safe aufbewahren." },
+    ],
+  },
+  {
+    heading: "Schädlingsbefall bei Langzeitlagerung vermeiden",
+    items: [
+      { label: "Kleidermotten", text: "Textilien und Polster vor dem Einlagern waschen oder reinigen. Lavendelsäckchen oder Zedernholzringe in Kartons legen. Kleidersäcke aus Baumwolle verwenden, keine Plastikfolie." },
+      { label: "Holzwurm und Nagekäfer", text: "Holzmöbel vor der Einlagerung auf kleine Löcher und Bohrmehl prüfen. Befallene Stücke nicht mit anderen Möbeln lagern — Befall kann sich ausbreiten." },
+      { label: "Schimmel durch Feuchtigkeit", text: "Größtes Risiko bei Langzeitlagerung. Nur trockene, belüftete Räume wählen. Feuchtigkeitsabsorber (Granulat) aufstellen. Möbel nicht direkt an Außenwände stellen." },
+      { label: "Regelmäßige Kontrolle", text: "Bei Lagerung über 3 Monate alle 4–6 Wochen kurz vorbeischauen: Geruch prüfen, Feuchtigkeit kontrollieren, Fallen inspizieren. Frühzeitig reagieren spart teure Schäden." },
     ],
   },
 ];
@@ -188,6 +199,24 @@ export default function MoebelEinlagernRatgeberPage() {
               ].map((item) => (
                 <li key={item.label} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#FF7700", marginTop: "6px" }} />
+                  <span><strong className="text-[#0D2137]">{item.label}:</strong> {item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Schädlingsbefall */}
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #0088CC" }}>
+            <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Schädlingsbefall bei Langzeitlagerung vermeiden</h2>
+            <ul className="space-y-2">
+              {[
+                { label: "Kleidermotten", text: "Textilien und Polster vor dem Einlagern waschen oder reinigen. Lavendelsäckchen oder Zedernholzringe in Kartons legen. Kleidersäcke aus Baumwolle verwenden, keine Plastikfolie." },
+                { label: "Holzwurm und Nagekäfer", text: "Holzmöbel vor der Einlagerung auf kleine Löcher und Bohrmehl prüfen. Befallene Stücke nicht mit anderen Möbeln lagern — Befall kann sich ausbreiten." },
+                { label: "Schimmel durch Feuchtigkeit", text: "Größtes Risiko bei Langzeitlagerung. Nur trockene, belüftete Räume wählen. Feuchtigkeitsabsorber (Granulat) aufstellen. Möbel nicht direkt an Außenwände stellen." },
+                { label: "Regelmäßige Kontrolle", text: "Bei Lagerung über 3 Monate alle 4–6 Wochen kurz vorbeischauen: Geruch prüfen, Feuchtigkeit kontrollieren. Frühzeitig reagieren spart teure Schäden." },
+              ].map((item) => (
+                <li key={item.label} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
                   <span><strong className="text-[#0D2137]">{item.label}:</strong> {item.text}</span>
                 </li>
               ))}

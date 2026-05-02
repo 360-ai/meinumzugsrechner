@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { PrintButton } from "@/components/PrintButton";
+import { getRelatedGuides } from "@/lib/related-guides";
 import { articleAndBreadcrumbSchema } from "@/lib/schema";
 import type { GuideSection } from "@/lib/generateGuidePdf";
 
@@ -67,6 +68,33 @@ export function GuideLayout({ title, category, categoryLabel, children, sections
 
       {/* Content */}
       <div className="space-y-6">{children}</div>
+
+      {/* Related guides */}
+      {articleSeo && (() => {
+        const related = getRelatedGuides(articleSeo.path);
+        if (related.length === 0) return null;
+        return (
+          <div className="no-print mt-10 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 text-lg font-bold text-[#0D2137]">Das könnte Sie auch interessieren</h2>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {related.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="group flex items-center gap-2 rounded-xl border border-slate-100 p-3 transition-colors hover:border-[#0088CC]/30 hover:bg-[#EBF6FD]"
+                >
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg" style={{ backgroundColor: "#EBF6FD" }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0088CC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </span>
+                  <span className="text-sm font-medium text-[#0D2137] group-hover:text-[#0088CC] transition-colors">{r.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Footer note */}
       <div className="no-print mt-12 rounded-2xl border border-slate-100 bg-[#EBF6FD] p-6 text-sm text-[#5A7A8A]">

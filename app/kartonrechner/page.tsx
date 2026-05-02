@@ -14,12 +14,15 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Kartonrechner", "Umzugskartons berechnen", "wie viele Kartons Umzug", "Kartonbedarf"],
   ...pageCanonical("/kartonrechner/"),
   openGraph: {
+    type: "website",
     title: "Kartonrechner: Wie viele Umzugskartons brauche ich?",
     description: PAGE_DESC,
     url: "/kartonrechner/",
   },
+  robots: { index: true, follow: true },
 };
 
 export default function KartonrechnerPage() {

@@ -16,12 +16,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Wohnungsauflösung", "Haushaltsauflösung Kosten", "Wohnungsauflösung Todesfall"],
   ...pageCanonical("/ratgeber/wohnungsaufloesung/"),
   openGraph: {
     title: "Wohnungsauflösung: Todesfall, Pflegeheim & Umzug",
     description: PAGE_DESC,
     url: "/ratgeber/wohnungsaufloesung/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

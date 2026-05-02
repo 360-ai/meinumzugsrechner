@@ -1,6 +1,7 @@
 import preismatrix from "@/data/preismatrix.json";
-import type { CalculateResult, UmzugFormData } from "./types";
 import { estimateMarketBenchmark } from "./market-benchmark";
+import { HELFER_VOLUMEN_SCHWELLE_M3 } from "./shared-constants";
+import type { CalculateResult, UmzugFormData } from "./types";
 
 type Matrix = typeof preismatrix;
 
@@ -106,7 +107,7 @@ function finalizeKorridor(
   let helfer = preismatrix.anzahl_helfer_basis;
   const volThreshold =
     (preismatrix as Matrix & { volumen_m3_fuer_dritter_helfer?: number })
-      .volumen_m3_fuer_dritter_helfer ?? 35;
+      .volumen_m3_fuer_dritter_helfer ?? HELFER_VOLUMEN_SCHWELLE_M3;
   if (volumenM3 >= volThreshold) helfer = 3;
   if (minuten > 720) helfer = 3;
 

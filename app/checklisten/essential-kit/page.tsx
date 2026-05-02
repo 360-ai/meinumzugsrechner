@@ -1,6 +1,8 @@
 import { GuideLayout } from "@/components/GuideLayout";
+import { JsonLd } from "@/components/JsonLd";
 import type { ReactNode } from "react";
 import type { GuideSection } from "@/lib/generateGuidePdf";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -11,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug Erstausstattung", "Essential Kit Umzug", "Umzugstag Ausrüstung"],
   ...pageCanonical("/checklisten/essential-kit/"),
   openGraph: {
     title: "Essential-Kit Umzug",
     description: PAGE_DESC,
     url: "/checklisten/essential-kit/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -228,7 +232,9 @@ const sections: GuideSection[] = [
 
 export default function EssentialKitPage() {
   return (
-    <GuideLayout
+    <>
+      <JsonLd id="ld-essential-kit" data={webPageOnlySchema({ path: "/checklisten/essential-kit/", title: PAGE_TITLE, description: PAGE_DESC })} />
+      <GuideLayout
       title="Essential-Kit: Checkliste für den ersten Tag"
       category="checklisten"
       categoryLabel="Checklisten"
@@ -282,6 +288,7 @@ export default function EssentialKitPage() {
 
       </div>
     </GuideLayout>
+    </>
   );
 }
 

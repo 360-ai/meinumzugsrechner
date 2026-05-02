@@ -10,12 +10,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugskosten Steuer absetzen", "Umzug Steuererklärung", "Umzugspauschale"],
   ...pageCanonical("/ratgeber/steuerspartipps/"),
   openGraph: {
     title: "Umzugskosten und Steuer verständlich erklärt",
     description: PAGE_DESC,
     url: "/ratgeber/steuerspartipps/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

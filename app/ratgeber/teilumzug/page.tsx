@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Teilumzug", "einzelne Möbel transportieren", "Beiladung Umzug"],
   ...pageCanonical("/ratgeber/teilumzug/"),
   openGraph: {
     title: "Teilumzug: Was es ist, wann es sich lohnt & Kostentipps 2026",
     description: PAGE_DESC,
     url: "/ratgeber/teilumzug/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

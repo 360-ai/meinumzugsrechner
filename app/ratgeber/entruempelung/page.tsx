@@ -15,12 +15,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Entrümpelung Kosten", "Entrümpelung vor Umzug", "Wohnung entrümpeln"],
   ...pageCanonical("/ratgeber/entruempelung/"),
   openGraph: {
     title: "Entrümpelung vor dem Umzug: Kosten & Tipps",
     description: PAGE_DESC,
     url: "/ratgeber/entruempelung/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

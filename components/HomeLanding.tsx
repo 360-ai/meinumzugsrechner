@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Hero } from "@/components/Hero";
+import { TrustBadges } from "@/components/TrustBadges";
 import { HOME_PAGE_FAQS } from "@/lib/home-faq";
 
 const ShieldIcon = () => (
@@ -114,6 +115,10 @@ export function HomeLanding() {
   return (
     <div>
       <Hero />
+
+      <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
+        <TrustBadges />
+      </div>
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">

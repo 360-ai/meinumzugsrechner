@@ -1,3 +1,4 @@
+import { estimateVolumeFromQuickInput } from "./shared-constants";
 import type { HaushaltGroesse } from "./types";
 
 export type TruckLicenseClass = "B" | "C1" | "C";
@@ -73,19 +74,7 @@ export const MOVING_TRUCKS: MovingTruck[] = [
   },
 ];
 
-const HOUSEHOLD_VOLUME_FACTOR: Record<HaushaltGroesse, number> = {
-  "1": 0.9,
-  "2": 1,
-  "3_4": 1.15,
-  "5plus": 1.3,
-};
-
-const HOUSEHOLD_EXTRA_M3: Record<HaushaltGroesse, number> = {
-  "1": 0,
-  "2": 2,
-  "3_4": 5,
-  "5plus": 9,
-};
+// Haushalt-Faktoren jetzt zentral in shared-constants.ts
 
 const ROOM_VOLUME_M3: Record<number, number> = {
   1: 8,
@@ -141,16 +130,7 @@ export function estimateRoomVolume(zimmer: number): number {
 }
 
 export function estimateQuickMoveVolume(input: QuickVolumeInput): number {
-  const wohnflaeche = Math.max(10, input.wohnflaecheM2);
-  const zimmer = Math.max(1, input.zimmer);
-  const householdFactor = HOUSEHOLD_VOLUME_FACTOR[input.haushaltGroesse];
-  const householdExtra = HOUSEHOLD_EXTRA_M3[input.haushaltGroesse];
-
-  const areaVolume = wohnflaeche * 0.34;
-  const roomVolume = zimmer * 2.2;
-  const raw = (areaVolume + roomVolume + householdExtra) * householdFactor;
-
-  return Math.round(Math.min(220, Math.max(6, raw)) * 10) / 10;
+  return estimateVolumeFromQuickInput(input.wohnflaecheM2, input.zimmer, input.haushaltGroesse);
 }
 
 export function describeRoomSelection(zimmer: number): RoomSelectionDescription {

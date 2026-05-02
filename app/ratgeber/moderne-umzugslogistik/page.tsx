@@ -10,12 +10,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugslogistik", "Umzug planen Logistik", "Umzug Organisation"],
   ...pageCanonical("/ratgeber/moderne-umzugslogistik/"),
   openGraph: {
     title: "Moderne Umzugslogistik verständlich erklärt",
     description: PAGE_DESC,
     url: "/ratgeber/moderne-umzugslogistik/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

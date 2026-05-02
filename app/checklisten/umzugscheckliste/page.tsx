@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugscheckliste", "Umzug Checkliste PDF", "Umzug planen Liste"],
   ...pageCanonical("/checklisten/umzugscheckliste/"),
   openGraph: {
     title: "Vollständige Umzugscheckliste 2026: 48 Aufgaben von A bis Z",
     description: PAGE_DESC,
     url: "/checklisten/umzugscheckliste/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 

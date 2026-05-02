@@ -13,12 +13,14 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzug selber machen", "Umzugsfirma oder selbst", "DIY Umzug"],
   ...pageCanonical("/ratgeber/selbst-vs-profi/"),
   openGraph: {
     title: "Selbst umziehen oder Umzugsfirma? Ehrlicher Vergleich",
     description: PAGE_DESC,
     url: "/ratgeber/selbst-vs-profi/",
     type: "article",
+    publishedTime: "2026-05-02T00:00:00Z",
   },
 };
 
@@ -259,7 +261,7 @@ export default function SelbstVsProfiPage() {
         {/* CTA */}
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
           <strong>Noch unsicher?</strong> Unser{" "}
-          <a href="/vergleich/" className="underline font-medium">Vergleichsrechner</a> zeigt Ihnen, was ein Profi-Umzug in Ihrer Region ungefähr kostet — damit Sie eine fundierte Entscheidung treffen können, bevor Sie Angebote einholen.
+          <a href="/rechner/" className="underline font-medium">Umzugskosten-Rechner</a> zeigt Ihnen, was ein Profi-Umzug in Ihrer Region ungefähr kostet — damit Sie eine fundierte Entscheidung treffen können, bevor Sie Angebote einholen.
         </div>
 
       </div>

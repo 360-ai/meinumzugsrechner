@@ -1,4 +1,6 @@
+import { JsonLd } from "@/components/JsonLd";
 import { VergleichClient } from "@/components/VergleichClient";
+import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 import type { Metadata } from "next";
 import { Suspense } from "react";
@@ -10,17 +12,22 @@ const PAGE_DESC =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: ["Umzugskosten vergleichen", "Umzug Preisvergleich", "Umzugsfirma Kosten"],
   ...pageCanonical("/vergleich/"),
   openGraph: {
+    type: "website",
     title: "Selbst umziehen oder Umzugsfirma?",
     description: PAGE_DESC,
     url: "/vergleich/",
   },
+  robots: { index: true, follow: true },
 };
 
 export default function VergleichPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <>
+      <JsonLd id="ld-vergleich" data={webPageOnlySchema({ path: "/vergleich/", title: PAGE_TITLE, description: PAGE_DESC })} />
+      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-[#0D2137] sm:text-4xl">
           Selbst umziehen oder Profis beauftragen?
@@ -34,6 +41,7 @@ export default function VergleichPage() {
         <VergleichClient />
       </Suspense>
     </div>
+    </>
   );
 }
 
