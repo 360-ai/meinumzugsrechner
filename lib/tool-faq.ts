@@ -170,7 +170,7 @@ export const SONDERURLAUB_FAQS: { question: string; answer: string }[] = [
   {
     question: "Habe ich beim Umzug gesetzlichen Anspruch auf Sonderurlaub?",
     answer:
-      "Nein. Das deutsche Gesetz sieht keinen allgemeinen Anspruch auf bezahlten Sonderurlaub beim privaten Umzug vor. Ein Anspruch entsteht nur, wenn er im Arbeitsvertrag, in einer Betriebsvereinbarung oder im geltenden Tarifvertrag geregelt ist. Ausnahme: Umzüge, die der Arbeitgeber angeordnet hat — dort gilt die Umzugskostenverordnung (BUKG).",
+      "Nein. Das deutsche Gesetz sieht keinen allgemeinen Anspruch auf bezahlten Sonderurlaub beim privaten Umzug vor. Ein Anspruch entsteht nur, wenn er im Arbeitsvertrag, in einer Betriebsvereinbarung oder im geltenden Tarifvertrag geregelt ist. Ausnahme: Dienstlich angeordnete Umzüge — nach dem BUKG haben Bundesbeamte, Soldaten und über § 44 TVöD auch Tarifbeschäftigte des Bundes Anspruch auf einen bezahlten Umzugstag plus Kostenerstattung. Auf Landesebene gelten eigene Regelungen.",
   },
   {
     question: "Was regeln Tarifverträge beim Thema Sonderurlaub?",
@@ -462,7 +462,7 @@ export const UMZUGSHELFER_FAQS: { question: string; answer: string }[] = [
   {
     question: "Was kostet ein professioneller Umzugshelfer?",
     answer:
-      "Studentische und private Umzugshelfer kosten je nach Stadt und Erfahrung zwischen 13 und 17 Euro pro Stunde — wobei der gesetzliche Mindestlohn 2026 bei 13,90 Euro liegt und auch für privat bezahlte Helfer gilt. Professionelle Möbelpacker von Umzugsfirmen liegen bei 17 bis 28 Euro pro Stunde, bringen aber eigenes Werkzeug und Versicherungsschutz mit.",
+      "Studentische und private Umzugshelfer kosten je nach Stadt und Erfahrung zwischen 13 und 17 Euro pro Stunde — wobei der gesetzliche Mindestlohn bei 13,90 Euro liegt (Stand 2026) und auch für privat bezahlte Helfer gilt. Professionelle Möbelpacker von Umzugsfirmen liegen bei 17 bis 28 Euro pro Stunde, bringen aber eigenes Werkzeug und Versicherungsschutz mit.",
   },
   {
     question: "Darf ich Freunde für die Umzugshilfe bezahlen?",
@@ -512,7 +512,7 @@ export const RECHNER_FAQS: { question: string; answer: string }[] = [
 export const NACHSENDEAUFTRAG_FAQS: { question: string; answer: string }[] = [
   {
     question: "Was kostet ein Nachsendeauftrag bei der Post?",
-    answer: "Ein Nachsendeauftrag kostet bei der Deutschen Post online ab 28,90 € für 6 Monate und ab 38,90 € für 12 Monate. In der Filiale ist es etwas teurer. Für Geschäftskunden gelten andere Tarife.",
+    answer: "Ein Nachsendeauftrag kostet bei der Deutschen Post online 31,90 € für 6 Monate (Privat), in der Filiale 34,90 €. Geschäftskunden zahlen 51,90 €. Verlängerung um weitere 6 Monate möglich.",
   },
   {
     question: "Wie lange dauert es, bis der Nachsendeauftrag aktiv ist?",

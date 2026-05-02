@@ -59,7 +59,7 @@ const sections: GuideSection[] = [
     items: [
       { label: "Was er leistet", text: "Der Nachsendeauftrag der Deutschen Post leitet Post von der alten Adresse an die neue weiter. Er fängt Sendungen auf, die trotz aller Änderungen noch an die alte Adresse gehen." },
       { label: "Mindestens 5 Werktage vorher bestellen", text: "Die Aktivierung dauert 3–5 Werktage. Wer zu spät bestellt, hat in den ersten Tagen nach dem Umzug eine Lücke." },
-      { label: "Kosten und Laufzeit", text: "Sechs Monate kosten ca. 28 Euro, ein Jahr ca. 40 Euro. Online buchbar. Verlängerung möglich." },
+      { label: "Kosten und Laufzeit", text: "Sechs Monate kosten online 31,90 Euro (Filiale: 34,90 Euro). Verlängerung möglich." },
       { label: "Kein Ersatz für Adressänderungen", text: "Der Nachsendeauftrag ist eine Überbrückung, kein Dauerzustand. Parallel dazu sollten alle wichtigen Stellen direkt informiert werden." },
     ],
   },
@@ -88,7 +88,7 @@ export default function UmmeldenRatgeberPage() {
             { name: "KFZ ummelden (falls Landkreiswechsel)", text: "Bei Umzug in einen anderen Landkreis: Zulassungsbescheinigung Teil I, Personalausweis und eVB-Nummer der KFZ-Versicherung zur Zulassungsstelle mitbringen." },
             { name: "KFZ-Versicherung informieren", text: "Wohnortwechsel der Versicherung melden — die Regionalklasse kann sich ändern und damit der Beitrag." },
             { name: "Alle weiteren Stellen benachrichtigen", text: "Finanzamt, Kranken- und Rentenversicherung, Beitragsservice (GEZ), Arbeitgeber sowie alle Banken und Kreditkarten direkt informieren." },
-            { name: "Nachsendeauftrag beauftragen", text: "Mindestens 5 Werktage vor dem Umzug bei der Deutschen Post buchen. Kosten: ca. 28 Euro für 6 Monate. Er fängt Post auf, die trotz aller Adressänderungen noch an die alte Adresse geht." },
+            { name: "Nachsendeauftrag beauftragen", text: "Mindestens 7 Tage vor dem Umzug bei der Deutschen Post buchen. Kosten: 31,90 Euro online für 6 Monate. Er fängt Post auf, die trotz aller Adressänderungen noch an die alte Adresse geht." },
           ],
         })}
       />
@@ -191,7 +191,7 @@ export default function UmmeldenRatgeberPage() {
           <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" style={{ borderLeft: "4px solid #FF7700" }}>
             <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Nachsendeauftrag: Sicherheitsnetz, kein Ersatz</h2>
             <p className="mb-3 text-sm text-[#5A7A8A] leading-relaxed">
-              Der Nachsendeauftrag leitet Post von der alten Adresse weiter — er fängt auf, was bei den Adressänderungen durchrutscht. Mindestens 5 Werktage vor dem Umzug bestellen. Kosten: ca. 28 Euro für 6 Monate.
+              Der Nachsendeauftrag leitet Post von der alten Adresse weiter — er fängt auf, was bei den Adressänderungen durchrutscht. Mindestens 7 Tage vor dem Umzug bestellen. Kosten: 31,90 Euro online für 6 Monate.
             </p>
             <p className="text-sm text-[#5A7A8A]">
               Wichtig: Er ist eine Brücke, kein Dauerzustand. Alle wichtigen Stellen sollten trotzdem direkt informiert werden.

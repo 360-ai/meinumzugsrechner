@@ -29,7 +29,7 @@ const sections: GuideSection[] = [
     heading: "Was gilt als Sperrgut?",
     items: [
       { label: "Haushaltsgeräte", text: "Kühlschrank, Gefrierschrank, Waschmaschine, Geschirrspüler, Trockner — alle großen Weißgeräte gelten als Sperrgut, weil sie wegen Gewicht, Empfindlichkeit oder Sperrigkeit besondere Handhabung erfordern." },
-      { label: "Musikinstrumente", text: "Klavier, Flügel, Orgel — durch ihr Gewicht (200–500 kg) und ihre Empfindlichkeit gegenüber Erschütterungen und Temperatur eine eigene Kategorie." },
+      { label: "Musikinstrumente", text: "Klavier, Flügel, Orgel — durch ihr Gewicht (150–500 kg) und ihre Empfindlichkeit gegenüber Erschütterungen und Temperatur eine eigene Kategorie." },
       { label: "Wasserbett", text: "Muss vor dem Transport vollständig entleert werden. Das Vinyl ist empfindlich gegen Knicke und scharfe Kanten." },
       { label: "Großmöbel und Spezialstücke", text: "Übergroße L-Sofas, schwere Esstische aus Massivholz, Kaminöfen, Werkbänke, Tresore — alles was durch Gewicht oder Abmessung den normalen Rahmen sprengt." },
     ],
@@ -149,7 +149,7 @@ export default function SperrgutRatgeberPage() {
             <ul className="space-y-3">
               {[
                 { label: "Transportsicherung einbauen — Pflicht", text: "Transportbolzen in die Öffnungen an der Rückseite schrauben. Fixieren die Trommel. Wer sie nicht mehr hat: beim Hersteller oder im Fachhandel nachbestellen." },
-                { label: "Restwasser ablassen", text: "Über Flusensieb und Ablaufschlauch (vorne unten) das Restwasser ablassen. Sonst läuft Wasser im Laderaum aus." },
+                { label: "Restwasser ablassen", text: "Über das Flusensieb (vorne unten) das Restwasser ablassen. Ablaufschlauch (hinten) ebenfalls leeren. Sonst läuft Wasser im Laderaum aus." },
                 { label: "Stehend transportieren", text: "Nie auf der Seite oder dem Rücken. Schützt die Lager und verhindert, dass Wasser in Bauteile läuft." },
                 { label: "Schläuche und Kabel befestigen", text: "Zu- und Ablaufschlauch trocken wischen und am Gerät fixieren — nicht frei baumeln lassen." },
               ].map((item) => (

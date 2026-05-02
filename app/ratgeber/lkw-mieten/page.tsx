@@ -29,7 +29,7 @@ const sections: GuideSection[] = [
     heading: "Führerschein: Was ist erlaubt?",
     items: [
       { label: "Klasse B (bis 3,5 t)", text: "Reicht für die meisten Sprinter und Kastenwagen. Wichtig: Das Gesamtgewicht umfasst Fahrzeug plus Beladung — ein vollgeladener Transporter kann schnell über die 3,5-Tonnen-Grenze rutschen." },
-      { label: "Alter Führerschein Klasse 3", text: "Wer den alten Führerschein vor 1999 gemacht hat, darf damit Fahrzeuge bis 7,5 Tonnen fahren — deutlich mehr Spielraum." },
+      { label: "Alter Führerschein Klasse 3", text: "Wer den alten Führerschein vor dem 01.01.1999 gemacht hat, darf damit Fahrzeuge bis 7,5 Tonnen fahren — deutlich mehr Spielraum." },
       { label: "Klasse C1 (bis 7,5 t)", text: "Für mittelgroße LKW. Erforderlich wenn Klasse B nicht ausreicht und kein alter Klasse-3-Schein vorhanden ist." },
       { label: "Klasse C / CE", text: "Für große LKW ohne Gewichtsgrenze. Bei Privatumzügen selten notwendig." },
       { label: "Altersanforderungen", text: "Viele Vermieter verlangen mindestens 21 Jahre für Transporter, bei größeren LKW oft 25 Jahre. Vorab beim Anbieter prüfen." },

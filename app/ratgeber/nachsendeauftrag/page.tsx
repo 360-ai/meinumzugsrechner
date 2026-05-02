@@ -39,8 +39,8 @@ const sections: GuideSection[] = [
   {
     heading: "Kosten & Laufzeit",
     items: [
-      { label: "6 Monate online", text: "Ab 28,90 € — in der Regel ausreichend für private Umzüge." },
-      { label: "12 Monate online", text: "Ab 38,90 € — empfohlen, wenn viele Verträge und Abos umgestellt werden müssen." },
+      { label: "6 Monate online", text: "Ab 31,90 € online (34,90 € in der Filiale) — in der Regel ausreichend für private Umzüge." },
+      { label: "12 Monate online", text: "Verlängerung um weitere 6 Monate möglich — empfohlen, wenn viele Verträge und Abos umgestellt werden müssen." },
       { label: "In der Filiale", text: "Aufschlag von ca. 4–5 €. Vorteil: sofortige Identitätsprüfung vor Ort." },
       { label: "Verlängerung", text: "Einmalig um 6 oder 12 Monate möglich. Maximale Gesamtlaufzeit: 24 Monate." },
     ],
@@ -120,19 +120,14 @@ export default function NachsendeauftragPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr className="hover:bg-[#FAFCFE]">
-                  <td className="px-4 py-3 font-medium text-[#0D2137]">6 Monate</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 28,90 €</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 33,90 €</td>
+                  <td className="px-4 py-3 font-medium text-[#0D2137]">6 Monate (Privat)</td>
+                  <td className="px-4 py-3 text-[#5A7A8A]">31,90 €</td>
+                  <td className="px-4 py-3 text-[#5A7A8A]">34,90 €</td>
                 </tr>
                 <tr className="hover:bg-[#FAFCFE]">
-                  <td className="px-4 py-3 font-medium text-[#0D2137]">12 Monate</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 38,90 €</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 43,90 €</td>
-                </tr>
-                <tr className="hover:bg-[#FAFCFE]">
-                  <td className="px-4 py-3 font-medium text-[#0D2137]">Verlängerung 6 Monate</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 28,90 €</td>
-                  <td className="px-4 py-3 text-[#5A7A8A]">ab 33,90 €</td>
+                  <td className="px-4 py-3 font-medium text-[#0D2137]">6 Monate (Geschäftlich)</td>
+                  <td className="px-4 py-3 text-[#5A7A8A]">51,90 €</td>
+                  <td className="px-4 py-3 text-[#5A7A8A]">–</td>
                 </tr>
               </tbody>
             </table>

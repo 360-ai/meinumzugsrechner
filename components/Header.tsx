@@ -80,12 +80,25 @@ const NAV_STRUCTURE: NavEntry[] = [
   },
 ];
 
+function DesktopNavLink({ entry }: { entry: NavEntry }) {
+  return (
+    <Link
+      href={entry.href}
+      className="hidden md:inline-flex font-medium text-[var(--text-muted)] hover:text-primary transition-colors px-2 py-1.5"
+    >
+      {entry.label}
+    </Link>
+  );
+}
+
 function DesktopNavDropdown({ entry }: { entry: NavEntry }) {
+  if (entry.items.length <= 1) return <DesktopNavLink entry={entry} />;
+
   return (
     <div className="relative group hidden md:block">
       <Link
         href={entry.href}
-        className="font-medium text-[var(--text-muted)] hover:text-primary transition-colors px-3 py-1.5 inline-flex items-center gap-0.5"
+        className="font-medium text-[var(--text-muted)] hover:text-primary transition-colors px-2 py-1.5 inline-flex items-center gap-0.5"
       >
         {entry.label}
         <svg
@@ -142,13 +155,13 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1 text-sm" aria-label="Hauptnavigation">
+        <nav className="flex items-center gap-0.5 text-sm ml-4" aria-label="Hauptnavigation">
           {NAV_STRUCTURE.map((entry) => (
             <DesktopNavDropdown key={entry.href} entry={entry} />
           ))}
           <Link
             href="/rechner/"
-            className="hidden md:inline-flex touch-target items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity ml-2"
+            className="hidden md:inline-flex touch-target items-center justify-center whitespace-nowrap rounded-full bg-accent px-5 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity ml-2"
           >
             Jetzt berechnen
           </Link>

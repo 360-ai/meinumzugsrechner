@@ -100,7 +100,7 @@ const sections: GuideSection[] = [
     items: [
       {
         label: "Gesetzliches Minimum",
-        text: "620 Euro pro Kubikmeter Ladegut — reicht oft nicht für hochwertige Möbel oder Elektronik.",
+        text: "Branchenüblich sind 620 Euro pro Kubikmeter Ladegut (AMÖ-Bedingungen) — reicht oft nicht für hochwertige Möbel oder Elektronik.",
       },
       {
         label: "Zusatzversicherung",
@@ -330,10 +330,10 @@ export default function UmzugsfirmaFindenPage() {
               <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
               <span>
                 <strong className="text-[#0D2137]">
-                  Gesetzliches Minimum:
+                  Branchenüblicher Standard:
                 </strong>{" "}
-                620 Euro pro Kubikmeter Ladegut — das ist die Grundhaftung nach
-                HGB.
+                620 Euro pro Kubikmeter Ladegut nach den AMÖ-Bedingungen — kein gesetzliches Minimum, sondern
+                der in der Branche übliche Haftungsrahmen.
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">

@@ -48,7 +48,7 @@ const sections: GuideSection[] = [
       { label: "Tag 1 — ohne das geht gar nichts", text: "Matratze oder Bett, Bettdecke und Bettwäsche, ein Handtuch, Duschvorhang (falls nötig), Seife und Zahnbürste, ein Topf, ein Teller, eine Gabel. Alles andere kann in den ersten Tagen nachgekauft werden." },
       { label: "Erste Woche ergänzen", text: "Küchenmesser, zweite Pfanne, Gläser, Wasserkocher, Staubsauger oder Besen, Schreibtisch und Stuhl, eine Lampe pro Zimmer. Kein Grund, alles auf einmal zu kaufen." },
       { label: "Gebraucht kaufen spart viel", text: "Kleinanzeigen, Facebook Marketplace, WG-Auflösungen: Möbel aus zweiter Hand sind oft stabiler als billiges Neuware-Regal aus dem Discounter. Besonders Matratzen, Sofas und Schreibtische lohnen sich gebraucht." },
-      { label: "BAföG-Erstausstattung prüfen", text: "Wer BAföG bezieht und in eine eigene Wohnung zieht, kann unter Umständen eine einmalige Beihilfe für die Wohnungserstausstattung beim Sozialamt beantragen. Das ist kein Darlehen, sondern eine Leistung — Voraussetzungen prüfen." },
+      { label: "Erstausstattung über das Jobcenter", text: "Wer Bürgergeld-berechtigt ist (z. B. im Urlaubssemester), kann beim Jobcenter eine einmalige Beihilfe für die Wohnungserstausstattung beantragen. BAföG-Empfänger sind davon in der Regel ausgeschlossen (§ 7 Abs. 5 SGB II) — in Härtefällen lohnt sich eine Beratung beim Studentenwerk." },
     ],
   },
   {

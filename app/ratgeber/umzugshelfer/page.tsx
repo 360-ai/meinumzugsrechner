@@ -47,7 +47,7 @@ const sections: GuideSection[] = [
     heading: "Haftung und Versicherung",
     items: [
       { label: "Gefälligkeitsdienst", text: "Freunde haften grundsätzlich nicht für Schäden, außer bei grober Fahrlässigkeit oder Absicht." },
-      { label: "BGH-Urteil 2016", text: "Moderne Privathaftpflichtversicherungen decken Gefälligkeitsschäden ein — Polizze des Helfers vorab prüfen." },
+      { label: "Privathaftpflicht", text: "Viele moderne Privathaftpflichtversicherungen decken Gefälligkeitsschäden mit ab — ob das im konkreten Tarif gilt, sollte vorab in der Police geprüft werden." },
       { label: "Bezahlte private Helfer", text: "Kein automatischer Versicherungsschutz. Im Schadensfall kann es kompliziert werden." },
       { label: "Profis", text: "Umzugsunternehmen haften nach dem Handelsgesetzbuch für Transportschäden." },
     ],
@@ -235,8 +235,8 @@ export default function UmzugshelferPage() {
           <h2 className="mb-3 text-lg font-bold text-[#0D2137]">Haftung: Was passiert bei Schäden?</h2>
           <p className="mb-4 text-sm leading-relaxed text-[#5A7A8A]">
             Freundschaftshilfe gilt rechtlich als Gefälligkeitsdienst. Das bedeutet: Helfer haften grundsätzlich
-            nicht für Schäden — außer bei grober Fahrlässigkeit oder Absicht. Seit einem BGH-Urteil von 2016
-            decken moderne Privathaftpflichtversicherungen solche Gefälligkeitsschäden jedoch ein.
+            nicht für Schäden — außer bei grober Fahrlässigkeit oder Absicht. Viele moderne
+            Privathaftpflichtversicherungen decken Gefälligkeitsschäden mit ab — ob der konkrete Tarif das einschließt, sollte vorab geprüft werden.
           </p>
           <ul className="space-y-3">
             {[

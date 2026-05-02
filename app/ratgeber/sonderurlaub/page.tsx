@@ -29,7 +29,7 @@ const sections: GuideSection[] = [
     heading: "Gesetzlicher Anspruch — gibt es den?",
     items: [
       { label: "Kein allgemeiner gesetzlicher Anspruch", text: "Das deutsche Bundesurlaubsgesetz (BUrlG) kennt keinen eigenen Sonderurlaubsanspruch für private Umzüge. Ein Anspruch entsteht nur durch Arbeitsvertrag, Betriebsvereinbarung oder Tarifvertrag." },
-      { label: "Ausnahme: beruflich bedingter Umzug", text: "Wer auf Anweisung des Arbeitgebers umzieht, hat nach der Bundesumzugskostenverordnung (BUKG) Anspruch auf einen bezahlten Umzugstag sowie auf Umzugskostenerstattung. Das gilt vor allem im öffentlichen Dienst und bei bestimmten Branchen." },
+      { label: "Ausnahme: beruflich bedingter Umzug", text: "Wer auf dienstliche Anweisung umzieht, hat nach dem Bundesumzugskostengesetz (BUKG) Anspruch auf einen bezahlten Umzugstag und Kostenerstattung. Das BUKG gilt unmittelbar für Bundesbeamte, Bundesrichter und Soldaten — über § 44 TVöD aber auch für Tarifbeschäftigte des Bundes. Auf Landes-/Kommunalebene gelten eigene Umzugskostengesetze." },
       { label: "Betriebliche Regelungen prüfen", text: "Viele Arbeitgeber gewähren freiwillig einen oder zwei bezahlte Sonderurlaubstage, auch wenn keine Tarifbindung besteht. Ein Blick in den Arbeitsvertrag oder eine direkte Rückfrage bei der Personalabteilung lohnt sich." },
     ],
   },
@@ -100,7 +100,7 @@ export default function SonderurlaubRatgeberPage() {
               {[
                 { check: "Tarifvertrag (TVöD, TV-L, Branche)", result: "Meist 1 bezahlter Sonderurlaubstag" },
                 { check: "Betriebsvereinbarung im Unternehmen", result: "Prüfen — oft 1–2 Tage möglich" },
-                { check: "Beruflich bedingter Umzug (BUKG)", result: "1 bezahlter Tag + Kostenerstattung" },
+                { check: "Beruflich bedingter Umzug (BUKG — nur Bundesbedienstete)", result: "1 bezahlter Tag + Kostenerstattung" },
                 { check: "Kein Tarif, kein Vertrag, keine Vereinbarung", result: "Kein gesetzlicher Anspruch — Antrag trotzdem stellen" },
               ].map((row) => (
                 <div key={row.check} className="flex items-start gap-3 rounded-xl bg-white px-4 py-3">
@@ -120,7 +120,7 @@ export default function SonderurlaubRatgeberPage() {
             <ul className="space-y-3">
               {[
                 { label: "Kein allgemeiner Anspruch", text: "Das Bundesurlaubsgesetz regelt Sonderurlaub für private Umzüge nicht. Ein Anspruch entsteht nur durch Vertrag, Betriebsvereinbarung oder Tarifvertrag." },
-                { label: "Ausnahme: Arbeitgeber ordnet Umzug an", text: "Nach BUKG gilt dann: ein bezahlter Umzugstag plus Kostenerstattung. Betrifft vor allem Bundesbedienstete und Teile des öffentlichen Dienstes." },
+                { label: "Ausnahme: Dienstlich angeordneter Umzug", text: "Nach dem BUKG: ein bezahlter Umzugstag plus Kostenerstattung. Gilt für Bundesbeamte, Soldaten und über § 44 TVöD auch für Tarifbeschäftigte des Bundes. Auf Landesebene gelten eigene Regelungen." },
                 { label: "Freiwillige Gewährung", text: "Viele Arbeitgeber gewähren auch ohne Anspruch einen freien Tag — besonders wenn man den Umzug frühzeitig ankündigt und einen ruhigen Termin wählt." },
               ].map((item) => (
                 <li key={item.label} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
