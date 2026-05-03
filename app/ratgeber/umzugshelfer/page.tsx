@@ -83,7 +83,7 @@ export default function UmzugshelferPage() {
             { name: "Bedarf ermitteln", text: "Wohnungsgröße und Möbelumfang einschätzen: Bis 2 Zimmer reichen 2 Helfer, bei 3–4 Zimmern sind 3–4 Helfer sinnvoll, ab 5 Zimmern empfehlen sich Profis." },
             { name: "Helfertyp auswählen", text: "Entscheiden zwischen Freunden (kostenlos, kein Versicherungsschutz), studentischen Helfern (13–17 €/h, Mindestlohn beachten) und professionellen Möbelpackern (17–28 €/h, mit Versicherung)." },
             { name: "Helfer rechtzeitig einplanen oder buchen", text: "Freunde und Studenten früh fragen — gute Profis sind an Wochenenden schnell ausgebucht. Mindestens 2–3 Wochen Vorlauf einplanen." },
-            { name: "Halteverbotszone beantragen", text: "Beim zuständigen Ordnungsamt mindestens 1 Woche vor dem Umzugstag beantragen. Schilder mindestens 48 Stunden vorher aufstellen." },
+            { name: "Halteverbotszone beantragen", text: "Beim zuständigen Ordnungsamt mindestens 1 Woche vor dem Umzugstag beantragen. Schilder mindestens 3 volle Tage (72 Stunden) vorher aufstellen." },
             { name: "Werkzeug und Verpflegung vorbereiten", text: "Sackkarre, Tragegurte, Akkuschrauber und Inbusschlüssel bereitstellen. Ausreichend Wasser, Snacks und eine warme Mahlzeit einplanen." },
             { name: "Klare Aufgaben zuweisen", text: "Vor dem Umzugstag festlegen, wer am LKW koordiniert, wer trägt und wer in der neuen Wohnung einräumt. Ohne klare Rollen geht viel Zeit verloren." },
           ],

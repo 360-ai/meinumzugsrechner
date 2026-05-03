@@ -99,8 +99,8 @@ const sections: GuideSection[] = [
     heading: "Transportversicherung: Das Minimum",
     items: [
       {
-        label: "Gesetzliches Minimum",
-        text: "Branchenüblich sind 620 Euro pro Kubikmeter Ladegut (AMÖ-Bedingungen) — reicht oft nicht für hochwertige Möbel oder Elektronik.",
+        label: "Gesetzliche Grundhaftung",
+        text: "620 Euro pro Kubikmeter Umzugsgut nach § 451e HGB — reicht oft nicht für hochwertige Möbel oder Elektronik.",
       },
       {
         label: "Zusatzversicherung",
@@ -330,10 +330,10 @@ export default function UmzugsfirmaFindenPage() {
               <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0088CC]" />
               <span>
                 <strong className="text-[#0D2137]">
-                  Branchenüblicher Standard:
+                  Gesetzliche Grundhaftung (§ 451e HGB):
                 </strong>{" "}
-                620 Euro pro Kubikmeter Ladegut nach den AMÖ-Bedingungen — kein gesetzliches Minimum, sondern
-                der in der Branche übliche Haftungsrahmen.
+                620 Euro pro Kubikmeter Umzugsgut — das gesetzliche Minimum
+                bei Verlust oder Beschädigung während des Umzugs.
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-[#5A7A8A]">

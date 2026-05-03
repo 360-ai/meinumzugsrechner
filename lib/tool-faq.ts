@@ -157,7 +157,7 @@ export const HALTEVERBOT_FAQS: { question: string; answer: string }[] = [
   {
     question: "Was passiert, wenn jemand trotzdem in der Halteverbotszone parkt?",
     answer:
-      "Fahrzeuge, die in einer genehmigten Halteverbotszone stehen, können abgeschleppt werden. Die Kosten trägt der Halter des falsch geparkten Fahrzeugs. Ist das Abschleppen nicht möglich oder zeitlich nicht sinnvoll, bleibt oft nur das Warten oder Umorganisieren. Deshalb empfiehlt es sich, die Schilder rechtzeitig — mindestens 48 Stunden vorher — aufzustellen, damit sich Anwohner darauf einstellen können.",
+      "Fahrzeuge, die in einer genehmigten Halteverbotszone stehen, können abgeschleppt werden. Die Kosten trägt der Halter des falsch geparkten Fahrzeugs. Ist das Abschleppen nicht möglich oder zeitlich nicht sinnvoll, bleibt oft nur das Warten oder Umorganisieren. Deshalb empfiehlt es sich, die Schilder rechtzeitig — mindestens 3 volle Tage (72 Stunden) vorher — aufzustellen, damit sich Anwohner darauf einstellen können.",
   },
   {
     question: "Brauche ich das Halteverbot an beiden Adressen?",

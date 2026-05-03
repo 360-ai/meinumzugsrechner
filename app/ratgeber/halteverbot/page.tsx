@@ -39,7 +39,7 @@ const sections: GuideSection[] = [
       { label: "Zuständige Behörde", text: "Straßenverkehrsamt oder Ordnungsamt der jeweiligen Stadt oder Gemeinde — jeweils für die Adresse, an der die Zone liegen soll. Manche Städte haben Online-Formulare, andere verlangen einen persönlichen Antrag." },
       { label: "Vorlaufzeit einhalten", text: "Mindestens eine Woche, besser zwei Wochen vor dem Umzugstag beantragen. Viele Ämter brauchen mehrere Werktage für die Bearbeitung, und zu kurzfristige Anträge werden häufig abgelehnt." },
       { label: "Angaben im Antrag", text: "Straße und Hausnummer, gewünschte Länge der Zone, Datum und Uhrzeit, Art des Fahrzeugs (Transporter oder LKW). Manche Ämter fragen auch nach dem Umzugsunternehmen." },
-      { label: "Schilder aufstellen", text: "In vielen Kommunen werden die Schilder vom Amt gestellt. In anderen muss man sie selbst besorgen oder mieten. Mindestens 48 Stunden vor dem Umzug aufstellen, damit Anwohner Zeit haben, ihr Fahrzeug wegzubewegen." },
+      { label: "Schilder aufstellen", text: "In vielen Kommunen werden die Schilder vom Amt gestellt. In anderen muss man sie selbst besorgen oder mieten. Mindestens 3 volle Tage (72 Stunden) vor dem Umzug aufstellen, damit Anwohner Zeit haben, ihr Fahrzeug wegzubewegen (BVerwG-Rechtsprechung)." },
     ],
   },
   {
@@ -82,7 +82,7 @@ export default function HalteverbotRatgeberPage() {
             { name: "Zuständige Behörde ermitteln", text: "Straßenverkehrsamt oder Ordnungsamt der jeweiligen Stadt bzw. Gemeinde herausfinden — für jede Adresse separat." },
             { name: "Antrag rechtzeitig stellen", text: "Mindestens eine Woche vor dem Umzugstag beantragen, besser zwei Wochen. Angaben: Straße, Hausnummer, Zonenlänge, Datum, Uhrzeit und Fahrzeugtyp." },
             { name: "Schilder organisieren", text: "In vielen Kommunen werden die Schilder vom Amt gestellt; in anderen muss man sie selbst besorgen oder mieten (ca. 20–50 Euro Leihgebühr)." },
-            { name: "Schilder mindestens 48 Stunden vorher aufstellen", text: "Nur so haben Anwohner genug Zeit, ihre Fahrzeuge wegzubewegen. Zu spät aufgestellte Schilder sind rechtlich unwirksam." },
+            { name: "Schilder mindestens 3 volle Tage vorher aufstellen", text: "Laut Rechtsprechung (BVerwG) müssen die Schilder mindestens 3 volle Tage (72 Stunden) vor Beginn stehen. Zu spät aufgestellte Schilder sind rechtlich unwirksam." },
           ],
         })}
       />
@@ -113,7 +113,7 @@ export default function HalteverbotRatgeberPage() {
               {[
                 { label: "Vorlaufzeit", value: "mind. 1 Woche (besser 2)" },
                 { label: "Kosten", value: "30–100 € Gebühr + Schilder" },
-                { label: "Schilder aufstellen", value: "mind. 48 h vor Umzug" },
+                { label: "Schilder aufstellen", value: "mind. 3 volle Tage vorher" },
               ].map((item) => (
                 <div key={item.label} className="rounded-xl bg-white p-3 shadow-sm">
                   <div className="text-xs text-amber-700 font-medium mb-1">{item.label}</div>
@@ -131,7 +131,7 @@ export default function HalteverbotRatgeberPage() {
                 { label: "Zuständige Behörde", text: "Straßenverkehrsamt oder Ordnungsamt der jeweiligen Stadt oder Gemeinde — jeweils dort, wo die Zone eingerichtet werden soll. Alte und neue Adresse sind oft verschiedene Ämter." },
                 { label: "Mindestens 1 Woche vorher", text: "Manche Ämter benötigen 10 Werktage. Wer zu spät kommt, bekommt den Antrag oft abgelehnt. Bei Unsicherheit frühzeitig telefonisch nachfragen." },
                 { label: "Diese Angaben werden gebraucht", text: "Straße und Hausnummer, gewünschte Zonenlänge, Datum und Uhrzeit, Fahrzeugtyp. Manche Ämter verlangen auch den Namen des Umzugsunternehmens." },
-                { label: "Schilder rechtzeitig aufstellen", text: "Mindestens 48 Stunden vor dem Umzugstag aufstellen, damit Anwohner ihre Fahrzeuge wegbewegen können. Zu kurzfristig aufgestellte Schilder sind rechtlich unwirksam." },
+                { label: "Schilder rechtzeitig aufstellen", text: "Mindestens 3 volle Tage (72 Stunden) vor dem Umzugstag aufstellen, damit Anwohner ihre Fahrzeuge wegbewegen können (BVerwG-Rechtsprechung). Zu kurzfristig aufgestellte Schilder sind rechtlich unwirksam." },
               ].map((item) => (
                 <li key={item.label} className="flex items-start gap-2 text-sm text-[#5A7A8A]">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#0088CC] flex-shrink-0" />
