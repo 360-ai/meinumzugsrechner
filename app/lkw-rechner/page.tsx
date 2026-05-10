@@ -7,9 +7,9 @@ import { LKW_RECHNER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-const PAGE_TITLE = "LKW-Rechner: Wie groß muss der LKW beim Umzug sein? | meinumzugsrechner.de";
+const PAGE_TITLE = "LKW-Rechner Umzug: Welche Transportergröße brauche ich? Kostenlos berechnen | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Kostenloser LKW-Rechner für deinen Umzug: Abschätzen, welches Fahrzeugvolumen passt, wie viele Fahrten nötig sind und welche Führerscheinklasse relevant wird.";
+  "Welchen Transporter brauche ich für meinen Umzug? Kostenloser LKW-Rechner — Fahrzeuggröße, Anzahl Fahrten und Führerscheinklasse sofort berechnen. Ohne Anmeldung.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

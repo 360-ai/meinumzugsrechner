@@ -8,9 +8,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const PAGE_TITLE =
-  "Umzugstag-Planer: Interaktiver Zeitplan für Ihren Umzug | meinumzugsrechner.de";
+  "Umzugstag-Planer: Ablauf & Zeitplan am Umzugstag — kostenlose Checkliste | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Planen Sie Ihren Umzugstag Schritt für Schritt — mit interaktivem Zeitplan, Aufgabenliste zum Abhaken und realistischer Zeitschätzung.";
+  "Wie plane ich meinen Umzugstag? Interaktiver Zeitplan mit Aufgabenliste zum Abhaken — von morgens bis abends alles im Griff. Kostenlos und ohne Anmeldung.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

@@ -6,10 +6,10 @@ export const SITE_HOST = "meinumzugsrechner.de";
 export const SITE_NAME = "meinumzugsrechner.de";
 
 export const DEFAULT_TITLE =
-  "Umzugskosten berechnen ohne Anmeldung & ohne Datenweitergabe | meinumzugsrechner.de";
+  "Umzugskosten berechnen — kostenlos, ohne Anmeldung & ohne Datenweitergabe | meinumzugsrechner.de";
 
 export const DEFAULT_DESCRIPTION =
-  "Umzugskosten sofort einordnen — ohne Formular, ohne Anruf, ohne Konto. Detaillierter Rechner mit regionalen Faktoren, Kartonrechner, LKW-Rechner und 16 Ratgeber. Kostenlos und anonym.";
+  "Umzugskosten online berechnen — sofort, kostenlos und ohne Registrierung. Detaillierter Umzugskostenrechner mit regionalen Preisen, Kartonrechner, LKW-Rechner und 25+ Ratgeber. Keine Datenweitergabe an Firmen.";
 
 /** ISO date for editorial / Article schema (Launch-Pflege) */
 export const SITE_CONTENT_DATE = "2026-04-21";

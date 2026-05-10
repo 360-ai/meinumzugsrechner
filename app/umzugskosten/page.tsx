@@ -6,18 +6,22 @@ import { estimateMarketBenchmark } from "@/lib/market-benchmark";
 import { webPageOnlySchema } from "@/lib/schema";
 import { pageCanonical } from "@/lib/site";
 
-const PAGE_TITLE = "Umzugskosten nach Stadt — Regionale Preisübersicht | meinumzugsrechner.de";
+const PAGE_TITLE = "Umzugskosten nach Stadt — Was kostet ein Umzug in Berlin, München, Hamburg? | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Was kostet ein Umzug in Ihrer Stadt? Vergleichen Sie Umzugskosten für Berlin, München, Hamburg, Köln und weitere Städte — mit regionalen Preiskorridoren.";
+  "Was kostet ein Umzug in meiner Stadt? Umzugskosten für 50 Städte vergleichen — Berlin, München, Hamburg, Köln, Frankfurt und mehr. Regionale Preiskorridore kostenlos einsehen.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
   keywords: [
     "Umzugskosten",
-    "Umzugskosten nach Stadt",
+    "was kostet ein Umzug",
+    "Umzugskosten Berlin",
+    "Umzugskosten München",
+    "Umzugskosten Hamburg",
+    "Umzugskosten Frankfurt",
     "Umzug Kosten Vergleich",
-    "Umzugskosten Deutschland",
+    "Umzugskosten nach Stadt",
     "regionale Umzugspreise",
   ],
   ...pageCanonical("/umzugskosten/"),

@@ -7,19 +7,19 @@ import { RECHNER_FAQS } from "@/lib/tool-faq";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-const PAGE_TITLE = "Umzugskosten-Rechner (kostenlos): Preiskorridor berechnen | meinumzugsrechner.de";
+const PAGE_TITLE = "Umzugskostenrechner online — kostenlos & ohne Anmeldung berechnen | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Umzugskosten in Deutschland schätzen: marktnahe Schnellschätzung oder Detailmodus in Beta mit Möbelliste und Region. Keine Datenweitergabe an Umzugsfirmen.";
+  "Was kostet mein Umzug? Umzugskosten jetzt kostenlos berechnen — ohne Registrierung, ohne Datenweitergabe. Schnellschätzung oder Detailmodus mit Möbelliste und regionalen Preisen.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: ["Umzugskosten Rechner", "Umzugskosten berechnen", "was kostet ein Umzug", "Umzug Kosten Rechner"],
+  keywords: ["Umzugskostenrechner", "Umzugskostenrechner online", "Umzugskosten berechnen", "was kostet ein Umzug", "Umzugskosten berechnen ohne Anmeldung", "Umzug Kosten berechnen kostenlos"],
   ...pageCanonical("/rechner/"),
   openGraph: {
-    title: "Umzugskosten-Rechner: Preiskorridor berechnen",
+    title: "Umzugskostenrechner online — kostenlos & ohne Anmeldung",
     description:
-      "Kostenlose Schätzung Ihrer Umzugskosten mit marktnahem Schnellmodus und Detailmodus in Beta. Kein Spam, keine Weitergabe Ihrer Daten.",
+      "Was kostet mein Umzug? Jetzt kostenlos berechnen — ohne Registrierung, ohne Datenweitergabe. Schnellschätzung oder Detailmodus mit regionalen Preisen.",
     url: "/rechner/",
   },
   robots: { index: true, follow: true },
@@ -69,7 +69,32 @@ export default function RechnerPage() {
           </p>
         </section>
 
-        <section className="mt-14" id="faq-rechner" aria-labelledby="faq-rechner-h">
+        <section className="mt-14 rounded-2xl border border-slate-100 bg-[#FAFCFE] p-6">
+          <h2 className="mb-4 text-lg font-bold text-[#0D2137]">
+            Umzugskosten berechnen — so funktioniert es
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed text-[#5A7A8A]">
+            <p>
+              Unser <strong>Umzugskostenrechner</strong> zeigt Ihnen einen realistischen Preiskorridor
+              für Ihren Umzug in Deutschland. Egal ob Lokalumzug innerhalb der Stadt oder Fernumzug in
+              eine andere Region — der Rechner berücksichtigt <strong>Wohnfläche, Zimmerzahl, Entfernung,
+              Bundesland und Haushaltsgröße</strong>.
+            </p>
+            <p>
+              Im Detailmodus können Sie zusätzlich Ihre Möbel, Etage, Aufzug, Zugangsweg und
+              Zusatzleistungen wie Ein-/Auspacken oder Möbelmontage angeben. So erhalten Sie eine
+              Schätzung, die näher am tatsächlichen Firmenangebot liegt.
+            </p>
+            <p>
+              <strong>Typische Kosten:</strong> Ein lokaler Umzug (unter 50 km) einer 2-Zimmer-Wohnung
+              kostet mit Firma 500–1.200 Euro. Eine 3-Zimmer-Wohnung liegt bei 800–1.800 Euro. Bei
+              Fernumzügen ab 200 km verdoppeln sich die Kosten häufig. Die genauen Preise hängen von
+              Saison, Zugang und Sonderaufwand ab.
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-10" id="faq-rechner" aria-labelledby="faq-rechner-h">
           <h2 id="faq-rechner-h" className="mb-6 text-xl font-bold text-[#0D2137]">
             Häufige Fragen zum Rechner
           </h2>

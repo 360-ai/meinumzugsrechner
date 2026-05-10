@@ -8,9 +8,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const PAGE_TITLE =
-  "Entrümpelungs-Rechner: Kosten für Entrümpelung berechnen | meinumzugsrechner.de";
+  "Entrümpelungsrechner: Was kostet eine Entrümpelung? Kostenlos berechnen | meinumzugsrechner.de";
 const PAGE_DESC =
-  "Berechnen Sie die Kosten einer Entrümpelung — Container-Miete oder Entrümpelungsfirma. Mit Richtwerten nach Wohnfläche, Füllgrad und Etage.";
+  "Was kostet eine Entrümpelung pro qm? Kosten für Container oder Entrümpelungsfirma kostenlos berechnen — nach Wohnfläche, Füllgrad und Etage. Ohne Anmeldung.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

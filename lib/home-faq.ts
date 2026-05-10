@@ -43,7 +43,27 @@ export const HOME_PAGE_FAQS: { question: string; answer: string }[] = [
   {
     question: "Wo erklärt ihr die Berechnungslogik?",
     answer:
-      "Auf der Seite „So rechnen wir“ zeigen wir, welche Faktoren in die Schätzung einfließen, welche Zusatzkosten häufig übersehen werden und warum das Ergebnis als Korridor dargestellt wird.",
+      'Auf der Seite \u201ESo rechnen wir\u201C zeigen wir, welche Faktoren in die Sch\u00E4tzung einflie\u00DFen, welche Zusatzkosten h\u00E4ufig \u00FCbersehen werden und warum das Ergebnis als Korridor dargestellt wird.',
+  },
+  {
+    question: "Was kostet ein Umzug mit einer 3-Zimmer-Wohnung?",
+    answer:
+      "Für eine 3-Zimmer-Wohnung (ca. 75 m²) liegt der typische Preiskorridor bei einem lokalen Umzug zwischen 800 und 1.800 Euro mit Umzugsfirma. Bei Eigenregie fallen meist 300 bis 700 Euro an (Transporter, Verpackung, Helfer). Die genauen Kosten hängen von Entfernung, Etage, Zugang und Saison ab — unser Rechner berücksichtigt diese Faktoren.",
+  },
+  {
+    question: "Kann ich Umzugskosten kostenlos und ohne Registrierung berechnen?",
+    answer:
+      "Ja, genau dafür ist meinumzugsrechner.de gemacht. Alle Rechner und Tools sind kostenlos nutzbar — ohne Konto, ohne E-Mail-Adresse, ohne Telefonnummer. Ihre Daten werden nicht an Umzugsfirmen oder Dritte weitergegeben.",
+  },
+  {
+    question: "Was kostet ein Umzug in eine andere Stadt?",
+    answer:
+      "Ein Fernumzug (ab 100 km) mit einer 2- bis 3-Zimmer-Wohnung kostet mit Umzugsfirma typischerweise 1.200 bis 3.500 Euro. Die Kosten steigen mit Entfernung, Volumen und Zusatzleistungen wie Ein-/Auspacken. Auf unseren Stadtseiten finden Sie regionale Preiskorridore für 50 deutsche Städte.",
+  },
+  {
+    question: "Wie kann ich bei meinem Umzug Geld sparen?",
+    answer:
+      "Die größten Sparhebel: selbst packen und Kartons beschriften (spart 30–40 % bei der Firma), unter der Woche statt am Wochenende umziehen, Umzug außerhalb der Hochsaison (Oktober bis März), Transportervolumen realistisch planen und Entrümpeln vor dem Umzug. Unser Vergleichsrechner zeigt, ab wann sich eine Firma gegenüber Eigenregie lohnt.",
   },
 ];
 

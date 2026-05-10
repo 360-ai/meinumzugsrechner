@@ -606,6 +606,42 @@ export function HomeLanding() {
         </div>
       </section>
 
+      <section className="border-t border-slate-100 bg-[#FAFCFE] py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <h2 className="mb-6 text-2xl font-bold text-[#0D2137]">
+            Umzugskosten berechnen — kostenlos und ohne Anmeldung
+          </h2>
+          <div className="space-y-4 text-sm leading-relaxed text-[#5A7A8A]">
+            <p>
+              <strong>Was kostet ein Umzug?</strong> Diese Frage stellen sich Millionen Menschen in Deutschland jedes Jahr.
+              Ob Umzug innerhalb der Stadt, in eine andere Stadt oder der erste Umzug in die eigene Wohnung — die Kosten
+              hängen von vielen Faktoren ab: Wohnfläche, Entfernung, Etage, Möbelmenge und Zeitpunkt. Unser
+              Umzugskostenrechner berücksichtigt all diese Faktoren und zeigt Ihnen einen realistischen Preiskorridor.
+            </p>
+            <p>
+              Anders als bei Vergleichsportalen müssen Sie hier <strong>keine E-Mail-Adresse, keine Telefonnummer und
+              kein Konto angeben</strong>. Es werden keine Daten an Umzugsfirmen weitergegeben. Sie berechnen Ihre
+              Umzugskosten kostenlos und anonym — und entscheiden danach selbst, ob und wann Sie Angebote einholen.
+            </p>
+            <p>
+              Neben dem Umzugskostenrechner finden Sie hier weitere kostenlose Tools: den{" "}
+              <Link href="/kartonrechner/" className="font-medium text-[#0088CC] hover:underline">Kartonrechner</Link> für
+              den Materialbedarf, den{" "}
+              <Link href="/lkw-rechner/" className="font-medium text-[#0088CC] hover:underline">LKW-Rechner</Link> für die
+              passende Fahrzeuggröße, den{" "}
+              <Link href="/entruempelungsrechner/" className="font-medium text-[#0088CC] hover:underline">Entrümpelungsrechner</Link> und
+              den{" "}
+              <Link href="/umzugstag-planer/" className="font-medium text-[#0088CC] hover:underline">Umzugstag-Planer</Link>.
+              Dazu über 25 Ratgeber und Checklisten — von der{" "}
+              <Link href="/ratgeber/erste-eigene-wohnung/" className="font-medium text-[#0088CC] hover:underline">ersten eigenen Wohnung</Link> über{" "}
+              <Link href="/ratgeber/seniorenumzug/" className="font-medium text-[#0088CC] hover:underline">Seniorenumzug</Link> bis
+              zum{" "}
+              <Link href="/ratgeber/firmenumzug/" className="font-medium text-[#0088CC] hover:underline">Firmenumzug</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-slate-100 bg-white py-16" id="faq" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 id="faq-heading" className="mb-8 text-center text-3xl font-bold text-[#0D2137]">

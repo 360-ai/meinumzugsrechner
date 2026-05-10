@@ -1,0 +1,50 @@
+# meinumzugsrechner.de
+
+> Kostenloser Umzugskostenrechner für Deutschland — ohne Anmeldung, ohne Datenweitergabe, ohne Spam.
+
+meinumzugsrechner.de ist ein unabhängiges Orientierungstool für private und gewerbliche Umzüge in Deutschland. Die Plattform berechnet Umzugskosten anhand regionaler Faktoren, Wohnfläche, Inventar und Zusatzleistungen. Es gibt keinen Zwang zur Registrierung oder Kontaktfreigabe — Nutzer erhalten einen Preiskorridor direkt im Browser.
+
+## Kernfunktionen
+
+- **Umzugskosten-Rechner** (/rechner/): Schnellschätzung und Detailmodus mit Möbelliste, Gebäudedetails und Zusatzleistungen. Ergebnis als Preiskorridor (von–bis), kein Fantasie-Festpreis.
+- **Kartonrechner** (/kartonrechner/): Kartonbedarf nach Packzonen, Haushaltsprofil und Reserve berechnen.
+- **LKW-Rechner** (/lkw-rechner/): Passende Fahrzeuggröße und Anzahl Fahrten für den Umzug ermitteln.
+- **Entrümpelungsrechner** (/entruempelungsrechner/): Container-Kosten vs. Entrümpelungsfirma vergleichen.
+- **Umzugstag-Planer** (/umzugstag-planer/): Interaktiver Zeitplan mit 16 Aufgaben für den Umzugstag.
+- **Vergleich Selbst vs. Profi** (/vergleich/): Aufwand und Kosten gegenübergestellt.
+
+## Ratgeber (25+ Artikel)
+
+Umfassende Ratgeber zu allen Umzugsthemen:
+- Seniorenumzug, Studentenumzug, Firmenumzug, Umzug mit Kindern, Erste eigene Wohnung
+- Umzugsfirma finden, Umzugshelfer, Halteverbot beantragen, Sonderurlaub
+- Ummelden, Nachsendeauftrag, Adressänderung, Renovierungspflicht
+- Möbel einlagern, Sperrgut transportieren, Wohnungsauflösung, Entrümpelung
+- LKW mieten, Profi-Guide Verpacken, Ergonomie, Teilumzug, Steuerspartipps
+
+## Checklisten (7 Stück)
+
+- Umzugs-Countdown (Zeitplan 8 Wochen bis Umzugstag)
+- Umzugscheckliste (Komplettübersicht)
+- Adressänderung (alle Stellen nach Kategorie)
+- Übergabeprotokoll (Zustand, Zähler, Schlüssel)
+- Essential Kit (Überlebenspaket für Tag 1)
+- Standort-Vorbereitung, Materialtipps
+
+## Regionale Preise
+
+- **50 Stadtseiten** (/umzugskosten/berlin/, /umzugskosten/muenchen/, etc.) mit lokalen Preiskorridoren, Tipps und FAQs
+- Alle 16 Bundesländer mit regionalen Kostenfaktoren
+
+## Alleinstellungsmerkmale
+
+1. Keine Registrierung oder Kontodaten erforderlich
+2. Keine Weitergabe von Nutzerdaten an Umzugsfirmen oder Dritte
+3. Kein Lead-Portal — Nutzer entscheiden selbst, ob und wann sie Firmen kontaktieren
+4. Transparente Berechnungsmethodik (öffentlich unter /so-rechnen-wir/)
+5. Kostenlos und werbefrei nutzbar
+
+## Kontakt
+
+- Website: https://meinumzugsrechner.de
+- E-Mail: info@meinumzugsrechner.de

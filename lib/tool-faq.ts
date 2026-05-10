@@ -507,6 +507,21 @@ export const RECHNER_FAQS: { question: string; answer: string }[] = [
     answer:
       "Nein. Der Rechner ist auf Orientierung ausgelegt und dient gerade dazu, ohne Lead-Weitergabe ein erstes Preisgefühl zu bekommen.",
   },
+  {
+    question: "Wie genau kann ich meine Umzugskosten online berechnen?",
+    answer:
+      "Die Schnellschätzung liefert einen groben Rahmen auf Basis von Wohnfläche, Entfernung und Haushaltsgröße. Im Detailmodus fließen zusätzlich Möbelliste, Etage, Aufzug, Zugang und Sonderleistungen ein — das Ergebnis ist dann deutlich näher am späteren Firmenangebot. In beiden Fällen handelt es sich um einen Preiskorridor, nicht um einen Festpreis.",
+  },
+  {
+    question: "Was kostet ein Umzug mit 80 qm Wohnfläche?",
+    answer:
+      "Für eine Wohnung mit 80 m² (typisch 3 Zimmer, 2-Personen-Haushalt) liegt der Preiskorridor bei einem lokalen Umzug zwischen 900 und 2.000 Euro mit Umzugsfirma. Bei einem Fernumzug ab 200 km steigt der Rahmen auf 1.500 bis 3.500 Euro. Geben Sie Ihre konkreten Daten in den Rechner ein, um einen genaueren Wert zu erhalten.",
+  },
+  {
+    question: "Welche Zusatzkosten werden beim Umzug oft vergessen?",
+    answer:
+      "Häufig unterschätzt werden: Halteverbotszone (30–100 Euro je Adresse), Verpackungsmaterial (80–200 Euro), Nachsendeauftrag (32 Euro), Renovierung der alten Wohnung, Kaution für die neue Wohnung, doppelte Miete bei Überschneidung und Ummeldungsgebühren. Unser Rechner weist auf die wichtigsten Zusatzkosten hin.",
+  },
 ];
 
 export const NACHSENDEAUFTRAG_FAQS: { question: string; answer: string }[] = [
