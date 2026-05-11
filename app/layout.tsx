@@ -1,11 +1,14 @@
 ﻿import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationAndWebsiteSchema } from "@/lib/schema";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, getSiteUrl } from "@/lib/site";
+
+const GA_ID = "G-BJ9P59VDGC";
 
 const comfortaa = Comfortaa({ subsets: ["latin"], variable: "--font-comfortaa", weight: ["400", "700"] });
 
@@ -44,9 +47,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={comfortaa.variable}>
+      <head>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
+      </head>
       <body className="min-h-screen bg-white font-sans antialiased">
         <JsonLd id="ld-global-org-website" data={organizationAndWebsiteSchema()} />
-        {/* AdSense: Nach Genehmigung Publisher-ID eintragen und next/script nutzen */}
         <Header />
         <main>{children}</main>
         <Footer />
