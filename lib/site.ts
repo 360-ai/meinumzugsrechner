@@ -35,7 +35,7 @@ export function absoluteUrl(path: string): string {
   return p === "/" ? `${base}/` : new URL(p.slice(1), `${base}/`).href;
 }
 
-export function pageCanonical(path: string): NonNullable<Metadata["alternates"]> {
-  return { canonical: withTrailingSlash(path) };
+export function pageCanonical(path: string): Pick<Metadata, "alternates"> {
+  return { alternates: { canonical: withTrailingSlash(path) } };
 }
 
